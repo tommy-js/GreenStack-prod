@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.module.scss";
 
 interface Props {
   name: string;

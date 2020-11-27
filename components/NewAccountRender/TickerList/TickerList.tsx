@@ -1,37 +1,38 @@
 import React from "react";
 import { TickerContainer } from "../TickerContainer/TickerContainer";
-import apple from "../../images/apple_logo.png";
-import apple_color from "../../images/apple_logo_color.png";
-import microsoft from "../../images/windows_logo.png";
-import microsoft_color from "../../images/windows_logo_color.png";
-import shopify from "../../images/shopify_logo.png";
-import shopify_color from "../../images/shopify_logo_color.png";
-import twitter from "../../images/twitter_logo.png";
-import twitter_color from "../../images/twitter_logo_color.png";
-import amazon from "../../images/amazon_logo.png";
-import amazon_color from "../../images/amazon_logo_color.png";
-import facebook from "../../images/facebook_logo.png";
-import facebook_color from "../../images/facebook_logo_color.png";
-import walmart from "../../images/walmart_logo.png";
-import walmart_color from "../../images/walmart_logo_color.png";
-import tesco from "../../images/tesco_logo.png";
-import tesco_color from "../../images/tesco_logo_color.png";
-import starbucks from "../../images/starbucks_logo.png";
-import starbucks_color from "../../images/starbucks_logo_color.png";
-import mcdonalds from "../../images/mcdonalds_logo.png";
-import mcdonalds_color from "../../images/mcdonalds_logo_color.png";
-import slack from "../../images/slack_logo.png";
-import slack_color from "../../images/slack_logo_color.png";
-import citigroup from "../../images/citigroup_logo.png";
-import citigroup_color from "../../images/citigroup_logo_color.png";
-import visa from "../../images/visa_logo.png";
-import visa_color from "../../images/visa_logo_color.png";
-import volvo from "../../images/volvo_logo.png";
-import volvo_color from "../../images/volvo_logo_color.png";
-import netflix from "../../images/netflix_logo.png";
-import netflix_color from "../../images/netflix_logo_color.png";
-import dropbox from "../../images/dropbox_logo.png";
-import dropbox_color from "../../images/dropbox_logo_color.png";
+const apple = require("../../images/apple_logo.png");
+const apple_color = require("../../images/apple_logo_color.png");
+const microsoft = require("../../images/windows_logo.png");
+const microsoft_color = require("../../images/windows_logo_color.png");
+const shopify = require("../../images/shopify_logo.png");
+const shopify_color = require("../../images/shopify_logo_color.png");
+const twitter = require("../../images/twitter_logo.png");
+const twitter_color = require("../../images/twitter_logo_color.png");
+const amazon = require("../../images/amazon_logo.png");
+const amazon_color = require("../../images/amazon_logo_color.png");
+const facebook = require("../../images/facebook_logo.png");
+const facebook_color = require("../../images/facebook_logo_color.png");
+const walmart = require("../../images/walmart_logo.png");
+const walmart_color = require("../../images/walmart_logo_color.png");
+const tesco = require("../../images/tesco_logo.png");
+const tesco_color = require("../../images/tesco_logo_color.png");
+const starbucks = require("../../images/starbucks_logo.png");
+const starbucks_color = require("../../images/starbucks_logo_color.png");
+const mcdonalds = require("../../images/mcdonalds_logo.png");
+const mcdonalds_color = require("../../images/mcdonalds_logo_color.png");
+const slack = require("../../images/slack_logo.png");
+const slack_color = require("../../images/slack_logo_color.png");
+const citigroup = require("../../images/citigroup_logo.png");
+const citigroup_color = require("../../images/citigroup_logo_color.png");
+const visa = require("../../images/visa_logo.png");
+const visa_color = require("../../images/visa_logo_color.png");
+const volvo = require("../../images/volvo_logo.png");
+const volvo_color = require("../../images/volvo_logo_color.png");
+const netflix = require("../../images/netflix_logo.png");
+const netflix_color = require("../../images/netflix_logo_color.png");
+const dropbox = require("../../images/dropbox_logo.png");
+const dropbox_color = require("../../images/dropbox_logo_color.png");
+import "./styles.module.scss";
 
 export const TickerList: React.FC = () => {
   const tickers = [
@@ -118,7 +119,7 @@ export const TickerList: React.FC = () => {
   ];
 
   return (
-    <div id="ticker_list">
+    <div className="ticker_list">
       {tickers.map((el: any) => (
         <TickerContainer
           ticker={el.ticker}

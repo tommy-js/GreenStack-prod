@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.module.scss";
 
 interface Props {
   ticker: string;

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { UserQuestion } from "../UserQuestion/UserQuestion";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { saveSettingsMutation } from "../../queries/queries.js";
+import "./styles.module.scss";
 
 interface Props {
   id: number;

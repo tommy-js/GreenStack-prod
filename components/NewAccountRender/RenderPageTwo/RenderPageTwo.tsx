@@ -1,5 +1,6 @@
 import React from "react";
 import { TickerList } from "../TickerList/TickerList";
+import "./styles.module.scss";
 
 interface Props {
   id: number;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RenderPageOne } from "../RenderPageOne/RenderPageOne";
 import { RenderPageTwo } from "../RenderPageTwo/RenderPageTwo";
 import { RenderPageThree } from "../RenderPageThree/RenderPageThree";
+import "./styles.module.scss";
 
 interface Props {
   submit: () => void;
@@ -35,5 +36,5 @@ export const NewAccountRender: React.FC<Props> = (props) => {
     }
   }
 
-  return <div id="render_questions_page">{renderCurrentPage()}</div>;
+  return <div className="render_questions_page">{renderCurrentPage()}</div>;
 };

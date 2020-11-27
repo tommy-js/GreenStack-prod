@@ -3,6 +3,7 @@ import { FollowerCheck } from "../FollowerCheck/FollowerCheck";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { savePreferredCommentaryMutation } from "../../queries/queries.js";
+import "./styles.module.scss";
 
 interface Props {
   id: number;
