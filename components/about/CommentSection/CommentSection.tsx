@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CommentSectionInput } from "../CommentSectionInput/CommentSectionInput";
 import { Comments } from "../Comments/Comments";
 import { CommentItem } from "../../types/types";
+import "./styles.module.scss";
 
 interface Props {
   id: string;
@@ -16,8 +17,8 @@ export const CommentSection: React.FC<Props> = (props) => {
   }, [props.comments]);
 
   return (
-    <div id="comment_section">
-      <h3 id="comment_section_header">Leave a comment</h3>
+    <div className="comment_section">
+      <h3 className="comment_section_header">Leave a comment</h3>
       <CommentSectionInput id={props.id} />
       <Comments comments={comments} />
     </div>

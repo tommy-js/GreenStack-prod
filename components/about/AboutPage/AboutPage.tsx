@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { queryToken, nonTokenModifyUserQuery } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import styles from "./styles.module.scss";
+import "./styles.module.scss";
 
 interface Redux {
   onInitialPostsSet: (posts: PostItem[]) => void;
@@ -100,8 +100,8 @@ const AboutPageRender: React.FC<Redux> = (props) => {
   function returnLoadingInUser() {
     if (loadingInUser === true) {
       return (
-        <div className={styles.render_loading}>
-          <div className={styles.drop_loading_block}>
+        <div className="render_loading">
+          <div className="drop_loading_block">
             <LoadingUser />
             <UserLoginAuthSubresolver loggedIn={loggedIn} />
           </div>

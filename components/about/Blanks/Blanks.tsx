@@ -5,6 +5,7 @@ import { returnCorrectReducer } from "./index";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProgressMutation } from "../../queries/queries.js";
+import "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -65,7 +66,7 @@ const BlanksMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="knowledge_check">
+    <div className="knowledge_check">
       <h3 className="blanks_title">{props.title}</h3>
       {props.options.map((el: any) => (
         <div>

@@ -20,7 +20,7 @@ export const Comments: React.FC<Props> = (props) => {
   function conditionalCommentRender() {
     if (comments.length > 0) {
       return (
-        <div id="tutorial_comments">
+        <div>
           {comments.map((el: any) => (
             <IndividualComment
               commentUsername={el.username}
