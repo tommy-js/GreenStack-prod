@@ -1,8 +1,9 @@
 import React from "react";
-import save from "../../../images/save.png";
+const save = require("../../../images/save.png");
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { setBioMutation } from "../../../queries/queries";
+import "./styles.module.scss";
 
 interface Props {
   bio: string;
@@ -30,7 +31,7 @@ const SetBioMutation: React.FC<Props> = (props) => {
     }
   }
 
-  return <img id="bio_image" onClick={() => modBio()} src={save} />;
+  return <img className="bio_image" onClick={() => modBio()} src={save} />;
 };
 
 export const SetBio = compose(

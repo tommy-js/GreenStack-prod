@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./styles.module.scss";
 
 type Reference = {
   postId: string;

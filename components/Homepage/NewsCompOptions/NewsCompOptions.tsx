@@ -1,5 +1,6 @@
 import React from "react";
 import { SubmitPost } from "../SubmitPost/SubmitPost";
+import "./styles.module.scss";
 
 interface Props {
   title: string;

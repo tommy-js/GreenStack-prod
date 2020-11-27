@@ -1,5 +1,6 @@
 import React from "react";
 import { ExploreCompany } from "../ExploreCompany/ExploreCompany";
+import "./styles.module.scss";
 
 type Company = {
   keyId: number;

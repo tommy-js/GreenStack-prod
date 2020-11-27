@@ -11,6 +11,7 @@ import { returnFeedQuery } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { PostItem, FeedItem } from "../../../types/types";
+import "./styles.module.scss";
 
 interface Props {
   posts: PostItem[];
@@ -146,7 +147,7 @@ const FeedRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="feed">
+    <div className="feed">
       <PostRender setToFeed={setToFeed} />
       <Suggested />
       {conditionalPostRendering()}

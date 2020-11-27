@@ -1,4 +1,4 @@
-#feed_scrolled_bottom {
+.feed_scrolled_bottom {
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -11,13 +11,13 @@
   @include noselect;
 }
 
-#feed_scrolled_bottom_text {
+.feed_scrolled_bottom_text {
   font-size: 22px;
   margin-bottom: 0;
   @include feed_scrolled_text;
 }
 
-#feed_scrolled_bottom_subtext {
+.feed_scrolled_bottom_subtext {
   position: relative;
   top: 0;
   font-size: 16px;

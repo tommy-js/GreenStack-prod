@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowerItem } from "../../types/types";
 import { modifyGlobalRoutes } from "./index";
+import "./styles.module.scss";
 
 interface Redux {
   followers: FollowerItem[];
@@ -25,7 +26,7 @@ const FollowersRender: React.FC<Props> = ({ followers, modRoutes }: Props) => {
   }, []);
 
   return (
-    <div id="feed">
+    <div className="feed">
       <h2 className="list_header">Your Followers({followers.length})</h2>
       {followers.map((el: FollowerItem) => (
         <FollowerElement

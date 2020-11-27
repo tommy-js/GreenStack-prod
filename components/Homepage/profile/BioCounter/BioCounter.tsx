@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.module.scss";
 
 interface Props {
   bio: string;
@@ -15,7 +16,7 @@ export const BioCounter: React.FC<Props> = (props) => {
   }, [props.bio]);
 
   return (
-    <div style={{ color: textColor }} id="bio_counter">
+    <div style={{ color: textColor }} className="bio_counter">
       {props.bio.length}/120
     </div>
   );

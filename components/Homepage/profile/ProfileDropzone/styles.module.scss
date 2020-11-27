@@ -1,10 +1,10 @@
-#profile_image_dropzone {
+.profile_image_dropzone {
   margin-top: 15px;
   width: 100%;
   border: 1px solid $soft_grey;
 }
 
-#dropzone {
+.dropzone {
   text-align: center;
   margin: 15px;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   border: 2px dashed grey;
 }
 
-#dropzone_text {
+.dropzone_text {
   @include noselect;
   color: $dark_grey;
 }

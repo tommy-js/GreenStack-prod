@@ -13,6 +13,7 @@ import { userCommentLookup } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
+import "./styles.module.scss";
 
 interface Mapper {
   tag: string;

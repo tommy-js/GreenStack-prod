@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { LikePostComment } from "../LikePostComment/LikePostComment";
 import { DislikePostComment } from "../DislikePostComment/DislikePostComment";
 import { returnDate } from "./index";
+import "./styles.module.scss";
 
 interface Props {
   userId: string;

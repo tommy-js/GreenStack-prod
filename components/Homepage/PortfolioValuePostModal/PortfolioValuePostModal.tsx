@@ -1,5 +1,6 @@
 import React from "react";
 import { PortfolioValuePostModalContent } from "../PortfolioValuePostModalContent/PortfolioValuePostModalContent";
+import "./styles.module.scss";
 
 interface Props {
   setPostingToFeed: () => void;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SubmitSubResponse } from "../SubmitSubResponse/SubmitSubResponse";
+import "./styles.module.scss";
 
 interface Props {
   postId: string;

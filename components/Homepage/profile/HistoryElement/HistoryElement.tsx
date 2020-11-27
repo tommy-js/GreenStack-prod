@@ -1,8 +1,9 @@
 import React from "react";
 import { returnDate } from "./index";
-import page from "../../../images/post_img.png";
-import like from "../../../images/like.png";
-import dislike from "../../../images/dislike.png";
+const page = require("../../../images/post_img.png");
+const like = require("../../../images/like.png");
+const dislike = require("../../../images/dislike.png");
+import "./styles.module.scss";
 
 interface Props {
   style: string;

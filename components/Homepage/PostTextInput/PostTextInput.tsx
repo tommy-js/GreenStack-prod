@@ -3,6 +3,7 @@ import { UserSearchReturn } from "../UserSearchReturn/UserSearchReturn";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowingItem, FollowerItem } from "../../types/types";
+import "./styles.module.scss";
 
 interface Redux {
   following: FollowingItem[];

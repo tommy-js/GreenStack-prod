@@ -32,6 +32,7 @@ import {
   WatchListItem,
 } from "../../types/types";
 import { companySort } from "./index";
+import "./styles.module.scss";
 
 interface Redux {
   userId: string;
@@ -185,7 +186,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
       return (
         <div>
           <NavBar />
-          <div id="homepage">
+          <div className="homepage">
             {renderShowPostOptions()}
             <FeedSidebar
               modRes={modRes}

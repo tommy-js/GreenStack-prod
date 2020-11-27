@@ -1,0 +1,8 @@
+.sub_comment {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  @include testing;
+}

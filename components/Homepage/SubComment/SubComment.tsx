@@ -1,6 +1,7 @@
 import React from "react";
 import { LikeSubComment } from "../LikeSubComment/LikeSubComment";
 import { DislikeSubComment } from "../DislikeSubComment/DislikeSubComment";
+import "./styles.module.scss";
 
 interface Props {
   postId: string;

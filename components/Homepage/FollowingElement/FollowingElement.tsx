@@ -1,6 +1,7 @@
 import React from "react";
 import { UnfollowUser } from "../UnfollowUser/UnfollowUser";
 import { Link } from "react-router-dom";
+import "./styles.module.scss";
 
 interface Props {
   userId: string;

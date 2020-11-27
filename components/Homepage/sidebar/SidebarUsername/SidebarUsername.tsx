@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
+import "./styles.module.scss";
 
 interface Redux {
   username: string;

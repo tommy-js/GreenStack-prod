@@ -1,5 +1,6 @@
 import React from "react";
 import { NewsCompOptions } from "../NewsCompOptions/NewsCompOptions";
+import "./styles.module.scss";
 
 interface Props {
   title: string;

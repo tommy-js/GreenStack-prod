@@ -19,7 +19,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
     if (props.allowComments === false) {
       return (
         <textarea
-          id="comment_input"
+          className="comment_input"
           value="This user has disabled comment submission."
           disabled={true}
         />
@@ -28,7 +28,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
       return (
         <React.Fragment>
           <textarea
-            id="comment_input"
+            className="comment_input"
             value={text}
             onChange={(e) => modText(e.target.value)}
           />
@@ -43,5 +43,5 @@ export const CommentInputPost: React.FC<Post> = (props) => {
     }
   }
 
-  return <div id="comment_input_div">{returnHiddenTextarea()}</div>;
+  return <div className="comment_input_div">{returnHiddenTextarea()}</div>;
 };

@@ -4,6 +4,7 @@ import { PostText } from "../PostText/PostText";
 import { PostInformation } from "../PostInformation/PostInformation";
 import { PostComments } from "../PostComments/PostComments";
 import { CommentInputPost } from "../../CommentInputPost/CommentInputPost";
+import "./styles.module.scss";
 
 interface Data {
   title: string;

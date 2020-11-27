@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import likeFilled from "../../../images/like_filled.png";
+const likeFilled = require("../../../images/like_filled.png");
+import "./styles.module.scss";
 
 type Reference = {
   postId: string;

@@ -3,9 +3,10 @@ import { SetBio } from "../SetBio/SetBio";
 import { SaveProfileImage } from "../SaveProfileImage/SaveProfileImage";
 import { BioCounter } from "../BioCounter/BioCounter";
 import { ProfileDropzone } from "../ProfileDropzone/ProfileDropzone";
-import edit from "../../../images/edit.png";
+const edit = require("../../../images/edit.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
+import "./styles.module.scss";
 
 interface Redux {
   profileImage: string;
@@ -29,7 +30,7 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
       return (
         <React.Fragment>
           <textarea
-            id="bio_edit_textarea"
+            className="bio_edit_textarea"
             onChange={(e) => setBio(e.target.value)}
             value={bio}
           />
@@ -40,11 +41,11 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
     } else {
       return (
         <div onClick={() => setEditing(true)}>
-          <div id="left_container">
-            <p id="bio_edit_textarea">{bio}</p>
+          <div className="left_container">
+            <p className="bio_edit_textarea">{bio}</p>
           </div>
-          <div id="right_container">
-            <img id="bio_image" src={edit} />
+          <div className="right_container">
+            <img className="bio_image" src={edit} />
           </div>
         </div>
       );
@@ -71,17 +72,17 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
   }
 
   return (
-    <div id="profile_header">
-      <div id="profile_header_container">
+    <div className="profile_header">
+      <div className="profile_header_container">
         <div
-          id="profile_image_container"
+          className="profile_image_container"
           onClick={() => setEditingProfileImage(!editingProfileImage)}
         >
-          <img id="img_id" src={profileImage} />
+          <img className="img_id" src={profileImage} />
         </div>
-        <h2 id="profile_header_username">{props.username}</h2>
+        <h2 className="profile_header_username">{props.username}</h2>
       </div>
-      <div id="profile_bio_container">{returnEditing()}</div>
+      <div className="profile_bio_container">{returnEditing()}</div>
       {renderDropzone()}
     </div>
   );

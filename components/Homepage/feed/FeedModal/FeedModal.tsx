@@ -1,5 +1,6 @@
 import React from "react";
 import { RenderModal } from "../RenderModal/RenderModal";
+import "./styles.module.scss";
 
 interface Props {
   data: any;
@@ -8,8 +9,8 @@ interface Props {
 
 export const FeedModal: React.FC<Props> = (props) => {
   return (
-    <div id="modal">
-      <div id="central_modal">
+    <div className="modal">
+      <div className="central_modal">
         <RenderModal
           title={props.data.title}
           postId={props.data.postId}
@@ -28,7 +29,7 @@ export const FeedModal: React.FC<Props> = (props) => {
         />
       </div>
       <div
-        id="feed_modal"
+        className="feed_modal"
         onClick={() => props.modPostLoad(props.data.postId)}
       ></div>
     </div>

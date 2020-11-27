@@ -1,4 +1,4 @@
-#modal {
+.modal {
   @include modal_backdrop;
   top: 0;
   left: 0;
@@ -6,7 +6,7 @@
   width: 100vw;
 }
 
-#feed_modal {
+.feed_modal {
   @include modal_backdrop;
   top: 0;
   left: 0;
@@ -16,7 +16,7 @@
   opacity: 0.4;
 }
 
-#central_modal {
+.central_modal {
   position: absolute;
   vertical-align: middle;
   width: 55vw;

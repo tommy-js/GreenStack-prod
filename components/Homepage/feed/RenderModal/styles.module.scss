@@ -1,0 +1,50 @@
+#render_modal {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post_upper_block {
+  border-bottom: 1px solid $soft_grey;
+}
+
+.feed_link {
+  color: black;
+  text-decoration: none;
+}
+
+.feed_profile_image_block {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.feed_profile_image {
+  height: 100%;
+  width: 100%;
+}
+
+.feed_link_name {
+}
+
+.feed_link_name,
+.feed_link_unfollow {
+  display: inline-block;
+}
+
+.post_text {
+  font-size: 18px;
+  font-family: $post_font;
+  font-weight: normal;
+  line-height: 125%;
+}
+
+.post_return_date {
+  font-family: $standard_font;
+  font-size: 14px;
+  color: $text_black;
+  opacity: 0.7;
+}

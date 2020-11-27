@@ -4,6 +4,7 @@ import { ProfileFeedRender } from "../ProfileFeedRender/ProfileFeedRender";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import "./styles.module.scss";
 
 const PersonalHistoryRender: React.FC = () => {
   const [postRendered, setPostRendered] = useState(false);
@@ -28,8 +29,7 @@ const PersonalHistoryRender: React.FC = () => {
 
   return (
     <React.Fragment>
-      <h2 id="personal_history_header">History</h2>
-
+      <h2 className="personal_history_header">History</h2>
       {conditionalPostRendering()}
     </React.Fragment>
   );
