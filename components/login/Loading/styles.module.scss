@@ -1,4 +1,4 @@
-#spinning_dial_container {
+.spinning_dial_container {
   position: relative;
   width: 75px;
   height: 75px;
@@ -17,22 +17,22 @@
   animation: spinning_dial 1s linear infinite;
 }
 
-#spinning_dial:before {
+.spinning_dial:before {
   @include spinning_dial;
   border-top-color: white;
 }
 
-#spinning_dial_general:before {
+.spinning_dial_general:before {
   @include spinning_dial;
   border-top-color: black;
 }
 
-#loading_user {
+.loading_user {
   @include loading_user;
   color: white;
 }
 
-#loading_user_general {
+.loading_user_general {
   @include loading_user;
   color: black;
 }

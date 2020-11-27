@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles.module.scss";
 
 export const AccountCreation: React.FC = () => {
   const [newUser, setNewUser] = useState(true);

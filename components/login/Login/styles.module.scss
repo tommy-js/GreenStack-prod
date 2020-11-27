@@ -1,4 +1,4 @@
-#login_forms {
+.login_forms {
   position: relative;
   width: 200px;
   margin-left: auto;
@@ -6,7 +6,7 @@
   top: 200px;
 }
 
-#login_page {
+.login_page {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
@@ -14,7 +14,7 @@
   margin-bottom: 0;
 }
 
-#centered_login_page {
+.centered_login_page {
   position: fixed;
   display: inline-block;
   background-color: $island_green;
@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 
-#login_page_about {
+.login_page_about {
   position: relative;
   display: inline-block;
   width: 50%;

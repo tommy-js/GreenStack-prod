@@ -14,6 +14,7 @@ import { statusContext } from "../../AppMain/App/App";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import { browserHist } from "../../AppMain/history";
+import "./styles.module.scss";
 
 export const Login: React.FC = () => {
   const [userId, setUserId] = useState();
@@ -75,7 +76,7 @@ export const Login: React.FC = () => {
     if (loadingUser === false) {
       if (newAccount === false) {
         return (
-          <div id="login_forms">
+          <div className="login_forms">
             <SigninPage
               loadingUser={modLoadingUser}
               passUserAuth={passUserAuth}
@@ -95,7 +96,7 @@ export const Login: React.FC = () => {
         );
     } else {
       return (
-        <div id="login_forms">
+        <div className="login_forms">
           <LoadingUser />
           <UserLoginAuthSubresolver loggedIn={loggedIn} />
         </div>
@@ -104,9 +105,9 @@ export const Login: React.FC = () => {
   }
 
   return (
-    <div id="login_page">
-      <div id="centered_login_page">{displayBlock()}</div>
-      <div id="login_page_about">
+    <div className="login_page">
+      <div className="centered_login_page">{displayBlock()}</div>
+      <div className="login_page_about">
         <h3>What is Stockly?</h3>
         <h4>Join a community of memers, learners, traders, and educators.</h4>
         <LoginPageFeedInfo />

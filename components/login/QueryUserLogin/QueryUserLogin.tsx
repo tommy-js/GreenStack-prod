@@ -51,8 +51,6 @@ export const QueryUserLogin: React.FC<Props> = (props) => {
             let currentIncorrect = incorrectAnswers + 1;
             setDelay(2 ** currentIncorrect * 1000);
             setIncorrectAnswers(currentIncorrect);
-            console.log("delay: " + delay);
-            console.log("Current incorrect: " + incorrectAnswers);
           }
         }
       }

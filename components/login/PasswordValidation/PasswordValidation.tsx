@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./styles.module.scss";
 
 interface Props {
   char8: boolean;
@@ -18,7 +19,7 @@ export const PasswordValidation: React.FC<Props> = (props) => {
   }, [props.password]);
 
   return (
-    <div id="password_validation" style={{ opacity: opac }}>
+    <div className="password_validation" style={{ opacity: opac }}>
       <div className="password_validation_checkbox">
         <input type="checkbox" checked={props.char8} />
         <label>Longer than 8 characters</label>
