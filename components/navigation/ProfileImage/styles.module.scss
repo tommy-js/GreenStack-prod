@@ -1,4 +1,4 @@
-#profile_image_block {
+.profile_image_block {
   width: 90%;
   height: 90%;
   margin-left: auto;
@@ -8,7 +8,7 @@
   border: 1px solid $soft_grey;
 }
 
-#profile_image {
+.profile_image {
   position: relative;
   display: block;
   width: 80%;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { NotificationIcon } from "../../notifications/NotificationIcon/NotificationIcon";
-import home from "../../images/main_icon.png";
-import portfolio from "../../images/portfolio_icon.png";
-import tutorial from "../../images/tutorial_icon.png";
+const home = require("../../images/main_icon.png");
+const portfolio = require("../../images/portfolio_icon.png");
+const tutorial = require("../../images/tutorial_icon.png");
+import "./styles.module.scss";
 
 export const NavBar: React.FC = () => {
   const [triggerDisplay, setTriggerDisplay] = useState("none");

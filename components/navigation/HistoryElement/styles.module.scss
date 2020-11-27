@@ -26,3 +26,8 @@
   display: inline-block;
   @include testing;
 }
+
+.link_style {
+  text-decoration: none;
+  color: black;
+}

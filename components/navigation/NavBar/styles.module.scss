@@ -1,0 +1,30 @@
+.navbar {
+  position: fixed;
+  background-color: $background_white;
+  border-bottom: 1px solid $soft_grey;
+  height: 40px;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  z-index: 97;
+}
+
+.navbar_icon {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.notification_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  opacity: 0.5;
+  background-color: $soft_grey;
+}
