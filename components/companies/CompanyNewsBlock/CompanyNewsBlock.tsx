@@ -3,6 +3,7 @@ import { NewsComponent } from "../../Homepage/NewsComponent/NewsComponent";
 import { Header } from "../../User/Header/Header";
 import { useQuery } from "react-apollo";
 import { returnNewsQuery } from "../../queries/queries";
+import "./styles.module.scss";
 
 export const CompanyNewsBlock = (props: any) => {
   const [loggedNews, setLoggedNews] = useState();
@@ -56,7 +57,7 @@ export const CompanyNewsBlock = (props: any) => {
   }
 
   return (
-    <div id="news_component">
+    <div className="news_component">
       <Header text="News" />
       {passData()}
     </div>

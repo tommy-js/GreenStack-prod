@@ -23,9 +23,7 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
           ))}
         </React.Fragment>
       );
-    } else {
-      return <h2>Nothing Here!</h2>;
-    }
+    } else return <h2>Nothing Here!</h2>;
   }
 
   return <div>{returnComments()}</div>;

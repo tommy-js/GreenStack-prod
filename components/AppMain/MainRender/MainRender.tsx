@@ -14,6 +14,8 @@ import { browserHist } from "../history.js";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 
+import "./styles.module.scss";
+
 interface Props {
   newaccount: any;
 }
@@ -23,9 +25,7 @@ const MRender: React.FC<Props> = (props) => {
   const [newacc, setNewacc] = useState(true);
 
   useEffect(() => {
-    if (status === false) {
-      browserHist.push("/login");
-    }
+    if (status === false) browserHist.push("/login");
   }, []);
 
   useEffect(() => {

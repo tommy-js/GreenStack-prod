@@ -1,0 +1,21 @@
+.active_nav_el {
+  color: orange;
+  border-bottom: 1px solid teal;
+}
+
+.navbar {
+  position: fixed;
+  background-color: $background_white;
+  border-bottom: 1px solid $soft_grey;
+  height: 40px;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  z-index: 97;
+}
+
+.nav_el {
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+}

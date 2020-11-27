@@ -3,6 +3,7 @@ import { LoadingGeneral } from "../../login/Loading/Loading.tsx";
 import { renderFull } from "stock-graphics";
 import { useQuery } from "react-apollo";
 import { requestDataSetQuery } from "../../queries/queries.js";
+import "./styles.module.scss";
 
 export const CompanyGraph = ({ title, ticker }) => {
   let arr = [];
@@ -53,16 +54,9 @@ export const CompanyGraph = ({ title, ticker }) => {
   }
 
   function returnInfo() {
-    if (points && points.length > 0) {
-      return null;
-    } else {
-      return (
-        <div>
-          <LoadingGeneral />
-        </div>
-      );
-    }
+    if (points && points.length > 0) return null;
+    else return <LoadingGeneral />;
   }
 
-  return <div id="company_graph_block">{returnInfo()}</div>;
+  return <div className="company_graph_block">{returnInfo()}</div>;
 };

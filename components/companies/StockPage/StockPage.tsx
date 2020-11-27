@@ -7,6 +7,7 @@ import { CompanyGraph } from "../CompanyGraph/CompanyGraph.jsx";
 import { CompanyDescription } from "../CompanyDescription/CompanyDescription";
 import { statusContext } from "../../AppMain/App/App";
 import { browserHist } from "../../AppMain/history";
+import "./styles.module.scss";
 
 interface Props {
   title: string;

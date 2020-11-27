@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./styles.module.scss";
 
 export const SignedOutNavBar: React.FC = () => {
   return (

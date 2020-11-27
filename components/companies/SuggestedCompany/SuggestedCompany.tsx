@@ -7,7 +7,7 @@ interface Props {
 
 export const SuggestedCompany: React.FC<Props> = (props) => {
   return (
-    <div id="company_mapper">
+    <div className="company_mapper">
       <Header text={props.text} />
     </div>
   );

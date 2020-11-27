@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "../../User/Header/Header";
+import "./styles.module.scss";
 
 interface Props {
   title: string;

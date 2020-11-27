@@ -8,6 +8,7 @@ import {
   removeStockFromWatchlistMutation,
 } from "../../queries/queries.js";
 import { WatchListItem } from "../../types/types";
+import "./styles.module.scss";
 
 interface Redux {
   watchlist: WatchListItem[];

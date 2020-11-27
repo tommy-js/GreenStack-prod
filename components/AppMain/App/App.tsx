@@ -7,8 +7,6 @@ import { browserHist } from "../history.js";
 import { MainRender } from "../MainRender/MainRender";
 import { AppInformation } from "../../AppInformation/AppInformation/AppInformation";
 
-import "./App.scss";
-
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
 });

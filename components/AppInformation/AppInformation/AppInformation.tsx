@@ -1,11 +1,12 @@
 import React from "react";
 import { SignedOutNavBar } from "../SignedOutNavBar/SignedOutNavBar";
+import "./styles.module.scss";
 
 export const AppInformation: React.FC = () => {
   return (
     <React.Fragment>
       <SignedOutNavBar />
-      <div id="app_information_page">
+      <div className="app_information_page">
         <h2>Simulation</h2>
         <h2>Risk Free</h2>
         <p>
