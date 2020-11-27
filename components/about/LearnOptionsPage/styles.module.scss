@@ -1,0 +1,32 @@
+.learn_page {
+  position: relative;
+  width: 50%;
+  color: $text_black;
+  font-family: $standard_font;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.learn_page_paragraph {
+  position: relative;
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 165%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featureless_link {
+  text-decoration: none;
+}
+
+.emphasize {
+  color: $island_green;
+}
+
+.learn_page_subheader {
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+}

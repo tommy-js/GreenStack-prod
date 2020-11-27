@@ -5,6 +5,7 @@ import { UserRoute } from "../../types/types";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
+import "./styles.module.scss";
 
 interface Redux {
   userRoutes: UserRoute[];

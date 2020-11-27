@@ -1,0 +1,24 @@
+.user_comment_index {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  padding-bottom: 5px;
+  cursor: pointer;
+  @include testing;
+}
+
+.username_tag_block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.username_tag {
+  color: $forest_green;
+}
+
+.hover_comp {
+  display: inline-block;
+  vertical-align: baseline;
+  color: $text_black;
+  text-decoration: none;
+}

@@ -1,4 +1,4 @@
-#comment_section_textarea {
+.comment_section_textarea {
   width: 85%;
   height: 125px;
   border-radius: 5px;
@@ -13,11 +13,11 @@
   resize: none;
 }
 
-#comment_section_textarea:focus {
+.comment_section_textarea:focus {
   outline: none;
 }
 
-#comment_section_button {
+.comment_section_button {
   position: relative;
   padding: 5px;
   left: 7.5%;

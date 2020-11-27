@@ -4,6 +4,7 @@ import { LearnHeader } from "../LearnHeader/LearnHeader";
 import { LearnSidebar } from "../LearnSidebar/LearnSidebar";
 import { ProgressItem } from "../../types/types";
 import { returnLearn } from "./index";
+import "styles.module.scss";
 
 interface Props {
   progress: ProgressItem[];

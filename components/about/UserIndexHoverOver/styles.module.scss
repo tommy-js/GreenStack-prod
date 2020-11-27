@@ -1,0 +1,40 @@
+.transparent_outer {
+  position: absolute;
+  z-index: 9;
+  width: 200px;
+  top: 0;
+  padding: 10px;
+  background-color: transparent;
+}
+
+.user_index_hover_block {
+  background-color: $cream_white;
+  font-family: $standard_font;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user_index_hover_img_block {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.user_index_hover_img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.user_index_hover_username {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.user_index_hover_bio {
+  margin: 0;
+  font-size: 14px;
+}

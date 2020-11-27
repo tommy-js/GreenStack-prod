@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SelectContainer } from "../SelectContainer/SelectContainer";
 import { SelectSubheader } from "../SelectSubheader/SelectSubheader";
+import "styles.module.scss";
 
 interface Props {
   title: string;

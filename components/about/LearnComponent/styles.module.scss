@@ -2,23 +2,23 @@
   color: black;
 }
 
-#learn_individual_div {
+.learn_individual_div {
   border-bottom: 1px dashed transparent;
   font-family: $standard_font;
   transition: 0.3s;
 }
 
-#learn_individual_div:hover {
+.learn_individual_div:hover {
   border-bottom: 1px dashed grey;
   transition: 0.3s;
 }
 
-#learn_link {
+.learn_link {
   position: relative;
   display: inline-block;
 }
 
-#learn_individual_progress_div {
+.learn_individual_progress_div {
   position: relative;
   top: 0;
   float: right;

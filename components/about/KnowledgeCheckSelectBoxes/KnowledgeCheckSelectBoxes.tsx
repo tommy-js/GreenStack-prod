@@ -27,7 +27,7 @@ export const KnowledgeCheckSelectBoxes: React.FC<SelectBoxes> = (props) => {
   }, [selected]);
 
   return (
-    <div>
+    <React.Fragment>
       {selected.map((el: Option) => (
         <Box
           key={el.id}
@@ -37,6 +37,6 @@ export const KnowledgeCheckSelectBoxes: React.FC<SelectBoxes> = (props) => {
           modSelected={modSelected}
         />
       ))}
-    </div>
+    </React.Fragment>
   );
 };

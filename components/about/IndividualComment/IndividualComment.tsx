@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { UserIndex } from "../UserIndex/UserIndex";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { returnTaggedString, returnDate } from "./index";
 import { useLazyQuery } from "react-apollo";
 import { userCommentLookup } from "../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { UserRoute } from "../../types/types";
+import "styles.module.scss";
 
 type Tag = string;
 
@@ -46,23 +47,23 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
   function returnText() {
     let tag = returnTaggedString(props.text);
     return (
-      <div>
+      <React.Fragment>
         {tag.map((el: Tag) => (
           <IndMapper tag={el} />
         ))}
-      </div>
+      </React.Fragment>
     );
   }
 
   return (
-    <div id="tutorial_comment">
-      <h3 id="tutorial_comment_username">
+    <div className="tutorial_comment">
+      <h3 className="tutorial_comment_username">
         <Link to={`/home/user/${props.commentUserId}`}>
           {props.commentUsername}
         </Link>
       </h3>
-      <p id="tutorial_comment_text">{returnText()}</p>
-      <h4 id="tutorial_comment_timestamp">
+      <p className="tutorial_comment_text">{returnText()}</p>
+      <h4 className="tutorial_comment_timestamp">
         Posted at {returnDate(props.timestamp)}
       </h4>
     </div>

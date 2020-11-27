@@ -1,0 +1,25 @@
+.learn_page {
+  position: relative;
+  width: 50%;
+  color: $text_black;
+  font-family: $standard_font;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.glossary_header {
+  text-align: center;
+  font-family: $standard_font;
+}
+
+.glossary_term {
+  font-size: 20px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: 1px dashed $soft_grey;
+}
+
+.emphasize {
+  color: $island_green;
+}

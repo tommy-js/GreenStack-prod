@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { pushCommentTutorialMutation } from "../../queries/queries";
 import { taggedUsers } from "./index";
+import "styles.module.scss";
 
 interface Props {
   id: string;
@@ -38,13 +39,13 @@ const CommentSectionInputMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="comment_section_input">
+    <div className="comment_section_input">
       <textarea
-        id="comment_section_textarea"
+        className="comment_section_textarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button id="comment_section_button" onClick={() => passData()}>
+      <button className="comment_section_button" onClick={() => passData()}>
         Submit
       </button>
     </div>
