@@ -1,0 +1,85 @@
+.homepage_block_component {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  font-family: $standard_font;
+}
+
+.standard_link {
+  color: black;
+  text-decoration: none;
+}
+
+.news_comp_options {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px dashed black;
+  padding: 2px;
+}
+
+.news_comp_button {
+  display: inline-block;
+}
+
+.individual_post_comment {
+  position: relative;
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: $standard_font;
+  border: 1px solid black;
+}
+
+.individual_post_comment_text {
+  width: 100%;
+  word-wrap: break-word;
+  line-height: 150%;
+  @include testing;
+}
+
+.user_text_search_return {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  max-width: 120px;
+  overflow: scroll;
+  word-wrap: break-word;
+  border: 1px solid green;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user_text_search_return_el {
+  margin: 2px;
+  font-family: $standard_font;
+  cursor: pointer;
+}
+
+.submit_sub_response_textarea_block {
+  @include testing;
+}
+
+.submit_sub_response_textarea {
+  position: relative;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  resize: none;
+}
+
+.sub_comment {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  @include testing;
+}

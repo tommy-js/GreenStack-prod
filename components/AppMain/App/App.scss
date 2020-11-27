@@ -1,0 +1,547 @@
+@import "../../globals/variables.scss";
+@import "../../login/login.scss";
+@import "../../Homepage/homepage.scss";
+@import "../../Homepage/feed/feed.scss";
+@import "../../Homepage/post/post.scss";
+@import "../../Homepage/explore/explore.scss";
+@import "../../Homepage/profile/profile.scss";
+@import "../../Homepage/sidebar/sidebar.scss";
+@import "../../navigation/navigation.scss";
+@import "../../NewAccountRender/new_acct.scss";
+@import "../../portfolio/portfolio.scss";
+@import "../../User/user.scss";
+@import "../../about/about.scss";
+@import "../../companies/companies.scss";
+@import "../../notifications/notifications.scss";
+@import "../../portfolio/IndividualWatchlistStockDropdown/styles.scss";
+@import "../../portfolio/MainPortfolioHeader/styles.scss";
+@import "../../portfolio/PortfolioHeader/styles.scss";
+@import "../../portfolio/InitialPortfolioSubContainer/styles.scss";
+@import "../../portfolio/OwnedStockSpec/styles.scss";
+@import "../../about/AboutPage/styles.scss";
+@import "../../about/AboutUs/styles.scss";
+@import "../../about/BlanksInput/styles.scss";
+@import "../../about/Box/styles.scss";
+@import "../../about/CommentSection/styles.scss";
+@import "../../about/CommentSectionInput/styles.scss";
+@import "../../about/Footer/styles.scss";
+@import "../../about/IndividualComment/styles.scss";
+@import "../../about/CorrectIcon/styles.scss";
+@import "../../about/IncorrectIcon/styles.scss";
+@import "../../about/Blanks/styles.scss";
+@import "../../about/Learn/styles.scss";
+@import "../../about/LearnComponent/styles.scss";
+@import "../../about/LearnSidebar/styles.scss";
+@import "../../about/OnSubmitBlankModifyer/styles.scss";
+@import "../../about/Option/styles.scss";
+@import "../../about/SelectContainer/styles.scss";
+@import "../../about/SelectSubheader/styles.scss";
+@import "../../companies/CompanyDescription/styles.scss";
+@import "../../companies/CompanyGraph/styles.scss";
+@import "../../companies/CompanyNewsBlock/styles.scss";
+@import "../../companies/CompanyOptions/styles.scss";
+@import "../../companies/MapBlock/styles.scss";
+@import "../../companies/StockComment/styles.scss";
+@import "../../companies/StockPage/styles.scss";
+@import "../../companies/SuggestedCompany/styles.scss";
+@import "../../login/AccountCreation/styles.scss";
+@import "../../login/CreateAccountPage/styles.scss";
+@import "../../login/HiddenVisual/styles.scss";
+@import "../../login/Loading/styles.scss";
+@import "../../login/Login/styles.scss";
+@import "../../login/LoginHeader/styles.scss";
+@import "../../login/LoginPageInfo/styles.scss";
+@import "../../login/PasswordValidation/styles.scss";
+@import "../../login/UserNameInput/styles.scss";
+@import "../../navigation/HistoryElement/styles.scss";
+@import "../../navigation/NavBar/styles.scss";
+@import "../../navigation/ProfileImage/styles.scss";
+@import "../../NewAccountRender/Check/styles.scss";
+@import "../../NewAccountRender/NewAccountRender/styles.scss";
+@import "../../NewAccountRender/TickerContainer/styles.scss";
+@import "../../notifications/NotificationsPage/styles.scss";
+@import "../../User/IndividualUserProfilePost/styles.scss";
+@import "../../User/PostStatus/styles.scss";
+@import "../../User/SettingsInputBox/styles.scss";
+@import "../../User/User/styles.scss";
+@import "../../User/UserMap/styles.scss";
+@import "../../AppInformation/AppInformation/styles.scss";
+@import "../../Homepage/explore/Explore/styles.scss";
+@import "../../Homepage/explore/ExploreCompany/styles.scss";
+@import "../../Homepage/explore/ExploreStock/styles.scss";
+@import "../../Homepage/explore/ExploreUser/styles.scss";
+
+body {
+  margin: 0;
+  background-color: $background_white;
+}
+
+.news_block {
+  position: relative;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#header {
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header_simple_text {
+  font-size: 22px;
+}
+
+#header_major_text {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#header_minor_text {
+  font-size: 16px;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: default;
+}
+
+#header_major_text:hover + #header_minor_text {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#full_align {
+  width: 100%;
+  transition: 0.3s;
+}
+
+#left_align {
+  width: 50%;
+  float: left;
+  transition: 0.3s;
+}
+
+#right_align {
+  width: 50%;
+  float: right;
+}
+
+#comment_component {
+  position: relative;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#stock_comment_bottom_container {
+  position: relative;
+  border-top: 1px dashed grey;
+}
+
+.inline_text {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#left_share_component {
+  display: inline-block;
+  float: left;
+}
+
+@mixin trading_buttons {
+  width: 40px;
+  height: 25px;
+  border-radius: 2.5px;
+  border: none;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#buy_button {
+  @include trading_buttons;
+  background-color: green;
+}
+
+#sell_button {
+  @include trading_buttons;
+  background-color: red;
+}
+
+#leaderboard {
+  position: relative;
+  width: 50%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#recent_trades_span {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+#recent_trades {
+  position: relative;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid red;
+}
+
+#show_recent_button {
+  width: 50px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+#recent_activity {
+  position: relative;
+  cursor: pointer;
+}
+
+#view_more_information {
+  @include noselect;
+  opacity: 0;
+  cursor: default;
+  transition: 0.3s;
+}
+
+#recent_activity:hover #view_more_information {
+  opacity: 1;
+  color: grey;
+  transition: 0.3s;
+}
+
+#previous_trade {
+  position: relative;
+  width: 50%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#previous_trade_title {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border: 1px solid red;
+}
+
+#previous_trade_graph {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border: 1px solid green;
+}
+
+#previous_trade_subinfo {
+  position: relative;
+  width: 100%;
+  // height: 200px;
+  border: 1px solid teal;
+}
+
+#previous_trade_comments {
+  position: relative;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.ticker_header_text {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#ticker_header_title {
+  margin-right: 10px;
+}
+
+#ticker_header_ticker {
+  opacity: 0.6;
+}
+
+#profile_activity_container {
+  position: relative;
+  border-bottom: 1px dashed grey;
+}
+
+#homepage {
+  position: relative;
+  width: 80%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  @include testing;
+}
+
+#push_under_navbar {
+  position: relative;
+  top: 50px;
+}
+
+#profile {
+  width: 50%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid green;
+}
+
+#profile_sidebar {
+  position: fixed;
+  display: inline-block;
+  float: left;
+  box-sizing: border-box;
+  width: 10%;
+  border: 1px solid red;
+}
+
+#profile_content {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 80%;
+  float: right;
+  border: 1px solid blue;
+}
+
+#sidebar_component {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
+  text-decoration: none;
+  font-style: normal;
+  @include testing;
+}
+
+#profile_body {
+  position: relative;
+}
+
+#settings_button {
+  position: relative;
+  border: none;
+  background-color: white;
+  font-size: 16px;
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+  border: 1px solid red;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+#about_us {
+  position: relative;
+  width: 50%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#centering_container {
+  position: relative;
+  width: 50%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#trade_dropdown {
+  position: relative;
+  height: 200px;
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#profile_plan {
+  position: relative;
+  width: 50%;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#billing_container {
+  height: 150px;
+  box-sizing: border-box;
+}
+
+#charge_container {
+  position: relative;
+  display: inline-block;
+  @include testing;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+#plan_options_container {
+  position: relative;
+  display: inline-block;
+  @include testing;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  float: right;
+  box-sizing: border-box;
+}
+
+.account_status_component {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  @include testing;
+}
+
+#perks_container {
+  position: relative;
+  margin-top: 25px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  @include testing;
+}
+
+#suggestion_div {
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.noclass {
+  color: black;
+  text-decoration: none;
+}
+
+.noclass:hover {
+  color: teal;
+}
+
+.post_textarea {
+  width: 100%;
+  height: 125px;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid black;
+  resize: none;
+  font-family: $standard_font;
+  box-sizing: border-box;
+}
+
+.individual_user_post_title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.individual_user_post_textblock {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.individual_user_post_infoblock {
+  position: relative;
+  width: 100%;
+  @include testing;
+}
+
+.individual_user_post_inline {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.list_header {
+  margin: 15px;
+  font-size: 22px;
+  color: green;
+}
+
+.block_link {
+  color: black;
+  text-decoration: none;
+}
+
+.element_username {
+  color: black;
+  transition: 0.3s;
+}
+
+.element_username:hover {
+  color: teal;
+  transition: 0.3s;
+}
+
+#trade_overlay {
+  position: absolute;
+  top: 200px;
+  height: 200px;
+  width: 150px;
+  background-color: white;
+}
+
+#trade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.8;
+  @include testing;
+}
+
+.explore_component {
+  color: black;
+}
+
+.individual_post_comment_option_block {
+  position: relative;
+  height: 40px;
+  @include testing;
+}
+
+.individual_post_comment_likes {
+  position: relative;
+  font-size: 18px;
+  margin: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 15px;
+  height: 25px;
+  @include noselect;
+  @include testing;
+}
