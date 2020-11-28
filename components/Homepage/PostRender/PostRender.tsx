@@ -6,7 +6,7 @@ import { PostTextInput } from "../PostTextInput/PostTextInput";
 import { ProfileDropzone } from "../profile/ProfileDropzone/ProfileDropzone";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
-const settings = require("../../images/settings.png");
+const settings = require("../../../public/settings.png");
 import "./styles.module.scss";
 
 interface Redux {

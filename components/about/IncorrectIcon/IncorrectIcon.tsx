@@ -1,5 +1,5 @@
 import React from "react";
-const incorrect = require("../../images/x_mark.png");
+const incorrect = require("../../../public/x_mark.png");
 import "styles.module.scss";
 
 export const IncorrectIcon: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import portfolio_background from "../../images/portfolio_background.png";
+const portfolio_background = require("../../../public/portfolio_background.png");
 import "./styles.module.scss";
 
 export const InitialPortfolioBackground: React.FC = () => {

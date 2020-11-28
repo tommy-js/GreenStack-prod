@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PostPortfolioValue } from "../PostPortfolioValue/PostPortfolioValue";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
-const confetti = require("../../images/confetti.png");
+const confetti = require("../../../public/confetti.png");
 import "./styles.module.scss";
 
 interface Redux {

@@ -1,5 +1,9 @@
 import React from "react";
 import { TickerContainer } from "../TickerContainer/TickerContainer";
+const tech = require("../../../public/tech.png");
+const industry = require("../../../public/industry.png");
+const service = require("../../../public/tech.png");
+const transportation = require("../../../public/tech.png");
 
 import "./styles.module.scss";
 
@@ -7,94 +11,90 @@ export const TickerList: React.FC = () => {
   const tickers = [
     {
       ticker: "AAPL",
-      image: apple,
-      colorImg: apple_color,
+      title: "apple",
+      img: tech,
     },
     {
       ticker: "V",
-      image: visa,
-      colorImg: visa_color,
+      title: "visa",
+      img: service,
     },
     {
       ticker: "VLVLY",
-      image: volvo,
-      colorImg: volvo_color,
+      title: "volvo",
+      img: transportation,
     },
     {
       ticker: "MSFT",
-      image: microsoft,
-      colorImg: microsoft_color,
+      title: "microsoft",
+      img: tech,
     },
     {
       ticker: "SHOP",
-      image: shopify,
-      colorImg: shopify_color,
+      title: "shopify",
+      img: tech,
     },
     {
       ticker: "TWTR",
-      image: twitter,
-      colorImg: twitter_color,
+      title: "twitter",
+      img: tech,
     },
     {
       ticker: "FB",
-      image: facebook,
-      colorImg: facebook_color,
+      title: "facebook",
+      img: tech,
     },
     {
       ticker: "WMT",
-      image: walmart,
-      colorImg: walmart_color,
+      title: "walmart",
+      img: industry,
     },
     {
       ticker: "TSCDY",
-      image: tesco,
-      colorImg: tesco_color,
+      title: "tesco",
+      img: industry,
     },
     {
       ticker: "C",
-      image: citigroup,
-      colorImg: citigroup_color,
+      title: "citigroup",
+      img: service,
     },
     {
       ticker: "AMZ",
-      image: amazon,
-      colorImg: amazon_color,
+      title: "amazon",
+      img: tech,
     },
     {
       ticker: "SBUX",
-      image: starbucks,
-      colorImg: starbucks_color,
+      title: "starbucks",
+      img: service,
     },
     {
       ticker: "MCD",
-      image: mcdonalds,
-      colorImg: mcdonalds_color,
+      title: "mcdonalds",
+      img: service,
     },
     {
       ticker: "WORK",
-      image: slack,
-      colorImg: slack_color,
+      title: "slack",
+      img: tech,
     },
     {
       ticker: "NFLX",
-      image: netflix,
-      colorImg: netflix_color,
+      title: "netflix",
+      img: tech,
     },
     {
       ticker: "DBX",
-      image: dropbox,
-      colorImg: dropbox_color,
+      title: "dropbox",
+      img: tech,
     },
   ];
 
   return (
     <div className="ticker_list">
       {tickers.map((el: any) => (
-        <TickerContainer
-          ticker={el.ticker}
-          image={el.image}
-          colorImg={el.colorImg}
-        />
+        <TickerContainer ticker={el.ticker} title={el.title} img={el.img} />
       ))}
     </div>
   );

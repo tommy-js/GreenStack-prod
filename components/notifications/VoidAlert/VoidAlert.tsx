@@ -1,5 +1,5 @@
 import React from "react";
-const history = require("../../images/nothing_found.png");
+const history = require("../../../public/nothing_found.png");
 import "./styles.module.scss";
 
 export const VoidAlert: React.FC = () => {

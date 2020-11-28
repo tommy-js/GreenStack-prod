@@ -1,5 +1,5 @@
 import React from "react";
-import notif from "../../images/notification.png";
+const notif = require("../../../public/notification.png");
 import "./styles.module.scss";
 
 interface Props {

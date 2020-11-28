@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { NotificationIcon } from "../../notifications/NotificationIcon/NotificationIcon";
-const home = require("../../images/main_icon.png");
-const portfolio = require("../../images/portfolio_icon.png");
-const tutorial = require("../../images/tutorial_icon.png");
+const home = require("../../../public/main_icon.png");
+const portfolio = require("../../../public/portfolio_icon.png");
+const tutorial = require("../../../public/tutorial_icon.png");
 import "./styles.module.scss";
 
 export const NavBar: React.FC = () => {

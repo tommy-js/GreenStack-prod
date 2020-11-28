@@ -1,6 +1,6 @@
 import React from "react";
 // ONLY FOR TEST
-const profileImage = require("../../images/generic_icon.png");
+const profileImage = require("../../../public/generic_icon.png");
 import "./styles.module.scss";
 
 export const ProfileImage: React.FC = () => {
