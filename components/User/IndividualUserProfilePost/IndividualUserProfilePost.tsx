@@ -2,6 +2,7 @@ import React from "react";
 import { PostStatus } from "../PostStatus/PostStatus";
 import { Link } from "react-router-dom";
 import { PostItem } from "../../types/types";
+import "./styles.module.scss";
 
 interface Props {
   post: PostItem;

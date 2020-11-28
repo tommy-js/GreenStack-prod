@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./styles.module.scss";
 
 interface Props {
   text: string;
@@ -14,7 +15,7 @@ export const SettingsInputBox: React.FC<Props> = (props) => {
   }, [checked]);
 
   return (
-    <form id="settings_input_box">
+    <form className="settings_input_box">
       <input
         type="checkbox"
         onChange={() => setChecked(!checked)}

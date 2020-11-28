@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../Header/Header";
 import { UserInformation } from "../UserInformation/UserInformation";
+import "./styles.module.scss";
 
 interface Props {
   user: string;

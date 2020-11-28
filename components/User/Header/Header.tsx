@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.module.scss";
 
 interface Props {
   text: string;
@@ -15,15 +16,15 @@ export const Header: React.FC<Props> = (props) => {
 
   if (props.hoverOver === true) {
     return (
-      <div id="header" onClick={() => headerPassIn()}>
-        <h1 id="header_major_text">{props.text}</h1>
-        <h3 id="header_minor_text">{props.hoverOverSubtext}</h3>
+      <div className="header" onClick={() => headerPassIn()}>
+        <h1 className="header_major_text">{props.text}</h1>
+        <h3 className="header_minor_text">{props.hoverOverSubtext}</h3>
       </div>
     );
   } else {
     return (
-      <div id="header">
-        <h1 id="header_simple_text">{props.text}</h1>
+      <div className="header">
+        <h1 className="header_simple_text">{props.text}</h1>
       </div>
     );
   }
