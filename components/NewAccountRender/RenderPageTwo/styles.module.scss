@@ -1,3 +1,21 @@
+@import "../../globals/variables.scss";
+
+@mixin render_button {
+  position: relative;
+  width: 40%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 2px;
+  font-size: 14px;
+  margin: 5px;
+  background-color: $island_green;
+  border: 1px solid $space_red;
+  color: $space_red;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
 .user_init_questions {
   font-size: 16px;
 }

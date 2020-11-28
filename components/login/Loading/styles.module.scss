@@ -1,3 +1,12 @@
+@mixin loading_user {
+  position: relative;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  height: 50px;
+}
+
 .spinning_dial_container {
   position: relative;
   width: 75px;

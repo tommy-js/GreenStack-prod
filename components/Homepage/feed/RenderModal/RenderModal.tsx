@@ -147,7 +147,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="render_modal">
+    <div className="render_modal">
       <div className="post_upper_block">
         <h2>{props.title}</h2>
         <Link

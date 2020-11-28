@@ -1,3 +1,5 @@
+@import "../../../globals/variables.scss";
+
 .individual_user_post_title {
   font-size: 18px;
   margin-bottom: 5px;
@@ -11,7 +13,6 @@
 .individual_user_post_infoblock {
   position: relative;
   width: 100%;
-  @include testing;
 }
 
 .individual_user_post_inline {

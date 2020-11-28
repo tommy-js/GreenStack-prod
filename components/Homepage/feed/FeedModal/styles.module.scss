@@ -1,3 +1,10 @@
+@import "../../../globals/variables.scss";
+
+@mixin modal_backdrop {
+  position: fixed;
+  z-index: 98;
+}
+
 .modal {
   @include modal_backdrop;
   top: 0;

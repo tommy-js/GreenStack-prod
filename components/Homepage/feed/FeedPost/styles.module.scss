@@ -1,3 +1,5 @@
+@import "../../../globals/variables.scss";
+
 .post_values {
   display: inline-block;
   height: 18px;
@@ -29,7 +31,6 @@
 .post_image_block {
   position: relative;
   width: 100%;
-  @include testing;
 }
 
 .post_image {
@@ -38,7 +39,6 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  @include testing;
 }
 
 .feed_link_header {

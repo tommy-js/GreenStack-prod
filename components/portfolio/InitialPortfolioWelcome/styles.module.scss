@@ -1,4 +1,6 @@
-#initial_portfolio_welcome_header {
+@import "../../globals/variables.scss";
+
+.initial_portfolio_welcome_header {
   text-align: center;
   font-family: $standard_font;
   color: $forest_green;

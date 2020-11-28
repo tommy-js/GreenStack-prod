@@ -3,7 +3,6 @@
   width: 100%;
   height: 25px;
   bottom: 0;
-  @include testing;
 }
 
 .post_status_element {
@@ -14,5 +13,4 @@
   vertical-align: top;
   width: 33%;
   box-sizing: border-box;
-  @include testing;
 }
