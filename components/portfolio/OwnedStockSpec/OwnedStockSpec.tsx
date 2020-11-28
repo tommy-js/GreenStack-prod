@@ -5,6 +5,7 @@ import { flowRight as compose } from "lodash";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { connect } from "react-redux";
 import { validateString, validateStocks } from "./index";
+import "./styles.module.scss";
 
 type StockItem = {
   stockId: string;

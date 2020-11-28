@@ -5,6 +5,7 @@ import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateNewPortfolioMutation } from "../../queries/queries";
+import "./styles.module.scss";
 
 type WatchListItem = {
   stockId: string;

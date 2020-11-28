@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.module.scss";
 
 export const InitialPortfolioSubHeader: React.FC = () => {
   return (

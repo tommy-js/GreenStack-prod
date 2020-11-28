@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "react-apollo";
 import { getStocksQuery } from "../../queries/queries";
 import { returnStockSearch } from "./index";
+import "./styles.module.scss";
 
 interface Props {
   modResults: (res: any) => void;

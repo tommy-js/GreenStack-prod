@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { useLazyQuery } from "react-apollo";
 import { requestDataSetQuery } from "../../queries/queries.js";
 import { returnCapitalPrices } from "./index";
+import "./styles.module.scss";
 
 type StockItem = {
   stockId: string;

@@ -1,0 +1,21 @@
+.watch_listing_link {
+  color: black;
+  text-decoration: none;
+}
+
+.watch_listing_ticker_span {
+  color: grey;
+}
+
+.watch_listing {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  font-family: $standard_font;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  background-color: $softer_grey;
+  width: 100%;
+  border-bottom: 1px solid $soft_grey;
+}

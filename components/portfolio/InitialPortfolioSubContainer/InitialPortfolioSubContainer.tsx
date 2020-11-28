@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { returnStyles } from "./index";
+import "./styles.module.scss";
 
 interface Props {
   showSubContainer: boolean;

@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles.module.scss";
 
 export const InitialPortfolioWelcome: React.FC = () => {
   return (

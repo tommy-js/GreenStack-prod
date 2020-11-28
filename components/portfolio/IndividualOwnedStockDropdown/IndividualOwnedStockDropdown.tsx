@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { OwnedStockSpec } from "../OwnedStockSpec/OwnedStockSpec";
+import "./styles.module.scss";
 
 interface Props {
   stockId: string;
