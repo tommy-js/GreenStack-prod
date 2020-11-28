@@ -3,7 +3,7 @@ import { SetBio } from "../SetBio/SetBio";
 import { SaveProfileImage } from "../SaveProfileImage/SaveProfileImage";
 import { BioCounter } from "../BioCounter/BioCounter";
 import { ProfileDropzone } from "../ProfileDropzone/ProfileDropzone";
-const edit = require("../../../images/edit.png");
+const edit = require("../../../../public/edit.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import "./styles.module.scss";

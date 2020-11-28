@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-const likeFilled = require("../../../images/like_filled.png");
+const likeFilled = require("../../../../public/like_filled.png");
 import "./styles.module.scss";
 
 type Reference = {

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { dislikePostMutation } from "../../../queries/queries";
-const dislike = require("../../../images/dislike.png");
-const dislikeFilled = require("../../../images/dislike_filled.png");
+const dislike = require("../../../../public/dislike.png");
+const dislikeFilled = require("../../../../public/dislike_filled.png");
 import "./styles.module.scss";
 
 interface Props {
