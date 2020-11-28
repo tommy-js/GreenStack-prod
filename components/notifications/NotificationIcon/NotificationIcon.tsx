@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { NotificationItem } from "../../types/types";
 import { returnNotifyNew } from "./index";
+import "./styles.module.scss";
 
 interface Redux {
   notifications: NotificationItem[];

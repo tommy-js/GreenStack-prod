@@ -1,5 +1,6 @@
 import React from "react";
 import { returnDate } from "./index";
+import "./styles.module.scss";
 
 interface Props {
   timestamp: number;
