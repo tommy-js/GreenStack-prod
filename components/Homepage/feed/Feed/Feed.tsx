@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FeedElement } from "../FeedElement/FeedElement";
-import { FeedModal } from "../FeedModal/FeedModal";
 import { Suggested } from "../../Suggested/Suggested";
 import { PostRender } from "../../PostRender/PostRender";
 import { FeedScrolledBottom } from "../FeedScrolledBottom/FeedScrolledBottom";
@@ -26,8 +25,8 @@ const FeedRender: React.FC<Props> = (props) => {
     variables: { token: sessionStorage.getItem("Token") },
     pollInterval: 200,
   });
-  const [feed, setFeed] = useState();
-  const [maxFeed, setMaxFeed] = useState();
+  const [feed, setFeed] = useState([] as any);
+  const [maxFeed, setMaxFeed] = useState([] as any);
   const [view, setView] = useState(0);
 
   useEffect(() => {
@@ -84,32 +83,6 @@ const FeedRender: React.FC<Props> = (props) => {
     }
   }
 
-  function modPostLoad(postId: string) {
-    const feed = document.getElementById("feed")!;
-    if (postRendered === true) {
-      setPostRendered(false);
-      enableBodyScroll(feed);
-    } else {
-      setPostRendered(true);
-      disableBodyScroll(feed);
-    }
-    triggerPostLoad(postId);
-  }
-
-  function triggerPostLoad(postId: string) {
-    let foundId = feed.find((el: any) => postId === el.postId);
-    if (foundId) {
-      let foundIndex = feed.indexOf(foundId);
-      setPostInfo(feed[foundIndex]);
-    }
-  }
-
-  function conditionalPostRendering() {
-    if (postRendered === true) {
-      return <FeedModal data={postInfo} modPostLoad={modPostLoad} />;
-    } else return null;
-  }
-
   function renderFeed() {
     if (feed) {
       props.onFeedSet(feed);
@@ -131,7 +104,6 @@ const FeedRender: React.FC<Props> = (props) => {
                 postId={el.postId}
                 allowComments={el.allowComments}
                 allowLikes={el.allowLikes}
-                modPostLoad={modPostLoad}
                 type={el.__typename}
                 reference={el.reference}
                 view={view}
@@ -150,7 +122,6 @@ const FeedRender: React.FC<Props> = (props) => {
     <div className="feed">
       <PostRender setToFeed={setToFeed} />
       <Suggested />
-      {conditionalPostRendering()}
       {renderFeed()}
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { IndividualUserPost } from "../IndividualUserPost/IndividualUserPost";
-import { FeedModal } from "../../feed/FeedModal/FeedModal";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -60,12 +59,6 @@ const UserPostsRender: React.FC<Props> = (props) => {
     }
   }
 
-  function conditionalPostRendering() {
-    if (postRendered === true) {
-      return <FeedModal data={postInfo} modPostLoad={modPostLoad} />;
-    } else return null;
-  }
-
   return (
     <div className="feed">
       <h2 className="list_header">Your Posts</h2>
@@ -82,7 +75,6 @@ const UserPostsRender: React.FC<Props> = (props) => {
             modPostLoad={modPostLoad}
           />
         ))}
-        {conditionalPostRendering()}
       </React.Fragment>
     </div>
   );

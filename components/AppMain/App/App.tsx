@@ -19,13 +19,11 @@ export function App() {
     <div className="App">
       <statusContext.Provider value={{ status, setStatus }}>
         <ApolloProvider client={client}>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/information" component={AppInformation} />
-            <MainRender />
-            <Route path="/404" component={Page404} />
-            <Redirect to="/404" />
-          </Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/information" component={AppInformation} />
+          <MainRender />
+          <Route path="/404" component={Page404} />
+          <Redirect to="/404" />
         </ApolloProvider>
       </statusContext.Provider>
     </div>

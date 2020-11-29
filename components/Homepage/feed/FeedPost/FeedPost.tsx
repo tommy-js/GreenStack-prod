@@ -47,7 +47,6 @@ interface Props extends Redux {
   currentIndex: number;
   view: number;
   loadMore: (val: number) => void;
-  modPostLoad: (postId: string) => void;
 }
 
 const FeedPostRender: React.FC<Props> = (props) => {
@@ -166,16 +165,13 @@ const FeedPostRender: React.FC<Props> = (props) => {
         <div style={{ opacity: styledOpac }} className="feed_link_unfollow">
           <InlineUnfollow followerId={props.postUserId} />
         </div>
-        <div onClick={() => props.modPostLoad(props.postId)}>
-          {returnImage()}
-        </div>
-        <p>{returnText()}</p>
-        <p
-          onClick={() => props.modPostLoad(props.postId)}
-          className="post_return_date"
-        >
-          Posted {returnDate(props.timestamp)}
-        </p>
+        <Link href={`/home/post/${props.postId}`}>
+          <div>{returnImage()}</div>
+          <p>{returnText()}</p>
+          <p className="post_return_date">
+            Posted {returnDate(props.timestamp)}
+          </p>
+        </Link>
       </div>
       <div className="feed_link">{returnAllowed()}</div>
     </div>

@@ -22,7 +22,6 @@ interface Props {
   currentIndex: number;
   view: number;
   loadMore: (val: number) => void;
-  modPostLoad: (postId: string) => void;
 }
 
 export const FeedElement: React.FC<Props> = (props) => {
@@ -43,7 +42,6 @@ export const FeedElement: React.FC<Props> = (props) => {
           postId={props.postId}
           allowComments={props.allowComments}
           allowLikes={props.allowLikes}
-          modPostLoad={props.modPostLoad}
           currentIndex={props.currentIndex}
           loadMore={props.loadMore}
           view={props.view}
@@ -56,7 +54,6 @@ export const FeedElement: React.FC<Props> = (props) => {
           profileImage={props.postProfileImage}
           text={props.text}
           reference={props.reference}
-          modPostLoad={props.modPostLoad}
           currentIndex={props.currentIndex}
           loadMore={props.loadMore}
           view={props.view}
@@ -69,7 +66,6 @@ export const FeedElement: React.FC<Props> = (props) => {
           profileImage={props.postProfileImage}
           text={props.text}
           reference={props.reference}
-          modPostLoad={props.modPostLoad}
           currentIndex={props.currentIndex}
           loadMore={props.loadMore}
           view={props.view}

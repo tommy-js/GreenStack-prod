@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./styles.module.scss";
+import Link from "next/link";
 
 type Reference = {
   postId: string;
@@ -14,7 +15,6 @@ interface Props {
   currentIndex: number;
   view: number;
   loadMore: (val: number) => void;
-  modPostLoad: (postId: string) => void;
 }
 
 export const FeedComment: React.FC<Props> = (props) => {
@@ -37,14 +37,13 @@ export const FeedComment: React.FC<Props> = (props) => {
         </div>
         <p className="feed_comment_header_text">{props.text}</p>
       </div>
-      <div
-        className="feed_comment_base"
-        onClick={() => props.modPostLoad(props.reference.postId)}
-      >
-        <span className="feed_comment_base_reference_text">
-          {props.reference.text}
-        </span>
-      </div>
+      <Link href={`/home/post/${props.reference.postId}`}>
+        <div className="feed_comment_base">
+          <span className="feed_comment_base_reference_text">
+            {props.reference.text}
+          </span>
+        </div>
+      </Link>
     </React.Fragment>
   );
 };

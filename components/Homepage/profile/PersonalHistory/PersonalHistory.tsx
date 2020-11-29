@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { HistoryElement } from "../HistoryElement/HistoryElement";
-import { ProfileFeedRender } from "../ProfileFeedRender/ProfileFeedRender";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -21,16 +20,9 @@ const PersonalHistoryRender: React.FC = () => {
     }
   }
 
-  function conditionalPostRendering() {
-    if (postRendered === true)
-      return <ProfileFeedRender postId={postInfo} modPostLoad={modPostLoad} />;
-    else return null;
-  }
-
   return (
     <React.Fragment>
       <h2 className="personal_history_header">History</h2>
-      {conditionalPostRendering()}
     </React.Fragment>
   );
 };
