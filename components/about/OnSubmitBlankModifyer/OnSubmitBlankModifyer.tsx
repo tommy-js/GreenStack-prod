@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CorrectIcon } from "../CorrectIcon/CorrectIcon";
 import { IncorrectIcon } from "../IncorrectIcon/IncorrectIcon";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 interface Props {
   submitted: boolean;

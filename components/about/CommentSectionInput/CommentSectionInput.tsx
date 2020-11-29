@@ -3,7 +3,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { pushCommentTutorialMutation } from "../../queries/queries";
 import { taggedUsers } from "./index";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 interface Props {
   id: string;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 interface Props {
   title: string;

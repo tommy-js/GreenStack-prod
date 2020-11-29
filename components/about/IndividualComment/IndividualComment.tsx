@@ -7,7 +7,7 @@ import { userCommentLookup } from "../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { UserRoute } from "../../types/types";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 type Tag = string;
 

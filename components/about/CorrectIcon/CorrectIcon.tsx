@@ -1,6 +1,6 @@
 import React from "react";
 const correct = require("../../../public/checkmark.png");
-import "styles.module.scss";
+import "./styles.module.scss";
 
 export const CorrectIcon: React.FC = () => {
   return (

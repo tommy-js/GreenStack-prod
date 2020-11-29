@@ -1,6 +1,6 @@
 import React from "react";
 import { NavBar } from "../../navigation/NavBar/NavBar";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 export const LearnGlossaryPage: React.FC = () => {
   return (

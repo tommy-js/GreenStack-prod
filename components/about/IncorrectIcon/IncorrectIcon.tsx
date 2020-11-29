@@ -1,6 +1,6 @@
 import React from "react";
 const incorrect = require("../../../public/x_mark.png");
-import "styles.module.scss";
+import "./styles.module.scss";
 
 export const IncorrectIcon: React.FC = () => {
   return (

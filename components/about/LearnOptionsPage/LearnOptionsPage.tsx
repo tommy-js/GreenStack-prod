@@ -19,7 +19,7 @@ import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
 import { Pie } from "react-chartjs-2";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 interface Props {
   progress: any;

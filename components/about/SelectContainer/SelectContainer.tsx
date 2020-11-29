@@ -1,5 +1,5 @@
 import React from "react";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 interface Props {
   id: number;

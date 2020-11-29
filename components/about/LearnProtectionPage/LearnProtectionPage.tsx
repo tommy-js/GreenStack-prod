@@ -6,7 +6,7 @@ import { SP500HalfDecade } from "../graphData.js";
 import Link from "next/link";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
-import "styles.module.scss";
+import "./styles.module.scss";
 
 export const LearnProtectionPage: React.FC = () => {
   const { data } = useQuery(tutorialQuery, {
