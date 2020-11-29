@@ -1,35 +1,29 @@
 import React, { useContext, useState, useEffect } from "react";
-import { FeedSidebar } from "../sidebar/FeedSidebar/FeedSidebar";
-import { NavBar } from "../../navigation/NavBar/NavBar";
-import { Feed } from "../feed/Feed/Feed";
-import { Explore } from "../explore/Explore/Explore";
-import { UserPosts } from "../post/UserPosts/UserPosts";
-import { Following } from "../Following/Following";
-import { Followers } from "../Followers/Followers";
-import { UserProfile } from "../../User/UserProfile/UserProfile";
-import { Profile } from "../profile/Profile/Profile";
-import { LoadingUser } from "../../login/Loading/Loading";
-import { SearchResults } from "../SearchResults/SearchResults";
-import { PortfolioValuePostModal } from "../PortfolioValuePostModal/PortfolioValuePostModal";
-import UserLoginAuthSubresolver from "../../resolvers/UserLoginAuthSubresolver";
-import { StockPage } from "../../companies/StockPage/StockPage";
+import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { NavBar } from "../../../components/navigation/NavBar/NavBar";
+import { LoadingUser } from "../../../components/login/Loading/Loading";
+import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
+import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { useLazyQuery, useQuery } from "react-apollo";
-import { statusContext } from "../../AppMain/App/App";
+import { statusContext } from "../../homepage/home";
 import Router from "next/router";
 import { connect } from "react-redux";
-import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from "../../../components/actions/actions";
 import {
   userQuery,
   nonTokenModifyUserQuery,
   getStocksQuery,
-} from "../../queries/queries";
+} from "../../../components/queries/queries";
 import {
   PostItem,
   FeedItem,
   FollowerItem,
   FollowingItem,
   WatchListItem,
-} from "../../types/types";
+} from "../../../components/types/types";
 import { companySort } from "./index";
 import "./styles.module.scss";
 
@@ -191,59 +185,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
               modRes={modRes}
               setPostingToFeed={() => setPostingToFeed(true)}
             />
-            <Route exact path="/home">
-              <Feed modRoutes={modRoutes} />
-            </Route>
-            <Route exact path="/home/search">
-              <SearchResults results={results} />
-            </Route>
-            <Route exact path="/home/profile">
-              <Profile />
-            </Route>
-            <Route exact path="/home/explore">
-              <Explore
-                companies={companies}
-                technology={technology}
-                manufacturing={manufacturing}
-                energy={energy}
-              />
-            </Route>
-            <Route exact path="/home/posts">
-              <UserPosts />
-            </Route>
-            <Route exact path="/home/followers">
-              <Followers modRoutes={modRoutes} />
-            </Route>
-            <Route exact path="/home/following">
-              <Following modRoutes={modRoutes} />
-            </Route>
-            {props.userRoutes.map((el: any) => (
-              <Route key={el.userId} path={`/home/user/${el.userId}`}>
-                <UserProfile
-                  inspectUsername={el.username}
-                  inspectProfileImage={el.profileImage}
-                  inspectUserId={el.userId}
-                  inspectBio={el.bio}
-                />
-              </Route>
-            ))}
-            {companies.map((el: any) => (
-              <div>
-                <Route
-                  exact
-                  key={el.stockId}
-                  path={`/home/stock/${el.stockId}`}
-                >
-                  <StockPage
-                    stockId={el.stockId}
-                    title={el.title}
-                    ticker={el.ticker}
-                    description={el.description}
-                    price={el.price}
-                  />
-                </Route>
-              </div>
-            ))}
           </div>
         </div>
       );

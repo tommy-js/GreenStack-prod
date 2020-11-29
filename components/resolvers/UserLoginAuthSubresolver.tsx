@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { userQuery } from "../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import Router from "next/router";
-import { statusContext } from "../AppMain/App/App";
+import { statusContext } from "../../pages/homepage/home";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../actions/actions";
 
