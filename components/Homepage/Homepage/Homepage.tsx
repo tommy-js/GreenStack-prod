@@ -5,7 +5,7 @@ import { LoadingUser } from "../../../components/login/Loading/Loading";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { useLazyQuery, useQuery } from "react-apollo";
-import { statusContext } from "../../homepage/home";
+import { statusContext } from "../../../pages/_app";
 import Router from "next/router";
 import { connect } from "react-redux";
 import {

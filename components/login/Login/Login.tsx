@@ -10,7 +10,7 @@ import {
   LoginPageCommunityInfo,
 } from "../LoginPageInfo/LoginPageInfo";
 import Link from "next/link";
-import { statusContext } from "../../AppMain/App/App";
+import { statusContext } from "../../../pages/_app";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import "./styles.module.scss";
