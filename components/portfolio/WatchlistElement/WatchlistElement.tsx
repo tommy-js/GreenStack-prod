@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./styles.module.scss";
 
 interface Props {
@@ -11,12 +11,8 @@ interface Props {
 
 export const WatchlistElement: React.FC<Props> = (props) => {
   return (
-    <Link
-      key={props.key}
-      className="watch_listing_link watch_listing"
-      to={`/home/stock/${props.stockId}`}
-    >
-      <p>
+    <Link href={`/home/stock/${props.stockId}`}>
+      <p key={props.key} className="watch_listing_link watch_listing">
         {props.title}{" "}
         <span className="watch_listing_ticker_span">#{props.ticker}</span>
       </p>

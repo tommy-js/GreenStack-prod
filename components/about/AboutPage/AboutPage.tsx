@@ -12,7 +12,7 @@ import {
   WatchListItem,
 } from "../../types/types";
 import { statusContext } from "../../AppMain/App/App";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { queryToken, nonTokenModifyUserQuery } from "../../queries/queries";
@@ -49,7 +49,7 @@ const AboutPageRender: React.FC<Redux> = (props) => {
           },
         });
       } else {
-        browserHist.push("/login");
+        Router.push("/login");
       }
     } else {
       let sessionToken = sessionStorage.getItem("Token");

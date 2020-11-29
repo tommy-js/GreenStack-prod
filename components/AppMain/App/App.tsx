@@ -3,7 +3,6 @@ import ApolloClient from "apollo-boost";
 import { Page404 } from "../Page404/Page404";
 import { ApolloProvider } from "react-apollo";
 import { Login } from "../../login/Login/Login";
-import { browserHist } from "../history.js";
 import { MainRender } from "../MainRender/MainRender";
 import { AppInformation } from "../../AppInformation/AppInformation/AppInformation";
 

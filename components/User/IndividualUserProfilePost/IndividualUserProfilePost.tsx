@@ -1,6 +1,6 @@
 import React from "react";
 import { PostStatus } from "../PostStatus/PostStatus";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { PostItem } from "../../types/types";
 import "./styles.module.scss";
 
@@ -11,7 +11,7 @@ interface Props {
 export const IndividualUserProfilePost: React.FC<Props> = ({ post }: Props) => {
   return (
     <div className="user_profile_post">
-      <Link to={`/home/post/${post.postId}`}>
+      <Link href={`/home/post/${post.postId}`}>
         <h2 className="user_profile_title">{post.title}</h2>
         <p className="user_profile_text">{post.text}</p>
       </Link>

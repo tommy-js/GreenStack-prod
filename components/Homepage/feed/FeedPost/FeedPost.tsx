@@ -3,7 +3,7 @@ import { LikePost } from "../LikePost/LikePost";
 import { DislikePost } from "../DislikePost/DislikePost";
 import { InlineUnfollow } from "../InlineUnfollow/InlineUnfollow";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 const comment = require("../../../../public/comment.png");
 import { returnDate } from "./index";
 import { returnTaggedString } from "../../../globals/functions/returnTagged";
@@ -154,12 +154,11 @@ const FeedPostRender: React.FC<Props> = (props) => {
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
       >
-        <Link
-          onClick={() => unlockScrollState()}
-          className="feed_link"
-          to={`/home/user/${props.postUserId}`}
-        >
-          <div className="feed_profile_image_block">
+        <Link href={`/home/user/${props.postUserId}`}>
+          <div
+            className="feed_profile_image_block feed_link"
+            onClick={() => unlockScrollState()}
+          >
             <img className="feed_profile_image" src={props.postProfileImage} />
           </div>
           <h3 className="feed_link_name">{props.postUsername}</h3>

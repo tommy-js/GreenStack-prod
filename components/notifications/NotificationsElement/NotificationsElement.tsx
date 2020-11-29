@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NotifTime } from "../NotifTime/NotifTime";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserNotificationsViewedMutation } from "../../queries/queries";
@@ -76,7 +76,7 @@ const NotifEl: React.FC<Props> = (props) => {
 
   return (
     <div className="notifications_link" key={props.id}>
-      <Link to="/notifications">
+      <Link href="/notifications">
         <p>{props.content}</p>
       </Link>
       <div id="notif">

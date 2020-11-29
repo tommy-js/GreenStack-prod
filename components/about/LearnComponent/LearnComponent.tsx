@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "styles.module.scss";
 
 interface Props {
@@ -22,10 +22,11 @@ export const LearnComponent: React.FC<Props> = (props) => {
   }
 
   return (
-    <Link to={props.path} className="learn_component_link">
+    <Link href={props.path}>
       <div
         key={props.title}
         id="learn_individual_div"
+        className="learn_component_link"
         onMouseOver={() => setRenderOpac(1)}
         onMouseOut={() => setRenderOpac(0)}
       >

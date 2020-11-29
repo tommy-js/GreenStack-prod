@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
 interface Props {
   text: string;
@@ -8,12 +8,8 @@ interface Props {
 
 export const SidebarElement: React.FC<Props> = (props) => {
   return (
-    <NavLink
-      activeClassName="active_sidebar_element"
-      className="sidebar_element"
-      to={props.path}
-    >
-      <p className="sidebar_element_text">{props.text}</p>
-    </NavLink>
+    <Link href={props.path}>
+      <p className="sidebar_element_text sidebar_element">{props.text}</p>
+    </Link>
   );
 };

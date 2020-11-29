@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserIndexHoverOver } from "../UserIndexHoverOver/UserIndexHoverOver";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { UserRoute } from "../../types/types";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
@@ -61,11 +61,8 @@ const UserIndexRender: React.FC<Props> = (props) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Link
-        onClick={() => unlockScrollState()}
-        to={`/home/user/${props.highlightUserId}`}
-      >
-        <div className="username_tag_block">
+      <Link href={`/home/user/${props.highlightUserId}`}>
+        <div className="username_tag_block" onClick={() => unlockScrollState()}>
           <span className="username_tag">@{props.highlightUsername}</span>
         </div>
         <div className="hover_comp">{returnHoverOver()}</div>

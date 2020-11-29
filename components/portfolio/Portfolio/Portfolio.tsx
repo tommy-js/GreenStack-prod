@@ -3,8 +3,7 @@ import { NavBar } from "../../navigation/NavBar/NavBar";
 import { LoadingUser } from "../../login/Loading/Loading";
 import UserLoginAuthSubresolver from "../../resolvers/UserLoginAuthSubresolver";
 import { PortfolioBody } from "../PortfolioBody/PortfolioBody";
-import { Route } from "react-router-dom";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import { connect } from "react-redux";
@@ -50,7 +49,7 @@ const PortfolioRender: React.FC<Redux> = (props) => {
             token: sessionToken,
           },
         });
-      } else browserHist.push("/login");
+      } else Router.push("/login");
     }
   }, []);
 
@@ -68,21 +67,6 @@ const PortfolioRender: React.FC<Redux> = (props) => {
     setLoadingInUser(false);
   }
 
-  function renderLoading() {
-    if (status === true) {
-      return (
-        <React.Fragment>
-          <NavBar />
-          <div id="portfolio">
-            <Route exact path="/portfolio">
-              <PortfolioBody />
-            </Route>
-          </div>
-        </React.Fragment>
-      );
-    }
-  }
-
   function returnLoadingInUser() {
     if (loadingInUser === true) {
       return (
@@ -91,7 +75,15 @@ const PortfolioRender: React.FC<Redux> = (props) => {
           <UserLoginAuthSubresolver loggedIn={loggedIn} />
         </div>
       );
-    } else return <React.Fragment>{renderLoading()}</React.Fragment>;
+    } else
+      return (
+        <React.Fragment>
+          <NavBar />
+          <div id="portfolio">
+            <PortfolioBody />
+          </div>
+        </React.Fragment>
+      );
   }
 
   return <React.Fragment>{returnLoadingInUser()}</React.Fragment>;

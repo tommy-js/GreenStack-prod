@@ -12,11 +12,10 @@ import { LoadingUser } from "../../login/Loading/Loading";
 import { SearchResults } from "../SearchResults/SearchResults";
 import { PortfolioValuePostModal } from "../PortfolioValuePostModal/PortfolioValuePostModal";
 import UserLoginAuthSubresolver from "../../resolvers/UserLoginAuthSubresolver";
-import { Route } from "react-router-dom";
 import { StockPage } from "../../companies/StockPage/StockPage";
 import { useLazyQuery, useQuery } from "react-apollo";
 import { statusContext } from "../../AppMain/App/App";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import {
@@ -88,7 +87,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
             token: sessionStorage.getItem("Token"),
           },
         });
-      } else browserHist.push("/login");
+      } else Router.push("/login");
     } else {
       let sessionToken = sessionStorage.getItem("Token");
       if (sessionToken) {
@@ -166,7 +165,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
     }
 
     setResults(obj);
-    browserHist.push("/home/search");
+    Router.push("/home/search");
   }
 
   const [postingToFeed, setPostingToFeed] = useState(false);

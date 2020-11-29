@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface User {
   username: string;
@@ -18,7 +18,7 @@ interface Stock {
 
 export const QueryUserResult: React.FC<User> = (props) => {
   return (
-    <Link to={`/home/user/${props.userId}`}>
+    <Link href={`/home/user/${props.userId}`}>
       <h2>{props.username}</h2>
       <img src={props.profileImage} />
       <h3>{props.bio}</h3>

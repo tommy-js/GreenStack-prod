@@ -3,7 +3,7 @@ import { NavBar } from "../../navigation/NavBar/NavBar";
 import { CommentSection } from "../CommentSection/CommentSection";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
 import { SP500HalfDecade } from "../graphData.js";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
 import "styles.module.scss";
@@ -40,8 +40,8 @@ export const LearnProtectionPage: React.FC = () => {
         <p className="learn_page_paragraph">
           There are two main ways investors protect their assets, and both rely
           on the same general idea. The first is through manual{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">diversification</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">diversification</span>
           </Link>
           . This is the process of splitting up your portfolio among many
           stocks, and ideally many different sectors. For example, you might buy
@@ -64,8 +64,8 @@ export const LearnProtectionPage: React.FC = () => {
         <p className="learn_page_paragraph">
           The graph above shows the value of the S&P 500 from 2011 to 2020. The
           S&P 500 is an{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">index</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">index</span>
           </Link>
           , or a measurement that takes account of a number of stocks. In the
           case of the S&P 500, it is an index that measures the value of the 500

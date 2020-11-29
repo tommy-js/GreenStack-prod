@@ -8,9 +8,8 @@ import { AboutPage } from "../../about/AboutPage/AboutPage";
 import { Homepage } from "../../Homepage/Homepage/Homepage";
 import { NewAccountRender } from "../../NewAccountRender/NewAccountRender/NewAccountRender";
 import { NotificationsPage } from "../../notifications/NotificationsPage/NotificationsPage";
-import { Route, Switch } from "react-router-dom";
 import { statusContext } from "../App/App";
-import { browserHist } from "../history.js";
+import Router from "next/router";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 
@@ -25,7 +24,7 @@ const MRender: React.FC<Props> = (props) => {
   const [newacc, setNewacc] = useState(true);
 
   useEffect(() => {
-    if (status === false) browserHist.push("/login");
+    if (status === false) Router.push("/login");
   }, []);
 
   useEffect(() => {

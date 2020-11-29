@@ -6,14 +6,14 @@ import { Blanks } from "../Blanks/Blanks";
 import { SelectAll } from "../SelectAll/SelectAll";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
 import { statusContext } from "../../AppMain/App/App";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import {
   APPLE2month,
   AMZN10Year,
   APPLEOptions,
   SP500HalfDecade,
 } from "../graphData.js";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
@@ -93,9 +93,7 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (status === false) {
-      browserHist.push("/login");
-    }
+    if (status === false) Router.push("/login");
   }, []);
 
   return (
@@ -112,19 +110,19 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         </p>
         <p className="learn_page_paragraph">
           An{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">option</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">option</span>
           </Link>{" "}
           is a contract with another trader that gives you the right to buy or
           sell a number of shares at a certain price. In fact, it specifically
           gives you the right to buy or sell 100 shares. There are two types of
           options;{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">call</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">call</span>
           </Link>
           , which basically means you think the stock price will rise, and{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">puts</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">puts</span>
           </Link>
           , which implies that you believe the stock value will fall.
         </p>
@@ -140,8 +138,8 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
           it will hit that level by. For instance, if I were certain that Tesla
           stock would hit $600 by January 10, 2021, I would buy this option
           contract and in return I would pay a fee. The fee is called a{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">premium</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">premium</span>
           </Link>
           , and it can range from as little as $1 to tens of thousands or more.
           The fee is the cost for you to buy this option.
@@ -154,12 +152,12 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         <p className="learn_page_paragraph">
           There are two important concepts when it comes to selling calls, which
           are that of{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">naked calls</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">naked calls</span>
           </Link>{" "}
           and{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">covered calls</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">covered calls</span>
           </Link>
           . The covered call takes place when you own the asset you're selling
           the call option for. This means that if you lose your bet, and the
@@ -197,12 +195,12 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         </p>
         <p className="learn_page_paragraph">
           The same concepts of{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">naked puts</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">naked puts</span>
           </Link>{" "}
           and{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">covered puts</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">covered puts</span>
           </Link>{" "}
           applies here.
         </p>
@@ -227,8 +225,8 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         </p>
         <p className="learn_page_paragraph">
           Because you're so confident, you decide to buy calls on Apple at this{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">strike price</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">strike price</span>
           </Link>{" "}
           and for this date. Because it is widely believed that the price of
           Apple will rise over time, and because the price of its shares are

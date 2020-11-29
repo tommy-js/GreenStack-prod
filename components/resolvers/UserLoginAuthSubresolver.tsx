@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { userQuery } from "../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import { browserHist } from "../AppMain/history";
+import Router from "next/router";
 import { statusContext } from "../AppMain/App/App";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../actions/actions";
@@ -49,7 +49,7 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
             token: token,
           },
         });
-      } else browserHist.push("/login");
+      } else Router.push("/login");
     }, 500);
   }, []);
 

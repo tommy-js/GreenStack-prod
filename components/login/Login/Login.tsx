@@ -9,11 +9,10 @@ import {
   LoginPageLearnInfo,
   LoginPageCommunityInfo,
 } from "../LoginPageInfo/LoginPageInfo";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { statusContext } from "../../AppMain/App/App";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import { browserHist } from "../../AppMain/history";
 import "./styles.module.scss";
 
 export const Login: React.FC = () => {
@@ -114,7 +113,7 @@ export const Login: React.FC = () => {
         <LoginPageCommunityInfo />
         <LoginPageLearnInfo />
         <h3>
-          Still have questions? <Link to="/information">Go Here</Link>
+          Still have questions? <Link href="/information">Go Here</Link>
         </h3>
       </div>
     </div>

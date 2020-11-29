@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 import { NotificationIcon } from "../../notifications/NotificationIcon/NotificationIcon";
 const home = require("../../../public/main_icon.png");
 const portfolio = require("../../../public/portfolio_icon.png");
@@ -25,18 +25,18 @@ export const NavBar: React.FC = () => {
 
   return (
     <div className="navbar">
-      <NavLink exact to="/home">
+      <Link href="/home">
         <img src={home} className="navbar_icon" />
-      </NavLink>
-      <NavLink to="/portfolio">
+      </Link>
+      <Link href="/portfolio">
         <img src={portfolio} className="navbar_icon" />
-      </NavLink>
-      <NavLink to="/about">
+      </Link>
+      <Link href="/about">
         <img src={tutorial} className="navbar_icon" />
-      </NavLink>
-      <NavLink onClick={() => dropToken()} to="/login">
-        Logout
-      </NavLink>
+      </Link>
+      <Link href="/login">
+        <span onClick={() => dropToken()}>Logout</span>
+      </Link>
       <div
         id="notification_container"
         style={{ display: triggerDisplay }}

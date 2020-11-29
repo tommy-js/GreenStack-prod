@@ -6,9 +6,9 @@ import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
 import { statusContext } from "../../AppMain/App/App";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import { APPLE2month, AMZN10Year } from "../graphData.js";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
@@ -76,7 +76,7 @@ const LearnBasicsPageRender: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (status === false) browserHist.push("/login");
+    if (status === false) Router.push("/login");
   }, []);
 
   return (
@@ -103,8 +103,8 @@ const LearnBasicsPageRender: React.FC<Props> = (props) => {
           At its most basic, the stock market is composed of companies and their
           investors(that's you!). Investors purchase portions of companies,
           called{" "}
-          <Link className="featureless_link" to="/about/glossary">
-            <span className="emphasize">shares</span>
+          <Link href="/about/glossary">
+            <span className="emphasize featureless_link">shares</span>
           </Link>
           , which fluctuate in value depending on how a company is doing. It's
           your hope as an investor that the value of these shares increase over

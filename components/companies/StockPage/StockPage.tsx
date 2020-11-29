@@ -6,7 +6,7 @@ import { CompanyOptions } from "../CompanyOptions/CompanyOptions";
 import { CompanyGraph } from "../CompanyGraph/CompanyGraph.jsx";
 import { CompanyDescription } from "../CompanyDescription/CompanyDescription";
 import { statusContext } from "../../AppMain/App/App";
-import { browserHist } from "../../AppMain/history";
+import Router from "next/router";
 import "./styles.module.scss";
 
 interface Props {
@@ -21,7 +21,7 @@ export const StockPage: React.FC<Props> = (props) => {
   const { status } = useContext(statusContext);
 
   useEffect(() => {
-    if (status === false) browserHist.push("/login");
+    if (status === false) Router.push("/login");
   }, []);
 
   return (

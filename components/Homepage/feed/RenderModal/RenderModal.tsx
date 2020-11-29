@@ -4,7 +4,7 @@ import { CommentSection } from "../../CommentSection/CommentSection";
 import { LikePost } from "../LikePost/LikePost";
 import { DislikePost } from "../DislikePost/DislikePost";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { UserRoute } from "../../../types/types";
 const comment = require("../../../../public/comment.png");
 import { returnDate, returnTaggedString, returnUserRoutes } from "./index";
@@ -67,9 +67,8 @@ const RenderModalPre: React.FC<Props> = (props) => {
   const [comments, setComments] = useState(props.comments.length);
 
   function returnImage() {
-    if (props.postImage == "null") {
-      return null;
-    } else {
+    if (props.postImage == "null") return null;
+    else {
       return (
         <div className="post_image_block">
           <img className="post_image" src={props.postImage} />
@@ -150,12 +149,11 @@ const RenderModalPre: React.FC<Props> = (props) => {
     <div className="render_modal">
       <div className="post_upper_block">
         <h2>{props.title}</h2>
-        <Link
-          className="feed_link"
-          onClick={() => unlockScrollState()}
-          to={`/home/user/${props.postUserId}`}
-        >
-          <div className="feed_profile_image_block">
+        <Link href={`/home/user/${props.postUserId}`}>
+          <div
+            className="feed_profile_image_block feed_link"
+            onClick={() => unlockScrollState()}
+          >
             <img className="feed_profile_image" src={props.userProfileImage} />
           </div>
           <h3 className="feed_link_name">{props.postUsername}</h3>
