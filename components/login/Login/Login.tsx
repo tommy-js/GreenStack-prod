@@ -10,22 +10,31 @@ import {
   LoginPageCommunityInfo,
 } from "../LoginPageInfo/LoginPageInfo";
 import Link from "next/link";
-import { statusContext } from "../../../pages/_app";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import "./styles.module.scss";
+import { useRouter } from "next/router";
+import { connect } from "react-redux";
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from "../../../components/actions/actions";
 
-export const Login: React.FC = () => {
+interface Redux {
+  status: boolean;
+  onStatusSet: (status: boolean) => void;
+}
+
+const LoginRender: React.FC<Redux> = (props) => {
   const [userId, setUserId] = useState();
   const [newAccount, setNewAccount] = useState(false);
   const [loadingUser, setLoadingUser] = useState(false);
-
-  const { status, setStatus } = useContext(statusContext);
+  const router = useRouter();
 
   const [passToken, { data }] = useLazyQuery(queryToken);
 
   useEffect(() => {
-    if (status === false) {
+    if (props.status === false) {
       let sessionToken = sessionStorage.getItem("Token");
       if (sessionToken) {
         passToken({
@@ -43,7 +52,7 @@ export const Login: React.FC = () => {
     if (data && data.token) {
       console.log(data.token);
       if (data.token.token === sessionToken) {
-        setStatus(true);
+        props.onStatusSet(true);
         setUserId(data.token.userid);
         setLoadingUser(true);
       }
@@ -68,7 +77,7 @@ export const Login: React.FC = () => {
   }
 
   function loggedIn() {
-    browserHist.push("/home");
+    router.push("/");
   }
 
   function displayBlock() {
@@ -119,3 +128,5 @@ export const Login: React.FC = () => {
     </div>
   );
 };
+
+export const Login = connect(mapStateToProps, mapDispatchToProps)(LoginRender);

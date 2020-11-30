@@ -46,7 +46,10 @@ const PostTextInputRender: React.FC<Props> = (props) => {
   }
 
   useEffect(() => {
-    let arr = [...props.following, ...props.followers];
+    let arr = [];
+    if (props.following && props.followers) {
+      arr = [...props.following, ...props.followers];
+    }
     setUserList(arr);
   }, []);
 

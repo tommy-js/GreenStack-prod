@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import { userQuery } from "../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import Router from "next/router";
-import { statusContext } from "../../pages/_app";
+import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../actions/actions";
 
 interface Redux {
+  onStatusSet: (status: boolean) => void;
   onUsernameSet: (username: string) => void;
   onUserIDSet: (userId: string) => void;
   onBioSet: (bio: string) => void;
@@ -34,11 +34,11 @@ interface Props extends Redux {
 }
 
 const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
-  const { setStatus } = useContext(statusContext);
   const [
     logUserIn,
     { loading: loadingLogIn, data: dataLogIn, error: errorLogIn },
   ] = useLazyQuery(userQuery);
+  const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,12 +49,14 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
             token: token,
           },
         });
-      } else Router.push("/login");
+      } else router.push("/login");
     }, 500);
   }, []);
 
   useEffect(() => {
-    if (dataLogIn) pushToUser();
+    if (dataLogIn) {
+      pushToUser();
+    }
   }, [dataLogIn]);
 
   function getProgEls(user: any) {
@@ -62,7 +64,6 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
     for (let i = 0; i < user.progress.length; i++) {
       for (let j = 0; j < user.progress[i].progressElements.length; j++) {
         progElements.push(user.progress[i].progressElements[j]);
-        console.log("progElements");
       }
     }
     return progElements;
@@ -82,7 +83,6 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
   }
 
   function pushToUser() {
-    console.log(dataLogIn);
     if (dataLogIn && dataLogIn.user) {
       let user: any = dataLogIn.user;
 
@@ -90,6 +90,7 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
 
       let progress = getProgs(user);
 
+      props.onStatusSet(true);
       props.onUsernameSet(user.username);
       props.onUserIDSet(user.userId);
       props.onBioSet(user.bio);
@@ -112,8 +113,7 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
       props.onUserRouteSet(returnUserRoutes(user));
       sessionStorage.setItem("Token", user.token);
     }
-    setStatus(true);
-    browserHist.push("/home");
+    router.push("/");
   }
 
   function returnUserRoutes(user: any) {

@@ -5,7 +5,7 @@ import { PostRender } from "../../PostRender/PostRender";
 import { FeedScrolledBottom } from "../FeedScrolledBottom/FeedScrolledBottom";
 import { LoadingGeneral } from "../../../login/Loading/Loading";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { useQuery } from "react-apollo";
+import { useLazyQuery } from "react-apollo";
 import { returnFeedQuery } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
@@ -14,15 +14,11 @@ import "./styles.module.scss";
 
 interface Props {
   posts: PostItem[];
-  modRoutes: (arr: any) => void;
   onFeedSet: (feed: FeedItem[]) => void;
 }
 
 const FeedRender: React.FC<Props> = (props) => {
-  const [postRendered, setPostRendered] = useState(false);
-  const [postInfo, setPostInfo] = useState();
-  const { data } = useQuery(returnFeedQuery, {
-    variables: { token: sessionStorage.getItem("Token") },
+  const [callFeed, { data }] = useLazyQuery(returnFeedQuery, {
     pollInterval: 200,
   });
   const [feed, setFeed] = useState([] as any);
@@ -30,8 +26,15 @@ const FeedRender: React.FC<Props> = (props) => {
   const [view, setView] = useState(0);
 
   useEffect(() => {
+    callFeed({
+      variables: { token: sessionStorage.getItem("Token") },
+    });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setFeed(data.returnFollowerFeed.posts);
+      console.log(data);
 
       let arr = [
         ...data.returnFollowerFeed.posts,
@@ -87,7 +90,7 @@ const FeedRender: React.FC<Props> = (props) => {
     if (feed) {
       props.onFeedSet(feed);
       return (
-        <React.Fragment>
+        <div>
           {feed.map((el: any) => (
             <div className="feed_component">
               <FeedElement
@@ -113,7 +116,7 @@ const FeedRender: React.FC<Props> = (props) => {
             </div>
           ))}
           <FeedScrolledBottom />
-        </React.Fragment>
+        </div>
       );
     } else return <LoadingGeneral />;
   }

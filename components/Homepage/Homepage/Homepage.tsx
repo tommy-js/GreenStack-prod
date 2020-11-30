@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { LoadingUser } from "../../../components/login/Loading/Loading";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
+import { Feed } from "../feed/Feed/Feed";
 import { useLazyQuery, useQuery } from "react-apollo";
-import { statusContext } from "../../../pages/_app";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import {
   mapStateToProps,
@@ -34,6 +34,7 @@ interface Redux {
   feed: FeedItem[];
   userRoutes: any;
   money: number;
+  status: boolean;
   onInitialPostsSet: (posts: any) => void;
   onInitialFollowerSet: (followers: FollowerItem[]) => void;
   onInitialFollowingSet: (following: FollowingItem[]) => void;
@@ -49,6 +50,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
   const [manufacturing, setManufacturing] = useState([] as any);
   const [energy, setEnergy] = useState([] as any);
   const [results, setResults] = useState({} as any);
+  const router = useRouter();
 
   const { data: companyData } = useQuery(getStocksQuery);
   const [passToken, { data }] = useLazyQuery(userQuery);
@@ -58,8 +60,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
       pollInterval: 500,
     }
   );
-
-  const { status } = useContext(statusContext);
 
   useEffect(() => {
     if (companyData) {
@@ -73,7 +73,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
   }, [companyData]);
 
   useEffect(() => {
-    if (status === false) {
+    if (props.status === false) {
       let sessionToken = sessionStorage.getItem("Token");
       if (sessionToken) {
         passToken({
@@ -81,7 +81,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
             token: sessionStorage.getItem("Token"),
           },
         });
-      } else Router.push("/login");
+      } else router.push("/login");
     } else {
       let sessionToken = sessionStorage.getItem("Token");
       if (sessionToken) {
@@ -105,16 +105,10 @@ const HomepageRender: React.FC<Redux> = (props) => {
   }, [getUserData]);
 
   useEffect(() => {
-    if (status === false) if (data && data.token) setLoadingInUser(true);
-  }, data);
-
-  function modRoutes(route: any) {
-    let findEl = props.userRoutes.find((el: any) => el.userId === route.userId);
-    if (!findEl) {
-      let routes = [...props.userRoutes, route];
-      props.onUserRouteSet(routes);
+    if (props.status === false) {
+      if (data && data.token) setLoadingInUser(true);
     }
-  }
+  }, data);
 
   function loggedIn() {
     setLoadingInUser(false);
@@ -159,7 +153,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
     }
 
     setResults(obj);
-    Router.push("/home/search");
+    router.push("/home/search");
   }
 
   const [postingToFeed, setPostingToFeed] = useState(false);
@@ -175,7 +169,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
   }
 
   function returnLoadingIcon() {
-    if (status === true) {
+    if (props.status === true) {
       return (
         <div>
           <NavBar />
@@ -201,9 +195,13 @@ const HomepageRender: React.FC<Redux> = (props) => {
           </div>
         </div>
       );
-    } else if (loadingInUser === false) {
-      return <div>{returnLoadingIcon()}</div>;
-    }
+    } else if (loadingInUser === false)
+      return (
+        <div>
+          {returnLoadingIcon()}
+          <Feed />
+        </div>
+      );
   }
 
   return <div>{returnLoading()}</div>;

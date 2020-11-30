@@ -12,6 +12,7 @@ import {
 
 export const mapStateToProps = (state: any) => {
   return {
+    status: state.status,
     username: state.username,
     userId: state.userId,
     bio: state.bio,
@@ -43,6 +44,8 @@ export const mapStateToProps = (state: any) => {
 
 export const mapDispatchToProps = (dispatch: any) => {
   return {
+    onStatusSet: (status: boolean) =>
+      dispatch({ type: "SET_STATUS", payload: status }),
     onUsernameSet: (username: string) =>
       dispatch({ type: "SET_USERNAME", payload: username }),
     onUserIDSet: (userId: string) =>
