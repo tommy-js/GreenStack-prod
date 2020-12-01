@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
+import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
-import { mapStateToProps } from "../../../components/actions/actions";
+import { mapStateToProps } from "../../components/actions/actions";
 
 interface Redux {
   status: boolean;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { RenderModal } from "../../../../components/Homepage/feed/RenderModal/RenderModal";
+import { RenderModal } from "../../components/Homepage/feed/RenderModal/RenderModal";
 import { useQuery } from "react-apollo";
-import { individualPostQuery } from "../../../../components/queries/queries";
+import { individualPostQuery } from "../../components/queries/queries";
 import { useRouter } from "next/router";
 
 const Post: React.FC = () => {
