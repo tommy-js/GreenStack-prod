@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { returnDate } from "./index";
 import { LikeComponent } from "../LikeComponent/LikeComponent";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   username: string;
@@ -20,7 +20,7 @@ export const StockComment: React.FC<Props> = (props) => {
   }, []);
 
   return (
-    <div className="stock_comment">
+    <div className={styles.stock_comment}>
       <h4>{props.username}</h4>
       <p>{props.text}</p>
       <p>Posted {time}</p>

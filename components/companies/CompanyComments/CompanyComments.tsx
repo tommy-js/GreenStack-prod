@@ -5,7 +5,7 @@ import { stockQuery, addCommentStockMutation } from "../../queries/queries";
 import { flowRight as compose } from "lodash";
 import { graphql } from "react-apollo";
 import { returnSortedComments } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -46,9 +46,9 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="comment_component">
+    <div className={styles.comment_component}>
       <textarea
-        className="comment_textarea"
+        className={styles.comment_textarea}
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

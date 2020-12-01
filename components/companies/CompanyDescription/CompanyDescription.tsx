@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -8,7 +8,7 @@ interface Props {
 
 export const CompanyDescription: React.FC<Props> = (props) => {
   return (
-    <div className="company_description_block">
+    <div className={styles.company_description_block}>
       <h2>About {props.title}</h2>
       <p>{props.description}</p>
     </div>

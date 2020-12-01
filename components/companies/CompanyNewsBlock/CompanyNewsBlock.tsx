@@ -3,7 +3,7 @@ import { NewsComponent } from "../../Homepage/NewsComponent/NewsComponent";
 import { Header } from "../../User/Header/Header";
 import { useQuery } from "react-apollo";
 import { returnNewsQuery } from "../../queries/queries";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const CompanyNewsBlock = (props: any) => {
   const [loggedNews, setLoggedNews] = useState();
@@ -48,7 +48,7 @@ export const CompanyNewsBlock = (props: any) => {
               />
             </div>
           ))}
-          <button className="center_button" onClick={() => loadMore()}>
+          <button className={styles.center_button} onClick={() => loadMore()}>
             Load more
           </button>
         </React.Fragment>
@@ -57,7 +57,7 @@ export const CompanyNewsBlock = (props: any) => {
   }
 
   return (
-    <div className="news_component">
+    <div className={styles.news_component}>
       <Header text="News" />
       {passData()}
     </div>

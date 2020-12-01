@@ -8,7 +8,7 @@ import {
   removeStockFromWatchlistMutation,
 } from "../../queries/queries.js";
 import { WatchListItem } from "../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   watchlist: WatchListItem[];
@@ -89,7 +89,7 @@ const CompanyOptionsRender: React.FC<Props> = (props) => {
     }
   }
 
-  return <div className="default_middle">{showWatchlist()}</div>;
+  return <div className={styles.default_middle}>{showWatchlist()}</div>;
 };
 
 const CompanyOptionsRedux = connect(mapStateToProps)(CompanyOptionsRender);

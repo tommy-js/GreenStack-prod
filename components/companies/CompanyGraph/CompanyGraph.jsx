@@ -3,7 +3,7 @@ import { LoadingGeneral } from "../../login/Loading/Loading.tsx";
 import { renderFull } from "stock-graphics";
 import { useQuery } from "react-apollo";
 import { requestDataSetQuery } from "../../queries/queries.js";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const CompanyGraph = ({ title, ticker }) => {
   let arr = [];
@@ -58,5 +58,5 @@ export const CompanyGraph = ({ title, ticker }) => {
     else return <LoadingGeneral />;
   }
 
-  return <div className="company_graph_block">{returnInfo()}</div>;
+  return <div className={styles.company_graph_block}>{returnInfo()}</div>;
 };
