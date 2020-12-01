@@ -4,8 +4,7 @@ const tech = require("../../../public/tech.png");
 const industry = require("../../../public/industry.png");
 const service = require("../../../public/tech.png");
 const transportation = require("../../../public/tech.png");
-
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const TickerList: React.FC = () => {
   const tickers = [
@@ -92,7 +91,7 @@ export const TickerList: React.FC = () => {
   ];
 
   return (
-    <div className="ticker_list">
+    <div className={styles.ticker_list}>
       {tickers.map((el: any) => (
         <TickerContainer ticker={el.ticker} title={el.title} img={el.img} />
       ))}

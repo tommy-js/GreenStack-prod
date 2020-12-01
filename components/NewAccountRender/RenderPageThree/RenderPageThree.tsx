@@ -3,7 +3,7 @@ import { FollowerCheck } from "../FollowerCheck/FollowerCheck";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { savePreferredCommentaryMutation } from "../../queries/queries.js";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   id: number;
@@ -41,18 +41,18 @@ const RenderPageThreeMutation: React.FC<Submission> = (props) => {
 
   return (
     <React.Fragment>
-      <p className="user_init_questions">
+      <p className={styles.user_init_questions}>
         What kind of commentary are you looking for from those you follow?
       </p>
       <FollowerCheck setCurrentIndex={setCurrentIndex} />
-      <div className="render_pages_button_container">
+      <div className={styles.render_pages_button_container}>
         <button
-          className="render_button_left"
+          className={styles.render_button_left}
           onClick={() => props.backPage(props.id)}
         >
           Back
         </button>
-        <button className="render_button_right" onClick={() => save()}>
+        <button className={styles.render_button_right} onClick={() => save()}>
           Save
         </button>
       </div>

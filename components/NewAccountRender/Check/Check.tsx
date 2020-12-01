@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   name: string;
@@ -25,17 +25,19 @@ export const Check: React.FC<Props> = (props) => {
   return (
     <div
       key={props.index}
-      className="user_init_check"
+      className={styles.user_init_check}
       onClick={() => selectedItem()}
     >
       <div
-        className="selected_button"
+        className={styles.selected_button}
         style={{ backgroundColor: selectedBcc }}
       ></div>
-      <div className="user_init_hover">
-        <h4 className="user_init_classification">{props.classification}</h4>
-        <h3 className="user_init_name">{props.name}</h3>
-        <p className="user_init_text">{props.text}</p>
+      <div className={styles.user_init_hover}>
+        <h4 className={styles.user_init_classification}>
+          {props.classification}
+        </h4>
+        <h3 className={styles.user_init_name}>{props.name}</h3>
+        <p className={styles.user_init_text}>{props.text}</p>
       </div>
     </div>
   );

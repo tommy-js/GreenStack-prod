@@ -3,7 +3,7 @@ import { UserQuestion } from "../UserQuestion/UserQuestion";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { saveSettingsMutation } from "../../queries/queries.js";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   id: number;
@@ -102,9 +102,9 @@ const RenderPageOneMutation: React.FC<Props> = (props) => {
         modSelected={modSelected}
         options={option3}
       />
-      <div className="render_pages_button_container">
+      <div className={styles.render_pages_button_container}>
         <button
-          className="render_button_right"
+          className={styles.render_button_right}
           onClick={() => props.nextPage(props.id)}
         >
           Next

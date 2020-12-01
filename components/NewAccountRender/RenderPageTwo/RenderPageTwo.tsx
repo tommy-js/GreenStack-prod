@@ -1,6 +1,6 @@
 import React from "react";
 import { TickerList } from "../TickerList/TickerList";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   id: number;
@@ -11,17 +11,19 @@ interface Props {
 export const RenderPageTwo: React.FC<Props> = (props) => {
   return (
     <React.Fragment>
-      <p className="user_init_questions">Which stocks here interest you?</p>
+      <p className={styles.user_init_questions}>
+        Which stocks here interest you?
+      </p>
       <TickerList />
-      <div className="render_pages_button_container">
+      <div className={styles.render_pages_button_container}>
         <button
-          className="render_button_left"
+          className={styles.render_button_left}
           onClick={() => props.backPage(props.id)}
         >
           Back
         </button>
         <button
-          className="render_button_right"
+          className={styles.render_button_right}
           onClick={() => props.nextPage(props.id)}
         >
           Next

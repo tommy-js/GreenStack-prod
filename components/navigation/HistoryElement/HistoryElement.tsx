@@ -25,7 +25,7 @@ export const HistoryElement: React.FC<Hist> = (props) => {
 
   return (
     <React.Fragment>
-      <Link to="/home/profile">
+      <Link href="/home/profile">
         <a className={`${styles.link_style} ${styles.notifications_link}`}>
           {props.text}
         </a>
