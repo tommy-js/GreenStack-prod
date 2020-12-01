@@ -2,7 +2,7 @@ import React from "react";
 import { PostStatus } from "../PostStatus/PostStatus";
 import Link from "next/link";
 import { PostItem } from "../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   post: PostItem;
@@ -10,12 +10,12 @@ interface Props {
 
 export const IndividualUserProfilePost: React.FC<Props> = ({ post }: Props) => {
   return (
-    <div className="user_profile_post">
+    <div className={styles.user_profile_post}>
       <Link href={`/home/post/${post.postId}`}>
         <a>{post.title}</a>
       </Link>
-      <h2 className="user_profile_title">{post.title}</h2>
-      <p className="user_profile_text">{post.text}</p>
+      <h2 className={styles.user_profile_title}>{post.title}</h2>
+      <p className={styles.user_profile_text}>{post.text}</p>
       <PostStatus
         likes={post.likes}
         dislikes={post.dislikes}

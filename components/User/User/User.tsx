@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../Header/Header";
 import { UserInformation } from "../UserInformation/UserInformation";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   user: string;
@@ -12,7 +12,7 @@ interface Props {
 
 export const User: React.FC<Props> = (props) => {
   return (
-    <div id="user">
+    <div className={styles.user}>
       <Header text={props.user} />
       <UserInformation
         user={props.user}
