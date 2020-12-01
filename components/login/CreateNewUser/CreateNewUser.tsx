@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useLazyQuery } from "react-apollo";
 import { flowRight as compose } from "lodash";
+import { useRouter } from "next/router";
 import {
   createUserMutation,
   distinctUserQuery,
@@ -16,6 +17,7 @@ interface Props {
 
 const CreateNewUserMutation: React.FC<Props> = (props) => {
   const [newUsername, setNewUsername] = useState(false);
+  const router = useRouter();
   const [callUser, { data }] = useLazyQuery(distinctUserQuery, {
     variables: { username: props.username },
   });
@@ -121,7 +123,7 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
       })
       .then((res: any) => {
         sessionStorage.setItem("Token", res.data.createUser.token);
-        window.location.reload();
+        router.push("/");
       })
       .catch((err: any) => {
         console.log(err);

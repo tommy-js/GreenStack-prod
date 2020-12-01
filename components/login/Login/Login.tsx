@@ -28,24 +28,14 @@ interface Redux {
 const LoginRender: React.FC<Redux> = (props) => {
   const [userId, setUserId] = useState();
   const [newAccount, setNewAccount] = useState(false);
-  const [loadingUser, setLoadingUser] = useState(false);
+  const [loadingInUser, setLoadingInUser] = useState(false);
   const router = useRouter();
 
   const [passToken, { data }] = useLazyQuery(queryToken);
 
   useEffect(() => {
-    if (props.status === false) {
-      let sessionToken = sessionStorage.getItem("Token");
-      if (sessionToken) {
-        passToken({
-          variables: {
-            token: sessionToken,
-          },
-        });
-        setLoadingUser(true);
-      }
-    }
-  }, []);
+    if (props.status === false) setLoadingInUser(true);
+  }, [props.status]);
 
   useEffect(() => {
     let sessionToken = sessionStorage.getItem("Token");
@@ -54,7 +44,7 @@ const LoginRender: React.FC<Redux> = (props) => {
       if (data.token.token === sessionToken) {
         props.onStatusSet(true);
         setUserId(data.token.userid);
-        setLoadingUser(true);
+        setLoadingInUser(true);
       }
     }
   }, data);
@@ -73,15 +63,19 @@ const LoginRender: React.FC<Redux> = (props) => {
   }
 
   function modLoadingUser() {
-    setLoadingUser(true);
+    setLoadingInUser(true);
   }
 
   function loggedIn() {
     router.push("/");
   }
 
+  function renderLoadingFalse() {
+    setLoadingInUser(false);
+  }
+
   function displayBlock() {
-    if (loadingUser === false) {
+    if (loadingInUser === false) {
       if (newAccount === false) {
         return (
           <div className="login_forms">
@@ -104,10 +98,10 @@ const LoginRender: React.FC<Redux> = (props) => {
         );
     } else {
       return (
-        <div className="login_forms">
-          <LoadingUser />
-          <UserLoginAuthSubresolver loggedIn={loggedIn} />
-        </div>
+        <UserLoginAuthSubresolver
+          loggedIn={loggedIn}
+          renderLoadingFalse={renderLoadingFalse}
+        />
       );
     }
   }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { LoadingUser } from "../../../components/login/Loading/Loading";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { Feed } from "../feed/Feed/Feed";
@@ -171,19 +170,16 @@ const HomepageRender: React.FC<Redux> = (props) => {
   function returnLoading() {
     if (loadingInUser === true) {
       return (
-        <div className="render_loading">
-          <div className="drop_loading_block">
-            <LoadingUser />
-            <UserLoginAuthSubresolver loggedIn={loggedIn} />
-          </div>
+        <div className="render_loading drop_loading_block">
+          <UserLoginAuthSubresolver loggedIn={loggedIn} />
         </div>
       );
     } else if (loadingInUser === false)
       return (
-        <div>
+        <React.Fragment>
           {returnLoadingIcon()}
           <Feed />
-        </div>
+        </React.Fragment>
       );
   }
 

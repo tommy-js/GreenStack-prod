@@ -32,6 +32,7 @@ interface Redux {
 
 interface Props extends Redux {
   loggedIn: () => void;
+  renderLoadingFalse?: () => void;
 }
 
 const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
@@ -50,7 +51,10 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
             token: token,
           },
         });
-      } else router.push("/login");
+      } else {
+        if (props.renderLoadingFalse) props.renderLoadingFalse();
+        router.push("/login");
+      }
     }, 500);
   }, []);
 
