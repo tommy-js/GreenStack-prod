@@ -4,7 +4,7 @@ import { NotificationIcon } from "../../notifications/NotificationIcon/Notificat
 const home = require("../../../public/mainicon.png");
 const portfolio = require("../../../public/portfolio_icon.png");
 const tutorial = require("../../../public/tutorial_icon.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const NavBar: React.FC = () => {
   const [triggerDisplay, setTriggerDisplay] = useState("none");
@@ -24,21 +24,21 @@ export const NavBar: React.FC = () => {
   }
 
   return (
-    <div className="navbar">
+    <div className={styles.navbar}>
       <Link href="/home">
-        <img src={home} className="navbar_icon" />
+        <img src={home} className={styles.navbar_icon} />
       </Link>
       <Link href="/portfolio">
-        <img src={portfolio} className="navbar_icon" />
+        <img src={portfolio} className={styles.navbar_icon} />
       </Link>
       <Link href="/about">
-        <img src={tutorial} className="navbar_icon" />
+        <img src={tutorial} className={styles.navbar_icon} />
       </Link>
       <Link href="/login">
         <a onClick={() => dropToken()}>Logout</a>
       </Link>
       <div
-        id="notification_container"
+        id={styles.notification_container}
         style={{ display: triggerDisplay }}
         onClick={() => {
           setZeroTabOut(!zeroTabOut);
