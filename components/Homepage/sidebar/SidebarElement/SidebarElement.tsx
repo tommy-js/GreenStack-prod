@@ -9,7 +9,7 @@ interface Props {
 export const SidebarElement: React.FC<Props> = (props) => {
   return (
     <Link href={props.path}>
-      <p className="sidebar_element_text sidebar_element">{props.text}</p>
+      <a className="sidebar_element_text sidebar_element">{props.text}</a>
     </Link>
   );
 };

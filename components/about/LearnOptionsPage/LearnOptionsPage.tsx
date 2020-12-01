@@ -111,18 +111,18 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         <p className="learn_page_paragraph">
           An{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">option</span>
+            <a className="emphasize featureless_link">option</a>
           </Link>{" "}
           is a contract with another trader that gives you the right to buy or
           sell a number of shares at a certain price. In fact, it specifically
           gives you the right to buy or sell 100 shares. There are two types of
           options;{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">call</span>
+            <a className="emphasize featureless_link">call</a>
           </Link>
           , which basically means you think the stock price will rise, and{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">puts</span>
+            <a className="emphasize featureless_link">puts</a>
           </Link>
           , which implies that you believe the stock value will fall.
         </p>
@@ -139,7 +139,7 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
           stock would hit $600 by January 10, 2021, I would buy this option
           contract and in return I would pay a fee. The fee is called a{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">premium</span>
+            <a className="emphasize featureless_link">premium</a>
           </Link>
           , and it can range from as little as $1 to tens of thousands or more.
           The fee is the cost for you to buy this option.
@@ -196,11 +196,11 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
         <p className="learn_page_paragraph">
           The same concepts of{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">naked puts</span>
+            <a className="emphasize featureless_link">naked puts</a>
           </Link>{" "}
           and{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">covered puts</span>
+            <a className="emphasize featureless_link">covered puts</a>
           </Link>{" "}
           applies here.
         </p>

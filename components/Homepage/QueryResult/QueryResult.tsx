@@ -18,11 +18,14 @@ interface Stock {
 
 export const QueryUserResult: React.FC<User> = (props) => {
   return (
-    <Link href={`/home/user/${props.userId}`}>
+    <React.Fragment>
+      <Link href={`/home/user/${props.userId}`}>
+        <a>{props.username}</a>
+      </Link>
       <h2>{props.username}</h2>
       <img src={props.profileImage} />
       <h3>{props.bio}</h3>
-    </Link>
+    </React.Fragment>
   );
 };
 

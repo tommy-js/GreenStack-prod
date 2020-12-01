@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 
 interface Props {
   text: string;
@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const MenuItem: React.FC<Props> = (props) => {
-  return <Link to={props.path}>{props.text}</Link>;
+  return <Link href={props.path}>{props.text}</Link>;
 };

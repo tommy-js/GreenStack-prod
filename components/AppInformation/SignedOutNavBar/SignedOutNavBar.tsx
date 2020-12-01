@@ -6,10 +6,10 @@ export const SignedOutNavBar: React.FC = () => {
   return (
     <div className="navbar">
       <Link href="/">
-        <p className="nav_el">TIKR</p>
+        <a className="nav_el">TIKR</a>
       </Link>
       <Link href="information">
-        <p className="nav_el">About</p>
+        <a className="nav_el">About</a>
       </Link>
     </div>
   );

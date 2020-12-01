@@ -62,11 +62,12 @@ const UserIndexRender: React.FC<Props> = (props) => {
       onMouseLeave={() => setHovered(false)}
     >
       <Link href={`/home/user/${props.highlightUserId}`}>
-        <div className="username_tag_block" onClick={() => unlockScrollState()}>
-          <span className="username_tag">@{props.highlightUsername}</span>
-        </div>
-        <div className="hover_comp">{returnHoverOver()}</div>
+        <a>{props.highlightUsername}</a>
       </Link>
+      <div className="username_tag_block" onClick={() => unlockScrollState()}>
+        <span className="username_tag">@{props.highlightUsername}</span>
+      </div>
+      <div className="hover_comp">{returnHoverOver()}</div>
     </div>
   );
 };

@@ -41,7 +41,7 @@ export const LearnProtectionPage: React.FC = () => {
           There are two main ways investors protect their assets, and both rely
           on the same general idea. The first is through manual{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">diversification</span>
+            <a className="emphasize featureless_link">diversification</a>
           </Link>
           . This is the process of splitting up your portfolio among many
           stocks, and ideally many different sectors. For example, you might buy
@@ -65,7 +65,7 @@ export const LearnProtectionPage: React.FC = () => {
           The graph above shows the value of the S&P 500 from 2011 to 2020. The
           S&P 500 is an{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">index</span>
+            <a className="emphasize featureless_link">index</a>
           </Link>
           , or a measurement that takes account of a number of stocks. In the
           case of the S&P 500, it is an index that measures the value of the 500

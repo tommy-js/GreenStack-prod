@@ -154,24 +154,24 @@ const FeedPostRender: React.FC<Props> = (props) => {
         onMouseOut={() => setOver(false)}
       >
         <Link href={`/home/user/${props.postUserId}`}>
-          <div
-            className="feed_profile_image_block feed_link"
-            onClick={() => unlockScrollState()}
-          >
-            <img className="feed_profile_image" src={props.postProfileImage} />
-          </div>
-          <h3 className="feed_link_name">{props.postUsername}</h3>
+          <a>{props.postUsername}</a>
         </Link>
+        <div
+          className="feed_profile_image_block feed_link"
+          onClick={() => unlockScrollState()}
+        >
+          <img className="feed_profile_image" src={props.postProfileImage} />
+        </div>
+        <h3 className="feed_link_name">{props.postUsername}</h3>
         <div style={{ opacity: styledOpac }} className="feed_link_unfollow">
           <InlineUnfollow followerId={props.postUserId} />
         </div>
         <Link href={`/home/post/${props.postId}`}>
-          <div>{returnImage()}</div>
-          <p>{returnText()}</p>
-          <p className="post_return_date">
-            Posted {returnDate(props.timestamp)}
-          </p>
+          <a>{props.postUserId}</a>
         </Link>
+        <div>{returnImage()}</div>
+        <p>{returnText()}</p>
+        <p className="post_return_date">Posted {returnDate(props.timestamp)}</p>
       </div>
       <div className="feed_link">{returnAllowed()}</div>
     </div>

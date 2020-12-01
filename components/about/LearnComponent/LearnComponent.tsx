@@ -22,7 +22,8 @@ export const LearnComponent: React.FC<Props> = (props) => {
   }
 
   return (
-    <Link href={props.path}>
+    <div>
+      <Link href={props.path}>click me</Link>
       <div
         key={props.title}
         id="learn_individual_div"
@@ -43,6 +44,6 @@ export const LearnComponent: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };

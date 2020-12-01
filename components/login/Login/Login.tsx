@@ -122,7 +122,10 @@ const LoginRender: React.FC<Redux> = (props) => {
         <LoginPageCommunityInfo />
         <LoginPageLearnInfo />
         <h3>
-          Still have questions? <Link href="/information">Go Here</Link>
+          Still have questions?{" "}
+          <Link href="/information">
+            <a>Go Here</a>
+          </Link>
         </h3>
       </div>
     </div>

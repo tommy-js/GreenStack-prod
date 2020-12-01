@@ -18,11 +18,12 @@ export const ExploreCompany: React.FC<Props> = ({ company }: Props) => {
   return (
     <div key={company.keyId} className="homepage_block_component">
       <Link href={`/home/stock/${company.stockId}`}>
-        <p className="block_link">
-          {company.title} #{company.ticker}
-        </p>
-        <p>{company.description}</p>
+        <a>{company.title}</a>
       </Link>
+      <p className="block_link">
+        {company.title} #{company.ticker}
+      </p>
+      <p>{company.description}</p>
     </div>
   );
 };

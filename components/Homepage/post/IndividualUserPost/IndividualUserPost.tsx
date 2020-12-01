@@ -14,7 +14,10 @@ interface Props {
 
 export const IndividualUserPost: React.FC<Props> = (props) => {
   return (
-    <Link href={`/home/post/[${props.postId}]`}>
+    <div>
+      <Link href={`/home/post/[${props.postId}]`}>
+        <a>{props.title}</a>
+      </Link>
       <div className="standard_link homepage_block_component">
         <h2 className="individual_user_post_title">{props.title}</h2>
         <p className="individual_user_post_textblock">{props.text}</p>
@@ -26,6 +29,6 @@ export const IndividualUserPost: React.FC<Props> = (props) => {
           </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };

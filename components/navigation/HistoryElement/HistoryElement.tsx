@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import { returnDate } from "./index";
 const page = require("../images/post_img.png");
 const like = require("../images/like.png");
@@ -24,12 +24,15 @@ export const HistoryElement: React.FC<Hist> = (props) => {
   }
 
   return (
-    <Link className="link_style notifications_link" to="/home/profile">
+    <React.Fragment>
+      <Link to="/home/profile">
+        <a className="link_style notifications_link">{props.text}</a>
+      </Link>
       <div className="history_icon">{returnImg()}</div>
       <div className="history_text_block">
         <p className="history_text">{props.text}</p>
         <p className="history_text">{returnDate(props.timestamp)}</p>
       </div>
-    </Link>
+    </React.Fragment>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface Props {
   user: string;
@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const UserAccountSnippetInfo: React.FC<Props> = (props) => {
-  return <Link to={`/user/${props.userId}`}>{props.user}</Link>;
+  return <Link href={`/user/${props.userId}`}>{props.user}</Link>;
 };

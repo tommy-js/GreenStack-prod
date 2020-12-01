@@ -104,7 +104,7 @@ const LearnBasicsPageRender: React.FC<Props> = (props) => {
           investors(that's you!). Investors purchase portions of companies,
           called{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">shares</span>
+            <a className="emphasize featureless_link">shares</a>
           </Link>
           , which fluctuate in value depending on how a company is doing. It's
           your hope as an investor that the value of these shares increase over

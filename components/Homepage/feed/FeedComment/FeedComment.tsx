@@ -38,12 +38,13 @@ export const FeedComment: React.FC<Props> = (props) => {
         <p className="feed_comment_header_text">{props.text}</p>
       </div>
       <Link href={`/home/post/${props.reference.postId}`}>
-        <div className="feed_comment_base">
-          <span className="feed_comment_base_reference_text">
-            {props.reference.text}
-          </span>
-        </div>
+        <a>{props.username}</a>
       </Link>
+      <div className="feed_comment_base">
+        <span className="feed_comment_base_reference_text">
+          {props.reference.text}
+        </span>
+      </div>
     </React.Fragment>
   );
 };

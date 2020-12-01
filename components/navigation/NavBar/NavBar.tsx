@@ -35,7 +35,7 @@ export const NavBar: React.FC = () => {
         <img src={tutorial} className="navbar_icon" />
       </Link>
       <Link href="/login">
-        <span onClick={() => dropToken()}>Logout</span>
+        <a onClick={() => dropToken()}>Logout</a>
       </Link>
       <div
         id="notification_container"

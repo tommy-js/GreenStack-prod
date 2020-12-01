@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 import "./styles.module.scss";
 
 interface User {
@@ -11,10 +11,11 @@ interface User {
 export const ExploreUser: React.FC<User> = (props) => {
   return (
     <div className="explore_component">
-      <Link to={`/home/user/${props.id}`} className="explore_component_link">
-        <p>{props.username}</p>
-        <p>{props.description}</p>
+      <Link href={`/home/user/${props.id}`}>
+        <a>{props.username}</a>
       </Link>
+      <p>{props.username}</p>
+      <p>{props.description}</p>
     </div>
   );
 };

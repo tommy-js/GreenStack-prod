@@ -8,9 +8,12 @@ export const MapBlock: React.FC = () => {
   return (
     <div className="map_block">
       {companyProfiles.map((el) => (
-        <Link to={`/${el.ticker}`}>
+        <React.Fragment>
+          <Link to={`/${el.ticker}`}>
+            <a>{el.title}</a>
+          </Link>
           <SuggestedCompany key={el.title} text={el.title} />
-        </Link>
+        </React.Fragment>
       ))}
     </div>
   );

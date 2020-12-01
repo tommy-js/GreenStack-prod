@@ -12,9 +12,10 @@ export const IndividualUserProfilePost: React.FC<Props> = ({ post }: Props) => {
   return (
     <div className="user_profile_post">
       <Link href={`/home/post/${post.postId}`}>
-        <h2 className="user_profile_title">{post.title}</h2>
-        <p className="user_profile_text">{post.text}</p>
+        <a>{post.title}</a>
       </Link>
+      <h2 className="user_profile_title">{post.title}</h2>
+      <p className="user_profile_text">{post.text}</p>
       <PostStatus
         likes={post.likes}
         dislikes={post.dislikes}

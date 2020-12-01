@@ -150,14 +150,15 @@ const RenderModalPre: React.FC<Props> = (props) => {
       <div className="post_upper_block">
         <h2>{props.title}</h2>
         <Link href={`/home/user/${props.postUserId}`}>
-          <div
-            className="feed_profile_image_block feed_link"
-            onClick={() => unlockScrollState()}
-          >
-            <img className="feed_profile_image" src={props.userProfileImage} />
-          </div>
-          <h3 className="feed_link_name">{props.postUsername}</h3>
+          <a>{props.postUserId}</a>
         </Link>
+        <div
+          className="feed_profile_image_block feed_link"
+          onClick={() => unlockScrollState()}
+        >
+          <img className="feed_profile_image" src={props.userProfileImage} />
+        </div>
+        <h3 className="feed_link_name">{props.postUsername}</h3>
 
         {returnImage()}
         <p className="post_text">{returnText()}</p>

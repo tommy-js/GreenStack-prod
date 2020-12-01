@@ -11,11 +11,14 @@ interface Props {
 
 export const WatchlistElement: React.FC<Props> = (props) => {
   return (
-    <Link href={`/home/stock/${props.stockId}`}>
+    <React.Fragment>
+      <Link href={`/home/stock/${props.stockId}`}>
+        <a>{props.title}</a>
+      </Link>
       <p key={props.key} className="watch_listing_link watch_listing">
         {props.title}{" "}
         <span className="watch_listing_ticker_span">#{props.ticker}</span>
       </p>
-    </Link>
+    </React.Fragment>
   );
 };

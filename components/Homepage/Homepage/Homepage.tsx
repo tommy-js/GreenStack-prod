@@ -73,12 +73,13 @@ const HomepageRender: React.FC<Redux> = (props) => {
   }, [companyData]);
 
   useEffect(() => {
+    console.log("Homepage status: " + props.status);
     if (props.status === false) {
       let sessionToken = sessionStorage.getItem("Token");
       if (sessionToken) {
         passToken({
           variables: {
-            token: sessionStorage.getItem("Token"),
+            token: sessionToken,
           },
         });
       } else router.push("/login");
