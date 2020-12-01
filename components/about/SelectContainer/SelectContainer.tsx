@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   id: number;
@@ -10,7 +10,7 @@ interface Props {
 export const SelectContainer: React.FC<Props> = (props) => {
   return (
     <div
-      className="select_container"
+      className={styles.select_container}
       style={{ backgroundColor: props.bcc }}
       onClick={() => props.selectOption(props.id)}
     ></div>

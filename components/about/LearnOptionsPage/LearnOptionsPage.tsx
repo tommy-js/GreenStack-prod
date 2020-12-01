@@ -18,7 +18,7 @@ import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
 import { Pie } from "react-chartjs-2";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   status: boolean;
@@ -98,39 +98,45 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
   return (
     <div>
       <NavBar />
-      <div className="learn_page">
-        <h2 className="learn_page_header">The Basics of Options</h2>
-        <p className="learn_page_paragraph">
+      <div className={styles.learn_page}>
+        <h2 className={styles.learn_page_header}>The Basics of Options</h2>
+        <p className={styles.learn_page_paragraph}>
           Most people interested the stock market have heard of buying shares
           and know what it means to invest in a company. However, there is a
           whole world out there within the stock market that most people aren't
           aware of. One of these terms you may be unfamiliar with is that of
           "options."
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           An{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">option</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              option
+            </a>
           </Link>{" "}
           is a contract with another trader that gives you the right to buy or
           sell a number of shares at a certain price. In fact, it specifically
           gives you the right to buy or sell 100 shares. There are two types of
           options;{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">call</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              call
+            </a>
           </Link>
           , which basically means you think the stock price will rise, and{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">puts</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              puts
+            </a>
           </Link>
           , which implies that you believe the stock value will fall.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           These terms sound complicated, but we'll explain them in simple terms
           here, starting with the call option.
         </p>
-        <p className="learn_page_subheader">The call option</p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_subheader}>The call option</p>
+        <p className={styles.learn_page_paragraph}>
           Whenever you buy a call option, you're basically placing a bet that
           the stock price will rise. In order to place a call option, you need
           to pick a price you think the stock will rise to and a date you think
@@ -138,25 +144,31 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
           stock would hit $600 by January 10, 2021, I would buy this option
           contract and in return I would pay a fee. The fee is called a{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">premium</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              premium
+            </a>
           </Link>
           , and it can range from as little as $1 to tens of thousands or more.
           The fee is the cost for you to buy this option.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Of course, you can also sell calls. This allows you to charge other
           investors a premium, which lets you make money easily. There is,
           however, greater risk in selling options, which we'll get into soon.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           There are two important concepts when it comes to selling calls, which
           are that of{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">naked calls</span>
+            <span className={`${styles.emphasize} ${styles.featureless_link}`}>
+              naked calls
+            </span>
           </Link>{" "}
           and{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">covered calls</span>
+            <span className={`${styles.emphasize} ${styles.featureless_link}`}>
+              covered calls
+            </span>
           </Link>
           . The covered call takes place when you own the asset you're selling
           the call option for. This means that if you lose your bet, and the
@@ -178,13 +190,13 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
           headline="What is a premium?"
         />
 
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           In comparison, the naked call is far riskier; it essentially means you
           do not own the underlying asset, and so your potential loss is
           technically unlimited.
         </p>
-        <p className="learn_page_subheader">The put option</p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_subheader}>The put option</p>
+        <p className={styles.learn_page_paragraph}>
           Puts are the exact opposite of calls. You believe the stock price will
           fall and so you sell or buy a put option in the hopes of making money.
           Selling a put option gives you the premium when someone buys your
@@ -192,19 +204,23 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
           the stock falls or stays below a certain level you can make large sums
           of money.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           The same concepts of{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">naked puts</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              naked puts
+            </a>
           </Link>{" "}
           and{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">covered puts</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              covered puts
+            </a>
           </Link>{" "}
           applies here.
         </p>
-        <p className="learn_page_subheader">Examples</p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_subheader}>Examples</p>
+        <p className={styles.learn_page_paragraph}>
           The best way to learn is through example, so here we'll really get
           into the nitty-gritty of options trading.
         </p>
@@ -216,16 +232,18 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
           options={options1.options}
         />
 
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Let's say you think the price of Apple is going to rise. In fact,
           you're confident that the share value of Apple will go above $130 by
           November 6, 2020, three weeks from today. This represents a gain of
           about $9 per share.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Because you're so confident, you decide to buy calls on Apple at this{" "}
           <Link href="/about/glossary">
-            <span className="emphasize featureless_link">strike price</span>
+            <span className={`${styles.emphasize} ${styles.featureless_link}`}>
+              strike price
+            </span>
           </Link>{" "}
           and for this date. Because it is widely believed that the price of
           Apple will rise over time, and because the price of its shares are

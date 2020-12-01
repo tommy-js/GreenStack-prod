@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   text: string;
@@ -23,10 +23,10 @@ export const BlanksInput: React.FC<Props> = ({
   }
 
   return (
-    <div className="blank_input_block">
-      <p className="blank_question">{text}</p>
+    <div className={styles.blank_input_block}>
+      <p className={styles.blank_question}>{text}</p>
       <input
-        className="blank_input"
+        className={styles.blank_input}
         type="text"
         value={val}
         onChange={(e) => modVal(e.target.value)}

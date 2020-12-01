@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -17,9 +17,13 @@ const Box: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="select_boxes" onClick={() => modSelected()}>
-      <input type="checkbox" checked={selected} className="box_checkbox" />
-      <p className="box_title">{props.title}</p>
+    <div className={styles.select_boxes} onClick={() => modSelected()}>
+      <input
+        type="checkbox"
+        checked={selected}
+        className={styles.box_checkbox}
+      />
+      <p className={styles.box_title}>{props.title}</p>
     </div>
   );
 };

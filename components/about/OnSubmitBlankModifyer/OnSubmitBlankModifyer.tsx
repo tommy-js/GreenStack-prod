@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CorrectIcon } from "../CorrectIcon/CorrectIcon";
 import { IncorrectIcon } from "../IncorrectIcon/IncorrectIcon";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   submitted: boolean;
@@ -34,5 +34,5 @@ export const OnSubmitBlankModifyer: React.FC<Props> = ({
     } else return null;
   }
 
-  return <div className="inline">{returnRender()}</div>;
+  return <div className={styles.inline}>{returnRender()}</div>;
 };

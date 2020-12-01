@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SelectContainer } from "../SelectContainer/SelectContainer";
 import { SelectSubheader } from "../SelectSubheader/SelectSubheader";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -19,7 +19,7 @@ export const Option: React.FC<Props> = (props) => {
   }, [props.selectedOption]);
 
   return (
-    <div className="option">
+    <div className={styles.option}>
       <SelectContainer
         id={props.id}
         bcc={bcc}

@@ -5,7 +5,7 @@ import { returnCorrectReducer } from "./index";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProgressMutation } from "../../queries/queries.js";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -66,8 +66,8 @@ const BlanksMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="knowledge_check">
-      <h3 className="blanks_title">{props.title}</h3>
+    <div className={styles.knowledge_check}>
+      <h3 className={styles.blanks_title}>{props.title}</h3>
       {props.options.map((el: any) => (
         <div>
           <BlanksInput
@@ -83,7 +83,7 @@ const BlanksMutation: React.FC<Props> = (props) => {
           />
         </div>
       ))}
-      <button className="blank_submit" onClick={() => submit()}>
+      <button className={styles.blank_submit} onClick={() => submit()}>
         Submit
       </button>
     </div>

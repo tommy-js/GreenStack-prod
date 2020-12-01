@@ -7,7 +7,7 @@ import { userCommentLookup } from "../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { UserRoute } from "../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 type Tag = string;
 
@@ -56,14 +56,14 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="tutorial_comment">
-      <h3 className="tutorial_comment_username">
+    <div className={styles.tutorial_comment}>
+      <h3 className={styles.tutorial_comment_username}>
         <Link href={`/home/user/${props.commentUserId}`}>
           {props.commentUsername}
         </Link>
       </h3>
-      <p className="tutorial_comment_text">{returnText()}</p>
-      <h4 className="tutorial_comment_timestamp">
+      <p className={styles.tutorial_comment_text}>{returnText()}</p>
+      <h4 className={styles.tutorial_comment_timestamp}>
         Posted at {returnDate(props.timestamp)}
       </h4>
     </div>
@@ -106,7 +106,7 @@ const IndMapper: React.FC<Mapper> = (props) => {
         />
       );
     } else {
-      return <span className="tag_span"> {props.tag} </span>;
+      return <span className={styles.tag_span}> {props.tag} </span>;
     }
   }
 

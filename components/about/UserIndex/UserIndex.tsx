@@ -5,7 +5,7 @@ import { UserRoute } from "../../types/types";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   userRoutes: UserRoute[];
@@ -57,17 +57,20 @@ const UserIndexRender: React.FC<Props> = (props) => {
 
   return (
     <div
-      className="user_comment_index"
+      className={styles.user_comment_index}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <Link href={`/home/user/${props.highlightUserId}`}>
         <a>{props.highlightUsername}</a>
       </Link>
-      <div className="username_tag_block" onClick={() => unlockScrollState()}>
-        <span className="username_tag">@{props.highlightUsername}</span>
+      <div
+        className={styles.username_tag_block}
+        onClick={() => unlockScrollState()}
+      >
+        <span className={styles.username_tag}>@{props.highlightUsername}</span>
       </div>
-      <div className="hover_comp">{returnHoverOver()}</div>
+      <div className={styles.hover_comp}>{returnHoverOver()}</div>
     </div>
   );
 };

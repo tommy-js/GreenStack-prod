@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -14,11 +14,11 @@ export const LearnComponent: React.FC<Props> = (props) => {
 
   function renderProgress() {
     if (props.percent < 25)
-      return <p className="progress_flare">Just started!</p>;
+      return <p className={styles.progress_flare}>Just started!</p>;
     else if (props.percent >= 25 && props.percent < 75)
-      return <p className="progress_flare">Getting there!</p>;
+      return <p className={styles.progress_flare}>Getting there!</p>;
     else if (props.percent >= 75)
-      return <p className="progress_flare">Almost there!</p>;
+      return <p className={styles.progress_flare}>Almost there!</p>;
   }
 
   return (
@@ -26,7 +26,7 @@ export const LearnComponent: React.FC<Props> = (props) => {
       <div
         key={props.title}
         id="learn_individual_div"
-        className="learn_component_link"
+        className={styles.learn_component_link}
         onMouseOver={() => setRenderOpac(1)}
         onMouseOut={() => setRenderOpac(0)}
       >
@@ -39,8 +39,11 @@ export const LearnComponent: React.FC<Props> = (props) => {
           </div>
         </div>
         <div id="learn_individual_progress_div">
-          <p className="progress_percent">{props.percent}/100</p>
-          <div className="render_learn_flare" style={{ opacity: renderOpac }}>
+          <p className={styles.progress_percent}>{props.percent}/100</p>
+          <div
+            className={styles.render_learn_flare}
+            style={{ opacity: renderOpac }}
+          >
             {renderProgress()}
           </div>
         </div>

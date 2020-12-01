@@ -1,18 +1,19 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const LearnSidebar: React.FC = () => {
   return (
-    <div className="learn_sidebar">
-      <ul className="learn_sidebar_ul">
-        <li className="learn_sidebar_item">
-          <div className="learn_sidebar_button"></div>Getting Started
+    <div className={styles.learn_sidebar}>
+      <ul className={styles.learn_sidebar_ul}>
+        <li className={styles.learn_sidebar_item}>
+          <div className={styles.learn_sidebar_button}></div>Getting Started
         </li>
-        <li className="learn_sidebar_item">
-          <div className="learn_sidebar_button"></div>What are options
+        <li className={styles.learn_sidebar_item}>
+          <div className={styles.learn_sidebar_button}></div>What are options
         </li>
-        <li className="learn_sidebar_item">
-          <div className="learn_sidebar_button"></div>What is "diversification"
+        <li className={styles.learn_sidebar_item}>
+          <div className={styles.learn_sidebar_button}></div>What is
+          "diversification"
         </li>
       </ul>
     </div>

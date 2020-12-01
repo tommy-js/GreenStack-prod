@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   headline: string;
@@ -8,9 +8,11 @@ interface Props {
 
 export const KnowledgeCheckHeadline: React.FC<Props> = (props) => {
   return (
-    <h2 id="knowledge_check_headline">
+    <h2 id={styles.knowledge_check_headline}>
       {props.headline}{" "}
-      <span className="render_ans correct_ans">{props.res}</span>
+      <span className={`${styles.render_ans} ${styles.correct_ans}`}>
+        {props.res}
+      </span>
     </h2>
   );
 };

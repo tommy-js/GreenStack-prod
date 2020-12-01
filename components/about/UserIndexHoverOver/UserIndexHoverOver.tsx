@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   highlightProfileImage: string;
@@ -9,16 +9,18 @@ interface Props {
 
 export const UserIndexHoverOver: React.FC<Props> = (props) => {
   return (
-    <div className="transparent_outer">
-      <div className="user_index_hover_block">
-        <div className="user_index_hover_img_block">
+    <div className={styles.transparent_outer}>
+      <div className={styles.user_index_hover_block}>
+        <div className={styles.user_index_hover_img_block}>
           <img
-            className="user_index_hover_img"
+            className={styles.user_index_hover_img}
             src={props.highlightProfileImage}
           />
         </div>
-        <p className="user_index_hover_username">{props.highlightUsername}</p>
-        <p className="user_index_hover_bio">{props.highlightBio}</p>
+        <p className={styles.user_index_hover_username}>
+          {props.highlightUsername}
+        </p>
+        <p className={styles.user_index_hover_bio}>{props.highlightBio}</p>
       </div>
     </div>
   );
