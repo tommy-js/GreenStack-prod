@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
+import UserLoginAuthSubresolver from "../../../../components/resolvers/UserLoginAuthSubresolver";
+import { LearnOptionsPage } from "../../../../components/about/LearnOptionsPage/LearnOptionsPage";
 import { connect } from "react-redux";
-import { mapStateToProps } from "../../../components/actions/actions";
+import { mapStateToProps } from "../../../../components/actions/actions";
 
 interface Redux {
   status: boolean;
 }
 
-const Page404: React.FC<Redux> = (props) => {
+const Options: React.FC<Redux> = (props) => {
   const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
@@ -20,10 +21,10 @@ const Page404: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <h1>Oops! Wrong turn! 404</h1>;
+    } else return <LearnOptionsPage />;
   }
 
   return checkReturn();
 };
 
-export default connect(mapStateToProps)(Page404);
+export default connect(mapStateToProps)(Options);

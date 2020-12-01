@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { NavBar } from "../../navigation/NavBar/NavBar";
 import { CommentSection } from "../CommentSection/CommentSection";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";

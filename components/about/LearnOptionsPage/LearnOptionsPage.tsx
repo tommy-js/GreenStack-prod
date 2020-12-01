@@ -5,7 +5,6 @@ import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { SelectAll } from "../SelectAll/SelectAll";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
-import { statusContext } from "../../AppMain/App/App";
 import Router from "next/router";
 import {
   APPLE2month,
@@ -21,18 +20,18 @@ import { tutorialQuery } from "../../queries/queries";
 import { Pie } from "react-chartjs-2";
 import "./styles.module.scss";
 
-interface Props {
+interface Redux {
+  status: boolean;
   progress: any;
   progressElements: any;
 }
 
-export const LearnOptionsPageRender: React.FC<Props> = (props) => {
+export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
   const { data } = useQuery(tutorialQuery, {
     variables: { id: 2 },
     pollInterval: 500,
   });
   const [comments, setComments] = useState([] as any);
-  const { status, setStatus } = useContext(statusContext);
   const [id, setId] = useState(props.progress[1].id);
   const [currentProgress, setCurrentProgress] = useState(
     props.progress[0].percent
@@ -93,7 +92,7 @@ export const LearnOptionsPageRender: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (status === false) Router.push("/login");
+    if (props.status === false) Router.push("/login");
   }, []);
 
   return (

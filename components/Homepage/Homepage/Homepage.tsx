@@ -24,7 +24,7 @@ import {
   WatchListItem,
 } from "../../../components/types/types";
 import { companySort } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   userId: string;
@@ -155,7 +155,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
       return (
         <div>
           <NavBar />
-          <div className="homepage">
+          <div className={styles.homepage}>
             {renderShowPostOptions()}
             <FeedSidebar
               modRes={modRes}
@@ -170,7 +170,9 @@ const HomepageRender: React.FC<Redux> = (props) => {
   function returnLoading() {
     if (loadingInUser === true) {
       return (
-        <div className="render_loading drop_loading_block">
+        <div
+          className={`${styles.render_loading} ${styles.drop_loading_block}`}
+        >
           <UserLoginAuthSubresolver loggedIn={loggedIn} />
         </div>
       );

@@ -5,7 +5,6 @@ import { Footer } from "../Footer/Footer";
 import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
-import { statusContext } from "../../AppMain/App/App";
 import Router from "next/router";
 import { APPLE2month, AMZN10Year } from "../graphData.js";
 import Link from "next/link";
@@ -15,18 +14,18 @@ import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
 import { Pie } from "react-chartjs-2";
 
-interface Props {
+interface Redux {
+  status: boolean;
   progress: any;
   progressElements: any;
 }
 
-const LearnBasicsPageRender: React.FC<Props> = (props) => {
+const LearnBasicsPageRender: React.FC<Redux> = (props) => {
   const { data } = useQuery(tutorialQuery, {
     variables: { id: 1 },
     pollInterval: 500,
   });
   const [comments, setComments] = useState([] as any);
-  const { status } = useContext(statusContext);
   const [id] = useState(props.progress[0].id);
   const [currentProgress] = useState(props.progress[0].percent);
 
@@ -76,7 +75,7 @@ const LearnBasicsPageRender: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (status === false) Router.push("/login");
+    if (props.status === false) Router.push("/login");
   }, []);
 
   return (

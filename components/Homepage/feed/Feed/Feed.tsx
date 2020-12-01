@@ -10,7 +10,7 @@ import { returnFeedQuery } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { PostItem, FeedItem } from "../../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   posts: PostItem[];
@@ -92,7 +92,7 @@ const FeedRender: React.FC<Props> = (props) => {
       return (
         <div>
           {feed.map((el: any) => (
-            <div className="feed_component">
+            <div className={styles.feed_component}>
               <FeedElement
                 title={el.title}
                 text={el.text}
@@ -122,7 +122,7 @@ const FeedRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="feed">
+    <div className={styles.feed}>
       <PostRender setToFeed={setToFeed} />
       <Suggested />
       {renderFeed()}

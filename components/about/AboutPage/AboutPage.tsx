@@ -27,14 +27,9 @@ interface Redux {
 }
 
 const AboutPageRender: React.FC<Redux> = (props) => {
-  const [loadingInUser, setLoadingInUser] = useState(true);
   // const [getUser, { data }] = useLazyQuery(nonTokenModifyUserQuery, {
   //   pollInterval: 500,
   // });
-
-  useEffect(() => {
-    if (props.status === false) setLoadingInUser(true);
-  }, [props.status]);
 
   // useEffect(() => {
   //   if (data) {
@@ -53,29 +48,13 @@ const AboutPageRender: React.FC<Redux> = (props) => {
   //   }
   // }, data);
 
-  function loggedIn() {
-    setLoadingInUser(false);
-  }
-
-  function returnLoadingInUser() {
-    if (loadingInUser === true) {
-      return (
-        <div className="render_loading drop_loading_block">
-          <UserLoginAuthSubresolver loggedIn={loggedIn} />
-        </div>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <NavBar />
-          <AboutUs />
-          <Learn progress={props.progress} />
-        </React.Fragment>
-      );
-    }
-  }
-
-  return <React.Fragment>{returnLoadingInUser()}</React.Fragment>;
+  return (
+    <React.Fragment>
+      <NavBar />
+      <AboutUs />
+      <Learn progress={props.progress} />
+    </React.Fragment>
+  );
 };
 
 export const AboutPage = connect(
