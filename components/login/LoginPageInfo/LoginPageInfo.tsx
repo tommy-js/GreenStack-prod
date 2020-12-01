@@ -1,10 +1,10 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const LoginPageFeedInfo: React.FC = () => {
   return (
-    <div className="login_page_information">
-      <h3 className="login_page_text">
+    <div className={styles.login_page_information}>
+      <h3 className={styles.login_page_text}>
         Recieve live updates, recent news, and see discussion about companies
         and their stocks. Engage with those you follow and those who follow you
         in real-time.
@@ -15,8 +15,8 @@ export const LoginPageFeedInfo: React.FC = () => {
 
 export const LoginPageCommunityInfo: React.FC = () => {
   return (
-    <div className="login_page_information">
-      <h3 className="login_page_text">
+    <div className={styles.login_page_information}>
+      <h3 className={styles.login_page_text}>
         Follow and be followed, engage in discussion and make bets with others
         on where the stocks are going to go. Comment on companies and trades.
       </h3>
@@ -26,8 +26,8 @@ export const LoginPageCommunityInfo: React.FC = () => {
 
 export const LoginPageLearnInfo: React.FC = () => {
   return (
-    <div className="login_page_information">
-      <h3 className="login_page_text">
+    <div className={styles.login_page_information}>
+      <h3 className={styles.login_page_text}>
         Learn from our dozens of in-depth, interactive tutorials. Become an
         expert on everything from the very basics of market investing to the
         risks and benefits of options trading.

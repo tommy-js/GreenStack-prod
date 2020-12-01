@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { SigninPage } from "../SigninPage/SigninPage";
 import { CreateAccountPage } from "../CreateAccountPage/CreateAccountPage";
 import UserLoginAuthSubresolver from "../../resolvers/UserLoginAuthSubresolver";
-import { LoadingUser } from "../Loading/Loading";
 import { RenderAccountLink } from "../RenderAccountLink/RenderAccountLink";
 import {
   LoginPageFeedInfo,
@@ -12,7 +11,7 @@ import {
 import Link from "next/link";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import {
@@ -78,7 +77,7 @@ const LoginRender: React.FC<Redux> = (props) => {
     if (loadingInUser === false) {
       if (newAccount === false) {
         return (
-          <div className="login_forms">
+          <div className={styles.login_forms}>
             <SigninPage
               loadingUser={modLoadingUser}
               passUserAuth={passUserAuth}
@@ -107,9 +106,9 @@ const LoginRender: React.FC<Redux> = (props) => {
   }
 
   return (
-    <div className="login_page">
-      <div className="centered_login_page">{displayBlock()}</div>
-      <div className="login_page_about">
+    <div className={styles.login_page}>
+      <div className={styles.centered_login_page}>{displayBlock()}</div>
+      <div className={styles.login_page_about}>
         <h3>What is Stockly?</h3>
         <h4>Join a community of memers, learners, traders, and educators.</h4>
         <LoginPageFeedInfo />

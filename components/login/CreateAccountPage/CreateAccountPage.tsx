@@ -6,7 +6,7 @@ import { PasswordInput } from "../PasswordInput/PasswordInput";
 import { PasswordValidation } from "../PasswordValidation/PasswordValidation";
 import { CreateNewUser } from "../CreateNewUser/CreateNewUser";
 import { UserAlreadyExists } from "../UserAlreadyExists/UserAlreadyExists";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   newAccount: boolean;
@@ -55,7 +55,7 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
 
   return (
     <React.Fragment>
-      <div className="login_forms">
+      <div className={styles.login_forms}>
         <LoginHeader text="Create Account" />
         <UserNameInput
           username={username}

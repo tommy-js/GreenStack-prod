@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const AccountCreation: React.FC = () => {
   const [newUser, setNewUser] = useState(true);
@@ -8,11 +8,13 @@ export const AccountCreation: React.FC = () => {
 
   if (newUser) {
     return (
-      <div id="account_creation">
+      <div className={styles.account_creation}>
         <form>
-          <label className="form_block_view">Create a free account</label>
+          <label className={styles.form_block_view}>
+            Create a free account
+          </label>
           <input
-            className="input_box form_block_view"
+            className={`${styles.input_box} ${styles.form_block_view}`}
             type="text"
             placeholder="username"
             value={createData.username}
@@ -24,7 +26,7 @@ export const AccountCreation: React.FC = () => {
             }
           />
           <input
-            className="input_box form_block_view"
+            className={`${styles.input_box} ${styles.form_block_view}`}
             type="text"
             placeholder="password"
             value={createData.password}
@@ -35,7 +37,7 @@ export const AccountCreation: React.FC = () => {
               })
             }
           />
-          <button className="form_block_view">Create account</button>
+          <button className={styles.form_block_view}>Create account</button>
         </form>
         <button onClick={() => setNewUser(!newUser)}>
           I already have an account
@@ -44,11 +46,11 @@ export const AccountCreation: React.FC = () => {
     );
   } else {
     return (
-      <div id="account_creation">
+      <div className={styles.account_creation}>
         <form>
-          <label className="form_block_view">Sign in</label>
+          <label className={styles.form_block_view}>Sign in</label>
           <input
-            className="input_box form_block_view"
+            className={`${styles.input_box} ${styles.form_block_view}`}
             type="text"
             placeholder="username"
             value={logData.username}
@@ -60,7 +62,7 @@ export const AccountCreation: React.FC = () => {
             }
           />
           <input
-            className="input_box form_block_view"
+            className={`${styles.input_box} ${styles.form_block_view}`}
             type="text"
             placeholder="password"
             value={logData.password}
@@ -71,7 +73,7 @@ export const AccountCreation: React.FC = () => {
               })
             }
           />
-          <button className="form_block_view">Sign in</button>
+          <button className={styles.form_block_view}>Sign in</button>
         </form>
         <button onClick={() => setNewUser(!newUser)}>
           I need to make an account

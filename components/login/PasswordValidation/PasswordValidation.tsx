@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   char8: boolean;
@@ -19,20 +19,20 @@ export const PasswordValidation: React.FC<Props> = (props) => {
   }, [props.password]);
 
   return (
-    <div className="password_validation" style={{ opacity: opac }}>
-      <div className="password_validation_checkbox">
+    <div className={styles.password_validation} style={{ opacity: opac }}>
+      <div className={styles.password_validation_checkbox}>
         <input type="checkbox" checked={props.char8} />
         <label>Longer than 8 characters</label>
       </div>
-      <div className="password_validation_checkbox">
+      <div className={styles.password_validation_checkbox}>
         <input type="checkbox" checked={props.charSpecial} />
         <label>Includes at least 1 special character</label>
       </div>
-      <div className="password_validation_checkbox">
+      <div className={styles.password_validation_checkbox}>
         <input type="checkbox" checked={props.charCapital} />
         <label>Includes at least 1 capital letter</label>
       </div>
-      <div className="password_validation_checkbox">
+      <div className={styles.password_validation_checkbox}>
         <input type="checkbox" checked={props.charNum} />
         <label>Includes at least 1 number</label>
       </div>

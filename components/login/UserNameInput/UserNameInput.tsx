@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   passString: (val: string) => void;
@@ -10,7 +10,7 @@ interface Props {
 export const UserNameInput: React.FC<Props> = (props) => {
   return (
     <input
-      className="input_container"
+      className={styles.input_container}
       type="text"
       value={props.username}
       placeholder={props.placeholder}
