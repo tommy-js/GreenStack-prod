@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   search: string;
@@ -13,15 +13,18 @@ export const SidebarSearch: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="sidebar_search_container">
+    <div className={styles.sidebar_search_container}>
       <input
-        id="sidebar_search"
+        className={styles.sidebar_search}
         placeholder="search..."
         value={props.search}
         onChange={(e) => props.modSearch(e.target.value)}
         onKeyDown={(e) => checkSubmit(e)}
       />
-      <button id="sidebar_search_button" onClick={() => props.submitSearch()}>
+      <button
+        className={styles.sidebar_search_button}
+        onClick={() => props.submitSearch()}
+      >
         Search
       </button>
     </div>

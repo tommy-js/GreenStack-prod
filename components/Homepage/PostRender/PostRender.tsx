@@ -7,7 +7,7 @@ import { ProfileDropzone } from "../profile/ProfileDropzone/ProfileDropzone";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 const settings = require("../../../public/settings.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   userId: string;
@@ -82,11 +82,11 @@ const PostRenderPre: React.FC<Redux> = (props) => {
   }
 
   return (
-    <div id="post" className="post_container">
+    <div id="post" className={styles.post_container}>
       <input
         value={title}
         placeholder="title..."
-        className="post_header"
+        className={styles.post_header}
         onChange={(e) => setTitle(e.target.value)}
       />
       <PostTextInput text={text} updateText={updateText} />
@@ -101,7 +101,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
         modAllowLikes={modAllowLikes}
       />
       <ProfileDropzone modifyImg={modifyImg} />
-      <div className="post_button">
+      <div className={styles.post_button}>
         <SubmitPost
           username={props.username}
           title={title}

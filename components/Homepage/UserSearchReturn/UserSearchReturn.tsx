@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { returnUserList } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   splice: string;
@@ -20,10 +21,10 @@ export const UserSearchReturn: React.FC<Props> = (props) => {
   }, [usersRender]);
 
   return (
-    <div className="user_text_search_return">
+    <div className={styles.user_text_search_return}>
       {usersRender.map((el: any) => (
         <p
-          className="user_text_search_return_el"
+          className={styles.user_text_search_return_el}
           onClick={() => props.injectUsername(el.username)}
         >
           {el.username}

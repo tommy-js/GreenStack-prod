@@ -4,7 +4,7 @@ import { flowRight as compose } from "lodash";
 import { likeCommentMutation } from "../../../queries/queries";
 const like = require("../../../../public/like.png");
 const likeFilled = require("../../../../public/like_filled.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -34,8 +34,8 @@ const LikePostCommentMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="like_button_block" onClick={() => passData()}>
-      <img className="like_button_image" src={imgColor} />
+    <div className={styles.like_button_block} onClick={() => passData()}>
+      <img className={styles.like_button_image} src={imgColor} />
     </div>
   );
 };

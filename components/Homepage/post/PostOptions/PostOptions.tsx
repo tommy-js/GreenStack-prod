@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   allowComments: boolean;
@@ -11,7 +11,7 @@ interface Props {
 
 export const PostOptions: React.FC<Props> = (props) => {
   return (
-    <div id="post_options" style={{ height: props.optionHeight }}>
+    <div className={styles.post_options} style={{ height: props.optionHeight }}>
       <label>Allow Comments</label>
       <input
         type="checkbox"

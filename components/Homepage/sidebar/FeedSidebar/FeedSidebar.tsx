@@ -5,6 +5,7 @@ import { SidebarElement } from "../SidebarElement/SidebarElement";
 import { SidebarPortfolioValue } from "../SidebarPortfolioValue/SidebarPortfolioValue";
 import { searchQuery } from "../../../queries/queries.js";
 import { useLazyQuery } from "react-apollo";
+import styles from "./styles.module.scss";
 
 interface Props {
   modRes: (searchData: any, dataType: number) => void;
@@ -54,7 +55,7 @@ export const FeedSidebar: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="feed_sidebar">
+    <div className={styles.feed_sidebar}>
       <SidebarUsername />
       <SidebarSearch
         search={search}

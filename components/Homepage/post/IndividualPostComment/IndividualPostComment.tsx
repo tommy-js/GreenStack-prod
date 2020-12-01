@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LikePostComment } from "../LikePostComment/LikePostComment";
 import { DislikePostComment } from "../DislikePostComment/DislikePostComment";
 import { returnDate } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   userId: string;
@@ -20,20 +20,22 @@ export const IndividualPostComment: React.FC<Props> = (props) => {
   const [dislikes, setDislikes] = useState(props.dislikes);
 
   return (
-    <div className="individual_post_comment">
-      <p className="individual_post_comment_username">{props.username}</p>
-      <p className="individual_post_comment_text">{props.text}</p>
-      <p className="individual_post_comment_date">
+    <div className={styles.individual_post_comment}>
+      <p className={styles.individual_post_comment_username}>
+        {props.username}
+      </p>
+      <p className={styles.individual_post_comment_text}>{props.text}</p>
+      <p className={styles.individual_post_comment_date}>
         Posted {returnDate(props.timestamp)}
       </p>
-      <div className="individual_post_comment_option_block">
-        <p className="individual_post_comment_likes">likes{likes}</p>
+      <div className={styles.individual_post_comment_option_block}>
+        <p className={styles.individual_post_comment_likes}>likes{likes}</p>
         <LikePostComment
           postId={props.postId}
           commentId={props.commentId}
           modLikes={() => setLikes(likes + 1)}
         />
-        <p className="individual_post_comment_likes">{dislikes}</p>
+        <p className={styles.individual_post_comment_likes}>{dislikes}</p>
         <DislikePostComment
           postId={props.postId}
           commentId={props.commentId}

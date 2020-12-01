@@ -4,7 +4,7 @@ import { flowRight as compose } from "lodash";
 import { updateAllowCommentsMutation } from "../../../queries/queries.js";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   allowCommentsOnPosts: boolean;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 import Link from "next/link";
 
 interface Props {
@@ -18,13 +18,19 @@ export const IndividualUserPost: React.FC<Props> = (props) => {
       <Link href={`/home/post/[${props.postId}]`}>
         <a>{props.title}</a>
       </Link>
-      <div className="standard_link homepage_block_component">
-        <h2 className="individual_user_post_title">{props.title}</h2>
-        <p className="individual_user_post_textblock">{props.text}</p>
-        <div className="individual_user_post_infoblock">
-          <p className="individual_user_post_inline">{props.timestamp}</p>
-          <p className="individual_user_post_inline">likes: {props.likes}</p>
-          <p className="individual_user_post_inline">
+      <div
+        className={`${styles.standard_link} ${styles.homepage_block_component}`}
+      >
+        <h2 className={styles.individual_user_post_title}>{props.title}</h2>
+        <p className={styles.individual_user_post_textblock}>{props.text}</p>
+        <div className={styles.individual_user_post_infoblock}>
+          <p className={styles.individual_user_post_inline}>
+            {props.timestamp}
+          </p>
+          <p className={styles.individual_user_post_inline}>
+            likes: {props.likes}
+          </p>
+          <p className={styles.individual_user_post_inline}>
             dislikes: {props.dislikes}
           </p>
         </div>

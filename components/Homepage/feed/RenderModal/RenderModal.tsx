@@ -13,7 +13,7 @@ import { userCommentLookup } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Mapper {
   tag: string;
@@ -70,8 +70,8 @@ const RenderModalPre: React.FC<Props> = (props) => {
     if (props.postImage == "null") return null;
     else {
       return (
-        <div className="post_image_block">
-          <img className="post_image" src={props.postImage} />
+        <div className={styles.post_image_block}>
+          <img className={styles.post_image} src={props.postImage} />
         </div>
       );
     }
@@ -113,27 +113,27 @@ const RenderModalPre: React.FC<Props> = (props) => {
     if (props.allowLikes === true) {
       return (
         <React.Fragment>
-          <div className="post_values">
-            <span className="post_value_inner">{likes}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>{likes}</span>
           </div>
           <LikePost
             userId={props.postUserId}
             postId={props.postId}
             modLikes={modLikes}
           />
-          <div className="post_values">
-            <span className="post_value_inner">{dislikes}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>{dislikes}</span>
           </div>
           <DislikePost
             userId={props.postUserId}
             postId={props.postId}
             modDislikes={modDislikes}
           />
-          <div className="post_values">
-            <span className="post_value_inner">{comments}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>{comments}</span>
           </div>
-          <div className="like_button_block">
-            <img className="like_button_image" src={comment} />
+          <div className={styles.like_button_block}>
+            <img className={styles.like_button_image} src={comment} />
           </div>
         </React.Fragment>
       );
@@ -146,25 +146,30 @@ const RenderModalPre: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="render_modal">
-      <div className="post_upper_block">
+    <div className={styles.render_modal}>
+      <div className={styles.post_upper_block}>
         <h2>{props.title}</h2>
         <Link href={`/home/user/${props.postUserId}`}>
           <a>{props.postUserId}</a>
         </Link>
         <div
-          className="feed_profile_image_block feed_link"
+          className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
           onClick={() => unlockScrollState()}
         >
-          <img className="feed_profile_image" src={props.userProfileImage} />
+          <img
+            className={styles.feed_profile_image}
+            src={props.userProfileImage}
+          />
         </div>
-        <h3 className="feed_link_name">{props.postUsername}</h3>
+        <h3 className={styles.feed_link_name}>{props.postUsername}</h3>
 
         {returnImage()}
-        <p className="post_text">{returnText()}</p>
+        <p className={styles.post_text}>{returnText()}</p>
       </div>
-      <div className="post_lower_block">
-        <p className="post_return_date">Posted {returnDate(props.timestamp)}</p>
+      <div className={styles.post_lower_block}>
+        <p className={styles.post_return_date}>
+          Posted {returnDate(props.timestamp)}
+        </p>
         {returnAllowed()}
         <CommentInputPost
           userId={props.postUserId}
@@ -211,7 +216,7 @@ const IndMapper: React.FC<Mapper> = (props) => {
         />
       );
     } else {
-      return <span className="tag_span"> {props.tag} </span>;
+      return <span className={styles.tag_span}> {props.tag} </span>;
     }
   }
 

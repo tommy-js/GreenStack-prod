@@ -1,6 +1,6 @@
 import React from "react";
 import { NewsCompOptions } from "../NewsCompOptions/NewsCompOptions";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -11,8 +11,8 @@ interface Props {
 
 export const NewsComponent: React.FC<Props> = (props) => {
   return (
-    <div className="news_block">
-      <a className="standard_link" href={props.url}>
+    <div className={styles.news_block}>
+      <a className={styles.standard_link} href={props.url}>
         <h3>{props.title}</h3>
         <p>{props.author}</p>
         <p>{props.description}</p>

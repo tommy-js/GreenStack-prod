@@ -3,7 +3,7 @@ import { UserSearchReturn } from "../UserSearchReturn/UserSearchReturn";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowingItem, FollowerItem } from "../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   following: FollowingItem[];
@@ -75,7 +75,7 @@ const PostTextInputRender: React.FC<Props> = (props) => {
       <textarea
         onChange={(e) => props.updateText(e.target.value)}
         value={props.text}
-        className="post_textarea"
+        className={styles.post_textarea}
         placeholder="text..."
       />
       {returnUserSearchup()}

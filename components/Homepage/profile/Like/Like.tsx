@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -8,7 +8,7 @@ interface Props {
 
 export const Like: React.FC<Props> = (props) => {
   return (
-    <h3 key={props.postId} className="profile_like">
+    <h3 key={props.postId} className={styles.profile_like}>
       {props.title}
     </h3>
   );

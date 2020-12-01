@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   username: string;
@@ -15,10 +15,12 @@ const SidebarUsernameRender: React.FC<Redux> = (props) => {
       <Link href="/home/profile">
         <a>{props.username}</a>
       </Link>
-      <div className="feed_profile_image_block sidebar_username_link_spec sidebar_username">
-        <img className="feed_profile_image" src={props.profileImage} />
+      <div
+        className={`${styles.feed_profile_image_block} ${styles.sidebar_username_link_spec} ${styles.sidebar_username}`}
+      >
+        <img className={styles.feed_profile_image} src={props.profileImage} />
       </div>
-      <div id="sidebar_username_link">{props.username}</div>
+      <div id={styles.sidebar_username_link}>{props.username}</div>
     </React.Fragment>
   );
 };

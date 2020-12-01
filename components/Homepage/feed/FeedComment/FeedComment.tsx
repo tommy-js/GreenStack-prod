@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 import Link from "next/link";
 
 type Reference = {
@@ -28,20 +28,25 @@ export const FeedComment: React.FC<Props> = (props) => {
 
   return (
     <React.Fragment>
-      <div className="feed_comment_header">
-        <div className="feed_top_block">
-          <div className="feed_comment_image_block">
-            <img src={props.profileImage} className="feed_comment_image" />
+      <div className={styles.feed_comment_header}>
+        <div className={styles.feed_top_block}>
+          <div className={styles.feed_comment_image_block}>
+            <img
+              src={props.profileImage}
+              className={styles.feed_comment_image}
+            />
           </div>
-          <p className="feed_comment_header_username">{props.username}</p>
+          <p className={styles.feed_comment_header_username}>
+            {props.username}
+          </p>
         </div>
-        <p className="feed_comment_header_text">{props.text}</p>
+        <p className={styles.feed_comment_header_text}>{props.text}</p>
       </div>
       <Link href={`/home/post/${props.reference.postId}`}>
         <a>{props.username}</a>
       </Link>
-      <div className="feed_comment_base">
-        <span className="feed_comment_base_reference_text">
+      <div className={styles.feed_comment_base}>
+        <span className={styles.feed_comment_base_reference_text}>
           {props.reference.text}
         </span>
       </div>

@@ -4,7 +4,7 @@ import { PostText } from "../PostText/PostText";
 import { PostInformation } from "../PostInformation/PostInformation";
 import { PostComments } from "../PostComments/PostComments";
 import { CommentInputPost } from "../../CommentInputPost/CommentInputPost";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Data {
   title: string;
@@ -34,7 +34,7 @@ interface Props {
 
 export const PostRender: React.FC<Props> = ({ info }: Props) => {
   return (
-    <div className="feed">
+    <div className={styles.feed}>
       <PostTitle title={info.title} />
       <PostText text={info.text} />
       <PostInformation

@@ -3,7 +3,7 @@ import { PostPortfolioValue } from "../PostPortfolioValue/PostPortfolioValue";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 const confetti = require("../../../public/confetti.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   money: number;
@@ -24,16 +24,16 @@ const PortfolioValuePostModalContentRender: React.FC<Props> = (props) => {
   return (
     <div id="portfolio_value_post_modal_content">
       <p id="portfolio_value_post_modal_content_text">
-        <div className="portfolio_value_post_modal_content_emoji_block">
+        <div className={styles.portfolio_value_post_modal_content_emoji_block}>
           <img
-            className="portfolio_value_post_modal_content_emoji"
+            className={styles.portfolio_value_post_modal_content_emoji}
             src={confetti}
           />
         </div>
         Announce your portfolio value of ${props.money}
-        <div className="portfolio_value_post_modal_content_emoji_block">
+        <div className={styles.portfolio_value_post_modal_content_emoji_block}>
           <img
-            className="portfolio_value_post_modal_content_emoji"
+            className={styles.portfolio_value_post_modal_content_emoji}
             src={confetti}
           />
         </div>

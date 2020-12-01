@@ -12,7 +12,7 @@ import { userCommentLookup } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 type Routes = {
   username: string;
@@ -70,27 +70,29 @@ const FeedPostRender: React.FC<Props> = (props) => {
     if (props.allowLikes === true) {
       return (
         <React.Fragment>
-          <div className="post_values">
-            <span className="post_value_inner">{props.likes}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>{props.likes}</span>
           </div>
           <LikePost
             userId={props.postUserId}
             postUsername={props.postUsername}
             postId={props.postId}
           />
-          <div className="post_values">
-            <span className="post_value_inner">{props.dislikes}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>{props.dislikes}</span>
           </div>
           <DislikePost
             userId={props.postUserId}
             postUsername={props.postUsername}
             postId={props.postId}
           />
-          <div className="post_values">
-            <span className="post_value_inner">{props.comments.length}</span>
+          <div className={styles.post_values}>
+            <span className={styles.post_value_inner}>
+              {props.comments.length}
+            </span>
           </div>
-          <div className="like_button_block">
-            <img className="like_button_image" src={comment} />
+          <div className={styles.like_button_block}>
+            <img className={styles.like_button_image} src={comment} />
           </div>
         </React.Fragment>
       );
@@ -139,8 +141,8 @@ const FeedPostRender: React.FC<Props> = (props) => {
       return null;
     } else {
       return (
-        <div className="post_image_block">
-          <img className="post_image" src={props.postImage} />
+        <div className={styles.post_image_block}>
+          <img className={styles.post_image} src={props.postImage} />
         </div>
       );
     }
@@ -149,7 +151,7 @@ const FeedPostRender: React.FC<Props> = (props) => {
   return (
     <div id={`id_${props.postId}`}>
       <div
-        className="feed_link_header"
+        className={styles.feed_link_header}
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
       >
@@ -157,13 +159,19 @@ const FeedPostRender: React.FC<Props> = (props) => {
           <a>{props.postUsername}</a>
         </Link>
         <div
-          className="feed_profile_image_block feed_link"
+          className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
           onClick={() => unlockScrollState()}
         >
-          <img className="feed_profile_image" src={props.postProfileImage} />
+          <img
+            className={styles.feed_profile_image}
+            src={props.postProfileImage}
+          />
         </div>
-        <h3 className="feed_link_name">{props.postUsername}</h3>
-        <div style={{ opacity: styledOpac }} className="feed_link_unfollow">
+        <h3 className={styles.feed_link_name}>{props.postUsername}</h3>
+        <div
+          style={{ opacity: styledOpac }}
+          className={styles.feed_link_unfollow}
+        >
           <InlineUnfollow followerId={props.postUserId} />
         </div>
         <Link href={`/home/post/${props.postId}`}>
@@ -171,9 +179,11 @@ const FeedPostRender: React.FC<Props> = (props) => {
         </Link>
         <div>{returnImage()}</div>
         <p>{returnText()}</p>
-        <p className="post_return_date">Posted {returnDate(props.timestamp)}</p>
+        <p className={styles.post_return_date}>
+          Posted {returnDate(props.timestamp)}
+        </p>
       </div>
-      <div className="feed_link">{returnAllowed()}</div>
+      <div className={styles.feed_link}>{returnAllowed()}</div>
     </div>
   );
 };
@@ -214,7 +224,7 @@ const IndMapper: React.FC<Mapper> = (props) => {
         />
       );
     } else {
-      return <span className="tag_span"> {props.tag} </span>;
+      return <span className={styles.tag_span}> {props.tag} </span>;
     }
   }
 

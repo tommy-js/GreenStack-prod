@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SubmitSubResponse } from "../SubmitSubResponse/SubmitSubResponse";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -14,11 +14,11 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
   function renderResponseBox() {
     if (replying === true) {
       return (
-        <div className="submit_sub_response_textarea_block">
+        <div className={styles.submit_sub_response_textarea_block}>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="submit_sub_response_textarea"
+            className={styles.submit_sub_response_textarea}
           />
           <SubmitSubResponse
             postId={props.postId}

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   modifyImg: (imgData: any) => void;
@@ -23,10 +23,10 @@ export const ProfileDropzone: React.FC<Props> = (props) => {
   });
 
   return (
-    <section className="profile_image_dropzone">
+    <section className={styles.profile_image_dropzone}>
       <div {...getRootProps({ id: "dropzone" })}>
         <input {...getInputProps()} />
-        <p className="dropzone_text">
+        <p className={styles.dropzone_text}>
           Drag and drop here, or click to select files
         </p>
       </div>

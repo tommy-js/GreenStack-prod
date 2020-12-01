@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "next/link";
-import "./styles.module.scss";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 interface User {
   id: number;
@@ -10,7 +10,7 @@ interface User {
 
 export const ExploreUser: React.FC<User> = (props) => {
   return (
-    <div className="explore_component">
+    <div className={styles.explore_component}>
       <Link href={`/home/user/${props.id}`}>
         <a>{props.username}</a>
       </Link>

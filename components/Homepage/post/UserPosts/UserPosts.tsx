@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { FeedItem, PostItem } from "../../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   posts: Posts[];
@@ -60,8 +60,8 @@ const UserPostsRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="feed">
-      <h2 className="list_header">Your Posts</h2>
+    <div className={styles.feed}>
+      <h2 className={styles.list_header}>Your Posts</h2>
       <React.Fragment>
         {sortedArr.map((el: Posts) => (
           <IndividualUserPost

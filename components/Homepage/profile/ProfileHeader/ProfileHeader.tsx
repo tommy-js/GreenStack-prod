@@ -6,7 +6,7 @@ import { ProfileDropzone } from "../ProfileDropzone/ProfileDropzone";
 const edit = require("../../../../public/edit.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   profileImage: string;
@@ -30,7 +30,7 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
       return (
         <React.Fragment>
           <textarea
-            className="bio_edit_textarea"
+            className={styles.bio_edit_textarea}
             onChange={(e) => setBio(e.target.value)}
             value={bio}
           />
@@ -41,11 +41,11 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
     } else {
       return (
         <div onClick={() => setEditing(true)}>
-          <div className="left_container">
-            <p className="bio_edit_textarea">{bio}</p>
+          <div className={styles.left_container}>
+            <p className={styles.bio_edit_textarea}>{bio}</p>
           </div>
-          <div className="right_container">
-            <img className="bio_image" src={edit} />
+          <div className={styles.right_container}>
+            <img className={styles.bio_image} src={edit} />
           </div>
         </div>
       );
@@ -72,17 +72,17 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
   }
 
   return (
-    <div className="profile_header">
-      <div className="profile_header_container">
+    <div className={styles.profile_header}>
+      <div className={styles.profile_header_container}>
         <div
-          className="profile_image_container"
+          className={styles.profile_image_container}
           onClick={() => setEditingProfileImage(!editingProfileImage)}
         >
-          <img className="img_id" src={profileImage} />
+          <img className={styles.img_id} src={profileImage} />
         </div>
-        <h2 className="profile_header_username">{props.username}</h2>
+        <h2 className={styles.profile_header_username}>{props.username}</h2>
       </div>
-      <div className="profile_bio_container">{returnEditing()}</div>
+      <div className={styles.profile_bio_container}>{returnEditing()}</div>
       {renderDropzone()}
     </div>
   );

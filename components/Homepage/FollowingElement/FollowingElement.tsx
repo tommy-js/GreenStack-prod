@@ -1,7 +1,7 @@
 import React from "react";
 import { UnfollowUser } from "../UnfollowUser/UnfollowUser";
 import Link from "next/link";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   userId: string;
@@ -11,11 +11,13 @@ interface Props {
 
 export const FollowingElement: React.FC<Props> = (props) => {
   return (
-    <div className="homepage_block_component">
+    <div className={styles.homepage_block_component}>
       <Link href={`/home/user/${props.userId}`}>
-        <a className="block_link element_username">{props.username}</a>
+        <a className={`${styles.block_link} ${styles.element_username}`}>
+          {props.username}
+        </a>
       </Link>
-      <p className="following_element_descriptor">{props.bio}</p>
+      <p className={styles.following_element_descriptor}>{props.bio}</p>
       <UnfollowUser userId={props.userId} />
     </div>
   );

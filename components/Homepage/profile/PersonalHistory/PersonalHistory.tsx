@@ -3,7 +3,7 @@ import { HistoryElement } from "../HistoryElement/HistoryElement";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const PersonalHistoryRender: React.FC = () => {
   const [postRendered, setPostRendered] = useState(false);
@@ -22,7 +22,7 @@ const PersonalHistoryRender: React.FC = () => {
 
   return (
     <React.Fragment>
-      <h2 className="personal_history_header">History</h2>
+      <h2 className={styles.personal_history_header}>History</h2>
     </React.Fragment>
   );
 };

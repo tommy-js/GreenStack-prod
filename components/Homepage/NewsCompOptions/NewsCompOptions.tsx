@@ -1,6 +1,6 @@
 import React from "react";
 import { SubmitPost } from "../SubmitPost/SubmitPost";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -10,8 +10,8 @@ interface Props {
 
 export const NewsCompOptions: React.FC<Props> = (props) => {
   return (
-    <div className="news_comp_options">
-      <div className="news_comp_button">
+    <div className={styles.news_comp_options}>
+      <div className={styles.news_comp_button}>
         <SubmitPost
           title={props.title}
           text={props.text}
