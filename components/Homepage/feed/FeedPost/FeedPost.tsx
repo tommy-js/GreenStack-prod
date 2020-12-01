@@ -97,26 +97,26 @@ const FeedPostRender: React.FC<Props> = (props) => {
     } else return null;
   }
 
-  useEffect(() => {
-    if (over === true) setStyledOpac(1);
-    else setStyledOpac(0);
-  }, [over]);
-
-  useEffect(() => {
-    let foundInd = props.userRoutes.find(
-      (el: Routes) => el.userId === props.postUserId
-    );
-    if (!foundInd) {
-      let obj = {
-        username: props.postUsername,
-        userId: props.postUserId,
-        bio: "",
-        profileImage: "",
-      };
-      let arr = [...props.userRoutes, obj];
-      props.onUserRouteSet(arr);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (over === true) setStyledOpac(1);
+  //   else setStyledOpac(0);
+  // }, [over]);
+  //
+  // useEffect(() => {
+  //   let foundInd = props.userRoutes.find(
+  //     (el: Routes) => el.userId === props.postUserId
+  //   );
+  //   if (!foundInd) {
+  //     let obj = {
+  //       username: props.postUsername,
+  //       userId: props.postUserId,
+  //       bio: "",
+  //       profileImage: "",
+  //     };
+  //     let arr = [...props.userRoutes, obj];
+  //     props.onUserRouteSet(arr);
+  //   }
+  // }, []);
 
   function returnText() {
     let tag = returnTaggedString(props.text);

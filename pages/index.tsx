@@ -12,6 +12,7 @@ interface Redux {
 
 const MainPage: React.FC<Redux> = (props) => {
   useEffect(() => {
+    console.log("calling");
     props.onStatusSet(false);
   }, []);
 

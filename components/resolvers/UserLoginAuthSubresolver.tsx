@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
+import { LoadingGeneral } from "../login/Loading/Loading";
 import { userQuery } from "../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import { useRouter } from "next/router";
@@ -59,29 +60,6 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
     }
   }, [dataLogIn]);
 
-  function getProgEls(user: any) {
-    let progElements = [];
-    for (let i = 0; i < user.progress.length; i++) {
-      for (let j = 0; j < user.progress[i].progressElements.length; j++) {
-        progElements.push(user.progress[i].progressElements[j]);
-      }
-    }
-    return progElements;
-  }
-
-  function getProgs(user: any) {
-    let prog = [];
-    for (let i = 0; i < user.progress.length; i++) {
-      let obj = {
-        title: user.progress[i].title,
-        id: user.progress[i].id,
-        percent: user.progress[i].percent,
-      };
-      prog.push(obj);
-    }
-    return prog;
-  }
-
   function pushToUser() {
     if (dataLogIn && dataLogIn.user) {
       let user: any = dataLogIn.user;
@@ -113,7 +91,30 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
       props.onUserRouteSet(returnUserRoutes(user));
       sessionStorage.setItem("Token", user.token);
     }
-    router.push("/");
+    props.loggedIn();
+  }
+
+  function getProgEls(user: any) {
+    let progElements = [];
+    for (let i = 0; i < user.progress.length; i++) {
+      for (let j = 0; j < user.progress[i].progressElements.length; j++) {
+        progElements.push(user.progress[i].progressElements[j]);
+      }
+    }
+    return progElements;
+  }
+
+  function getProgs(user: any) {
+    let prog = [];
+    for (let i = 0; i < user.progress.length; i++) {
+      let obj = {
+        title: user.progress[i].title,
+        id: user.progress[i].id,
+        percent: user.progress[i].percent,
+      };
+      prog.push(obj);
+    }
+    return prog;
   }
 
   function returnUserRoutes(user: any) {
@@ -127,7 +128,7 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
     return arr;
   }
 
-  return null;
+  return <LoadingGeneral />;
 };
 
 export default connect(

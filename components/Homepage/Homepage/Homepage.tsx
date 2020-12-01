@@ -74,26 +74,8 @@ const HomepageRender: React.FC<Redux> = (props) => {
 
   useEffect(() => {
     console.log("Homepage status: " + props.status);
-    if (props.status === false) {
-      let sessionToken = sessionStorage.getItem("Token");
-      if (sessionToken) {
-        passToken({
-          variables: {
-            token: sessionToken,
-          },
-        });
-      } else router.push("/login");
-    } else {
-      let sessionToken = sessionStorage.getItem("Token");
-      if (sessionToken) {
-        getUser({
-          variables: {
-            token: sessionToken,
-          },
-        });
-      }
-    }
-  }, []);
+    if (props.status === false) setLoadingInUser(true);
+  }, [props.status]);
 
   useEffect(() => {
     if (getUserData) {
