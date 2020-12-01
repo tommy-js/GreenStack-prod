@@ -5,6 +5,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserNotificationsViewedMutation } from "../../queries/queries";
 import { NotificationItem } from "../../types/types";
+import styles from "./styles.module.scss";
 
 interface Redux {
   notifications: NotificationItem[];
@@ -75,7 +76,7 @@ const NotifEl: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="notifications_link" key={props.id}>
+    <div className={styles.notifications_link} key={props.id}>
       <Link href="/notifications">
         <p>{props.content}</p>
       </Link>

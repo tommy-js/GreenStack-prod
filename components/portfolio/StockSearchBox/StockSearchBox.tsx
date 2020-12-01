@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "react-apollo";
 import { getStocksQuery } from "../../queries/queries";
 import { returnStockSearch } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   modResults: (res: any) => void;
@@ -35,9 +35,9 @@ export const StockSearchBox: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="initial_portfolio_input_block">
+    <div className={styles.initial_portfolio_input_block}>
       <input
-        id="initial_portfolio_input"
+        className={styles.initial_portfolio_input}
         value={search}
         onChange={(e) => returnSearch(e.target.value)}
         placeholder="Apple, AMD, Etc..."

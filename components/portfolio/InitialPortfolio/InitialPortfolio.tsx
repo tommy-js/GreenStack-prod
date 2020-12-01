@@ -5,6 +5,7 @@ import { InitialPortfolioBackground } from "../InitialPortfolioBackground/Initia
 import { InitialPortfolioSubHeader } from "../InitialPortfolioSubHeader/InitialPortfolioSubHeader";
 import { InitialPortfolioSubContainer } from "../InitialPortfolioSubContainer/InitialPortfolioSubContainer";
 import { StockSearchBox } from "../StockSearchBox/StockSearchBox";
+import styles from "./styles.module.scss";
 
 export const InitialPortfolio: React.FC = () => {
   const [showSubContainer, setShowSubContainer] = useState(true);
@@ -16,7 +17,7 @@ export const InitialPortfolio: React.FC = () => {
   }
 
   return (
-    <div id="initial_portfolio">
+    <div className={styles.initial_portfolio}>
       <InitialPortfolioWelcome />
       <InitialPortfolioBackground />
       <InitialPortfolioSubHeader />

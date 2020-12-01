@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { useLazyQuery } from "react-apollo";
 import { requestDataSetQuery } from "../../queries/queries.js";
 import { returnCapitalPrices } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 type StockItem = {
   stockId: string;
@@ -58,7 +58,7 @@ const PortfolioGraphRender: React.FC<Redux> = (props) => {
     } else return <LoadingGeneral />;
   }
 
-  return <div id="portfolio_graph">{renderFunct()}</div>;
+  return <div className={styles.portfolio_graph}>{renderFunct()}</div>;
 };
 
 export const PortfolioGraph = connect(

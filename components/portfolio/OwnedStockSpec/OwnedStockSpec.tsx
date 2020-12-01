@@ -5,7 +5,7 @@ import { flowRight as compose } from "lodash";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { connect } from "react-redux";
 import { validateString, validateStocks } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 type StockItem = {
   stockId: string;
@@ -67,16 +67,16 @@ const OwnedStockSpecRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="owned_stock_spec">
-      <label className="owned_stock_label">Owned Shares</label>
+    <div className={styles.owned_stock_spec}>
+      <label className={styles.owned_stock_label}>Owned Shares</label>
       <input
-        className="owned_stock_input"
+        className={styles.owned_stock_input}
         type="text"
         placeholder="0"
         value={inputVal}
         onChange={(e) => modVal(e.target.value)}
       />
-      <button className="owned_stock_button" onClick={() => pushStock()}>
+      <button className={styles.owned_stock_button} onClick={() => pushStock()}>
         Add
       </button>
     </div>

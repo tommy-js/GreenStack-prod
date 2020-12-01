@@ -1,6 +1,6 @@
 import React from "react";
 const notif = require("../../../public/notification.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   notifyNew: boolean;
@@ -12,5 +12,5 @@ export const NewNotification: React.FC<Props> = (props) => {
     else return null;
   }
 
-  return <div className="notification_icon_block">{renderNotif()}</div>;
+  return <div className={styles.notification_icon_block}>{renderNotif()}</div>;
 };

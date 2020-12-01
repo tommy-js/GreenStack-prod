@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   key: number;
@@ -15,9 +15,14 @@ export const WatchlistElement: React.FC<Props> = (props) => {
       <Link href={`/home/stock/${props.stockId}`}>
         <a>{props.title}</a>
       </Link>
-      <p key={props.key} className="watch_listing_link watch_listing">
+      <p
+        key={props.key}
+        className={`${styles.watch_listing_link} ${styles.watch_listing}`}
+      >
         {props.title}{" "}
-        <span className="watch_listing_ticker_span">#{props.ticker}</span>
+        <span className={styles.watch_listing_ticker_span}>
+          #{props.ticker}
+        </span>
       </p>
     </React.Fragment>
   );

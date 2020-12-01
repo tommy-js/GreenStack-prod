@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { NotificationItem } from "../../types/types";
 import { returnNotifyNew } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   notifications: NotificationItem[];
@@ -30,7 +30,7 @@ const NotifIcon: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="notification_icon">
+    <div className={styles.notification_icon}>
       <NotificationButton
         notifyNew={notifyNew}
         triggerDropdown={props.modDisplay}

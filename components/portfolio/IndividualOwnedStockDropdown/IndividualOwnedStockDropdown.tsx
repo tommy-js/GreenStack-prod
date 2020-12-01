@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { OwnedStockSpec } from "../OwnedStockSpec/OwnedStockSpec";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   stockId: string;
@@ -24,9 +24,9 @@ export const IndividualOwnedStockDropdown: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="individual_stock_dropdown">
+    <div className={styles.individual_stock_dropdown}>
       <p
-        className="individual_stock_dropdown_text"
+        className={styles.individual_stock_dropdown_text}
         onClick={() => setShow(!show)}
       >
         {props.title}

@@ -1,6 +1,6 @@
 import React from "react";
 const history = require("../../../public/nothing_found.png");
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const VoidAlert: React.FC = () => {
   return (

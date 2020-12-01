@@ -5,7 +5,7 @@ import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateNewPortfolioMutation } from "../../queries/queries";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 type WatchListItem = {
   stockId: string;
@@ -53,8 +53,8 @@ const IndividualStockDropdown: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="individual_stock_dropdown" onClick={() => resolve()}>
-      <p className="individual_stock_dropdown_text">{props.title}</p>
+    <div className={styles.individual_stock_dropdown} onClick={() => resolve()}>
+      <p className={styles.individual_stock_dropdown_text}>{props.title}</p>
     </div>
   );
 };

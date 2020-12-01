@@ -1,6 +1,6 @@
 import React from "react";
 import { returnDate } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   timestamp: number;
@@ -8,6 +8,8 @@ interface Props {
 
 export const NotifTime: React.FC<Props> = (props) => {
   return (
-    <div id="submitted_notif_time">Submitted {returnDate(props.timestamp)}</div>
+    <div className={styles.submitted_notif_time}>
+      Submitted {returnDate(props.timestamp)}
+    </div>
   );
 };
