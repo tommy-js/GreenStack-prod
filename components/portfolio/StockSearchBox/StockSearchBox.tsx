@@ -15,7 +15,9 @@ export const StockSearchBox: React.FC<Props> = (props) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setStocks(data.getStocks);
+    if (data) {
+      setStocks(data.getStocks);
+    }
   }, [data]);
 
   function returnSearch(input: string) {

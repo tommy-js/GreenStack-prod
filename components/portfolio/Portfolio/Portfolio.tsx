@@ -10,8 +10,6 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { returnStocks } from "./index";
 
-import { statusContext } from "../../AppMain/App/App";
-
 type StockItem = {
   stockId: string;
   title: string;
@@ -25,7 +23,6 @@ interface Redux {
 }
 
 const PortfolioRender: React.FC<Redux> = (props) => {
-  const { status, setStatus } = useContext(statusContext);
   const [loadingInUser, setLoadingInUser] = useState(false);
   const [token, setToken] = useState();
   const [userStocks, setUserStocks] = useState([] as any);
@@ -39,31 +36,7 @@ const PortfolioRender: React.FC<Redux> = (props) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("homepage status: " + status);
-    if (status === false) {
-      let sessionToken = sessionStorage.getItem("Token");
-      if (sessionToken) {
-        passToken({
-          variables: {
-            token: sessionToken,
-          },
-        });
-      } else Router.push("/login");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (status === false) {
-      if (data && data.token) {
-        setToken(data.token.token);
-        setLoadingInUser(true);
-      }
-    }
-  }, data);
-
   function loggedIn() {
-    setStatus(true);
     setLoadingInUser(false);
   }
 

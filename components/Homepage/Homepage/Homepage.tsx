@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
-import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { Feed } from "../feed/Feed/Feed";
 import { useLazyQuery, useQuery } from "react-apollo";
 import { useRouter } from "next/router";
@@ -72,11 +71,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
   }, [companyData]);
 
   useEffect(() => {
-    console.log("Homepage status: " + props.status);
-    if (props.status === false) setLoadingInUser(true);
-  }, [props.status]);
-
-  useEffect(() => {
     if (getUserData) {
       props.onInitialPostsSet(getUserData.noTokenMod.posts);
       props.onInitialFollowerSet(getUserData.noTokenMod.followers);
@@ -85,16 +79,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
       props.onWatchlistSet(getUserData.noTokenMod.watchlist);
     }
   }, [getUserData]);
-
-  useEffect(() => {
-    if (props.status === false) {
-      if (data && data.token) setLoadingInUser(true);
-    }
-  }, data);
-
-  function loggedIn() {
-    setLoadingInUser(false);
-  }
 
   function modRes(searchData: any, dataType: number) {
     let arr: any[] = props.userRoutes;
@@ -150,42 +134,19 @@ const HomepageRender: React.FC<Redux> = (props) => {
     else return null;
   }
 
-  function returnLoadingIcon() {
-    if (props.status === true) {
-      return (
-        <div>
-          <NavBar />
-          <div className={styles.homepage}>
-            {renderShowPostOptions()}
-            <FeedSidebar
-              modRes={modRes}
-              setPostingToFeed={() => setPostingToFeed(true)}
-            />
-          </div>
-        </div>
-      );
-    }
-  }
-
-  function returnLoading() {
-    if (loadingInUser === true) {
-      return (
-        <div
-          className={`${styles.render_loading} ${styles.drop_loading_block}`}
-        >
-          <UserLoginAuthSubresolver loggedIn={loggedIn} />
-        </div>
-      );
-    } else if (loadingInUser === false)
-      return (
-        <React.Fragment>
-          {returnLoadingIcon()}
-          <Feed />
-        </React.Fragment>
-      );
-  }
-
-  return <div>{returnLoading()}</div>;
+  return (
+    <div>
+      <NavBar />
+      <div className={styles.homepage}>
+        {renderShowPostOptions()}
+        <FeedSidebar
+          modRes={modRes}
+          setPostingToFeed={() => setPostingToFeed(true)}
+        />
+      </div>
+      <Feed />
+    </div>
+  );
 };
 
 export const Homepage = connect(

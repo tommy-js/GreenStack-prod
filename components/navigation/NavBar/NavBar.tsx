@@ -25,7 +25,7 @@ export const NavBar: React.FC = () => {
 
   return (
     <div className={styles.navbar}>
-      <Link href="/home">
+      <Link href="/">
         <img src={home} className={styles.navbar_icon} />
       </Link>
       <Link href="/portfolio">
