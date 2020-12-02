@@ -1,6 +1,6 @@
 @import "../../../globals/variables.scss";
 
-.homepage_block_component {
+.container {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -12,7 +12,7 @@
   font-family: $standard_font;
 }
 
-.block_link {
+.link {
   color: black;
   text-decoration: none;
 }

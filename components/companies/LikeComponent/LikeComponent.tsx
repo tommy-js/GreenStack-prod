@@ -5,6 +5,7 @@ import {
   likeStockMutation,
   dislikeStockMutation,
 } from "../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   likes: number;
@@ -56,8 +57,9 @@ const LikeComponentRender: React.FC<Props> = (props) => {
 
   return (
     <React.Fragment>
-      <p>
-        {props.likes} / {props.dislikes}
+      <p className={styles.like_block}>
+        <span className={styles.likes}>{props.likes}</span> /{" "}
+        <span className={styles.likes}>{props.dislikes}</span>
       </p>
       <button onClick={() => like()}>Like</button>
       <button onClick={() => dislike()}>Dislike</button>

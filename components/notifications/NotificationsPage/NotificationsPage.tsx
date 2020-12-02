@@ -4,7 +4,7 @@ import { NavBar } from "../../navigation/NavBar/NavBar";
 import { mapStateToProps } from "../../actions/actions";
 import { connect } from "react-redux";
 import { NotificationItem } from "../../types/types";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   notifications: NotificationItem[];
@@ -14,8 +14,8 @@ const NotifPage: React.FC<Redux> = ({ notifications }) => {
   return (
     <React.Fragment>
       <NavBar />
-      <div className="notifications_page">
-        <h2 className="notification_header">Your Notifications</h2>
+      <div className={styles.notifications_page}>
+        <h2 className={styles.notification_header}>Your Notifications</h2>
         {notifications.map((el: any) => (
           <Notif content={el.content} timestamp={el.timestamp} id={el.id} />
         ))}

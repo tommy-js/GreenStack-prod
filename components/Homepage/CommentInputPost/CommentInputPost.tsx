@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PushCommentPost } from "../PushCommentPost/PushCommentPost";
+import styles from "./styles.module.scss";
 
 interface Post {
   userId: string;
@@ -19,7 +20,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
     if (props.allowComments === false) {
       return (
         <textarea
-          className="comment_input"
+          className={styles.comment_input}
           value="This user has disabled comment submission."
           disabled={true}
         />
@@ -28,7 +29,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
       return (
         <React.Fragment>
           <textarea
-            className="comment_input"
+            className={styles.comment_input}
             value={text}
             onChange={(e) => modText(e.target.value)}
           />
@@ -43,5 +44,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
     }
   }
 
-  return <div className="comment_input_div">{returnHiddenTextarea()}</div>;
+  return (
+    <div className={styles.comment_input_div}>{returnHiddenTextarea()}</div>
+  );
 };

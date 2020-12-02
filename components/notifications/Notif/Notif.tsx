@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { dropNotificationMutation } from "../../queries/queries";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   notifications: NotificationItem[];
@@ -47,8 +47,8 @@ const NotifMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="notif">
-      <p className="notif_content">{props.content}</p>
+    <div className={styles.notif}>
+      <p className={styles.notif_content}>{props.content}</p>
       <NotifTime timestamp={props.timestamp} />
       <button onClick={() => dropNotification()}>Dismiss</button>
     </div>

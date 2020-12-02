@@ -4,6 +4,7 @@ import { flowRight as compose } from "lodash";
 import { dislikeSubCommentMutation } from "../../queries/queries";
 const dislike = require("../../../public/dislike.png");
 const dislikeFilled = require("../../../public/dislike_filled.png");
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -34,8 +35,8 @@ const DislikeSubCommentMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="like_button_block" onClick={() => passData()}>
-      <img className="like_button_image" src={imgColor} />
+    <div className={styles.container} onClick={() => passData()}>
+      <img className={styles.button_image} src={imgColor} />
     </div>
   );
 };

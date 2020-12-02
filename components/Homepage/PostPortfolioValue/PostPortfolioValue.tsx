@@ -21,9 +21,7 @@ const PostPortfolioValueMutation: React.FC<Props> = (props) => {
   function submit() {
     if (props.text !== "") {
       let image = props.image;
-      if (props.image === undefined) {
-        image = "null";
-      }
+      if (props.image === undefined) image = "null";
 
       let taggedArr = taggedUsers(props.text);
 

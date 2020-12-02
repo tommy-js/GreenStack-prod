@@ -8,9 +8,9 @@ interface Props {
 
 export const CompanyDescription: React.FC<Props> = (props) => {
   return (
-    <div className={styles.company_description_block}>
-      <h2>About {props.title}</h2>
-      <p>{props.description}</p>
+    <div className={styles.company_description}>
+      <h2 className={styles.title}>About {props.title}</h2>
+      <p className={styles.description}>{props.description}</p>
     </div>
   );
 };

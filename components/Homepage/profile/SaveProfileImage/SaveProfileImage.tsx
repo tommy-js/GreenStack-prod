@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProfileImageMutation } from "../../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   image: string;
@@ -27,7 +28,7 @@ const SaveProfileImageMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <button className="blank_submit" onClick={() => submit()}>
+    <button className={styles.blank_submit} onClick={() => submit()}>
       Save
     </button>
   );

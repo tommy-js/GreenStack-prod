@@ -21,9 +21,9 @@ export const StockComment: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.stock_comment}>
-      <h4>{props.username}</h4>
-      <p>{props.text}</p>
-      <p>Posted {time}</p>
+      <h4 className={styles.username}>{props.username}</h4>
+      <p className={styles.text}>{props.text}</p>
+      <p className={styles.posted}>Posted {time}</p>
       <LikeComponent
         commentId={props.commentId}
         likes={props.likes}

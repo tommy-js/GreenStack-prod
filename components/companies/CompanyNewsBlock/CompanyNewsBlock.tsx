@@ -6,9 +6,9 @@ import { returnNewsQuery } from "../../queries/queries";
 import styles from "./styles.module.scss";
 
 export const CompanyNewsBlock = (props: any) => {
-  const [loggedNews, setLoggedNews] = useState();
-  const [shortLoggedNews, setShortLoggedNews] = useState();
-  const [maxLength, setMaxLength] = useState();
+  const [loggedNews, setLoggedNews] = useState([] as any);
+  const [shortLoggedNews, setShortLoggedNews] = useState([] as any);
+  const [maxLength, setMaxLength] = useState(0);
   const { data } = useQuery(returnNewsQuery, {
     variables: { title: props.title },
   });

@@ -13,7 +13,7 @@ interface Stock {
 
 export const ExploreStock: React.FC<Stock> = (props) => {
   return (
-    <div className="explore_component">
+    <div className={styles.explore_component}>
       <Link href={`/home/stock/${props.stockId}`}>
         <a className={styles.explore_component_link}>{props.title}</a>
       </Link>

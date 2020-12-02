@@ -1,6 +1,7 @@
 import React from "react";
 import { StockComment } from "../StockComment/StockComment";
 import { CommentItem } from "../../types/types";
+import styles from "./styles.module.scss";
 
 interface Props {
   comments: CommentItem[];
@@ -23,7 +24,7 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
           ))}
         </React.Fragment>
       );
-    } else return <h2>Nothing Here!</h2>;
+    } else return <h2 className={styles.null_response}>Nothing Here!</h2>;
   }
 
   return <div>{returnComments()}</div>;

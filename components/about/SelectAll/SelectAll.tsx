@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { KnowledgeCheckHeadline } from "../KnowledgeCheckHeadline/KnowledgeCheckHeadline";
 import SelectBoxResolver from "../../resolvers/SelectBoxResolver";
 import { KnowledgeCheckSelectBoxes } from "../KnowledgeCheckSelectBoxes/KnowledgeCheckSelectBoxes";
+import styles from "./styles.module.scss";
 
 interface SelectAll {
   title: string;
@@ -32,15 +33,12 @@ export const SelectAll: React.FC<SelectAll> = (props) => {
   }
 
   function returnRes(ans: boolean) {
-    if (ans === true) {
-      setRes("Correct");
-    } else if (ans === false) {
-      setRes("Incorrect");
-    }
+    if (ans === true) setRes("Correct");
+    else if (ans === false) setRes("Incorrect");
   }
 
   return (
-    <div id="knowledge_check">
+    <div id={styles.knowledge_check}>
       <KnowledgeCheckHeadline headline={props.title} res={res} />
       <KnowledgeCheckSelectBoxes
         options={props.options}

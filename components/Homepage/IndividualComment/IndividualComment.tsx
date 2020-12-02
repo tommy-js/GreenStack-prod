@@ -10,6 +10,7 @@ import { userCommentLookup } from "../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { returnDate, returnTaggedString } from "./index";
+import styles from "./styles.module.scss";
 
 type Routes = {
   username: string;
@@ -103,11 +104,13 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="comment">
-      <p className="comment_name">{props.commentUsername}</p>
-      <p className="comment_time">posted at {returnDate(props.timestamp)}</p>
-      <p className="comment_text">{returnText()}</p>
-      <div className="comment_information">
+    <div className={styles.comment}>
+      <p className={styles.comment_name}>{props.commentUsername}</p>
+      <p className={styles.comment_time}>
+        posted at {returnDate(props.timestamp)}
+      </p>
+      <p className={styles.comment_text}>{returnText()}</p>
+      <div className={styles.comment_information}>
         {likes}
         <LikePostComment
           postId={props.postId}
@@ -120,11 +123,13 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
           commentId={props.commentId}
           modDislikes={dislikeIncrement}
         />
-        <div className="post_values">
-          <span className="post_value_inner">{props.subComments.length}</span>
+        <div className={styles.post_values}>
+          <span className={styles.post_value_inner}>
+            {props.subComments.length}
+          </span>
         </div>
-        <div className="like_button_block" onClick={() => modDisp()}>
-          <img className="like_button_image" src={comment} />
+        <div className={styles.like_button_block} onClick={() => modDisp()}>
+          <img className={styles.like_button_image} src={comment} />
         </div>
       </div>
       <IndividualCommentReply
@@ -142,7 +147,7 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
 
 const IndMapper: React.FC<Mapper> = (props) => {
   const [callUser, { data }] = useLazyQuery(userCommentLookup);
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState([] as any);
 
   useEffect(() => {
     if (props.tag.includes("@")) {
@@ -173,7 +178,7 @@ const IndMapper: React.FC<Mapper> = (props) => {
           highlightProfileImage={userData.profileImage}
         />
       );
-    else return <span className="tag_span"> {props.tag} </span>;
+    else return <span className={styles.tag_span}> {props.tag} </span>;
   }
 
   return renderFunc();

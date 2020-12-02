@@ -16,11 +16,11 @@ interface Props {
 
 export const ExploreCompany: React.FC<Props> = ({ company }: Props) => {
   return (
-    <div key={company.keyId} className={styles.homepage_block_component}>
+    <div key={company.keyId} className={styles.container}>
       <Link href={`/home/stock/${company.stockId}`}>
         <a>{company.title}</a>
       </Link>
-      <p className={styles.block_link}>
+      <p className={styles.link}>
         {company.title} #{company.ticker}
       </p>
       <p>{company.description}</p>

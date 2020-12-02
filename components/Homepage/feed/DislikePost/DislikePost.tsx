@@ -35,8 +35,8 @@ const DislikePostRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.like_button_block} onClick={() => passData()}>
-      <img className={styles.like_button_image} src={imgColor} />
+    <div className={styles.container} onClick={() => passData()}>
+      <img className={styles.image} src={imgColor} />
     </div>
   );
 };

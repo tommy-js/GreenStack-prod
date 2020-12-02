@@ -1,6 +1,6 @@
 import React from "react";
 import { QueryUserResult, QueryStockResult } from "../QueryResult/QueryResult";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   results: any;
@@ -32,5 +32,5 @@ export const SearchResults: React.FC<Props> = (props) => {
     } else return <h2>Nothing Found</h2>;
   }
 
-  return <div className="feed">{returnQuery()}</div>;
+  return <div className={styles.feed}>{returnQuery()}</div>;
 };

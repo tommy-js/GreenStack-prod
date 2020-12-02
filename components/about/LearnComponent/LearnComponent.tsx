@@ -22,30 +22,27 @@ export const LearnComponent: React.FC<Props> = (props) => {
   }
 
   return (
-    <div>
-      <div
-        key={props.title}
-        id="learn_individual_div"
-        className={styles.learn_component_link}
-        onMouseOver={() => setRenderOpac(1)}
-        onMouseOut={() => setRenderOpac(0)}
-      >
-        <div id="learn_link">
-          <div>
-            <Link href={props.path}>
-              <h3>{props.title}</h3>
-            </Link>
-            <p>{props.subtitle}</p>
-          </div>
+    <div
+      key={props.title}
+      className={`${styles.learn_component_link} ${styles.learn_individual_div}`}
+      onMouseOver={() => setRenderOpac(1)}
+      onMouseOut={() => setRenderOpac(0)}
+    >
+      <div className={styles.learn_link}>
+        <div>
+          <Link href={props.path}>
+            <h3>{props.title}</h3>
+          </Link>
+          <p>{props.subtitle}</p>
         </div>
-        <div id="learn_individual_progress_div">
-          <p className={styles.progress_percent}>{props.percent}/100</p>
-          <div
-            className={styles.render_learn_flare}
-            style={{ opacity: renderOpac }}
-          >
-            {renderProgress()}
-          </div>
+      </div>
+      <div className={styles.learn_individual_progress_div}>
+        <p className={styles.progress_percent}>{props.percent}/100</p>
+        <div
+          className={styles.render_learn_flare}
+          style={{ opacity: renderOpac }}
+        >
+          {renderProgress()}
         </div>
       </div>
     </div>

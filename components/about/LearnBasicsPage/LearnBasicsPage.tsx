@@ -13,6 +13,7 @@ import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
 import { Pie } from "react-chartjs-2";
+import styles from "./styles.module.scss";
 
 interface Redux {
   status: boolean;

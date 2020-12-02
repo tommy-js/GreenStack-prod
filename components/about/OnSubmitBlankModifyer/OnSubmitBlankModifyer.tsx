@@ -26,11 +26,8 @@ export const OnSubmitBlankModifyer: React.FC<Props> = ({
 
   function returnRender() {
     if (submitted === true) {
-      if (isCorrect === true) {
-        return <CorrectIcon />;
-      } else {
-        return <IncorrectIcon />;
-      }
+      if (isCorrect === true) return <CorrectIcon />;
+      else return <IncorrectIcon />;
     } else return null;
   }
 

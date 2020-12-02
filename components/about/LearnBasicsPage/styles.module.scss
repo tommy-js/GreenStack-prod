@@ -1,0 +1,30 @@
+@import "../../globals/variables.scss";
+
+.learn_page {
+  position: relative;
+  width: 50%;
+  color: $text_black;
+  font-family: $standard_font;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.emphasize {
+  color: $island_green;
+}
+
+.learn_page_paragraph {
+  position: relative;
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 165%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.learn_page_subheader {
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -42,7 +42,7 @@ export const Learn: React.FC<Props> = (props) => {
   function renderState() {
     if (loaded === true) {
       return (
-        <div id="learn_state">
+        <div className={styles.learn_state}>
           {learn.map((el) => (
             <LearnComponent
               key={el.title}
@@ -60,9 +60,9 @@ export const Learn: React.FC<Props> = (props) => {
   }
 
   return (
-    <div id="learn_component">
+    <div className={styles.learn_component}>
       <LearnHeader header="Basics" />
-      <div id="learn_sidebar_container">
+      <div className={styles.learn_sidebar_container}>
         <LearnSidebar />
       </div>
       {renderState()}

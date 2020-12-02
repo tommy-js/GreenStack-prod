@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const UserAccountSnippet: React.FC<Props> = (props) => {
-  const [hideOrShow, setHideOrShow] = useState();
+  const [hideOrShow, setHideOrShow] = useState("block");
 
   useEffect(() => {
     if (props.stateHide === true && props.blocked === false) {

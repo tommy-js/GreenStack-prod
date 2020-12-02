@@ -1,8 +1,17 @@
 @import "../../globals/variables.scss";
 
-.company_description_block {
+.company_description {
   padding-left: 15px;
   padding-right: 15px;
   font-family: $standard_font;
-  @include testing;
+}
+
+.title {
+  font-size: 22px;
+  font-family: $standard_font;
+}
+
+.description {
+  font-size: 18px;
+  font-family: $standard_font;
 }

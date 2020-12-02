@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./styles.module.scss";
 
 interface Props {
   passString: (val: string) => void;
@@ -17,7 +18,7 @@ export const PasswordInput: React.FC<Props> = (props) => {
     <React.Fragment>
       <input
         id="login_access"
-        className="input_container"
+        className={styles.input_container}
         type="password"
         value={props.password}
         placeholder={props.placeholder}

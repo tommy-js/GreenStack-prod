@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IndividualComment } from "../IndividualComment/IndividualComment";
 import { CommentItem } from "../../types/types";
 import { returnOrder } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   comments: CommentItem[];
@@ -20,7 +21,7 @@ export const Comments: React.FC<Props> = (props) => {
   function conditionalCommentRender() {
     if (comments.length > 0) {
       return (
-        <div>
+        <React.Fragment>
           {comments.map((el: any) => (
             <IndividualComment
               commentUsername={el.username}
@@ -29,16 +30,14 @@ export const Comments: React.FC<Props> = (props) => {
               timestamp={el.timestamp}
             />
           ))}
-        </div>
+        </React.Fragment>
       );
     } else {
-      return (
-        <div id="tutorial_comments">
-          <h3>Apparently nothing... Yet!</h3>
-        </div>
-      );
+      return <h3>Apparently nothing... Yet!</h3>;
     }
   }
 
-  return <div>{conditionalCommentRender()}</div>;
+  return (
+    <div className={styles.tutorial_comments}>{conditionalCommentRender()}</div>
+  );
 };

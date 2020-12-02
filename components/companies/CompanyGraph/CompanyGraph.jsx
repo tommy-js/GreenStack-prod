@@ -58,5 +58,5 @@ export const CompanyGraph = ({ title, ticker }) => {
     else return <LoadingGeneral />;
   }
 
-  return <div className={styles.company_graph_block}>{returnInfo()}</div>;
+  return <div className={styles.graph}>{returnInfo()}</div>;
 };

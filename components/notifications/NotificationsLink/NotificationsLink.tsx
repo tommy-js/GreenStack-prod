@@ -10,10 +10,10 @@ interface Props {
 export const NotificationsLink: React.FC<Props> = (props) => {
   return (
     <div
-      className="notifications_link"
+      className={styles.notifications_link}
       onClick={() => props.changeTab(props.tab)}
     >
-      <p className="notifications_link_text">{props.title}</p>
+      <p className={styles.notifications_link_text}>{props.title}</p>
     </div>
   );
 };

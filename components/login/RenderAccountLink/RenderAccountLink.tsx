@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./styles.module.scss";
 
 interface Props {
   newAccount: boolean;
@@ -21,7 +22,11 @@ export const RenderAccountLink: React.FC<Props> = (props) => {
       return (
         <React.Fragment>
           Already a member? Login
-          <a className="teal_link" href="#" onClick={props.triggerNewAccount}>
+          <a
+            className={styles.teal_link}
+            href="#"
+            onClick={props.triggerNewAccount}
+          >
             {" "}
             here
           </a>

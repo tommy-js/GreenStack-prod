@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowingItem, UserRoute } from "../../types/types";
 import { returnFoundUser } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   userId: string;
@@ -83,7 +83,7 @@ const UserProf: React.FC<Props> = (props) => {
   }
 
   return (
-    <div key={props.userId} className="feed">
+    <div key={props.userId} className={styles.feed}>
       {returnUserProfile()}
     </div>
   );

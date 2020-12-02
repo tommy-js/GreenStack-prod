@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowingItem } from "../../types/types";
 import { modifyGlobalRoutes } from "./index";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   following: FollowingItem[];
@@ -27,8 +27,8 @@ const FollowingRender: React.FC<Props> = ({ following, modRoutes }: Props) => {
   }, []);
 
   return (
-    <div className="feed">
-      <h2 className="list_header">Following({following.length})</h2>
+    <div className={styles.feed}>
+      <h2 className={styles.list_header}>Following({following.length})</h2>
       {following.map((el: FollowingItem) => (
         <FollowingElement
           userId={el.userId}

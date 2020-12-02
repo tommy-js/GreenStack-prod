@@ -1,6 +1,6 @@
 import React from "react";
 import companyProfiles from "../companyProfiles";
-import { Link } from "next/link";
+import Link from "next/link";
 import { SuggestedCompany } from "../SuggestedCompany/SuggestedCompany";
 import styles from "./styles.module.scss";
 

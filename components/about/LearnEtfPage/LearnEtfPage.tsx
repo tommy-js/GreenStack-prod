@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
+import styles from "./styles.module.scss";
 
 interface Props {
   progress: any;
   progressElements: any;
 }
 
-const LearnEtfPageRender: React.FC = () => {
+const LearnEtfPageRender: React.FC<Props> = (props) => {
   const { data } = useQuery(tutorialQuery, {
     variables: { id: 3 },
     pollInterval: 500,
@@ -20,9 +21,9 @@ const LearnEtfPageRender: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <div className="learn_page">
-        <h2 className="learn_page_header">ETFs and Index Funds</h2>
-        <p className="learn_page_paragraph"></p>
+      <div className={styles.learn_page}>
+        <h2 className={styles.learn_page_header}>ETFs and Index Funds</h2>
+        <p className={styles.learn_page_paragraph}></p>
         <CommentSection id="3" comments={comments} />
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { KCAcceptButton } from "../KCAcceptButton/KCAcceptButton";
 import { KnowledgeCheckHeadline } from "../KnowledgeCheckHeadline/KnowledgeCheckHeadline";
 import { KnowledgeCheckOptions } from "../KnowledgeCheckOptions/KnowledgeCheckOptions";
+import styles from "./styles.module.scss";
 
 interface MC {
   options: {
@@ -35,7 +36,7 @@ export const MultipleChoice: React.FC<MC> = (props) => {
   }
 
   return (
-    <div id="knowledge_check">
+    <div className={styles.knowledge_check}>
       <KnowledgeCheckHeadline headline={props.headline} res={res} />
       <KnowledgeCheckOptions options={props.options} modOption={modOption} />
       <KCAcceptButton

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IndividualComment } from "../IndividualComment/IndividualComment";
 import { CommentItem } from "../../types/types";
 import { sortComments } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export const CommentSection: React.FC<Props> = (props) => {
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([] as any);
 
   useEffect(() => {
     let sortedComments = sortComments(props.comments);
@@ -17,9 +18,9 @@ export const CommentSection: React.FC<Props> = (props) => {
   }, []);
 
   function returnRender() {
-    if (comments) {
+    if (comments.length > 0) {
       return (
-        <div className="comment_section">
+        <div className={styles.comment_section}>
           {props.comments.map((el: CommentItem) => (
             <IndividualComment
               postId={props.postId}

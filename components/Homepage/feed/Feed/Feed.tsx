@@ -90,7 +90,7 @@ const FeedRender: React.FC<Props> = (props) => {
     if (feed) {
       props.onFeedSet(feed);
       return (
-        <div>
+        <React.Fragment>
           {feed.map((el: any) => (
             <div className={styles.feed_component}>
               <FeedElement
@@ -116,7 +116,7 @@ const FeedRender: React.FC<Props> = (props) => {
             </div>
           ))}
           <FeedScrolledBottom />
-        </div>
+        </React.Fragment>
       );
     } else return <LoadingGeneral />;
   }

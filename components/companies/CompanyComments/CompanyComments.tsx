@@ -39,7 +39,6 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
         },
       })
       .then((res: any) => {
-        console.log(res);
         setText("");
       })
       .catch((err: any) => console.log(err));

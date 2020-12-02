@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import Link from "next/link";
+import styles from "./styles.module.scss";
 
 interface Redux {
   username: string;
@@ -10,7 +11,9 @@ interface Redux {
 const NotificationsHead: React.FC<Redux> = (props) => {
   return (
     <Link href="/home/profile">
-      <a className="no_style notifications_link_text">{props.username}</a>
+      <a className={`${styles.no_style} ${styles.notifications_link_text}`}>
+        {props.username}
+      </a>
     </Link>
   );
 };

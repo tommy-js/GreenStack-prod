@@ -5,9 +5,9 @@ import styles from "./styles.module.scss";
 export const VoidAlert: React.FC = () => {
   return (
     <React.Fragment>
-      <h3 id="void_text">Nothing found!</h3>
-      <div id="void_img">
-        <img id="history_void_img" src={history} />
+      <h3 className={styles.void_text}>Nothing found!</h3>
+      <div className={styles.void_img}>
+        <img className={styles.history_void_img} src={history} />
       </div>
     </React.Fragment>
   );

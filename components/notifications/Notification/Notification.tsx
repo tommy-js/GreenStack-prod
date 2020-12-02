@@ -1,6 +1,7 @@
 import React from "react";
 import { NotificationsMenu } from "../NotificationsMenu/NotificationsMenu";
 import { NotificationItem } from "../../types/types";
+import styles from "./styles.module.scss";
 
 interface Props {
   zeroTabOut: boolean;
@@ -9,7 +10,7 @@ interface Props {
 
 export const Notification: React.FC<Props> = (props) => {
   return (
-    <div className="notification">
+    <div className={styles.notification}>
       <NotificationsMenu
         zeroTabOut={props.zeroTabOut}
         modNotificationColor={props.modNotificationColor}
