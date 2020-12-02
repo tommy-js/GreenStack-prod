@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const PostComments: React.FC<Props> = (props) => {
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([] as any);
 
   useEffect(() => {
     if (props.comments) {

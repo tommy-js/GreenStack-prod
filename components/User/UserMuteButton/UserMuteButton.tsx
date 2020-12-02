@@ -7,7 +7,7 @@ interface Props {
 
 export const UserMuteButton: React.FC<Props> = (props) => {
   const [mute, setMute] = useState(props.mute);
-  const [propText, setPropText] = useState();
+  const [propText, setPropText] = useState("mute");
 
   useEffect(() => {
     if (mute === true) setPropText("unmute");

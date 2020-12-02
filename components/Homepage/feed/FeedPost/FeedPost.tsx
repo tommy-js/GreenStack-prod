@@ -174,7 +174,7 @@ const FeedPostRender: React.FC<Props> = (props) => {
         >
           <InlineUnfollow followerId={props.postUserId} />
         </div>
-        <Link href={`/home/post/${props.postId}`}>
+        <Link href={`/post/${props.postId}`}>
           <a>{props.postUserId}</a>
         </Link>
         <div>{returnImage()}</div>

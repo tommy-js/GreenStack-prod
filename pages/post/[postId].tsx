@@ -7,9 +7,20 @@ import { useRouter } from "next/router";
 const Post: React.FC = () => {
   const router = useRouter();
   const { data } = useQuery(individualPostQuery, {
-    variables: { postId: router.query },
+    variables: { postId: router.query.postId },
   });
   const [showRender, setShowRender] = useState(false);
+
+  useEffect(() => {
+    console.log(router.query.postId);
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setShowRender(true);
+      console.log(data);
+    }
+  }, [data]);
 
   function renderPost() {
     if (showRender === true) {

@@ -185,7 +185,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
 
 const IndMapper: React.FC<Mapper> = (props) => {
   const [callUser, { data }] = useLazyQuery(userCommentLookup);
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState([] as any);
 
   useEffect(() => {
     if (props.tag.includes("@"))
