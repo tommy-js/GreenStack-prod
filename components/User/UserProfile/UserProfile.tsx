@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FollowUser } from "../FollowUser/FollowUser";
 import { UserProfilePosts } from "../UserProfilePosts/UserProfilePosts";
-import { LoadingGeneral } from "../../login/Loading/Loading";
-import { otherUserQuery } from "../../queries/queries.js";
-import { useQuery } from "react-apollo";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
-import { FollowingItem, UserRoute } from "../../types/types";
+import {
+  FollowingItem,
+  FollowerItem,
+  UserRoute,
+  PostItem,
+} from "../../types/types";
 import { returnFoundUser } from "./index";
 import styles from "./styles.module.scss";
 
@@ -21,30 +23,19 @@ interface Props extends Redux {
   inspectProfileImage: string;
   inspectUserId: string;
   inspectBio: string;
+  inspectFollowers: FollowerItem[];
+  inspectFollowing: FollowingItem[];
+  inspectPosts: PostItem[];
   modRoutes?: (route: UserRoute) => void;
 }
 
 const UserProf: React.FC<Props> = (props) => {
-  const [userProfileState, setUserProfileState] = useState(false);
   const [alreadyAdded, setAlreadyAdded] = useState(false);
-  const [userProfile, setUserProfile] = useState({} as any);
-
-  const { data } = useQuery(otherUserQuery, {
-    variables: { userId: props.inspectUserId },
-  });
 
   useEffect(() => {
     let foundUser = returnFoundUser(props.inspectUserId, props.following);
     setAlreadyAdded(foundUser);
   }, []);
-
-  useEffect(() => {
-    if (data) {
-      setUserProfile(data.altUser);
-      setUserProfileState(true);
-      if (props.modRoutes) props.modRoutes(data.altUser.posts);
-    }
-  }, [data]);
 
   function modAlreadyAdded() {
     setAlreadyAdded(true);
@@ -58,7 +49,7 @@ const UserProf: React.FC<Props> = (props) => {
         return (
           <FollowUser
             followId={props.inspectUserId}
-            followName={userProfile.username}
+            followName={props.inspectUsername}
             modAlreadyAdded={modAlreadyAdded}
           />
         );
@@ -66,25 +57,17 @@ const UserProf: React.FC<Props> = (props) => {
     }
   }
 
-  function returnUserProfile() {
-    if (userProfileState === true) {
-      return (
-        <React.Fragment>
-          <h1>{userProfile.username}</h1>
-          <img src={props.inspectProfileImage} />
-          {returnFollow()}
-          <p>{props.inspectBio}</p>
-          <h2>Followers: {userProfile.followers.length}</h2>
-          <h2>Following: {userProfile.following.length}</h2>
-          <UserProfilePosts posts={userProfile.posts} />
-        </React.Fragment>
-      );
-    } else return <LoadingGeneral />;
-  }
-
   return (
     <div key={props.userId} className={styles.feed}>
-      {returnUserProfile()}
+      <React.Fragment>
+        <h1>{props.inspectUsername}</h1>
+        <img src={props.inspectProfileImage} />
+        {returnFollow()}
+        <p>{props.inspectBio}</p>
+        <h2>Followers: {props.inspectFollowers.length}</h2>
+        <h2>Following: {props.inspectFollowing.length}</h2>
+        <UserProfilePosts posts={props.inspectPosts} />
+      </React.Fragment>
     </div>
   );
 };

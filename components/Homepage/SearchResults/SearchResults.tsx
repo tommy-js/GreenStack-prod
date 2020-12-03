@@ -64,10 +64,12 @@ export const SearchResults: React.FC<Props> = (props) => {
   return (
     <div>
       <NavBar />
-      <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-      <div className={styles.feed}>
-        {returnQuery()}
-        {renderShowPostOptions()}
+      <div className={styles.main_body}>
+        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+        <div className={styles.feed}>
+          {returnQuery()}
+          {renderShowPostOptions()}
+        </div>
       </div>
     </div>
   );

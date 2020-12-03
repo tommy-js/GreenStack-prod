@@ -18,16 +18,30 @@ interface Stock {
 
 export const QueryUserResult: React.FC<User> = (props) => {
   return (
-    <React.Fragment>
-      <Link href={`/home/user/${props.userId}`}>
-        <a>{props.username}</a>
-      </Link>
-      <h2>{props.username}</h2>
-      <img src={props.profileImage} />
-      <h3>{props.bio}</h3>
-    </React.Fragment>
+    <Link href={`/user/${props.userId}`} passHref>
+      <PushToUser
+        username={props.username}
+        profileImage={props.profileImage}
+        bio={props.bio}
+        userId={props.userId}
+      />
+    </Link>
   );
 };
+
+const PushToUser = React.forwardRef(
+  ({ onClick, href, username, profileImage, bio, userId }, ref) => {
+    return (
+      <React.Fragment>
+        <a href={`/user/${userId}`} onClick={onClick} ref={ref}>
+          <h2>{username}</h2>
+          <img src={profileImage} />
+          <h3>{bio}</h3>
+        </a>
+      </React.Fragment>
+    );
+  }
+);
 
 export const QueryStockResult: React.FC<Stock> = (props) => {
   return (
