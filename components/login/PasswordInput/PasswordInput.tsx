@@ -8,6 +8,17 @@ interface Props {
 }
 
 export const PasswordInput: React.FC<Props> = (props) => {
+  function renderShowPass() {
+    if (props.password.length > 0) {
+      return (
+        <React.Fragment>
+          <input type="checkbox" onClick={() => showPassword()} />
+          <label>Show Password</label>
+        </React.Fragment>
+      );
+    } else return null;
+  }
+
   function showPassword() {
     let input = document.getElementById("login_access") as HTMLInputElement;
     if (input.type === "password") input.type = "text";
@@ -24,8 +35,7 @@ export const PasswordInput: React.FC<Props> = (props) => {
         placeholder={props.placeholder}
         onChange={(e) => props.passString(e.target.value)}
       />
-      <input type="checkbox" onClick={() => showPassword()} />
-      <label>Show Password</label>
+      {renderShowPass()}
     </React.Fragment>
   );
 };

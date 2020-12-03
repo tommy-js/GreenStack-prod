@@ -1,4 +1,6 @@
-.login_page_information {
+@import "../../globals/variables.scss";
+
+.login_page_info {
   position: relative;
   width: 80%;
   height: 200px;
@@ -6,10 +8,39 @@
   margin-right: auto;
 }
 
-.login_page_text {
+.text_box {
   position: relative;
-  height: 100%;
   width: 60%;
+  height: 100%;
   margin: 0;
   float: right;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.header {
+  font-family: $standard_font;
+  color: $light_blue;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text {
+  position: relative;
+  font-family: $standard_font;
+  line-height: 150%;
+}
+
+.image_container {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.image {
+  height: 100%;
 }

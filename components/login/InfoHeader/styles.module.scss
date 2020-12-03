@@ -1,0 +1,26 @@
+@import "../../globals/variables.scss";
+
+.info_header {
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  font-size: 22px;
+  text-align: center;
+  font-family: $standard_font;
+  color: $text_black;
+}
+
+.title_flair {
+  color: $forest_green;
+}
+
+.subheader {
+  font-size: 18px;
+  text-align: center;
+  font-family: $standard_font;
+  color: $text_black;
+}

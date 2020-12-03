@@ -8,7 +8,9 @@ import {
   LoginPageLearnInfo,
   LoginPageCommunityInfo,
 } from "../LoginPageInfo/LoginPageInfo";
+import { InfoHeader } from "../InfoHeader/InfoHeader";
 import Link from "next/link";
+import { LearnMore } from "../LearnMore/LearnMore";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import styles from "./styles.module.scss";
@@ -109,17 +111,11 @@ const LoginRender: React.FC<Redux> = (props) => {
     <div className={styles.login_page}>
       <div className={styles.centered_login_page}>{displayBlock()}</div>
       <div className={styles.login_page_about}>
-        <h3>What is Stockly?</h3>
-        <h4>Join a community of memers, learners, traders, and educators.</h4>
+        <InfoHeader />
         <LoginPageFeedInfo />
         <LoginPageCommunityInfo />
         <LoginPageLearnInfo />
-        <h3>
-          Still have questions?{" "}
-          <Link href="/information">
-            <a>Go Here</a>
-          </Link>
-        </h3>
+        <LearnMore />
       </div>
     </div>
   );

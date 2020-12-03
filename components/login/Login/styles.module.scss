@@ -9,11 +9,13 @@
 }
 
 .login_page {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
   overflow: none;
-  margin-bottom: 0;
 }
 
 .centered_login_page {
@@ -33,5 +35,4 @@
   margin-bottom: 0;
   float: right;
   box-sizing: border-box;
-  @include testing;
 }

@@ -1,0 +1,12 @@
+@import "../../globals/variables.scss";
+
+.learn_more {
+  font-size: 18px;
+  font-family: $standard_font;
+  text-align: center;
+}
+
+.link {
+  text-decoration: underline;
+  color: $forest_green;
+}
