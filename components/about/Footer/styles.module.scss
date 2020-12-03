@@ -1,12 +1,21 @@
+@import "../../globals/variables.scss";
+
 .footer {
+  position: absolute;
+  left: 0;
   width: 100%;
-  height: 25px;
+  height: 30px;
   margin-top: 50px;
-  background-color: teal;
+  background-color: $forest_green;
   margin-bottom: 0;
 }
 
 .footer_text {
   text-align: center;
+  color: white;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 7px;
   margin: 0;
+  font-family: $standard_font;
 }

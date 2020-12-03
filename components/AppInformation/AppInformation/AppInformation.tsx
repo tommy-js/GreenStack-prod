@@ -1,5 +1,6 @@
 import React from "react";
 import { SignedOutNavBar } from "../SignedOutNavBar/SignedOutNavBar";
+import { Footer } from "../../about/Footer/Footer";
 import styles from "./styles.module.scss";
 
 export const AppInformation: React.FC = () => {
@@ -7,81 +8,80 @@ export const AppInformation: React.FC = () => {
     <React.Fragment>
       <SignedOutNavBar />
       <div className={styles.app_information_page}>
-        <h2>Simulation</h2>
-        <h2>Risk Free</h2>
-        <p>
-          TIKR operates a fully-functional simulated stock market. Use this to
-          your advantage in testing theories, learning without risk, and making
-          a name for yourself as a smart trader.
-        </p>
-        <h2>Be Daring</h2>
-        <p>
-          Try out your riskiest strategies without fear; after all, going
-          bankrupt only means you'll need to click "start over" to begin again.
-        </p>
-        <h2>Beat the Market</h2>
-        <p>
-          Get yourself onto the leaderboard by making good calls or being
-          successful in the long-term.
-        </p>
+        <h1 className={styles.main_header}>
+          About <span className={styles.flair}>GreenStack</span>
+        </h1>
+        <div className={styles.block}>
+          <h2 className={styles.header}>Get Noticed</h2>
+          <p className={styles.paragraph}>
+            Make good calls, post interesting analysis, or just engage with the
+            community to acquire followers.
+          </p>
+        </div>
 
-        <h2>Community</h2>
-        <h2>Get Noticed</h2>
-        <p>
-          Make good calls, post interesting analysis, or just engage with the
-          community to acquire followers.
-        </p>
-        <h2>Show Your Support</h2>
-        <p>
-          Follow other members of the community for their insights on the
-          market, unique perspective, and funny memes.
-        </p>
-        <h2>Make Bets With Others</h2>
-        <p>
-          Sure that a stock is going to go one way, while in disagreement with
-          others? Make a bet with them and reap the benefits of your cleverness.
-        </p>
+        <div className={styles.block}>
+          <h2 className={styles.header}>Show Your Support</h2>
+          <p className={styles.paragraph}>
+            Follow other members of the community for their insights on the
+            market, unique perspective, and funny memes. Help others find your
+            favorite members by liking and commenting on their posts, or by
+            sharing what they have to say.
+          </p>
+        </div>
 
-        <h2>Expand Your Understanding</h2>
-        <h2>Overall Design</h2>
-        <p>
-          TIKR is built to help traders in a real way. We suggest companies and
-          users to you based on our data and your preferences.
-        </p>
-        <h2>Educate Yourself</h2>
-        <p>
-          We have poured a huge amount of time into the creation of a series of
-          interactive tutorials, which cover everything from the very basics of
-          stock trading all the way up to selling naked calls. Learn what you
-          want or start from the beginning and work all the way through; don't
-          worry about taking a break, we have saved your progress!
-        </p>
-        <h2>Do Your Own Analysis</h2>
-        <p>
-          The tools we have built make it easy for you to do your own analysis
-          of each company and their stock. Better yet, we make it trivial to
-          share this information with your followers.
-        </p>
+        <div className={styles.block}>
+          <h2 className={styles.header}>From Small To Large</h2>
+          <p className={styles.paragraph}>
+            GreenStack is designed to scale with your interests. Only want to
+            watch a few stocks and interact with a handful of poeple? Easily
+            trim your feed down to just what you'd like. Want a more expansive
+            view of the community? Join large groups and get the best of what
+            our brilliant members have to offer.
+          </p>
+        </div>
 
-        <h2>FAQs</h2>
-        <p>
-          <h2>Question: </h2>Is TIKR free?
-        </p>
-        <p>
-          <h2>Answer: </h2>TIKR and all its features are completely free.
-          Subscribe for $2.99 per month to get a small digital badge and have
-          your name put on the list of supporters.
-        </p>
+        <div className={styles.block}>
+          <h2 className={styles.header}>A Smart Feed</h2>
+          <p className={styles.paragraph}>
+            We've built GreenStack to suggest companies and users you might be
+            interested in based on your previous follows, shares, and likes.
+            This makes our website one of the best for finding new and exciting
+            stocks to jump in on, as well as for getting unique insights on the
+            market.
+          </p>
+        </div>
 
-        <p>
-          <h2>Question: </h2>Is TIKR a real trading platform?
-        </p>
-        <p>
-          <h2>Answer: </h2>TIKR is a simulated trading environment. This allows
-          for an exploration of the market and market strategies with none of
-          the risk.
-        </p>
+        <div className={styles.block}>
+          <h2 className={styles.header}>Learn More, Faster</h2>
+          <p className={styles.paragraph}>
+            We have poured a huge amount of time into the creation of a series
+            of interactive tutorials, which cover everything from the very
+            basics of stock trading to "The Greeks". Learn only what you want or
+            start from the beginning and work all the way through; don't worry
+            about taking a break, we have saved your progress!
+          </p>
+        </div>
+
+        <div className={styles.block}>
+          <h2 className={styles.header}>Do Your Own Analysis</h2>
+          <p className={styles.paragraph}>
+            The tools we have built make it easy for you to do your own analysis
+            on each company and their stock. Keep your newfound knowledge to
+            yourself or easily share it with your followers!
+          </p>
+        </div>
+
+        <h1 className={styles.main_header}>FAQs</h1>
+        <div className={styles.block}>
+          <p className={styles.header}>Is GreenStack free?</p>
+          <p className={styles.paragraph}>
+            Greenstack and all of its features are completely free. Subscribe
+            for $2.99 per month to get a small digital badge and have your name
+            put up on the list of supporters.
+          </p>
+        </div>
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

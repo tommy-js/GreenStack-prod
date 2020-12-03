@@ -1,7 +1,40 @@
+@import "../../globals/variables.scss";
+
 .app_information_page {
   position: relative;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+}
+
+.block {
+  margin-top: 50px;
+}
+
+.main_header {
+  font-size: 32px;
+  font-family: $standard_font;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 100px;
+  color: $text_black;
+}
+
+.flair {
+  color: $forest_green;
+}
+
+.header {
+  font-family: $standard_font;
+  font-weight: normal;
+  font-size: 24px;
+  color: $light_blue;
+}
+
+.paragraph {
+  font-family: $standard_font;
+  color: $text_black;
+  line-height: 150%;
+  font-size: 18px;
 }
