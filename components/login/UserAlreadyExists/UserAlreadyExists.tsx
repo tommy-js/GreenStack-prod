@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./styles.module.scss";
 
 interface Props {
   visible: boolean;
@@ -12,5 +13,9 @@ export const UserAlreadyExists: React.FC<Props> = (props) => {
     else if (props.visible === true) setVisibility("block");
   }, [props.visible]);
 
-  return <p style={{ display: visibility }}>That username is unavailable.</p>;
+  return (
+    <p style={{ display: visibility }} className={styles.text}>
+      That username is unavailable.
+    </p>
+  );
 };
