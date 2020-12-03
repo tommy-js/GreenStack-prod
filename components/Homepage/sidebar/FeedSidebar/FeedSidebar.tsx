@@ -3,55 +3,23 @@ import { SidebarUsername } from "../SidebarUsername/SidebarUsername";
 import { SidebarSearch } from "../SidebarSearch/SidebarSearch";
 import { SidebarElement } from "../SidebarElement/SidebarElement";
 import { SidebarPortfolioValue } from "../SidebarPortfolioValue/SidebarPortfolioValue";
-import { searchQuery } from "../../../queries/queries.js";
-import { useLazyQuery } from "react-apollo";
+import { useRouter } from "next/router";
 import styles from "./styles.module.scss";
 
 interface Props {
-  modRes: (searchData: any, dataType: number) => void;
   setPostingToFeed: () => void;
 }
 
 export const FeedSidebar: React.FC<Props> = (props) => {
   const [search, setSearch] = useState("");
-
-  const [searchUser, { data }] = useLazyQuery(searchQuery);
-
-  useEffect(() => {
-    if (data) {
-      if (data.searchUser) {
-        let searchData = {
-          username: data.searchUser.username,
-          userId: data.searchUser.userId,
-          profileImage: data.searchUser.profileImage,
-          bio: data.searchUser.bio,
-        };
-        let dataType = 0;
-        props.modRes(searchData, dataType);
-      } else if (data.searchStock) {
-        let searchData = {
-          title: data.searchStock.title,
-          ticker: data.searchStock.ticker,
-          description: data.searchStock.description,
-          country: data.searchStock.country,
-          stockId: data.searchStock.stockId,
-        };
-        let dataType = 1;
-        props.modRes(searchData, dataType);
-      }
-    }
-  }, [data]);
+  const router = useRouter();
 
   function modSearch(input: string) {
     setSearch(input);
   }
 
-  function submitSearch() {
-    searchUser({
-      variables: {
-        argument: search,
-      },
-    });
+  function submitSearch(res: string) {
+    router.push(`/search/${res}`);
   }
 
   return (

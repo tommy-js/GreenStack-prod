@@ -1,36 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { QueryUserResult, QueryStockResult } from "../QueryResult/QueryResult";
+import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
+import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { NavBar } from "../../../components/navigation/NavBar/NavBar";
+import { searchQuery } from "../../queries/queries";
+import { useQuery } from "react-apollo";
 import styles from "./styles.module.scss";
 
 interface Props {
-  results: any;
+  res: string;
 }
 
 export const SearchResults: React.FC<Props> = (props) => {
+  const [loaded, setLoaded] = useState(false);
+  const { data } = useQuery(searchQuery, {
+    variables: { argument: props.res },
+  });
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      setLoaded(true);
+    }
+  }, [data]);
+
   function returnQuery() {
-    if (props.results) {
-      if (props.results.dataType === 0) {
+    if (loaded === true) {
+      if (data.searchUser) {
         return (
           <QueryUserResult
-            username={props.results.username}
-            profileImage={props.results.profileImage}
-            userId={props.results.userId}
-            bio={props.results.bio}
+            username={data.searchUser.username}
+            profileImage={data.searchUser.profileImage}
+            userId={data.searchUser.userId}
+            bio={data.searchUser.bio}
           />
         );
-      } else {
+      } else if (data.searchStock) {
         return (
           <QueryStockResult
-            title={props.results.title}
-            ticker={props.results.ticker}
-            description={props.results.description}
-            country={props.results.country}
-            stockId={props.results.stockId}
+            title={data.searchStock.title}
+            ticker={data.searchStock.ticker}
+            description={data.searchStock.description}
+            country={data.searchStock.country}
+            stockId={data.searchStock.stockId}
           />
         );
-      }
+      } else return <h2>Loading...</h2>;
     } else return <h2>Nothing Found</h2>;
   }
 
-  return <div className={styles.feed}>{returnQuery()}</div>;
+  const [postingToFeed, setPostingToFeed] = useState(false);
+
+  function renderShowPostOptions() {
+    if (postingToFeed === true)
+      return (
+        <PortfolioValuePostModal
+          setPostingToFeed={() => setPostingToFeed(false)}
+        />
+      );
+    else return null;
+  }
+
+  return (
+    <div>
+      <NavBar />
+      <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+      <div className={styles.feed}>
+        {returnQuery()}
+        {renderShowPostOptions()}
+      </div>
+    </div>
+  );
 };

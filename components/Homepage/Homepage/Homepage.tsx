@@ -4,14 +4,12 @@ import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { Feed } from "../feed/Feed/Feed";
 import { useLazyQuery, useQuery } from "react-apollo";
-import { useRouter } from "next/router";
 import { connect } from "react-redux";
 import {
   mapStateToProps,
   mapDispatchToProps,
 } from "../../../components/actions/actions";
 import {
-  userQuery,
   nonTokenModifyUserQuery,
   getStocksQuery,
 } from "../../../components/queries/queries";
@@ -42,16 +40,12 @@ interface Redux {
 }
 
 const HomepageRender: React.FC<Redux> = (props) => {
-  const [loadingInUser, setLoadingInUser] = useState(false);
   const [companies, setCompanies] = useState([] as any);
   const [technology, setTechnology] = useState([] as any);
   const [manufacturing, setManufacturing] = useState([] as any);
   const [energy, setEnergy] = useState([] as any);
-  const [results, setResults] = useState({} as any);
-  const router = useRouter();
 
   const { data: companyData } = useQuery(getStocksQuery);
-  const [passToken, { data }] = useLazyQuery(userQuery);
   const [getUser, { data: getUserData }] = useLazyQuery(
     nonTokenModifyUserQuery,
     {
@@ -80,48 +74,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
     }
   }, [getUserData]);
 
-  function modRes(searchData: any, dataType: number) {
-    let arr: any[] = props.userRoutes;
-    let obj;
-    if (dataType === 0) {
-      obj = {
-        username: searchData.username,
-        userId: searchData.userId,
-        profileImage: searchData.profileImage,
-        bio: searchData.bio,
-        dataType: dataType,
-      };
-      let findEl = props.userRoutes.find(
-        (el: any) => el.userId === searchData.userId
-      );
-      if (!findEl) {
-        arr.push(obj);
-        let routes = [...props.userRoutes, obj];
-        props.onUserRouteSet(routes);
-      }
-    } else if (dataType === 1) {
-      obj = {
-        title: searchData.title,
-        ticker: searchData.ticker,
-        description: searchData.description,
-        country: searchData.country,
-        stockId: searchData.stockId,
-        dataType: dataType,
-      };
-      let findEl = props.userRoutes.find(
-        (el: any) => el.userId === searchData.stockId
-      );
-      if (!findEl) {
-        arr.push(obj);
-        let routes = [...props.userRoutes, obj];
-        props.onUserRouteSet(routes);
-      }
-    }
-
-    setResults(obj);
-    router.push("/home/search");
-  }
-
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -139,10 +91,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
       <NavBar />
       <div className={styles.homepage}>
         {renderShowPostOptions()}
-        <FeedSidebar
-          modRes={modRes}
-          setPostingToFeed={() => setPostingToFeed(true)}
-        />
+        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
       </div>
       <Feed />
     </div>

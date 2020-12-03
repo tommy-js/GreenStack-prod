@@ -4,12 +4,12 @@ import styles from "./styles.module.scss";
 interface Props {
   search: string;
   modSearch: (input: string) => void;
-  submitSearch: () => void;
+  submitSearch: (res: string) => void;
 }
 
 export const SidebarSearch: React.FC<Props> = (props) => {
   function checkSubmit(key: any) {
-    if (key.keyCode === 13) props.submitSearch();
+    if (key.keyCode === 13) props.submitSearch(props.search);
   }
 
   return (
@@ -23,7 +23,7 @@ export const SidebarSearch: React.FC<Props> = (props) => {
       />
       <button
         className={styles.sidebar_search_button}
-        onClick={() => props.submitSearch()}
+        onClick={() => props.submitSearch(props.search)}
       >
         Search
       </button>
