@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
 interface Props {
   passString: (val: string) => void;
   placeholder: string;
   password: string;
+  nullPassword: boolean;
 }
 
 export const PasswordInput: React.FC<Props> = (props) => {
+  const [passwordBorder, setPasswordBorder] = useState("1px solid grey");
+
+  useEffect(() => {
+    if (props.nullPassword === true) {
+      setPasswordBorder("1px solid red");
+    }
+  }, [props.nullPassword]);
+
   function renderShowPass() {
     if (props.password.length > 0) {
       return (
@@ -28,6 +37,7 @@ export const PasswordInput: React.FC<Props> = (props) => {
   return (
     <React.Fragment>
       <input
+        style={{ border: passwordBorder }}
         id="login_access"
         className={styles.input_container}
         type="password"

@@ -1,4 +1,6 @@
 import React from "react";
+import { NeedNewAccount } from "../NeedNewAccount/NeedNewAccount";
+import { AlreadyMember } from "../AlreadyMember/AlreadyMember";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -9,31 +11,11 @@ interface Props {
 export const RenderAccountLink: React.FC<Props> = (props) => {
   function checkNewAccount() {
     if (props.newAccount === false) {
-      return (
-        <React.Fragment>
-          Want to join the party? Create a new account
-          <a href="#" onClick={props.triggerNewAccount}>
-            {" "}
-            here
-          </a>
-        </React.Fragment>
-      );
+      return <NeedNewAccount triggerNewAccount={props.triggerNewAccount} />;
     } else {
-      return (
-        <React.Fragment>
-          Already a member? Login
-          <a
-            className={styles.teal_link}
-            href="#"
-            onClick={props.triggerNewAccount}
-          >
-            {" "}
-            here
-          </a>
-        </React.Fragment>
-      );
+      return <AlreadyMember triggerNewAccount={props.triggerNewAccount} />;
     }
   }
 
-  return <React.Fragment>{checkNewAccount()}</React.Fragment>;
+  return <div className={styles.render_account_link}>{checkNewAccount()}</div>;
 };

@@ -1,0 +1,19 @@
+@import "../../globals/variables.scss";
+
+.button {
+  position: relative;
+  color: $forest_green;
+  font-family: $standard_font;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 1px solid $light_blue;
+  cursor: pointer;
+  background-color: $cream_white;
+}

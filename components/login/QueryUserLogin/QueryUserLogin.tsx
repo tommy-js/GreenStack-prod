@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLazyQuery } from "react-apollo";
 import { userLoginQuery } from "../../queries/queries";
 import { comparePass } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   username: string;
@@ -57,5 +58,9 @@ export const QueryUserLogin: React.FC<Props> = (props) => {
     }, delay);
   }
 
-  return <button onClick={() => checkValid()}>Sign In</button>;
+  return (
+    <button className={styles.button} onClick={() => checkValid()}>
+      Sign In
+    </button>
+  );
 };

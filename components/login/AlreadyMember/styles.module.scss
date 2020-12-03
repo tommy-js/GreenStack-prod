@@ -1,0 +1,29 @@
+@import "../../globals/variables.scss";
+
+.text {
+  font-family: $standard_font;
+  color: $cream_white;
+  font-size: 18px;
+  text-align: center;
+  @include noselect;
+}
+
+.centered_button {
+  position: relative;
+  width: 100%;
+}
+
+.link {
+  position: relative;
+  color: $forest_green;
+  font-family: $standard_font;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}

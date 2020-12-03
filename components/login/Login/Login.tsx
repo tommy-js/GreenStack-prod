@@ -9,7 +9,6 @@ import {
   LoginPageCommunityInfo,
 } from "../LoginPageInfo/LoginPageInfo";
 import { InfoHeader } from "../InfoHeader/InfoHeader";
-import Link from "next/link";
 import { LearnMore } from "../LearnMore/LearnMore";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";

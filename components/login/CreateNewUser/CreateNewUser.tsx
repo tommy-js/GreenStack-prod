@@ -6,6 +6,7 @@ import {
   createUserMutation,
   distinctUserQuery,
 } from "../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   username: string;
@@ -13,6 +14,8 @@ interface Props {
   passObjectUp: (passwordEffective: any) => void;
   createUserMutation: (variables: object) => any;
   alreadyExists: (val: boolean) => void;
+  renderUsernameNull: () => void;
+  renderPasswordNull: () => void;
 }
 
 const CreateNewUserMutation: React.FC<Props> = (props) => {
@@ -32,10 +35,18 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
 
   function checkValidity() {
     let checkBool = checkTruth(passwordEffective);
-    console.log(passwordEffective);
     console.log("new username: " + newUsername + " checkBool: " + checkBool);
-    if (newUsername === true && checkBool === true) {
-      submitButton();
+    if (props.username.length > 0 && props.password.length > 0) {
+      if (newUsername === true && checkBool === true) {
+        submitButton();
+      }
+    } else if (props.username.length === 0 && props.password.length != 0) {
+      props.renderUsernameNull();
+    } else if (props.password.length === 0 && props.username.length != 0) {
+      props.renderPasswordNull();
+    } else {
+      props.renderUsernameNull();
+      props.renderPasswordNull();
     }
   }
 
@@ -80,19 +91,13 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
     );
 
     function under64() {
-      if (props.password.length <= 64) {
-        return true;
-      } else {
-        return false;
-      }
+      if (props.password.length <= 64) return true;
+      else return false;
     }
 
     function greater8() {
-      if (props.password.length >= 8) {
-        return true;
-      } else {
-        return false;
-      }
+      if (props.password.length >= 8) return true;
+      else return false;
     }
 
     let test64 = under64();
@@ -130,7 +135,11 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
       });
   }
 
-  return <button onClick={() => checkValidity()}>Create Account</button>;
+  return (
+    <button className={styles.button} onClick={() => checkValidity()}>
+      Create Account
+    </button>
+  );
 };
 
 export const CreateNewUser = compose(

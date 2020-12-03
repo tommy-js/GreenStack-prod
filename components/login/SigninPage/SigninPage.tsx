@@ -3,7 +3,6 @@ import { LoginHeader } from "../LoginHeader/LoginHeader";
 import { UserNameInput } from "../UserNameInput/UserNameInput";
 import { PasswordInput } from "../PasswordInput/PasswordInput";
 import { QueryUserLogin } from "../QueryUserLogin/QueryUserLogin";
-import { HiddenVisual } from "../HiddenVisual/HiddenVisual";
 
 interface Props {
   loadingUser: () => void;
@@ -13,8 +12,8 @@ interface Props {
 export const SigninPage: React.FC<Props> = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [usernameOpac, setUsernameOpac] = useState(0);
-  const [passwordOpac, setPasswordOpac] = useState(0);
+  const [nullUserName, setNullUserName] = useState(false);
+  const [nullPassword, setNullPassword] = useState(false);
 
   function passUsername(val: string) {
     setUsername(val);
@@ -22,14 +21,6 @@ export const SigninPage: React.FC<Props> = (props) => {
 
   function passPassword(val: string) {
     setPassword(val);
-  }
-
-  function renderPasswordNull() {
-    setPasswordOpac(1);
-  }
-
-  function renderUsernameNull() {
-    setUsernameOpac(1);
   }
 
   function loadingUser() {
@@ -43,22 +34,22 @@ export const SigninPage: React.FC<Props> = (props) => {
         username={username}
         passString={passUsername}
         placeholder="Username"
+        nullUserName={nullUserName}
       />
       <PasswordInput
         password={password}
         passString={passPassword}
         placeholder="Password"
+        nullPassword={nullPassword}
       />
       <QueryUserLogin
         username={username}
         password={password}
         loadingUser={loadingUser}
-        renderUsernameNull={renderUsernameNull}
-        renderPasswordNull={renderPasswordNull}
+        renderUsernameNull={() => setNullUserName(true)}
+        renderPasswordNull={() => setNullPassword(true)}
         passUserAuth={props.passUserAuth}
       />
-      <HiddenVisual text="You must enter a username" opac={usernameOpac} />
-      <HiddenVisual text="You must enter a password" opac={passwordOpac} />
     </React.Fragment>
   );
 };

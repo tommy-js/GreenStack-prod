@@ -17,6 +17,8 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameAlreadyExists, setUsernameAlreadyExists] = useState(false);
+  const [nullUserName, setNullUserName] = useState(false);
+  const [nullPassword, setNullPassword] = useState(false);
 
   const [passValidation, setPassValidation] = useState({
     char8: false,
@@ -56,23 +58,27 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
   return (
     <React.Fragment>
       <div className={styles.login_forms}>
-        <LoginHeader text="Create Account" />
+        <LoginHeader text="Sign Up" />
         <UserNameInput
           username={username}
           passString={passUsername}
           placeholder="Username"
+          nullUserName={nullUserName}
         />
         <UserAlreadyExists visible={usernameAlreadyExists} />
         <PasswordInput
           password={password}
           passString={passPassword}
           placeholder="Password"
+          nullPassword={nullPassword}
         />
         <CreateNewUser
           username={username}
           password={password}
           passObjectUp={setObject}
           alreadyExists={alreadyExists}
+          renderUsernameNull={() => setNullUserName(true)}
+          renderPasswordNull={() => setNullPassword(true)}
         />
         <RenderAccountLink
           newAccount={props.newAccount}
