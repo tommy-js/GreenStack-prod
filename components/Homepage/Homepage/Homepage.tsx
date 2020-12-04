@@ -3,16 +3,13 @@ import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/Fe
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { Feed } from "../feed/Feed/Feed";
-import { useLazyQuery, useQuery } from "react-apollo";
+import { useLazyQuery } from "react-apollo";
 import { connect } from "react-redux";
 import {
   mapStateToProps,
   mapDispatchToProps,
 } from "../../../components/actions/actions";
-import {
-  nonTokenModifyUserQuery,
-  getStocksQuery,
-} from "../../../components/queries/queries";
+import { nonTokenModifyUserQuery } from "../../../components/queries/queries";
 import {
   PostItem,
   FeedItem,
@@ -20,7 +17,6 @@ import {
   FollowingItem,
   WatchListItem,
 } from "../../../components/types/types";
-import { companySort } from "./index";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -40,29 +36,12 @@ interface Redux {
 }
 
 const HomepageRender: React.FC<Redux> = (props) => {
-  const [companies, setCompanies] = useState([] as any);
-  const [technology, setTechnology] = useState([] as any);
-  const [manufacturing, setManufacturing] = useState([] as any);
-  const [energy, setEnergy] = useState([] as any);
-
-  const { data: companyData } = useQuery(getStocksQuery);
   const [getUser, { data: getUserData }] = useLazyQuery(
     nonTokenModifyUserQuery,
     {
       pollInterval: 500,
     }
   );
-
-  useEffect(() => {
-    if (companyData) {
-      let companies = companyData.getStocks;
-      setCompanies(companies);
-      let sortedCompanies = companySort(companyData.getStocks);
-      setTechnology(sortedCompanies.tech);
-      setManufacturing(sortedCompanies.manu);
-      setEnergy(sortedCompanies.energ);
-    }
-  }, [companyData]);
 
   useEffect(() => {
     if (getUserData) {
