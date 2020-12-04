@@ -10,13 +10,13 @@ interface Redux {
 
 const NotifPortfolioValue: React.FC<Redux> = (props) => {
   return (
-    <Link href="/portfolio">
-      <a
-        className={`${styles.no_style} ${styles.notifications_link} ${styles.notifications_link_text}`}
-      >
-        ${props.money}
-      </a>
-    </Link>
+    <div className={styles.notifications_link_text}>
+      <Link href="/portfolio">
+        <a className={`${styles.no_style} ${styles.notifications_link}`}>
+          (${props.money})
+        </a>
+      </Link>
+    </div>
   );
 };
 

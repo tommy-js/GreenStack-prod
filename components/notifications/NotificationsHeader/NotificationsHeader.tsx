@@ -1,4 +1,5 @@
 import React from "react";
+import { NotificationsPortfolioValue } from "../NotificationsPortfolioValue/NotificationsPortfolioValue";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import Link from "next/link";
@@ -10,11 +11,14 @@ interface Redux {
 
 const NotificationsHead: React.FC<Redux> = (props) => {
   return (
-    <Link href="/home/profile">
-      <a className={`${styles.no_style} ${styles.notifications_link_text}`}>
-        {props.username}
-      </a>
-    </Link>
+    <div className={styles.notifications_header}>
+      <div className={styles.notifications_link_text}>
+        <Link href="/profile">
+          <a className={styles.no_style}>{props.username}</a>
+        </Link>
+      </div>
+      <NotificationsPortfolioValue />
+    </div>
   );
 };
 
