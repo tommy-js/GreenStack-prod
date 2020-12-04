@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FollowingElement } from "../FollowingElement/FollowingElement";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { FollowingItem } from "../../types/types";
-import { modifyGlobalRoutes } from "./index";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -15,21 +14,13 @@ interface Array {
   userId: string;
 }
 
-interface Props extends Redux {
-  modRoutes: (arr: Array[]) => void;
-}
-
-const FollowingRender: React.FC<Props> = ({ following, modRoutes }: Props) => {
-  // Creates routes within the Homepage component for all the users in our Following list
-  useEffect(() => {
-    let modifiedRoutes = modifyGlobalRoutes(following);
-    modRoutes(modifiedRoutes);
-  }, []);
-
+const FollowingRender: React.FC<Redux> = (props) => {
   return (
     <div className={styles.feed}>
-      <h2 className={styles.list_header}>Following({following.length})</h2>
-      {following.map((el: FollowingItem) => (
+      <h2 className={styles.list_header}>
+        Following({props.following.length})
+      </h2>
+      {props.following.map((el: FollowingItem) => (
         <FollowingElement
           userId={el.userId}
           username={el.username}
