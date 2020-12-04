@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RenderModal } from "../../components/Homepage/feed/RenderModal/RenderModal";
+import { PostHandler } from "../../components/Homepage/feed/PostHandler/PostHandler";
 import { useQuery } from "react-apollo";
 import { individualPostQuery } from "../../components/queries/queries";
 import { useRouter } from "next/router";
@@ -24,7 +24,7 @@ const Post: React.FC = () => {
 
   function renderPost() {
     if (showRender === true) {
-      return <RenderModal post={data.post} />;
+      return <PostHandler post={data.post} />;
     } else return null;
   }
 

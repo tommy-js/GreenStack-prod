@@ -24,7 +24,7 @@ interface Redux {
   onUserRouteSet: (userRoutes: UserRoute[]) => void;
 }
 
-interface Props extends Redux {
+export interface PostInterface {
   title: string;
   postUserId: string;
   userProfileImage: string;
@@ -58,20 +58,24 @@ interface Props extends Redux {
       }
     ];
   }[];
+}
+
+interface Props extends Redux {
+  post: PostInterface;
   modPostLoad: (postId: string) => void;
 }
 
 const RenderModalPre: React.FC<Props> = (props) => {
-  const [likes, setLikes] = useState(props.likes);
-  const [dislikes, setDislikes] = useState(props.dislikes);
-  const [comments, setComments] = useState(props.comments.length);
+  const [likes, setLikes] = useState(props.post.likes);
+  const [dislikes, setDislikes] = useState(props.post.dislikes);
+  const [comments, setComments] = useState(props.post.comments.length);
 
   function returnImage() {
-    if (props.postImage == "null") return null;
+    if (props.post.postImage == "null") return null;
     else {
       return (
         <div className={styles.post_image_block}>
-          <img className={styles.post_image} src={props.postImage} />
+          <img className={styles.post_image} src={props.post.postImage} />
         </div>
       );
     }
@@ -91,15 +95,15 @@ const RenderModalPre: React.FC<Props> = (props) => {
 
   useEffect(() => {
     let returned = returnUserRoutes(
-      props.postUsername,
-      props.postUserId,
+      props.post.postUsername,
+      props.post.postUserId,
       props.userRoutes
     );
     if (returned) props.onUserRouteSet(returned);
   }, []);
 
   function returnText() {
-    let tag = returnTaggedString(props.text);
+    let tag = returnTaggedString(props.post.text);
     return (
       <React.Fragment>
         {tag.map((el: any) => (
@@ -110,23 +114,23 @@ const RenderModalPre: React.FC<Props> = (props) => {
   }
 
   function returnAllowed() {
-    if (props.allowLikes === true) {
+    if (props.post.allowLikes === true) {
       return (
         <React.Fragment>
           <div className={styles.post_values}>
             <span className={styles.post_value_inner}>{likes}</span>
           </div>
           <LikePost
-            userId={props.postUserId}
-            postId={props.postId}
+            userId={props.post.postUserId}
+            postId={props.post.postId}
             modLikes={modLikes}
           />
           <div className={styles.post_values}>
             <span className={styles.post_value_inner}>{dislikes}</span>
           </div>
           <DislikePost
-            userId={props.postUserId}
-            postId={props.postId}
+            userId={props.post.postUserId}
+            postId={props.post.postId}
             modDislikes={modDislikes}
           />
           <div className={styles.post_values}>
@@ -148,9 +152,9 @@ const RenderModalPre: React.FC<Props> = (props) => {
   return (
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
-        <h2>{props.title}</h2>
-        <Link href={`/home/user/${props.postUserId}`}>
-          <a>{props.postUserId}</a>
+        <h2>{props.post.title}</h2>
+        <Link href={`/home/user/${props.post.postUserId}`}>
+          <a>{props.post.postUserId}</a>
         </Link>
         <div
           className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
@@ -158,26 +162,29 @@ const RenderModalPre: React.FC<Props> = (props) => {
         >
           <img
             className={styles.feed_profile_image}
-            src={props.userProfileImage}
+            src={props.post.userProfileImage}
           />
         </div>
-        <h3 className={styles.feed_link_name}>{props.postUsername}</h3>
+        <h3 className={styles.feed_link_name}>{props.post.postUsername}</h3>
 
         {returnImage()}
         <p className={styles.post_text}>{returnText()}</p>
       </div>
       <div className={styles.post_lower_block}>
         <p className={styles.post_return_date}>
-          Posted {returnDate(props.timestamp)}
+          Posted {returnDate(props.post.timestamp)}
         </p>
         {returnAllowed()}
         <CommentInputPost
-          userId={props.postUserId}
-          postId={props.postId}
+          userId={props.post.postUserId}
+          postId={props.post.postId}
           modComments={modComments}
-          allowComments={props.allowComments}
+          allowComments={props.post.allowComments}
         />
-        <CommentSection postId={props.postId} comments={props.comments} />
+        <CommentSection
+          postId={props.post.postId}
+          comments={props.post.comments}
+        />
       </div>
     </div>
   );
