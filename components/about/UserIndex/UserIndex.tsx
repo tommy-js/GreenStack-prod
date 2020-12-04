@@ -20,6 +20,14 @@ interface Props extends Redux {
 }
 
 const UserIndexRender: React.FC<Props> = (props) => {
+  return (
+    <Link href={`/user/${props.highlightUserId}`}>
+      <UserIndexLink props={props} />
+    </Link>
+  );
+};
+
+const UserIndexLink = React.forwardRef(({ onClick, href, props }, ref) => {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
@@ -42,7 +50,6 @@ const UserIndexRender: React.FC<Props> = (props) => {
     const feed = document.getElementById("feed");
     if (feed) enableBodyScroll(feed);
   }
-
   function returnHoverOver() {
     if (hovered === true) {
       return (
@@ -54,26 +61,27 @@ const UserIndexRender: React.FC<Props> = (props) => {
       );
     } else return null;
   }
-
   return (
-    <div
-      className={styles.user_comment_index}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <Link href={`/home/user/${props.highlightUserId}`}>
-        <a>{props.highlightUsername}</a>
-      </Link>
+    <a href={href} onClick={onClick} ref={ref}>
       <div
-        className={styles.username_tag_block}
-        onClick={() => unlockScrollState()}
+        className={styles.user_comment_index}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
-        <span className={styles.username_tag}>@{props.highlightUsername}</span>
+        <a>{props.highlightUsername}</a>
+        <div
+          className={styles.username_tag_block}
+          onClick={() => unlockScrollState()}
+        >
+          <span className={styles.username_tag}>
+            @{props.highlightUsername}
+          </span>
+        </div>
+        <div className={styles.hover_comp}>{returnHoverOver()}</div>
       </div>
-      <div className={styles.hover_comp}>{returnHoverOver()}</div>
-    </div>
+    </a>
   );
-};
+});
 
 export const UserIndex = connect(
   mapStateToProps,

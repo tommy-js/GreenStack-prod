@@ -10,17 +10,11 @@ interface Props {
 }
 
 export const CommentSection: React.FC<Props> = (props) => {
-  const [comments, setComments] = useState([] as any);
-
-  useEffect(() => {
-    if (props.comments.length > 0) setComments(props.comments);
-  }, [props.comments]);
-
   return (
     <div className={styles.comment_section}>
       <h3 className={styles.comment_section_header}>Leave a comment</h3>
       <CommentSectionInput id={props.id} />
-      <Comments comments={comments} />
+      <Comments comments={props.comments} />
     </div>
   );
 };

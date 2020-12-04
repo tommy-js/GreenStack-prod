@@ -58,7 +58,7 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
   return (
     <div className={styles.tutorial_comment}>
       <h3 className={styles.tutorial_comment_username}>
-        <Link href={`/home/user/${props.commentUserId}`}>
+        <Link href={`/user/${props.commentUserId}`}>
           {props.commentUsername}
         </Link>
       </h3>

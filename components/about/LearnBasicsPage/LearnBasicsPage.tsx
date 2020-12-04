@@ -82,10 +82,10 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
   return (
     <div>
       <NavBar />
-      <div className="learn_page">
-        <h2 className="learn_page_header">Getting Started</h2>
+      <div className={styles.learn_page}>
+        <h2 className={styles.learn_page_header}>Getting Started</h2>
 
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Getting involved in the stock market can be intimidating, especially
           for those without a deep understanding of how the economy works.
           Fortunately, it doesn't have to be so difficult. In this short
@@ -99,18 +99,20 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
             legend: { display: true, position: "left" },
           }}
         />
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           At its most basic, the stock market is composed of companies and their
           investors(that's you!). Investors purchase portions of companies,
           called{" "}
           <Link href="/about/glossary">
-            <a className="emphasize featureless_link">shares</a>
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              shares
+            </a>
           </Link>
           , which fluctuate in value depending on how a company is doing. It's
           your hope as an investor that the value of these shares increase over
           time, so that you can sell them for a profit somewhere down the line.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Let's take a look at some historical Apple stock data to see how this
           might work.
         </p>
@@ -121,7 +123,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           contentsDiv="apple_learning_graph"
         />
 
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           The graph above is Apple stock-price data from March 1, 2019 to May
           30, 2019. You can see that if you had purchased a share at the
           beginning of this timeframe, by the end of May the value of your share
@@ -129,7 +131,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           have made you $6.43!
         </p>
 
-        <h3 className="learn_page_notif">
+        <h3 className={styles.learn_page_notif}>
           Complete the knowledge check to save your progress!
         </h3>
 
@@ -147,12 +149,12 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           headline="What is a share?"
         />
 
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Of course, $6.43 isn't much money. However, this brings us to one of
           the most common and successful investment strategies.
         </p>
-        <p className="learn_page_subheader">Buy, hold, buy more</p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_subheader}>Buy, hold, buy more</p>
+        <p className={styles.learn_page_paragraph}>
           The goal of most investors is to make small gains slowly over time,
           and to therefore increase the value of their investment significantly
           over a period of years. $1,000 invested into Amazon stock, AMZN, in
@@ -163,12 +165,12 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           graphicalEffects={AMZN10Year.graphicalEffects}
           contentsDiv="amazon_10_year"
         />
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           That being said, Amazon is an extreme example of this kind of growth.
           Invested in another popular company, Walmart, that $1,000 would be
           worth roughly $2,769 after those ten years.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Not everyone has $1,000, $10,000, or $100,000 lying around, though.
           Many investors are starting out with very small amounts. This brings
           up an important saying: "time in the market beats timing the market."
@@ -176,19 +178,19 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           time, small consistent investments into the market as a whole will
           always lead to better results.
         </p>
-        <p className="learn_page_subheader">Growth not guaranteed</p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_subheader}>Growth not guaranteed</p>
+        <p className={styles.learn_page_paragraph}>
           It's tempting to think that because certain companies have seen
           massive growth and success over a few short years, this means every
           company will see success. Unfortunately, this couldn't be further from
           the truth.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           Some companies, such as Gamestop and Hertz, have been on the downtrend
           for years. $1,000 invested into Gamestop in 2015 would be worth about
           $283 in 2020.
         </p>
-        <p className="learn_page_paragraph">
+        <p className={styles.learn_page_paragraph}>
           This brings up a major concept in investing; risk. Risk is the
           likelihood that you will lose money on an investment. You can reduce
           risk in certain ways. One of these ways is to diversify your stocks.

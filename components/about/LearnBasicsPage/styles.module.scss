@@ -5,13 +5,10 @@
   width: 50%;
   color: $text_black;
   font-family: $standard_font;
+  margin-top: 75px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
-}
-
-.emphasize {
-  color: $island_green;
 }
 
 .learn_page_paragraph {
@@ -21,6 +18,14 @@
   line-height: 165%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.featureless_link {
+  text-decoration: none;
+}
+
+.emphasize {
+  color: $island_green;
 }
 
 .learn_page_subheader {

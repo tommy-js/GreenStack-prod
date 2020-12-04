@@ -5,10 +5,11 @@ import { PortfolioData } from "../PortfolioData/PortfolioData";
 import { MainPortfolioHeader } from "../MainPortfolioHeader/MainPortfolioHeader";
 import { PortfolioHeader } from "../PortfolioHeader/PortfolioHeader";
 import { OwnedStocks } from "../OwnedStocks/OwnedStocks";
+import styles from "./styles.module.scss";
 
 export const DefaultPortfolio: React.FC = () => {
   return (
-    <React.Fragment>
+    <div className={styles.portfolio}>
       <MainPortfolioHeader text="Your Portfolio" />
       <Assets />
       <PortfolioHeader text="Your Stocks" />
@@ -16,6 +17,6 @@ export const DefaultPortfolio: React.FC = () => {
       <PortfolioHeader text="Watchlist" />
       <WatchStocks />
       <PortfolioData />
-    </React.Fragment>
+    </div>
   );
 };

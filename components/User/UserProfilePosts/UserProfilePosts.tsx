@@ -38,14 +38,10 @@ const UserProfilePostsRedux: React.FC<Redux> = (props) => {
   }
 
   return (
-    <div>
-      <NavBar />
-      <div className={styles.homepage}>
-        <p>text</p>
-        {renderShowPostOptions()}
-        {renderPosts()}
-        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-      </div>
+    <div className={styles.homepage}>
+      <p>text</p>
+      {renderShowPostOptions()}
+      {renderPosts()}
     </div>
   );
 };

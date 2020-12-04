@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { AboutUs } from "../AboutUs/AboutUs";
 import { Learn } from "../Learn/Learn";
 import { NavBar } from "../../navigation/NavBar/NavBar";
-import UserLoginAuthSubresolver from "../../resolvers/UserLoginAuthSubresolver";
 import {
   PostItem,
   FollowerItem,
@@ -12,8 +11,6 @@ import {
 } from "../../types/types";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
-import { nonTokenModifyUserQuery } from "../../queries/queries";
-import { useLazyQuery } from "react-apollo";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -27,27 +24,6 @@ interface Redux {
 }
 
 const AboutPageRender: React.FC<Redux> = (props) => {
-  // const [getUser, { data }] = useLazyQuery(nonTokenModifyUserQuery, {
-  //   pollInterval: 500,
-  // });
-
-  // useEffect(() => {
-  //   if (data) {
-  //     props.onInitialPostsSet(data.noTokenMod.posts);
-  //     props.onInitialFollowerSet(data.noTokenMod.followers);
-  //     props.onInitialFollowingSet(data.noTokenMod.following);
-  //     props.onInitialNotificationsSet(data.noTokenMod.notifications);
-  //     props.onWatchlistSet(data.noTokenMod.watchlist);
-  //     setProgress(data.noTokenMod.progress);
-  //   }
-  // }, [data]);
-
-  // useEffect(() => {
-  //   if (props.status === false) {
-  //     if (data && data.token) setLoadingInUser(true);
-  //   }
-  // }, data);
-
   return (
     <React.Fragment>
       <NavBar />
