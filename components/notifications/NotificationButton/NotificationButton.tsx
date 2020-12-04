@@ -1,6 +1,7 @@
 import React from "react";
 import { ProfileImage } from "../../navigation/ProfileImage/ProfileImage";
 import { NewNotification } from "../NewNotification/NewNotification";
+import styles from "./styles.module.scss";
 
 interface Props {
   notifyNew: boolean;
@@ -9,7 +10,10 @@ interface Props {
 
 export const NotificationButton: React.FC<Props> = (props) => {
   return (
-    <div id="trigger_icon" onClick={() => props.triggerDropdown()}>
+    <div
+      className={styles.notification_button}
+      onClick={() => props.triggerDropdown()}
+    >
       <ProfileImage />
       <NewNotification notifyNew={props.notifyNew} />
     </div>

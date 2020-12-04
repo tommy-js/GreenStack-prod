@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
 import { UserProfile } from "../../components/User/UserProfile/UserProfile";
 import { useLazyQuery } from "react-apollo";
 import { otherUserQuery } from "../../components/queries/queries";
@@ -8,6 +9,7 @@ const Post: React.FC = () => {
   const router = useRouter();
   const [callQuery, { data }] = useLazyQuery(otherUserQuery);
   const [showRender, setShowRender] = useState(false);
+  const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
     if (router.query.userId) {
@@ -19,10 +21,6 @@ const Post: React.FC = () => {
     console.log(data);
     if (data) setShowRender(true);
   }, [data]);
-
-  // useEffect(() => {
-  //   if (router.query.userId) console.log(router.query.userId);
-  // }, [router.query.userId]);
 
   function renderPost() {
     if (showRender === true && data) {
@@ -40,7 +38,15 @@ const Post: React.FC = () => {
     } else return null;
   }
 
-  return <React.Fragment>{renderPost()}</React.Fragment>;
+  function checkReturn() {
+    if (loadingInUser === true) {
+      return (
+        <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
+      );
+    } else return renderPost();
+  }
+
+  return checkReturn();
 };
 
 export default Post;

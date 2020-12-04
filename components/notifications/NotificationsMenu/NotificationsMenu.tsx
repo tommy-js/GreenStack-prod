@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NotificationsLink } from "../NotificationsLink/NotificationsLink";
+import { NotificationsLinkContainer } from "../NotificationsLinkContainer/NotificationsLinkContainer";
 import { NotifData } from "../NotificationsData/NotificationsData";
 import { NotificationItem } from "../../types/types";
 
@@ -21,7 +21,7 @@ export const NotificationsMenu: React.FC<Props> = (props) => {
 
   function tabDisplay() {
     if (tab === 0) {
-      return <NotificationsLink title="test" tab={tab} changeTab={changeTab} />;
+      return <NotificationsLinkContainer changeTab={changeTab} />;
     } else {
       return (
         <NotifData
