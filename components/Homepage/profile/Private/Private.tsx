@@ -4,6 +4,7 @@ import { flowRight as compose } from "lodash";
 import { updateInvisibleMutation } from "../../../queries/queries.js";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
+import styles from "./styles.module.scss";
 
 interface Redux {
   invisible: boolean;
@@ -36,14 +37,14 @@ const PrivateRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <div className={styles.private}>
       <input
         type="checkbox"
         checked={invisibleChecked}
         onChange={() => updateInvisible()}
       />
-      <label>Set Account To Private</label>
-    </React.Fragment>
+      <label className={styles.text}>Set Account To Private</label>
+    </div>
   );
 };
 

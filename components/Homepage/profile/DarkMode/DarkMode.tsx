@@ -4,6 +4,7 @@ import { flowRight as compose } from "lodash";
 import { updateDarkModeMutation } from "../../../queries/queries.js";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
+import styles from "./styles.module.scss";
 
 interface Redux {
   darkmode: boolean;
@@ -36,14 +37,14 @@ const DarkModeRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <div className={styles.dark_mode}>
       <input
         type="checkbox"
         checked={darkmodeChecked}
         onChange={() => updateDarkMode()}
       />
-      <label>Dark Mode</label>
-    </React.Fragment>
+      <label className={styles.text}>Dark Mode</label>
+    </div>
   );
 };
 

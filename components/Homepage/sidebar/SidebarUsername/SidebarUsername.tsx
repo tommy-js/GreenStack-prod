@@ -12,7 +12,7 @@ interface Redux {
 const SidebarUsernameRender: React.FC<Redux> = (props) => {
   return (
     <React.Fragment>
-      <Link href="/home/profile">
+      <Link href="/profile">
         <a>{props.username}</a>
       </Link>
       <div

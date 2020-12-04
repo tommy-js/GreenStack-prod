@@ -37,14 +37,14 @@ const AllowCommentsRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <div className={styles.allow_comments}>
       <input
         type="checkbox"
         checked={allowChecked}
         onChange={() => updateAllowComments()}
       />
-      <label>Allow Comments on Posts</label>
-    </React.Fragment>
+      <label className={styles.text}>Allow Comments on Posts</label>
+    </div>
   );
 };
 

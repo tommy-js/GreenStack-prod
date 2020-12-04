@@ -85,3 +85,8 @@
   margin-top: 10px;
   // @include testing;
 }
+
+.render_dropzone {
+  height: 100px;
+  @include testing;
+}

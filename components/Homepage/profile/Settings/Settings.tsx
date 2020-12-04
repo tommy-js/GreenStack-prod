@@ -4,15 +4,16 @@ import { Private } from "../Private/Private";
 import { AllowComments } from "../AllowComments/AllowComments";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
+import styles from "./styles.module.scss";
 
 const SettingsRender: React.FC = () => {
   return (
-    <React.Fragment>
+    <div className={styles.settings}>
       <h2>Settings</h2>
       <DarkMode />
       <Private />
       <AllowComments />
-    </React.Fragment>
+    </div>
   );
 };
 

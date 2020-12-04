@@ -31,7 +31,6 @@ export const FeedSidebar: React.FC<Props> = (props) => {
         submitSearch={submitSearch}
       />
       <SidebarPortfolioValue setPostingToFeed={props.setPostingToFeed} />
-      <SidebarElement text="User Feed" path="/" />
       <SidebarElement text="Explore" path="/explore" />
       <SidebarElement text="Your Posts" path="/posts" />
       <SidebarElement text="Followers" path="/followers" />

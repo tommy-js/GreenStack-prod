@@ -63,10 +63,10 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
   function renderDropzone() {
     if (editingProfileImage === true) {
       return (
-        <React.Fragment>
+        <div className={styles.render_dropzone}>
           <ProfileDropzone modifyImg={modifyImg} />
           <SaveProfileImage image={profileImage} saveImage={saveImage} />
-        </React.Fragment>
+        </div>
       );
     } else return null;
   }
