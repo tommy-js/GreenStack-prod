@@ -32,7 +32,7 @@ export const FeedSidebar: React.FC<Props> = (props) => {
       />
       <SidebarPortfolioValue setPostingToFeed={props.setPostingToFeed} />
       <SidebarElement text="Explore" path="/explore" />
-      <SidebarElement text="Your Posts" path="/posts" />
+      <SidebarElement text="Your Posts" path="/profile/posts" />
       <SidebarElement text="Followers" path="/followers" />
       <SidebarElement text="Following" path="/following" />
     </div>

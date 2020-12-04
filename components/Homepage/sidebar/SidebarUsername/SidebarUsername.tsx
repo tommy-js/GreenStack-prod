@@ -12,15 +12,12 @@ interface Redux {
 const SidebarUsernameRender: React.FC<Redux> = (props) => {
   return (
     <React.Fragment>
-      <Link href="/profile">
-        <a>{props.username}</a>
-      </Link>
-      <div
-        className={`${styles.feed_profile_image_block} ${styles.sidebar_username_link_spec} ${styles.sidebar_username}`}
-      >
-        <img className={styles.feed_profile_image} src={props.profileImage} />
+      <div className={`${styles.image_block} ${styles.link_spec}`}>
+        <img className={styles.image} src={props.profileImage} />
       </div>
-      <div id={styles.sidebar_username_link}>{props.username}</div>
+      <Link href="/profile">
+        <a className={styles.username}>{props.username}</a>
+      </Link>
     </React.Fragment>
   );
 };

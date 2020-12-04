@@ -1,15 +1,20 @@
-.sidebar_username_link_spec {
+@import "../../../globals/variables.scss";
+
+.image_block {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.username {
   font-size: 22px;
   text-decoration: none;
-  color: black;
-  transition: 0.2s;
-}
-
-.sidebar_username_link_spec:hover {
-  color: teal;
-  transition: 0.2s;
-}
-
-.sidebar_username {
-  border-bottom: 1px solid black;
+  color: $text_black;
+  margin-left: 5px;
 }

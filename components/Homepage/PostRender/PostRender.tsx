@@ -90,8 +90,8 @@ const PostRenderPre: React.FC<Redux> = (props) => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <PostTextInput text={text} updateText={updateText} />
-      <div id="post_settings_icon" onClick={() => modSettingsHeight()}>
-        <img id="post_settings_img" src={settings} />
+      <div className={styles.image_block} onClick={() => modSettingsHeight()}>
+        <img className={styles.image} src={settings} />
       </div>
       <PostOptions
         allowComments={allowComments}

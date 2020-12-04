@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { nonTokenModifyUserQuery } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
-import "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 interface Redux {
   status: boolean;
@@ -51,8 +51,10 @@ const AboutPageRender: React.FC<Redux> = (props) => {
   return (
     <React.Fragment>
       <NavBar />
-      <AboutUs />
-      <Learn progress={props.progress} />
+      <div className={styles.under}>
+        <AboutUs />
+        <Learn progress={props.progress} />
+      </div>
     </React.Fragment>
   );
 };
