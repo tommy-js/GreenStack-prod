@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { pushFollowerToUserMutation } from "../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   followId: string;
@@ -26,7 +27,11 @@ const Follow: React.FC<Props> = (props) => {
       });
   }
 
-  return <button onClick={() => follow()}>Follow</button>;
+  return (
+    <button className={styles.button} onClick={() => follow()}>
+      Follow
+    </button>
+  );
 };
 
 export const FollowUser = compose(

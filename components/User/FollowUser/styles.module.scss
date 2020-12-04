@@ -1,0 +1,12 @@
+@import "../../globals/variables.scss";
+
+.button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid $light_blue;
+  background-color: $forest_green;
+  cursor: pointer;
+}

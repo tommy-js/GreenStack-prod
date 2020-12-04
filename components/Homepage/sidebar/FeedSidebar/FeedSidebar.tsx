@@ -31,11 +31,11 @@ export const FeedSidebar: React.FC<Props> = (props) => {
         submitSearch={submitSearch}
       />
       <SidebarPortfolioValue setPostingToFeed={props.setPostingToFeed} />
-      <SidebarElement text="User Feed" path="/home" />
-      <SidebarElement text="Explore" path="/home/explore" />
-      <SidebarElement text="Your Posts" path="/home/posts" />
-      <SidebarElement text="Followers" path="/home/followers" />
-      <SidebarElement text="Following" path="/home/following" />
+      <SidebarElement text="User Feed" path="/" />
+      <SidebarElement text="Explore" path="/explore" />
+      <SidebarElement text="Your Posts" path="/posts" />
+      <SidebarElement text="Followers" path="/followers" />
+      <SidebarElement text="Following" path="/following" />
     </div>
   );
 };

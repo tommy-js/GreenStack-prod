@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { FollowUser } from "../FollowUser/FollowUser";
-import { UserProfilePosts } from "../UserProfilePosts/UserProfilePosts";
+import React, { useState } from "react";
+import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { NavBar } from "../../../components/navigation/NavBar/NavBar";
+import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
+import { RenderSearchRes } from "../RenderSearchRes/RenderSearchRes";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import {
@@ -9,7 +11,6 @@ import {
   UserRoute,
   PostItem,
 } from "../../types/types";
-import { returnFoundUser } from "./index";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -30,44 +31,36 @@ interface Props extends Redux {
 }
 
 const UserProf: React.FC<Props> = (props) => {
-  const [alreadyAdded, setAlreadyAdded] = useState(false);
+  const [postingToFeed, setPostingToFeed] = useState(false);
 
-  useEffect(() => {
-    let foundUser = returnFoundUser(props.inspectUserId, props.following);
-    setAlreadyAdded(foundUser);
-  }, []);
-
-  function modAlreadyAdded() {
-    setAlreadyAdded(true);
-  }
-
-  function returnFollow() {
-    if (props.inspectUserId !== props.userId) {
-      if (alreadyAdded === true) {
-        return null;
-      } else {
-        return (
-          <FollowUser
-            followId={props.inspectUserId}
-            followName={props.inspectUsername}
-            modAlreadyAdded={modAlreadyAdded}
-          />
-        );
-      }
-    }
+  function renderShowPostOptions() {
+    if (postingToFeed === true)
+      return (
+        <PortfolioValuePostModal
+          setPostingToFeed={() => setPostingToFeed(false)}
+        />
+      );
+    else return null;
   }
 
   return (
-    <div key={props.userId} className={styles.feed}>
-      <React.Fragment>
-        <h1>{props.inspectUsername}</h1>
-        <img src={props.inspectProfileImage} />
-        {returnFollow()}
-        <p>{props.inspectBio}</p>
-        <h2>Followers: {props.inspectFollowers.length}</h2>
-        <h2>Following: {props.inspectFollowing.length}</h2>
-        <UserProfilePosts posts={props.inspectPosts} />
-      </React.Fragment>
+    <div>
+      <NavBar />
+      <div className={styles.main_body}>
+        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+        <div key={props.userId} className={styles.feed}>
+          <RenderSearchRes
+            inspectUsername={props.inspectUsername}
+            inspectUserId={props.inspectUserId}
+            inspectBio={props.inspectBio}
+            inspectProfileImage={props.inspectProfileImage}
+            inspectFollowers={props.inspectFollowers}
+            inspectFollowing={props.inspectFollowing}
+            inspectPosts={props.inspectPosts}
+          />
+          {renderShowPostOptions()}
+        </div>
+      </div>
     </div>
   );
 };

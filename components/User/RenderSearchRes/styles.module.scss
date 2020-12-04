@@ -1,0 +1,42 @@
+@import "../../globals/variables.scss";
+
+.container {
+  margin-top: 50px;
+  box-sizing: border-box;
+  padding: 10px;
+  @include testing;
+}
+
+.header_container {
+  @include testing;
+}
+
+.header {
+  font-size: 22px;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.image_container {
+  position: relative;
+  display: inline-block;
+  float: left;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.followers_number,
+.following_number {
+  font-size: 16px;
+  font-family: $standard_font;
+  font-weight: normal;
+  display: inline-block;
+  margin-left: 10px;
+}
