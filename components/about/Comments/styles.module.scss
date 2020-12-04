@@ -1,0 +1,31 @@
+@import "../../globals/variables.scss";
+
+.tutorial_comments {
+  width: 100%;
+}
+
+.button {
+  position: relative;
+  width: 100px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: $forest_green;
+  border: 1px solid $light_blue;
+  cursor: pointer;
+}
+
+.button_span {
+  color: white;
+  font-size: 16px;
+  font-family: $standard_font;
+}
+
+.empty {
+  font-family: $standard_font;
+  font-size: 22px;
+  text-align: center;
+}

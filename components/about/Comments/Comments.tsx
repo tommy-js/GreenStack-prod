@@ -43,11 +43,13 @@ export const Comments: React.FC<Props> = (props) => {
               timestamp={el.timestamp}
             />
           ))}
-          <button onClick={() => loadMore()}>Load More</button>
+          <button className={styles.button} onClick={() => loadMore()}>
+            <span className={styles.button_span}>Load More</span>
+          </button>
         </React.Fragment>
       );
     } else {
-      return <h3>Apparently nothing... Yet!</h3>;
+      return <h3 className={styles.empty}>Apparently nothing... Yet!</h3>;
     }
   }
 

@@ -59,12 +59,12 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
     <div className={styles.tutorial_comment}>
       <h3 className={styles.tutorial_comment_username}>
         <Link href={`/user/${props.commentUserId}`}>
-          {props.commentUsername}
+          <a className={styles.username_link}>{props.commentUsername}</a>
         </Link>
       </h3>
-      <p className={styles.tutorial_comment_text}>{returnText()}</p>
+      <p className={styles.text}>{returnText()}</p>
       <h4 className={styles.tutorial_comment_timestamp}>
-        Posted at {returnDate(props.timestamp)}
+        {returnDate(props.timestamp)}
       </h4>
     </div>
   );

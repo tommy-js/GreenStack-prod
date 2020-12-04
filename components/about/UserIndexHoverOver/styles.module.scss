@@ -10,7 +10,7 @@
 }
 
 .user_index_hover_block {
-  background-color: $cream_white;
+  background-color: $forest_green;
   font-family: $standard_font;
   border: 1px solid black;
   padding: 5px;
@@ -34,9 +34,11 @@
   position: relative;
   display: inline-block;
   margin-left: 5px;
+  color: white;
 }
 
 .user_index_hover_bio {
   margin: 0;
   font-size: 14px;
+  color: white;
 }
