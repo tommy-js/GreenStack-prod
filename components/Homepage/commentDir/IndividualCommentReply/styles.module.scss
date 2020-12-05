@@ -1,11 +1,20 @@
-.submit_sub_response_textarea_block {
+@import "../../../globals/variables.scss";
+
+.individual_comment_reply {
 }
 
-.submit_sub_response_textarea {
+.textarea {
   position: relative;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
-  height: 50px;
+  display: block;
+  border-radius: 5px;
+  height: 100px;
   resize: none;
+  padding: 5px;
+  line-height: 150%;
+  box-sizing: border-box;
+  font-family: $standard_font;
+  border: 1px solid $light_blue;
 }

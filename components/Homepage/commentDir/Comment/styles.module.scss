@@ -3,3 +3,25 @@
 .comment {
   @include testing;
 }
+
+@mixin standard_text {
+  font-family: $standard_font;
+  color: $text_black;
+}
+
+.comment_name {
+  font-size: 20px;
+  @include standard_text;
+}
+
+.comment_text {
+  font-size: 18px;
+  margin-left: 5px;
+  @include standard_text;
+}
+
+.comment_time {
+  font-size: 12px;
+  opacity: 0.5;
+  @include standard_text;
+}

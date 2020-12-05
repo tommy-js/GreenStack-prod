@@ -1,0 +1,28 @@
+@import "../../../globals/variables.scss";
+
+.comment_information {
+  @include testing;
+}
+
+.likes,
+.dislikes,
+.comments {
+  font-size: 16px;
+  font-family: $standard_font;
+  display: inline-block;
+  @include noselect;
+}
+
+.comment_image_block {
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  overflow: none;
+  margin-right: 10px;
+}
+
+.comment_image {
+  height: 100%;
+  width: 100%;
+}

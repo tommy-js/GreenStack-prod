@@ -30,10 +30,8 @@ export const Comment: React.FC<Props> = (props) => {
   return (
     <div className={styles.comment}>
       <p className={styles.comment_name}>{props.commentUsername}</p>
-      <p className={styles.comment_time}>
-        posted at {returnDate(props.timestamp)}
-      </p>
       <p className={styles.comment_text}>{returnText()}</p>
+      <p className={styles.comment_time}>{returnDate(props.timestamp)}</p>
     </div>
   );
 };

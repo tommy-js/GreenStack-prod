@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { LikePostComment } from "../../post/LikePostComment/LikePostComment";
-import { DislikePostComment } from "../../post/DislikePostComment/DislikePostComment";
+import { CommentInformation } from "../CommentInformation/CommentInformation";
 import { Comment } from "../Comment/Comment";
 import { IndividualCommentSubComments } from "../IndividualCommentSubComments/IndividualCommentSubComments";
 import { IndividualCommentReply } from "../IndividualCommentReply/IndividualCommentReply";
-const comment = require("../../../../public/comment.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import styles from "./styles.module.scss";
@@ -46,10 +44,7 @@ interface Props extends Redux {
 }
 
 const IndividualCommentRender: React.FC<Props> = (props) => {
-  const [likes, setLikes] = useState(props.likes);
-  const [dislikes, setDislikes] = useState(props.dislikes);
   const [transferedDisp, setTransferedDisp] = useState("none");
-  const [disp, setDisp] = useState(false);
 
   useEffect(() => {
     let foundInd = props.userRoutes.find(
@@ -67,24 +62,6 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
     }
   }, []);
 
-  function likeIncrement() {
-    let like = Number(likes);
-    like++;
-    setLikes(like);
-  }
-
-  function dislikeIncrement() {
-    let dislike = Number(dislikes);
-    dislike++;
-    setDislikes(dislike);
-  }
-
-  function modDisp() {
-    if (disp === true) setTransferedDisp("none");
-    else setTransferedDisp("block");
-    setDisp(!disp);
-  }
-
   return (
     <div>
       <Comment
@@ -92,28 +69,13 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
         timestamp={props.timestamp}
         text={props.text}
       />
-      <div className={styles.comment_information}>
-        {likes}
-        <LikePostComment
-          postId={props.postId}
-          commentId={props.commentId}
-          modLikes={likeIncrement}
-        />
-        , {dislikes}{" "}
-        <DislikePostComment
-          postId={props.postId}
-          commentId={props.commentId}
-          modDislikes={dislikeIncrement}
-        />
-        <div className={styles.post_values}>
-          <span className={styles.post_value_inner}>
-            {props.subComments.length}
-          </span>
-        </div>
-        <div className={styles.like_button_block} onClick={() => modDisp()}>
-          <img className={styles.like_button_image} src={comment} />
-        </div>
-      </div>
+      <CommentInformation
+        likes={props.likes}
+        dislikes={props.dislikes}
+        postId={props.postId}
+        commentId={props.commentId}
+        subComments={props.subComments}
+      />
       <IndividualCommentReply
         postId={props.postId}
         commentId={props.commentId}

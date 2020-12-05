@@ -14,11 +14,11 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
   function renderResponseBox() {
     if (replying === true) {
       return (
-        <div className={styles.submit_sub_response_textarea_block}>
+        <div className={styles.individual_comment_reply}>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className={styles.submit_sub_response_textarea}
+            className={styles.textarea}
           />
           <SubmitSubResponse
             postId={props.postId}
