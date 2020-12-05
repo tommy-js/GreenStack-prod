@@ -12,17 +12,19 @@ interface Props {
 
 const SubmitSubResponseMutation: React.FC<Props> = (props) => {
   function submit() {
-    props
-      .pushCommentNestMutation({
-        variables: {
-          token: sessionStorage.getItem("Token"),
-          postId: props.postId,
-          commentId: props.commentId,
-          text: props.text,
-        },
-      })
-      .catch((err: any) => console.log(err))
-      .then((res: any) => console.log(res));
+    if (props.text.length < 150) {
+      props
+        .pushCommentNestMutation({
+          variables: {
+            token: sessionStorage.getItem("Token"),
+            postId: props.postId,
+            commentId: props.commentId,
+            text: props.text,
+          },
+        })
+        .catch((err: any) => console.log(err))
+        .then((res: any) => console.log(res));
+    }
   }
 
   return <button onClick={() => submit()}>submit</button>;
