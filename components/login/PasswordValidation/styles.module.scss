@@ -1,7 +1,9 @@
+@import "../../globals/variables.scss";
+
 .password_validation {
   position: relative;
   font-size: 14px;
-  top: 0;
+  top: -200px;
   width: 250px;
   max-width: 30%;
   float: left;
@@ -12,4 +14,10 @@
   display: block;
   margin: 5px;
   box-sizing: border-box;
+}
+
+.text {
+  font-family: $standard_font;
+  color: $cream_white;
+  font-size: 14px;
 }

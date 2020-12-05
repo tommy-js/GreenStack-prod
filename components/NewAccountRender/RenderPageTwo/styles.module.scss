@@ -1,50 +1,32 @@
 @import "../../globals/variables.scss";
 
-@mixin render_button {
-  position: relative;
-  width: 40%;
-  box-sizing: border-box;
-  display: inline-block;
-  padding: 2px;
-  font-size: 14px;
-  margin: 5px;
-  background-color: $island_green;
-  border: 1px solid $space_red;
-  color: $space_red;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
 .user_init_questions {
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: $standard_font;
+  text-align: center;
+  color: $cream_white;
 }
 
-.render_pages_button_container {
-  position: absolute;
+.button {
+  position: relative;
+  display: block;
+  margin-top: 15px;
+  width: 60px;
   margin-left: auto;
   margin-right: auto;
+  font-family: $standard_font;
+  padding: 2px;
+  font-size: 16px;
   box-sizing: border-box;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 200px;
+  cursor: pointer;
+  background-color: $cream_white;
+  border: 1px solid $cream_white;
+  border-radius: 3px;
+  color: $space_red;
+  transition: 0.3s;
 }
 
-.render_button_left:hover,
-.render_button_right:hover {
-  background-color: $honey_yellow;
-  transition: 0.2s;
-}
-
-.render_button_left {
-  float: left;
-  margin-right: 5px;
-  @include render_button;
-}
-
-.render_button_right {
-  float: right;
-  margin-left: 5px;
-  @include render_button;
+.button:hover {
+  border: 1px solid $space_red;
 }

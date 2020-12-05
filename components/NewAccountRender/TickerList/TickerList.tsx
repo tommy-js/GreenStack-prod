@@ -1,99 +1,147 @@
 import React from "react";
 import { TickerContainer } from "../TickerContainer/TickerContainer";
 const tech = require("../../../public/tech.png");
+const filledTech = require("../../../public/tech_filled.png");
 const industry = require("../../../public/industry.png");
-const service = require("../../../public/tech.png");
-const transportation = require("../../../public/tech.png");
+const filledIndustry = require("../../../public/industry_filled.png");
+const service = require("../../../public/service.png");
+const filledService = require("../../../public/service_filled.png");
+const transportation = require("../../../public/transportation.png");
+const filledTransportation = require("../../../public/transportation_filled.png");
+
+interface Props {
+  modSelected: (stockId: string) => void;
+}
+
 import styles from "./styles.module.scss";
 
-export const TickerList: React.FC = () => {
+export const TickerList: React.FC<Props> = (props) => {
   const tickers = [
     {
       ticker: "AAPL",
-      title: "apple",
+      title: "Apple",
       img: tech,
+      filledImg: filledTech,
+      stockId: "01",
     },
     {
       ticker: "V",
-      title: "visa",
+      title: "Visa",
       img: service,
+      filledImg: filledService,
+      stockId: "02",
     },
     {
       ticker: "VLVLY",
-      title: "volvo",
+      title: "Volvo",
       img: transportation,
+      filledImg: filledTransportation,
+      stockId: "03",
     },
     {
       ticker: "MSFT",
-      title: "microsoft",
+      title: "Microsoft",
       img: tech,
+      filledImg: filledTech,
+      stockId: "04",
     },
     {
       ticker: "SHOP",
-      title: "shopify",
+      title: "Shopify",
       img: tech,
+      filledImg: filledTech,
+      stockId: "05",
     },
     {
       ticker: "TWTR",
-      title: "twitter",
+      title: "Twitter",
       img: tech,
+      filledImg: filledTech,
+      stockId: "06",
     },
     {
       ticker: "FB",
-      title: "facebook",
+      title: "Facebook",
       img: tech,
+      filledImg: filledTech,
+      stockId: "07",
     },
     {
       ticker: "WMT",
-      title: "walmart",
+      title: "Walmart",
       img: industry,
+      filledImg: filledIndustry,
+      stockId: "08",
     },
     {
       ticker: "TSCDY",
-      title: "tesco",
+      title: "Tesco",
       img: industry,
+      filledImg: filledIndustry,
+      stockId: "09",
     },
     {
       ticker: "C",
-      title: "citigroup",
+      title: "Citigroup",
       img: service,
+      filledImg: filledService,
+      stockId: "10",
     },
     {
       ticker: "AMZ",
-      title: "amazon",
+      title: "Amazon",
       img: tech,
+      filledImg: filledTech,
+      stockId: "11",
     },
     {
       ticker: "SBUX",
-      title: "starbucks",
+      title: "Starbucks",
       img: service,
+      filledImg: filledService,
+      stockId: "12",
     },
     {
       ticker: "MCD",
-      title: "mcdonalds",
+      title: "McDonalds",
       img: service,
+      filledImg: filledService,
+      stockId: "13",
     },
     {
       ticker: "WORK",
-      title: "slack",
+      title: "Slack",
       img: tech,
+      filledImg: filledTech,
+      stockId: "14",
     },
     {
       ticker: "NFLX",
-      title: "netflix",
+      title: "Netflix",
       img: tech,
+      filledImg: filledTech,
+      stockId: "15",
     },
     {
       ticker: "DBX",
-      title: "dropbox",
+      title: "Dropbox",
       img: tech,
+      filledImg: filledTech,
+      stockId: "16",
     },
   ];
 
   return (
     <div className={styles.ticker_list}>
       {tickers.map((el: any) => (
-        <TickerContainer ticker={el.ticker} title={el.title} img={el.img} />
+        <TickerContainer
+          ticker={el.ticker}
+          title={el.title}
+          img={el.img}
+          filledImg={el.filledImg}
+          stockId={el.stockId}
+          modSelected={props.modSelected}
+        />
       ))}
     </div>
   );

@@ -3,6 +3,7 @@ import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/Fe
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { Feed } from "../feed/Feed/Feed";
+import { NewAccountRender } from "../../NewAccountRender/NewAccountRender/NewAccountRender";
 import { useLazyQuery } from "react-apollo";
 import { connect } from "react-redux";
 import {
@@ -27,6 +28,8 @@ interface Redux {
   userRoutes: any;
   money: number;
   status: boolean;
+  newaccount: boolean;
+  onNewAccountSet: (newacc: boolean) => void;
   onInitialPostsSet: (posts: any) => void;
   onInitialFollowerSet: (followers: FollowerItem[]) => void;
   onInitialFollowingSet: (following: FollowingItem[]) => void;
@@ -53,7 +56,15 @@ const HomepageRender: React.FC<Redux> = (props) => {
     }
   }, [getUserData]);
 
+  useEffect(() => {
+    console.log("new account: " + props.newaccount);
+  }, []);
+
   const [postingToFeed, setPostingToFeed] = useState(false);
+
+  function submit() {
+    props.onNewAccountSet(false);
+  }
 
   function renderShowPostOptions() {
     if (postingToFeed === true)
@@ -65,16 +76,24 @@ const HomepageRender: React.FC<Redux> = (props) => {
     else return null;
   }
 
-  return (
-    <div>
-      <NavBar />
-      <div className={styles.homepage}>
-        {renderShowPostOptions()}
-        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-      </div>
-      <Feed />
-    </div>
-  );
+  function returnIfNewUser() {
+    if (props.newaccount === true) {
+      return <NewAccountRender submit={submit} />;
+    } else {
+      return (
+        <div>
+          <NavBar />
+          <div className={styles.homepage}>
+            {renderShowPostOptions()}
+            <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+          </div>
+          <Feed />
+        </div>
+      );
+    }
+  }
+
+  return returnIfNewUser();
 };
 
 export const Homepage = connect(

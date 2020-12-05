@@ -368,6 +368,14 @@ const unfollowUserMutation = gql`
   }
 `;
 
+const addStocksInitialUserMutation = gql`
+  mutation($stockId: [ID!]!) {
+    addStocksInitial(stockId: $stockId, token: $token) {
+      username
+    }
+  }
+`;
+
 const pushStockToWatchlistMutation = gql`
   mutation($stockId: ID!, $token: String!, $title: String!, $ticker: String!) {
     pushStockToWatchlist(
@@ -1204,6 +1212,7 @@ export {
   pushSharesToUserMutation,
   updateNewPortfolioMutation,
   setBioMutation,
+  addStocksInitialUserMutation,
   pushStockToWatchlistMutation,
   removeStockFromWatchlistMutation,
   newTokenMutation,

@@ -1,0 +1,14 @@
+@import "../../globals/variables.scss";
+
+.skip_button {
+  position: absolute;
+  bottom: 0;
+}
+
+.text {
+  color: $light_blue;
+  font-family: $standard_font;
+  font-size: 16px;
+  border-bottom: 1px solid $light_blue;
+  cursor: pointer;
+}

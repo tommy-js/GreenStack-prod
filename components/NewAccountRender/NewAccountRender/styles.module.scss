@@ -1,12 +1,15 @@
+@import "../../globals/variables.scss";
+
 .render_questions_page {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 620px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
   box-sizing: border-box;
   padding: 10px;
-  top: 50px;
+  top: 20px;
   border-radius: 20px;
+  background-color: $forest_green;
 }

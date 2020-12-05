@@ -29,11 +29,8 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
   });
 
   function alreadyExists(prop: boolean) {
-    if (prop === true) {
-      setUsernameAlreadyExists(true);
-    } else {
-      setUsernameAlreadyExists(false);
-    }
+    if (prop === true) setUsernameAlreadyExists(true);
+    else setUsernameAlreadyExists(false);
   }
 
   function passUsername(val: string) {

@@ -18,25 +18,27 @@ export const NewAccountRender: React.FC<Props> = (props) => {
   function backPage(id: number) {
     setCurrentPage(id - 1);
   }
-
-  function renderCurrentPage() {
-    if (currentPage === 0) {
-      return <RenderPageOne id={0} nextPage={nextPage} backPage={backPage} />;
-    } else if (currentPage === 1) {
-      return <RenderPageTwo id={1} nextPage={nextPage} backPage={backPage} />;
-    } else if (currentPage === 2) {
-      return (
-        <RenderPageThree
-          id={2}
-          nextPage={nextPage}
-          backPage={backPage}
-          submit={props.submit}
-        />
-      );
-    }
-  }
+  //
+  // function renderCurrentPage() {
+  //   if (currentPage === 0) {
+  //     return <RenderPageOne id={0} nextPage={nextPage} backPage={backPage} />;
+  //   } else if (currentPage === 1) {
+  //     return <RenderPageTwo id={1} nextPage={nextPage} backPage={backPage} />;
+  //   } else if (currentPage === 2) {
+  //     return (
+  //       <RenderPageThree
+  //         id={2}
+  //         nextPage={nextPage}
+  //         backPage={backPage}
+  //         submit={props.submit}
+  //       />
+  //     );
+  //   }
+  // }
 
   return (
-    <div className={styles.render_questions_page}>{renderCurrentPage()}</div>
+    <div className={styles.render_questions_page}>
+      <RenderPageTwo id={1} nextPage={nextPage} backPage={backPage} />
+    </div>
   );
 };

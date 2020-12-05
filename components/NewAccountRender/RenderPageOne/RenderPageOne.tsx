@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { UserQuestion } from "../UserQuestion/UserQuestion";
+import { SkipButton } from "../SkipButton/SkipButton";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { saveSettingsMutation } from "../../queries/queries.js";
@@ -109,6 +110,7 @@ const RenderPageOneMutation: React.FC<Props> = (props) => {
         >
           Next
         </button>
+        <SkipButton />
       </div>
     </div>
   );

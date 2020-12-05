@@ -114,8 +114,15 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
       includesNum: testedNum,
     });
 
-    // console.log(passwordEffective);
-    props.passObjectUp(passwordEffective);
+    let passObj = {
+      greaterThan8: test8,
+      lessThan64: test64,
+      includesCapital: testedCapital,
+      includesSpecial: testedSpecial,
+      includesNum: testedNum,
+    };
+
+    props.passObjectUp(passObj);
   }, [props.password]);
 
   function submitButton() {
