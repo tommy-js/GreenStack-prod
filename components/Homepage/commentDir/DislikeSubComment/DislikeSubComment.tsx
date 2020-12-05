@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { dislikeSubCommentMutation } from "../../queries/queries";
-const dislike = require("../../../public/dislike.png");
-const dislikeFilled = require("../../../public/dislike_filled.png");
+import { dislikeSubCommentMutation } from "../../../queries/queries";
+const dislike = require("../../../../public/dislike.png");
+const dislikeFilled = require("../../../../public/dislike_filled.png");
 import styles from "./styles.module.scss";
 
 interface Props {

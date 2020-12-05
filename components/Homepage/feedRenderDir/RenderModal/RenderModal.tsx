@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { CommentInputPost } from "../../CommentInputPost/CommentInputPost";
-import { CommentSection } from "../../CommentSection/CommentSection";
-import { LikePost } from "../LikePost/LikePost";
-import { DislikePost } from "../DislikePost/DislikePost";
+import { CommentInputPost } from "../CommentInputPost/CommentInputPost";
+import { CommentSection } from "../../commentDir/CommentSection/CommentSection";
+import { PostInteraction } from "../PostInteraction/PostInteraction";
+import { PostImage } from "../PostImage/PostImage";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
 import Link from "next/link";
 import { UserRoute } from "../../../types/types";
-const comment = require("../../../../public/comment.png");
 import { returnDate, returnTaggedString, returnUserRoutes } from "./index";
 import { useLazyQuery } from "react-apollo";
 import { userCommentLookup } from "../../../queries/queries";
@@ -72,13 +71,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
 
   function returnImage() {
     if (props.post.postImage == "null") return null;
-    else {
-      return (
-        <div className={styles.post_image_block}>
-          <img className={styles.post_image} src={props.post.postImage} />
-        </div>
-      );
-    }
+    else return <PostImage postImage={props.post.postImage} />;
   }
 
   function modLikes() {
@@ -116,30 +109,14 @@ const RenderModalPre: React.FC<Props> = (props) => {
   function returnAllowed() {
     if (props.post.allowLikes === true) {
       return (
-        <React.Fragment>
-          <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{likes}</span>
-          </div>
-          <LikePost
-            userId={props.post.postUserId}
-            postId={props.post.postId}
-            modLikes={modLikes}
-          />
-          <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{dislikes}</span>
-          </div>
-          <DislikePost
-            userId={props.post.postUserId}
-            postId={props.post.postId}
-            modDislikes={modDislikes}
-          />
-          <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{comments}</span>
-          </div>
-          <div className={styles.like_button_block}>
-            <img className={styles.like_button_image} src={comment} />
-          </div>
-        </React.Fragment>
+        <PostInteraction
+          userId={props.post.postUserId}
+          postId={props.post.postId}
+          likes={likes}
+          dislikes={dislikes}
+          modLikes={modLikes}
+          modDislikes={modDislikes}
+        />
       );
     } else return null;
   }

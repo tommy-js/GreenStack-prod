@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { LikePost } from "../LikePost/LikePost";
-import { DislikePost } from "../DislikePost/DislikePost";
+import { LikePost } from "../../feedRenderDir/LikePost/LikePost";
+import { DislikePost } from "../../feedRenderDir/DislikePost/DislikePost";
 import { InlineUnfollow } from "../InlineUnfollow/InlineUnfollow";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
 import Link from "next/link";

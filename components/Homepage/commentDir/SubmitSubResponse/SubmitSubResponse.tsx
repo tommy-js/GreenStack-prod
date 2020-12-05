@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { pushCommentNestMutation } from "../../queries/queries";
+import { pushCommentNestMutation } from "../../../queries/queries";
 
 interface Props {
   postId: string;

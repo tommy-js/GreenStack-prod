@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { pushCommentPostMutation } from "../../queries/queries.js";
+import { pushCommentPostMutation } from "../../../queries/queries.js";
 import { taggedUsers } from "./index";
 
 interface Props {

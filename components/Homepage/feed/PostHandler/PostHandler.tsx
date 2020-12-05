@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../PortfolioValuePostModal/PortfolioValuePostModal";
-import { PostInterface, RenderModal } from "../RenderModal/RenderModal";
+import {
+  PostInterface,
+  RenderModal,
+} from "../../feedRenderDir/RenderModal/RenderModal";
 import styles from "./styles.module.scss";
 
 interface Props {

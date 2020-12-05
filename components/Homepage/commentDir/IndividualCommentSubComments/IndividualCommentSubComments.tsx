@@ -1,6 +1,6 @@
 import React from "react";
 import { SubComment } from "../SubComment/SubComment";
-import { SubCommentItem } from "../../types/types";
+import { SubCommentItem } from "../../../types/types";
 
 interface Props {
   postId: string;

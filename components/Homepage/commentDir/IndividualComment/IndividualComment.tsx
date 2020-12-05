@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { LikePostComment } from "../post/LikePostComment/LikePostComment";
-import { DislikePostComment } from "../post/DislikePostComment/DislikePostComment";
-import { UserIndex } from "../../about/UserIndex/UserIndex";
+import { LikePostComment } from "../../post/LikePostComment/LikePostComment";
+import { DislikePostComment } from "../../post/DislikePostComment/DislikePostComment";
+import { Comment } from "../Comment/Comment";
 import { IndividualCommentSubComments } from "../IndividualCommentSubComments/IndividualCommentSubComments";
 import { IndividualCommentReply } from "../IndividualCommentReply/IndividualCommentReply";
-const comment = require("../../../public/comment.png");
-import { useLazyQuery } from "react-apollo";
-import { userCommentLookup } from "../../queries/queries";
+const comment = require("../../../../public/comment.png");
 import { connect } from "react-redux";
-import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
-import { returnDate, returnTaggedString } from "./index";
+import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import styles from "./styles.module.scss";
 
 type Routes = {
@@ -29,10 +26,6 @@ type SubComments = {
   dislikes: number;
   parentCommentId: string;
 };
-
-interface Mapper {
-  tag: string;
-}
 
 interface Redux {
   userRoutes: any;
@@ -74,17 +67,6 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
     }
   }, []);
 
-  function returnText() {
-    let tag = returnTaggedString(props.text);
-    return (
-      <React.Fragment>
-        {tag.map((el: any) => (
-          <IndMapper tag={el} />
-        ))}
-      </React.Fragment>
-    );
-  }
-
   function likeIncrement() {
     let like = Number(likes);
     like++;
@@ -104,12 +86,12 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.comment}>
-      <p className={styles.comment_name}>{props.commentUsername}</p>
-      <p className={styles.comment_time}>
-        posted at {returnDate(props.timestamp)}
-      </p>
-      <p className={styles.comment_text}>{returnText()}</p>
+    <div>
+      <Comment
+        commentUsername={props.commentUsername}
+        timestamp={props.timestamp}
+        text={props.text}
+      />
       <div className={styles.comment_information}>
         {likes}
         <LikePostComment
@@ -143,45 +125,6 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
       />
     </div>
   );
-};
-
-const IndMapper: React.FC<Mapper> = (props) => {
-  const [callUser, { data }] = useLazyQuery(userCommentLookup);
-  const [userData, setUserData] = useState([] as any);
-
-  useEffect(() => {
-    if (props.tag.includes("@")) {
-      callUser({
-        variables: {
-          username: getUsername(),
-        },
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (data) setUserData(data.specUser);
-  }, [data]);
-
-  function getUsername() {
-    let username = props.tag.slice(1, props.tag.length);
-    return username;
-  }
-
-  function renderFunc() {
-    if (data && userData && data.specUser != null)
-      return (
-        <UserIndex
-          highlightUsername={userData.username}
-          highlightUserId={userData.userId}
-          highlightBio={userData.bio}
-          highlightProfileImage={userData.profileImage}
-        />
-      );
-    else return <span className={styles.tag_span}> {props.tag} </span>;
-  }
-
-  return renderFunc();
 };
 
 export const IndividualComment = connect(
