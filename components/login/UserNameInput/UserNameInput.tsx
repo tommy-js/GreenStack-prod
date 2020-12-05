@@ -12,9 +12,8 @@ export const UserNameInput: React.FC<Props> = (props) => {
   const [userNameBorder, setUserNameBorder] = useState("1px solid grey");
 
   useEffect(() => {
-    if (props.nullUserName === true) {
-      setUserNameBorder("1px solid red");
-    }
+    if (props.nullUserName === true) setUserNameBorder("1px solid red");
+    else setUserNameBorder("1px solid grey");
   }, [props.nullUserName]);
 
   return (

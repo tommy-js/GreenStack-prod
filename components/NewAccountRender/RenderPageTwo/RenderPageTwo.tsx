@@ -3,9 +3,16 @@ import { TickerList } from "../TickerList/TickerList";
 import { addStocksInitialUserMutation } from "../../queries/queries";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
 
-interface Props {
+interface Redux {
+  newaccount: boolean;
+  onNewAccountSet: (newacct: boolean) => void;
+}
+
+interface Props extends Redux {
   id: number;
   nextPage: (id: number) => void;
   backPage: (id: number) => void;
@@ -40,6 +47,8 @@ const RenderPageTwoMutation: React.FC<Props> = (props) => {
       .catch((err: any) => console.log(err))
       .then((res) => {
         console.log(res);
+        props.onNewAccountSet(false);
+        console.log(props.newaccount);
       });
   }
 
@@ -56,8 +65,13 @@ const RenderPageTwoMutation: React.FC<Props> = (props) => {
   );
 };
 
+export const RenderPageTwoRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RenderPageTwoMutation);
+
 export const RenderPageTwo = compose(
   graphql(addStocksInitialUserMutation, {
     name: "addStocksInitialUserMutation",
   })
-)(RenderPageTwoMutation);
+)(RenderPageTwoRedux);

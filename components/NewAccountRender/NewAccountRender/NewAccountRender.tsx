@@ -4,11 +4,7 @@ import { RenderPageTwo } from "../RenderPageTwo/RenderPageTwo";
 import { RenderPageThree } from "../RenderPageThree/RenderPageThree";
 import styles from "./styles.module.scss";
 
-interface Props {
-  submit: () => void;
-}
-
-export const NewAccountRender: React.FC<Props> = (props) => {
+export const NewAccountRender: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   function nextPage(id: number) {

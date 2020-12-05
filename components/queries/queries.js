@@ -373,6 +373,9 @@ const addStocksInitialUserMutation = gql`
     addStocksInitialUser(stockList: $stockList, token: $token) {
       username
     }
+    saveUserAsOld(token: $token) {
+      username
+    }
   }
 `;
 

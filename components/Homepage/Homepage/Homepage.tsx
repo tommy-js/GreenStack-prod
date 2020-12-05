@@ -62,10 +62,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
 
   const [postingToFeed, setPostingToFeed] = useState(false);
 
-  function submit() {
-    props.onNewAccountSet(false);
-  }
-
   function renderShowPostOptions() {
     if (postingToFeed === true)
       return (
@@ -76,10 +72,14 @@ const HomepageRender: React.FC<Redux> = (props) => {
     else return null;
   }
 
+  useEffect(() => {
+    console.log(props.newaccount);
+  }, []);
+
   function returnIfNewUser() {
     if (props.newaccount === true) {
-      return <NewAccountRender submit={submit} />;
-    } else {
+      return <NewAccountRender />;
+    } else if (props.newaccount === false) {
       return (
         <div>
           <NavBar />

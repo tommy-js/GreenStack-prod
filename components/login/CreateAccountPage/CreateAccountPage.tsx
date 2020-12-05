@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LoginHeader } from "../LoginHeader/LoginHeader";
 import { RenderAccountLink } from "../RenderAccountLink/RenderAccountLink";
 import { UserNameInput } from "../UserNameInput/UserNameInput";
@@ -70,7 +70,7 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
           nullPassword={nullPassword}
         />
         <CreateNewUser
-          username={username}
+          queryUsername={username}
           password={password}
           passObjectUp={setObject}
           alreadyExists={alreadyExists}

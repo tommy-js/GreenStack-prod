@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useLazyQuery } from "react-apollo";
 import { flowRight as compose } from "lodash";
+import { connect } from "react-redux";
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from "../../../components/actions/actions";
 import { useRouter } from "next/router";
 import {
   createUserMutation,
@@ -8,8 +13,12 @@ import {
 } from "../../queries/queries.js";
 import styles from "./styles.module.scss";
 
-interface Props {
-  username: string;
+interface Redux {
+  onNewAccountSet: (newacc: boolean) => void;
+}
+
+interface Props extends Redux {
+  queryUsername: string;
   password: string;
   passObjectUp: (passwordEffective: any) => void;
   createUserMutation: (variables: object) => any;
@@ -22,7 +31,7 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   const [newUsername, setNewUsername] = useState(false);
   const router = useRouter();
   const [callUser, { data }] = useLazyQuery(distinctUserQuery, {
-    variables: { username: props.username },
+    variables: { username: props.queryUsername },
   });
 
   const [passwordEffective, setPasswordEffective] = useState({
@@ -36,13 +45,16 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   function checkValidity() {
     let checkBool = checkTruth(passwordEffective);
     console.log("new username: " + newUsername + " checkBool: " + checkBool);
-    if (props.username.length > 0 && props.password.length > 0) {
+    console.log(
+      "username: " + props.queryUsername + "password: " + props.password
+    );
+    if (props.queryUsername.length > 0 && props.password.length > 0) {
       if (newUsername === true && checkBool === true) {
         submitButton();
       }
-    } else if (props.username.length === 0 && props.password.length != 0) {
+    } else if (props.queryUsername.length === 0 && props.password.length != 0) {
       props.renderUsernameNull();
-    } else if (props.password.length === 0 && props.username.length != 0) {
+    } else if (props.password.length === 0 && props.queryUsername.length != 0) {
       props.renderPasswordNull();
     } else {
       props.renderUsernameNull();
@@ -64,9 +76,11 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
       if (data.specUser) {
         setNewUsername(false);
         props.alreadyExists(true);
+        console.log("already exists");
       } else {
         setNewUsername(true);
         props.alreadyExists(false);
+        console.log("does not already exists");
       }
     }
   }, [data]);
@@ -129,12 +143,13 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
     props
       .createUserMutation({
         variables: {
-          username: props.username,
+          username: props.queryUsername,
           password: props.password,
         },
       })
       .then((res: any) => {
         sessionStorage.setItem("Token", res.data.createUser.token);
+        props.onNewAccountSet(true);
         router.push("/");
       })
       .catch((err: any) => {
@@ -149,6 +164,11 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   );
 };
 
+const CreateNewUserRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateNewUserMutation);
+
 export const CreateNewUser = compose(
   graphql(createUserMutation, { name: "createUserMutation" })
-)(CreateNewUserMutation);
+)(CreateNewUserRedux);
