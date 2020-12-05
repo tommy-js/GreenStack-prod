@@ -369,8 +369,8 @@ const unfollowUserMutation = gql`
 `;
 
 const addStocksInitialUserMutation = gql`
-  mutation($stockId: [ID!]!) {
-    addStocksInitial(stockId: $stockId, token: $token) {
+  mutation($stockList: [ID!]!, $token: String!) {
+    addStocksInitialUser(stockList: $stockList, token: $token) {
       username
     }
   }
@@ -705,8 +705,6 @@ const otherUserQuery = gql`
       }
       watchlist {
         stockId
-        title
-        ticker
         timestamp
       }
     }
@@ -799,8 +797,6 @@ const nonTokenModifyUserQuery = gql`
       }
       watchlist {
         stockId
-        title
-        ticker
         timestamp
       }
       notifications {
@@ -924,8 +920,6 @@ const userQuery = gql`
       }
       watchlist {
         stockId
-        title
-        ticker
         timestamp
       }
       notifications {

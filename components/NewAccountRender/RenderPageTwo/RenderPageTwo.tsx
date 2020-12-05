@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TickerList } from "../TickerList/TickerList";
-import { pushStockToWatchlistMutation } from "../../queries/queries";
+import { addStocksInitialUserMutation } from "../../queries/queries";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import styles from "./styles.module.scss";
@@ -9,7 +9,7 @@ interface Props {
   id: number;
   nextPage: (id: number) => void;
   backPage: (id: number) => void;
-  pushStockToWatchlistMutation: (variables: object) => void;
+  addStocksInitialUserMutation: (variables: object) => any;
 }
 
 const RenderPageTwoMutation: React.FC<Props> = (props) => {
@@ -29,7 +29,19 @@ const RenderPageTwoMutation: React.FC<Props> = (props) => {
     console.log(stockArray);
   }
 
-  function save() {}
+  function save() {
+    props
+      .addStocksInitialUserMutation({
+        variables: {
+          stockList: selected,
+          token: sessionStorage.getItem("Token"),
+        },
+      })
+      .catch((err: any) => console.log(err))
+      .then((res) => {
+        console.log(res);
+      });
+  }
 
   return (
     <React.Fragment>
@@ -45,7 +57,7 @@ const RenderPageTwoMutation: React.FC<Props> = (props) => {
 };
 
 export const RenderPageTwo = compose(
-  graphql(pushStockToWatchlistMutation, {
-    name: "pushStockToWatchlistMutation",
+  graphql(addStocksInitialUserMutation, {
+    name: "addStocksInitialUserMutation",
   })
 )(RenderPageTwoMutation);
