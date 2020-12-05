@@ -1,0 +1,40 @@
+@import "../../globals/variables.scss";
+
+.login_logo {
+  position: relative;
+  width: 100%;
+}
+
+.logo_box {
+  position: relative;
+  width: 230px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo_circle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: $cream_white;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.text {
+  font-size: 35px;
+  margin-left: 10px;
+  display: inline-block;
+  font-family: $standard_font;
+  line-height: 100%;
+  color: $cream_white;
+  box-sizing: border-box;
+  @include noselect;
+}

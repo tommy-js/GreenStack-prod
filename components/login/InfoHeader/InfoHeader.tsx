@@ -8,7 +8,7 @@ export const InfoHeader: React.FC = () => {
         What is <span className={styles.title_flair}>GreenStack?</span>
       </h3>
       <h4 className={styles.subheader}>
-        Join a community of learners, traders, memers, and educators.
+        Join a Community of Learners, Traders, Memers, and Educators.
       </h4>
     </div>
   );

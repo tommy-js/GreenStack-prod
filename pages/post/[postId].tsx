@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { PostHandler } from "../../components/Homepage/feed/PostHandler/PostHandler";
-import { useQuery } from "react-apollo";
+import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
+import { useLazyQuery } from "react-apollo";
 import { individualPostQuery } from "../../components/queries/queries";
 import { useRouter } from "next/router";
+import { connect } from "react-redux";
+import { mapStateToProps } from "../../components/actions/actions";
 
-const Post: React.FC = () => {
+interface Redux {
+  status: boolean;
+}
+
+const Post: React.FC<Redux> = (props) => {
   const router = useRouter();
-  const { data } = useQuery(individualPostQuery, {
+  const [callPost, { data }] = useLazyQuery(individualPostQuery, {
     variables: { postId: router.query.postId },
   });
   const [showRender, setShowRender] = useState(false);
@@ -22,13 +29,29 @@ const Post: React.FC = () => {
     }
   }, [data]);
 
-  function renderPost() {
-    if (showRender === true) {
-      return <PostHandler post={data.post} />;
-    } else return null;
+  const [loadingInUser, setLoadingInUser] = useState(true);
+
+  useEffect(() => {
+    if (props.status === false) setLoadingInUser(true);
+    else {
+      setLoadingInUser(false);
+      callPost();
+    }
+  }, [props.status]);
+
+  function checkReturn() {
+    if (loadingInUser === true) {
+      return (
+        <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
+      );
+    } else {
+      if (showRender === true) {
+        return <PostHandler post={data.post} />;
+      } else return null;
+    }
   }
 
-  return <React.Fragment>{renderPost()}</React.Fragment>;
+  return <React.Fragment>{checkReturn()}</React.Fragment>;
 };
 
-export default Post;
+export default connect(mapStateToProps)(Post);

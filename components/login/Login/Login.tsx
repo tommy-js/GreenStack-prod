@@ -10,6 +10,7 @@ import {
 } from "../LoginPageInfo/LoginPageInfo";
 import { InfoHeader } from "../InfoHeader/InfoHeader";
 import { LearnMore } from "../LearnMore/LearnMore";
+import { LoginLogo } from "../LoginLogo/LoginLogo";
 import { queryToken } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import styles from "./styles.module.scss";
@@ -108,7 +109,10 @@ const LoginRender: React.FC<Redux> = (props) => {
 
   return (
     <div className={styles.login_page}>
-      <div className={styles.centered_login_page}>{displayBlock()}</div>
+      <div className={styles.centered_login_page}>
+        <LoginLogo />
+        {displayBlock()}
+      </div>
       <div className={styles.login_page_about}>
         <InfoHeader />
         <LoginPageFeedInfo />

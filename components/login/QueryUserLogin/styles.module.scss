@@ -13,7 +13,14 @@
   margin-right: auto;
   margin-top: 10px;
   border-radius: 3px;
-  border: 1px solid $light_blue;
+  border: 1px solid $cream_white;
   cursor: pointer;
   background-color: $cream_white;
+  transition: 0.2s;
+}
+
+.button:hover {
+  border: 1px solid $light_blue;
+  color: $light_blue;
+  transition: 0.2s;
 }
