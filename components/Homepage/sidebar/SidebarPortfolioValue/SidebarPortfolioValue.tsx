@@ -10,16 +10,13 @@ interface Redux {
 
 const SidebarPortfolioValueRender: React.FC<Redux> = (props) => {
   return (
-    <div className={`${styles.sidebar_element} ${styles.portfolio_value}`}>
+    <div
+      className={`${styles.sidebar_element} ${styles.portfolio_value}`}
+      onClick={() => props.setPostingToFeed()}
+    >
       <p className={styles.sidebar_element_text}>${props.money}</p>
       <div className={styles.sidebar_element_hover}>
         <p className={styles.sidebar_element_hover_text}>Portfolio Value</p>
-        <button
-          className={styles.sidebar_element_hover_button}
-          onClick={() => props.setPostingToFeed()}
-        >
-          Share
-        </button>
       </div>
     </div>
   );

@@ -5,10 +5,11 @@
   height: 125px;
   padding: 5px;
   margin-top: 5px;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid $light_blue;
   resize: none;
   font-family: $standard_font;
+  color: $text_black;
   box-sizing: border-box;
 }

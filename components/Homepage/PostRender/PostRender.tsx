@@ -85,7 +85,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
     <div id="post" className={styles.post_container}>
       <input
         value={title}
-        placeholder="title..."
+        placeholder="Give it a title..."
         className={styles.post_header}
         onChange={(e) => setTitle(e.target.value)}
       />

@@ -1,0 +1,62 @@
+@import "../../globals/variables.scss";
+
+.no_posts {
+  position: relative;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+}
+
+.text {
+  font-size: 22px;
+  font-family: $standard_font;
+  color: $text_black;
+  text-align: center;
+  @include noselect;
+}
+
+.image_container {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.subtext {
+  font-size: 18px;
+  font-family: $standard_font;
+  color: $text_black;
+  text-align: center;
+  transition: 0.3s;
+  @include noselect;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.highlight_container {
+  cursor: pointer;
+}
+
+.highlight_container:hover .image {
+  padding: 0;
+  transition: 0.3s;
+}
+
+.highlight_container:hover .subtext {
+  color: $island_green;
+  transition: 0.3s;
+}

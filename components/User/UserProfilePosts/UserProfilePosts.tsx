@@ -4,6 +4,7 @@ import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/Fe
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PostItem } from "../../types/types";
+import { NoPosts } from "../NoPosts/NoPosts";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
@@ -34,14 +35,18 @@ const UserProfilePostsRedux: React.FC<Redux> = (props) => {
           ))}
         </div>
       );
-    } else return <h2 className={styles.feed}>No posts so far...</h2>;
+    } else return <NoPosts />;
   }
 
   return (
-    <div className={styles.homepage}>
-      <p>text</p>
-      {renderShowPostOptions()}
-      {renderPosts()}
+    <div>
+      <NavBar />
+      <div className={styles.green_block_left}></div>
+      <div className={styles.homepage}>
+        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+        {renderShowPostOptions()}
+        {renderPosts()}
+      </div>
     </div>
   );
 };

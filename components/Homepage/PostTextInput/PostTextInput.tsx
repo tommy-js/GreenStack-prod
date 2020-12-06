@@ -76,7 +76,7 @@ const PostTextInputRender: React.FC<Props> = (props) => {
         onChange={(e) => props.updateText(e.target.value)}
         value={props.text}
         className={styles.post_textarea}
-        placeholder="text..."
+        placeholder="What's on your mind?"
       />
       {returnUserSearchup()}
     </React.Fragment>

@@ -7,17 +7,17 @@
   padding: 0;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: black;
-  // @include testing;
+  color: $cream_white;
   margin-left: auto;
   margin-right: auto;
   display: block;
   text-decoration: none;
+  font-family: $standard_font;
+  cursor: pointer;
 }
 
 .portfolio_value {
   @include noselect;
-  cursor: default;
 }
 
 .sidebar_element_text {
@@ -25,6 +25,10 @@
   padding: 5px;
   margin: 0;
   transition: 0.2s;
+}
+
+.sidebar_element:hover .sidebar_element_text {
+  color: $space_red;
 }
 
 .sidebar_element_hover {
