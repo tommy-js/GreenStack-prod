@@ -30,36 +30,42 @@ export const FeedLike: React.FC<Props> = (props) => {
   }, [props.view]);
 
   return (
-    <div className={styles.feed_comment_header}>
-      <Link href={`/home/post/${props.reference.postId}`}>
-        <a>{props.reference.username}</a>
+    <div className={styles.header}>
+      <Link href={`/post/${props.reference.postId}`} passHref>
+        <PostLink
+          profileImage={props.reference.profileImage}
+          username={props.reference.username}
+          text={props.reference.text}
+        />
       </Link>
-      <div className={styles.feed_comment_base}>
-        <div className={styles.posted_by_info}>
-          <div className={styles.feed_comment_image_block}>
-            <img
-              src={props.reference.profileImage}
-              className={styles.feed_comment_image}
-            />
-          </div>
-          <p className={styles.posted_by_username}>
-            {props.reference.username}
-          </p>
-        </div>
-        <span className={styles.feed_comment_base_reference_text}>
-          {props.reference.text}
-        </span>
-      </div>
       <div className={styles.feed_top_block}>
-        <div className={styles.feed_comment_image_block}>
-          <img src={props.profileImage} className={styles.feed_comment_image} />
+        <div className={styles.profile_image_container}>
+          <img src={props.profileImage} className={styles.profile_image} />
         </div>
-        <p className={styles.feed_comment_header_username}>{props.username}</p>
+        <p className={styles.header_username}>{props.username}</p>
       </div>
       <div className={styles.liked_image_block}>
         <img src={likeFilled} className={styles.liked_image} />
       </div>
-      <p className={styles.feed_comment_header_text}>{props.text}</p>
+      <p className={styles.header_text}>{props.text}</p>
     </div>
   );
 };
+
+const PostLink = React.forwardRef(
+  ({ onClick, href, profileImage, username, text }, ref) => {
+    return (
+      <a className={styles.link} href={href} onClick={onClick} ref={ref}>
+        <div className={styles.post_link}>
+          <div className={styles.posted_by_info}>
+            <div className={styles.image_block}>
+              <img src={profileImage} className={styles.image} />
+            </div>
+            <p className={styles.posted_by_username}>{username}</p>
+          </div>
+          <span className={styles.reference_text}>{text}</span>
+        </div>
+      </a>
+    );
+  }
+);

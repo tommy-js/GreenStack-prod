@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../PortfolioValuePostModal/PortfolioValuePostModal";
@@ -28,6 +28,7 @@ export const PostHandler: React.FC<Props> = (props) => {
   return (
     <div>
       <NavBar />
+      <div className={styles.green_block_left}></div>
       <div className={styles.homepage}>
         {renderShowPostOptions()}
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />

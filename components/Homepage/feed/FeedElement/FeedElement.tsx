@@ -69,6 +69,7 @@ export const FeedElement: React.FC<Props> = (props) => {
           currentIndex={props.currentIndex}
           loadMore={props.loadMore}
           view={props.view}
+          userId={props.postUserId}
         />
       );
     }

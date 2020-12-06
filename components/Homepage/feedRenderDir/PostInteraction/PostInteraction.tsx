@@ -28,7 +28,6 @@ export const PostInteraction: React.FC<Props> = (props) => {
       <div className={styles.post_values}>
         <span className={styles.post_value_inner}>{props.dislikes}</span>
       </div>
-      <span>TEST</span>
       <DislikePost
         userId={props.postUserId}
         postId={props.postId}

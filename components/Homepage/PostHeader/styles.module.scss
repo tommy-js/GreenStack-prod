@@ -1,0 +1,16 @@
+@import "../../globals/variables.scss";
+
+.post_header {
+  width: 100%;
+  margin-bottom: 10px;
+  // @include testing;
+}
+
+.text {
+  font-size: 22px;
+  font-family: $standard_font;
+  color: $light_blue;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}

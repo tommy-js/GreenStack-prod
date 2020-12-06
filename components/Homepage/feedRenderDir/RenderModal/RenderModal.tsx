@@ -131,7 +131,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
       <div className={styles.post_upper_block}>
         <h2>{props.post.title}</h2>
         <Link href={`/home/user/${props.post.postUserId}`}>
-          <a>{props.post.postUserId}</a>
+          <a>{props.post.postUsername}</a>
         </Link>
         <div
           className={`${styles.feed_profile_image_block} ${styles.feed_link}`}

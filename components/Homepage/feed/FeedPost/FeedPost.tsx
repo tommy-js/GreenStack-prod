@@ -234,16 +234,15 @@ const PostLink = React.forwardRef(
           onMouseOver={() => setOver(true)}
           onMouseOut={() => setOver(false)}
         >
-          <Link href={`/home/user/${postUserId}`}>
-            <a>{postUsername}</a>
-          </Link>
           <div
             className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
             onClick={() => unlockScrollState()}
           >
             <img className={styles.feed_profile_image} src={postProfileImage} />
           </div>
-          <h3 className={styles.feed_link_name}>{postUsername}</h3>
+          <Link href={`/home/user/${postUserId}`}>
+            <a className={styles.feed_link_name}>{postUsername}</a>
+          </Link>
           <div
             style={{ opacity: styledOpac }}
             className={styles.feed_link_unfollow}

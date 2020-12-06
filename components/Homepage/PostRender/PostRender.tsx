@@ -4,6 +4,7 @@ import { PostNotifIcon } from "../PostNotifIcon/PostNotifIcon";
 import { PostOptions } from "../post/PostOptions/PostOptions";
 import { PostTextInput } from "../PostTextInput/PostTextInput";
 import { ProfileDropzone } from "../profile/ProfileDropzone/ProfileDropzone";
+import { PostHeader } from "../PostHeader/PostHeader";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 const settings = require("../../../public/settings.png");
@@ -83,6 +84,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
 
   return (
     <div id="post" className={styles.post_container}>
+      <PostHeader />
       <input
         value={title}
         placeholder="Give it a title..."
