@@ -1,11 +1,16 @@
-.feed {
+@import "../../globals/variables.scss";
+
+.following {
   position: relative;
   width: 40%;
-  margin-left: 33%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
 }
 
-.list_header {
-  margin: 15px;
+.header {
   font-size: 22px;
-  color: green;
+  font-family: $standard_font;
+  text-align: center;
+  color: $text_black;
 }

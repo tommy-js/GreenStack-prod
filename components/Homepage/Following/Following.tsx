@@ -16,10 +16,8 @@ interface Array {
 
 const FollowingRender: React.FC<Redux> = (props) => {
   return (
-    <div className={styles.feed}>
-      <h2 className={styles.list_header}>
-        Following({props.following.length})
-      </h2>
+    <div className={styles.following}>
+      <h2 className={styles.header}>Following({props.following.length})</h2>
       {props.following.map((el: FollowingItem) => (
         <FollowingElement
           userId={el.userId}

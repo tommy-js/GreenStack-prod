@@ -1,13 +1,16 @@
-.list_header {
-  margin: 15px;
-  font-size: 22px;
-  color: green;
+@import "../../globals/variables.scss";
+
+.followers {
+  position: relative;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
 }
 
-.feed {
-  position: relative;
-  width: 50%;
-  margin-top: 50px;
-  margin-left: 33%;
-  border: 1px solid blue;
+.header {
+  font-size: 22px;
+  font-family: $standard_font;
+  text-align: center;
+  color: $text_black;
 }

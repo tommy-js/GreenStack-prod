@@ -21,12 +21,6 @@ export const SidebarSearch: React.FC<Props> = (props) => {
         onChange={(e) => props.modSearch(e.target.value)}
         onKeyDown={(e) => checkSubmit(e)}
       />
-      <button
-        className={styles.sidebar_search_button}
-        onClick={() => props.submitSearch(props.search)}
-      >
-        Search
-      </button>
     </div>
   );
 };

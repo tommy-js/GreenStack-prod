@@ -1,0 +1,56 @@
+@import "../../globals/variables.scss";
+
+.no_followers {
+  @include noselect;
+}
+
+.header {
+  font-size: 22px;
+  font-family: $standard_font;
+  text-align: center;
+  color: $text_black;
+}
+
+.action_box {
+  cursor: pointer;
+}
+
+.action_box:hover .image {
+  padding: 0;
+  transition: 0.3s;
+}
+
+.image_container {
+  position: relative;
+  display: block;
+  width: 75px;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.subheader {
+  font-size: 18px;
+  font-family: $standard_font;
+  text-align: center;
+  color: $text_black;
+  transition: 0.3s;
+}
+
+.action_box:hover .subheader {
+  color: $forest_green;
+  transition: 0.3s;
+}
+
+.link {
+  text-decoration: none;
+}
