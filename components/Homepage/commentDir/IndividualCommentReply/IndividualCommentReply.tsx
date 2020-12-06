@@ -5,14 +5,14 @@ import styles from "./styles.module.scss";
 interface Props {
   postId: string;
   commentId: string;
+  replying: boolean;
 }
 
 export const IndividualCommentReply: React.FC<Props> = (props) => {
-  const [replying, setReplying] = useState(false);
   const [text, setText] = useState("");
 
   function renderResponseBox() {
-    if (replying === true) {
+    if (props.replying === true) {
       return (
         <React.Fragment>
           <textarea
@@ -31,9 +31,6 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.individual_comment_reply}>
-      <button onClick={() => setReplying(!replying)}>Reply</button>
-      {renderResponseBox()}
-    </div>
+    <div className={styles.individual_comment_reply}>{renderResponseBox()}</div>
   );
 };

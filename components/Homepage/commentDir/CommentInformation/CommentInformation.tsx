@@ -23,6 +23,7 @@ interface Props {
   commentId: string;
   subComments: SubComments[];
   modTransfered: () => void;
+  modReplying: () => void;
 }
 
 export const CommentInformation: React.FC<Props> = (props) => {
@@ -62,7 +63,7 @@ export const CommentInformation: React.FC<Props> = (props) => {
       >
         <img className={styles.comment_image} src={comment} />
       </div>
-      <div className={styles.reply}>
+      <div className={styles.reply} onClick={() => props.modReplying()}>
         <img src={reply_icon} className={styles.reply_image} />
         <span className={styles.reply_subtext}>(Reply)</span>
       </div>

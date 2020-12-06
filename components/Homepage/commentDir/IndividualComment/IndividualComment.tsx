@@ -39,11 +39,16 @@ interface Props extends Redux {
 export const IndividualComment: React.FC<Props> = (props) => {
   const [transferedDisp, setTransferedDisp] = useState("none");
   const [show, setShow] = useState(false);
+  const [replying, setReplying] = useState(false);
 
   useEffect(() => {
     if (show === true) setTransferedDisp("block");
     else setTransferedDisp("none");
   }, [show]);
+
+  function modReplying() {
+    setReplying(!replying);
+  }
 
   return (
     <div className={styles.comment}>
@@ -59,10 +64,12 @@ export const IndividualComment: React.FC<Props> = (props) => {
         commentId={props.commentId}
         subComments={props.subComments}
         modTransfered={() => setShow(!show)}
+        modReplying={modReplying}
       />
       <IndividualCommentReply
         postId={props.postId}
         commentId={props.commentId}
+        replying={replying}
       />
       <IndividualCommentSubComments
         postId={props.postId}
