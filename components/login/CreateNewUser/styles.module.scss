@@ -6,8 +6,8 @@
   font-family: $standard_font;
   text-align: center;
   padding: 5px;
-  font-size: 16px;
-  width: 140px;
+  font-size: 14px;
+  width: 120px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -16,6 +16,7 @@
   border: 1px solid $cream_white;
   cursor: pointer;
   background-color: $cream_white;
+  transition: 0.2s;
 }
 
 .button:hover {

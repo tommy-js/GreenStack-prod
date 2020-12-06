@@ -1,8 +1,27 @@
+@import "../../globals/variables.scss";
+
 .input_container {
   position: relative;
-  margin: 5px;
   padding: 5px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid grey;
+  width: 60%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+.show_password {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.text {
+  font-family: $standard_font;
+  color: $cream_white;
 }

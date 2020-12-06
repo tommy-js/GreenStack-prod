@@ -10,6 +10,7 @@ interface Props {
 
 export const PasswordInput: React.FC<Props> = (props) => {
   const [passwordBorder, setPasswordBorder] = useState("1px solid grey");
+  const [viewable, setViewable] = useState(false);
 
   useEffect(() => {
     if (props.nullPassword === true) {
@@ -17,21 +18,30 @@ export const PasswordInput: React.FC<Props> = (props) => {
     }
   }, [props.nullPassword]);
 
+  function showPassword() {
+    let input = document.getElementById("login_access") as HTMLInputElement;
+    if (input.type === "password") {
+      setViewable(true);
+      input.type = "text";
+    } else {
+      setViewable(false);
+      input.type = "password";
+    }
+  }
+
   function renderShowPass() {
     if (props.password.length > 0) {
       return (
-        <React.Fragment>
-          <input type="checkbox" onClick={() => showPassword()} />
-          <label>Show Password</label>
-        </React.Fragment>
+        <div className={styles.show_password} onClick={() => showPassword()}>
+          <input
+            className={styles.checkbox}
+            checked={viewable}
+            type="checkbox"
+          />
+          <label className={styles.text}>Show Password</label>
+        </div>
       );
     } else return null;
-  }
-
-  function showPassword() {
-    let input = document.getElementById("login_access") as HTMLInputElement;
-    if (input.type === "password") input.type = "text";
-    else input.type = "password";
   }
 
   return (
