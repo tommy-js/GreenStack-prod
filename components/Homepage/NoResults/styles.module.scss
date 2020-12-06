@@ -1,0 +1,28 @@
+@import "../../globals/variables.scss";
+
+.no_results {
+  position: relative;
+  width: 100%;
+}
+
+.text {
+  font-family: $standard_font;
+  text-align: center;
+  // float: right;
+  width: 300px;
+}
+
+.image_block {
+  position: relative;
+  width: 50px;
+  // float: right;
+  width: 300px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

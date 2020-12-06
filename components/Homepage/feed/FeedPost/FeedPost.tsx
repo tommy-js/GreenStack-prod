@@ -50,9 +50,6 @@ interface Props extends Redux {
 }
 
 const FeedPostRender: React.FC<Props> = (props) => {
-  const [over, setOver] = useState(false);
-  const [styledOpac, setStyledOpac] = useState(0);
-
   useEffect(() => {
     let postElement = document.getElementById(`id_${props.postId}`);
     if (postElement) {
@@ -120,69 +117,18 @@ const FeedPostRender: React.FC<Props> = (props) => {
   //   }
   // }, []);
 
-  function returnText() {
-    let tag = returnTaggedString(props.text);
-    return (
-      <React.Fragment>
-        {tag.map((el: any) => (
-          <IndMapper tag={el} />
-        ))}
-      </React.Fragment>
-    );
-  }
-
-  function unlockScrollState() {
-    const feed = document.getElementById("feed")!;
-    if (feed) enableBodyScroll(feed);
-  }
-
-  function returnImage() {
-    if (props.postImage == "null") {
-      return null;
-    } else {
-      return (
-        <div className={styles.post_image_block}>
-          <img className={styles.post_image} src={props.postImage} />
-        </div>
-      );
-    }
-  }
-
   return (
     <div id={`id_${props.postId}`}>
-      <div
-        className={styles.feed_link_header}
-        onMouseOver={() => setOver(true)}
-        onMouseOut={() => setOver(false)}
-      >
-        <Link href={`/home/user/${props.postUserId}`}>
-          <a>{props.postUsername}</a>
-        </Link>
-        <div
-          className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
-          onClick={() => unlockScrollState()}
-        >
-          <img
-            className={styles.feed_profile_image}
-            src={props.postProfileImage}
-          />
-        </div>
-        <h3 className={styles.feed_link_name}>{props.postUsername}</h3>
-        <div
-          style={{ opacity: styledOpac }}
-          className={styles.feed_link_unfollow}
-        >
-          <InlineUnfollow followerId={props.postUserId} />
-        </div>
-        <Link href={`/post/${props.postId}`}>
-          <a>{props.postUserId}</a>
-        </Link>
-        <div>{returnImage()}</div>
-        <p>{returnText()}</p>
-        <p className={styles.post_return_date}>
-          Posted {returnDate(props.timestamp)}
-        </p>
-      </div>
+      <Link href={`/post/${props.postId}`}>
+        <PostLink
+          text={props.text}
+          postImage={props.postImage}
+          postUserId={props.postUserId}
+          postUsername={props.postUsername}
+          postProfileImage={props.postProfileImage}
+          timestamp={props.timestamp}
+        />
+      </Link>
       <div className={styles.feed_link}>{returnAllowed()}</div>
     </div>
   );
@@ -235,3 +181,82 @@ export const FeedPost = connect(
   mapStateToProps,
   mapDispatchToProps
 )(FeedPostRender);
+
+const PostLink = React.forwardRef(
+  (
+    {
+      onClick,
+      href,
+      text,
+      postImage,
+      postUserId,
+      postUsername,
+      postProfileImage,
+      timestamp,
+    },
+    ref
+  ) => {
+    const [over, setOver] = useState(false);
+    const [styledOpac, setStyledOpac] = useState(0);
+
+    function returnText() {
+      let tag = returnTaggedString(text);
+      return (
+        <React.Fragment>
+          {tag.map((el: any) => (
+            <IndMapper tag={el} />
+          ))}
+        </React.Fragment>
+      );
+    }
+
+    function unlockScrollState() {
+      const feed = document.getElementById("feed")!;
+      if (feed) enableBodyScroll(feed);
+    }
+
+    function returnImage() {
+      if (postImage == "null") {
+        return null;
+      } else {
+        return (
+          <div className={styles.post_image_block}>
+            <img className={styles.post_image} src={postImage} />
+          </div>
+        );
+      }
+    }
+
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <div
+          className={styles.feed_link_header}
+          onMouseOver={() => setOver(true)}
+          onMouseOut={() => setOver(false)}
+        >
+          <Link href={`/home/user/${postUserId}`}>
+            <a>{postUsername}</a>
+          </Link>
+          <div
+            className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
+            onClick={() => unlockScrollState()}
+          >
+            <img className={styles.feed_profile_image} src={postProfileImage} />
+          </div>
+          <h3 className={styles.feed_link_name}>{postUsername}</h3>
+          <div
+            style={{ opacity: styledOpac }}
+            className={styles.feed_link_unfollow}
+          >
+            <InlineUnfollow followerId={postUserId} />
+          </div>
+          <div>{returnImage()}</div>
+          <p>{returnText()}</p>
+          <p className={styles.post_return_date}>
+            Posted {returnDate(timestamp)}
+          </p>
+        </div>
+      </a>
+    );
+  }
+);

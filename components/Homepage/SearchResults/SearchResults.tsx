@@ -3,6 +3,8 @@ import { QueryUserResult, QueryStockResult } from "../QueryResult/QueryResult";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
+import { LoadingGeneral } from "../../login/Loading/Loading";
+import { NoResults } from "../NoResults/NoResults";
 import { searchQuery } from "../../queries/queries";
 import { useQuery } from "react-apollo";
 import styles from "./styles.module.scss";
@@ -20,7 +22,7 @@ export const SearchResults: React.FC<Props> = (props) => {
   useEffect(() => {
     if (data) {
       console.log(data);
-      setLoaded(true);
+      if (data.searchStock || data.searchUser) setLoaded(true);
     }
   }, [data]);
 
@@ -45,8 +47,8 @@ export const SearchResults: React.FC<Props> = (props) => {
             stockId={data.searchStock.stockId}
           />
         );
-      } else return <h2>Loading...</h2>;
-    } else return <h2>Nothing Found</h2>;
+      } else return <LoadingGeneral />;
+    } else return <NoResults />;
   }
 
   const [postingToFeed, setPostingToFeed] = useState(false);

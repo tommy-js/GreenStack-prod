@@ -72,10 +72,6 @@ const HomepageRender: React.FC<Redux> = (props) => {
     else return null;
   }
 
-  useEffect(() => {
-    console.log(props.newaccount);
-  }, []);
-
   function returnIfNewUser() {
     if (props.newaccount === true) {
       return <NewAccountRender />;
@@ -83,6 +79,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
       return (
         <div>
           <NavBar />
+          <div className={styles.green_block_left}></div>
           <div className={styles.homepage}>
             {renderShowPostOptions()}
             <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
