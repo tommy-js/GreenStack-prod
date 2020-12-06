@@ -3,8 +3,6 @@ import { CommentInformation } from "../CommentInformation/CommentInformation";
 import { Comment } from "../Comment/Comment";
 import { IndividualCommentSubComments } from "../IndividualCommentSubComments/IndividualCommentSubComments";
 import { IndividualCommentReply } from "../IndividualCommentReply/IndividualCommentReply";
-import { connect } from "react-redux";
-import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import styles from "./styles.module.scss";
 
 type Routes = {
@@ -48,7 +46,7 @@ export const IndividualComment: React.FC<Props> = (props) => {
   }, [show]);
 
   return (
-    <div>
+    <div className={styles.comment}>
       <Comment
         commentUsername={props.commentUsername}
         timestamp={props.timestamp}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { LikePostComment } from "../../post/LikePostComment/LikePostComment";
 import { DislikePostComment } from "../../post/DislikePostComment/DislikePostComment";
 const comment = require("../../../../public/comment.png");
+const reply_icon = require("../../../../public/reply_icon.png");
 import styles from "./styles.module.scss";
 
 type SubComments = {
@@ -60,6 +61,10 @@ export const CommentInformation: React.FC<Props> = (props) => {
         onClick={() => props.modTransfered()}
       >
         <img className={styles.comment_image} src={comment} />
+      </div>
+      <div className={styles.reply}>
+        <img src={reply_icon} className={styles.reply_image} />
+        <span className={styles.reply_subtext}>(Reply)</span>
       </div>
     </div>
   );

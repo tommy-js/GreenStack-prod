@@ -1,7 +1,23 @@
+@import "../../../globals/variables.scss";
+
 .sub_comment {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
   margin-bottom: 5px;
+  border-bottom: 1px solid $light_blue;
+}
+
+.username {
+  font-size: 16px;
+  font-family: $standard_font;
+  color: $text_black;
+}
+
+.text {
+  margin-left: 10px;
+  font-family: $standard_font;
+  color: $text_black;
+  font-size: 14px;
 }

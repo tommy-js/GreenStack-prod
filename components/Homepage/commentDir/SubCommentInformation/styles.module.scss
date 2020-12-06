@@ -1,0 +1,15 @@
+@import "../../../globals/variables.scss";
+
+.sub_comment_information {
+}
+
+.likes,
+.dislikes {
+  font-family: $standard_font;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.dislikes {
+  margin-left: 10px;
+}

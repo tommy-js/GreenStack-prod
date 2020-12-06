@@ -1,5 +1,12 @@
-.container {
+.image_container {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  overflow: hidden;
+  display: inline-block;
 }
 
-.button_image {
+.image {
+  width: 100%;
+  height: 100%;
 }

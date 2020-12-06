@@ -1,7 +1,6 @@
 @import "../../../globals/variables.scss";
 
 .comment_information {
-  @include testing;
 }
 
 .likes,
@@ -26,4 +25,27 @@
 .comment_image {
   height: 100%;
   width: 100%;
+}
+
+.reply {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.reply_image {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.reply:hover .reply_subtext {
+  opacity: 0.8;
+}
+
+.reply_subtext {
+  opacity: 0;
+  font-size: 14px;
+  vertical-align: middle;
+  font-family: $standard_font;
+  color: $light_blue;
 }

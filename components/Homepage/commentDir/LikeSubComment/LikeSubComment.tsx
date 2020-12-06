@@ -35,8 +35,8 @@ const LikeSubCommentMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.container} onClick={() => passData()}>
-      <img className={styles.button_image} src={imgColor} />
+    <div className={styles.image_container} onClick={() => passData()}>
+      <img className={styles.image} src={imgColor} />
     </div>
   );
 };

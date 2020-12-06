@@ -1,5 +1,7 @@
 @import "../../../globals/variables.scss";
 
 .comment {
-  @include testing;
+  border-left: 1px solid $softer_grey;
+  padding-left: 10px;
+  box-sizing: border-box;
 }

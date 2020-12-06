@@ -14,7 +14,7 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
   function renderResponseBox() {
     if (replying === true) {
       return (
-        <div className={styles.individual_comment_reply}>
+        <React.Fragment>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -25,15 +25,15 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
             commentId={props.commentId}
             text={text}
           />
-        </div>
+        </React.Fragment>
       );
     } else return null;
   }
 
   return (
-    <React.Fragment>
+    <div className={styles.individual_comment_reply}>
       <button onClick={() => setReplying(!replying)}>Reply</button>
       {renderResponseBox()}
-    </React.Fragment>
+    </div>
   );
 };

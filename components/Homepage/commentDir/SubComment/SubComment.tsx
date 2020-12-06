@@ -1,11 +1,11 @@
 import React from "react";
-import { LikeSubComment } from "../LikeSubComment/LikeSubComment";
-import { DislikeSubComment } from "../DislikeSubComment/DislikeSubComment";
+import { SubCommentInformation } from "../SubCommentInformation/SubCommentInformation";
 import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
   commentId: string;
+  profileImage: string;
   username: string;
   text: string;
   likes: number;
@@ -16,25 +16,21 @@ interface Props {
 export const SubComment: React.FC<Props> = (props) => {
   return (
     <div className={styles.sub_comment}>
-      <div className={styles.sub_comment_head_class}>
-        <p>{props.username}</p>
+      <div className={styles.header}>
+        <p className={styles.username}>{props.username}</p>
+        <div className={styles.image_block}>
+          <img src={props.profileImage} className={styles.image} />
+        </div>
       </div>
-      <p className={styles.sub_comment_text}>{props.text}</p>
-      <div className={styles.sub_comment_foot_class}>
-        {" "}
-        {props.likes}
-        <LikeSubComment
-          postId={props.postId}
-          commentId={props.commentId}
-          parentCommentId={props.parentCommentId}
-        />
-        , {props.dislikes}
-        <DislikeSubComment
-          postId={props.postId}
-          commentId={props.commentId}
-          parentCommentId={props.parentCommentId}
-        />
-      </div>
+      <p className={styles.text}>{props.text}</p>
+
+      <SubCommentInformation
+        postId={props.postId}
+        commentId={props.commentId}
+        parentCommentId={props.parentCommentId}
+        likes={props.likes}
+        dislikes={props.dislikes}
+      />
     </div>
   );
 };
