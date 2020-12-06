@@ -1,5 +1,6 @@
 import React from "react";
 import { SubCommentInformation } from "../SubCommentInformation/SubCommentInformation";
+import { returnDate } from "./index";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   profileImage: string;
   username: string;
   text: string;
+  timestamp: number;
   likes: number;
   dislikes: number;
   parentCommentId: string;
@@ -23,6 +25,7 @@ export const SubComment: React.FC<Props> = (props) => {
         </div>
       </div>
       <p className={styles.text}>{props.text}</p>
+      <p className={styles.timestamp}>{returnDate(props.timestamp)}</p>
 
       <SubCommentInformation
         postId={props.postId}

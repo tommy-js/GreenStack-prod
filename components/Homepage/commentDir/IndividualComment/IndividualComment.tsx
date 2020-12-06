@@ -5,13 +5,6 @@ import { IndividualCommentSubComments } from "../IndividualCommentSubComments/In
 import { IndividualCommentReply } from "../IndividualCommentReply/IndividualCommentReply";
 import styles from "./styles.module.scss";
 
-type Routes = {
-  username: string;
-  userId: string;
-  bio: string;
-  profileImage: string;
-};
-
 type SubComments = {
   userId: string;
   commentId: string;
@@ -23,7 +16,7 @@ type SubComments = {
   parentCommentId: string;
 };
 
-interface Props extends Redux {
+interface Props {
   postId: string;
   commentId: string;
   username: string;

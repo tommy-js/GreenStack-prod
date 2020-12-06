@@ -20,6 +20,7 @@ export const IndividualCommentSubComments: React.FC<Props> = ({
           username={el.username}
           postId={postId}
           commentId={el.commentId}
+          timestamp={el.timestamp}
           parentCommentId={el.parentCommentId}
           text={el.text}
           likes={el.likes}

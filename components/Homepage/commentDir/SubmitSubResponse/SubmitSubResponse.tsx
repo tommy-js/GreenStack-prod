@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { pushCommentNestMutation } from "../../../queries/queries";
+import styles from "./styles.module.scss";
 
 interface Props {
   postId: string;
@@ -12,7 +13,7 @@ interface Props {
 
 const SubmitSubResponseMutation: React.FC<Props> = (props) => {
   function submit() {
-    if (props.text.length < 150) {
+    if (props.text.length < 150 && props.text.length > 0) {
       props
         .pushCommentNestMutation({
           variables: {
@@ -27,7 +28,11 @@ const SubmitSubResponseMutation: React.FC<Props> = (props) => {
     }
   }
 
-  return <button onClick={() => submit()}>submit</button>;
+  return (
+    <button className={styles.button} onClick={() => submit()}>
+      Submit
+    </button>
+  );
 };
 
 export const SubmitSubResponse = compose(
