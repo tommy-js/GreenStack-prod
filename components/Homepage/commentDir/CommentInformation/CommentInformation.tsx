@@ -21,13 +21,12 @@ interface Props {
   postId: string;
   commentId: string;
   subComments: SubComments[];
+  modTransfered: () => void;
 }
 
 export const CommentInformation: React.FC<Props> = (props) => {
   const [likes, setLikes] = useState(props.likes);
   const [dislikes, setDislikes] = useState(props.dislikes);
-  const [transferedDisp, setTransferedDisp] = useState("none");
-  const [disp, setDisp] = useState(false);
 
   function likeIncrement() {
     let like = Number(likes);
@@ -39,12 +38,6 @@ export const CommentInformation: React.FC<Props> = (props) => {
     let dislike = Number(dislikes);
     dislike++;
     setDislikes(dislike);
-  }
-
-  function modDisp() {
-    if (disp === true) setTransferedDisp("none");
-    else setTransferedDisp("block");
-    setDisp(!disp);
   }
 
   return (
@@ -62,7 +55,10 @@ export const CommentInformation: React.FC<Props> = (props) => {
         modDislikes={dislikeIncrement}
       />
       <div className={styles.comments}>{props.subComments.length}</div>
-      <div className={styles.comment_image_block} onClick={() => modDisp()}>
+      <div
+        className={styles.comment_image_block}
+        onClick={() => props.modTransfered()}
+      >
         <img className={styles.comment_image} src={comment} />
       </div>
     </div>

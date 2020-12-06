@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PushCommentPost } from "../PushCommentPost/PushCommentPost";
 import styles from "./styles.module.scss";
 

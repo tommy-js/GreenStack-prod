@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { pushCommentPostMutation } from "../../../queries/queries.js";
 import { taggedUsers } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   userId: string;
@@ -37,7 +38,11 @@ const PushCommentPostRender: React.FC<Props> = (props) => {
     }
   }
 
-  return <button onClick={() => submitComment()}>Submit</button>;
+  return (
+    <button className={styles.button} onClick={() => submitComment()}>
+      Submit
+    </button>
+  );
 };
 
 export const PushCommentPost = compose(

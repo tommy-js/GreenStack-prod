@@ -1,4 +1,20 @@
+@import "../../../globals/variables.scss";
+
 .comment_input {
+  width: 80%;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid $light_blue;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 16px;
+  font-family: $standard_font;
+  color: $text_black;
+  line-height: 150%;
 }
 
 .comment_input_div {

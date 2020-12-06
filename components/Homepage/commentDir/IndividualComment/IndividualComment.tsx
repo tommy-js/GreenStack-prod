@@ -25,11 +25,6 @@ type SubComments = {
   parentCommentId: string;
 };
 
-interface Redux {
-  userRoutes: any;
-  onUserRouteSet: (userRoutes: any) => void;
-}
-
 interface Props extends Redux {
   postId: string;
   commentId: string;
@@ -43,24 +38,14 @@ interface Props extends Redux {
   subComments: SubComments[];
 }
 
-const IndividualCommentRender: React.FC<Props> = (props) => {
+export const IndividualComment: React.FC<Props> = (props) => {
   const [transferedDisp, setTransferedDisp] = useState("none");
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    let foundInd = props.userRoutes.find(
-      (el: Routes) => el.userId === props.commentUserId
-    );
-    if (!foundInd) {
-      let obj = {
-        username: props.commentUsername,
-        userId: props.commentUserId,
-        bio: "",
-        profileImage: "",
-      };
-      let arr = [...props.userRoutes, obj];
-      props.onUserRouteSet(arr);
-    }
-  }, []);
+    if (show === true) setTransferedDisp("block");
+    else setTransferedDisp("none");
+  }, [show]);
 
   return (
     <div>
@@ -75,6 +60,7 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
         postId={props.postId}
         commentId={props.commentId}
         subComments={props.subComments}
+        modTransfered={() => setShow(!show)}
       />
       <IndividualCommentReply
         postId={props.postId}
@@ -88,8 +74,3 @@ const IndividualCommentRender: React.FC<Props> = (props) => {
     </div>
   );
 };
-
-export const IndividualComment = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(IndividualCommentRender);

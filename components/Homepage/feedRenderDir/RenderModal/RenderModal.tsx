@@ -5,12 +5,9 @@ import { PostInteraction } from "../PostInteraction/PostInteraction";
 import { PostImage } from "../PostImage/PostImage";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
 import Link from "next/link";
-import { UserRoute } from "../../../types/types";
-import { returnDate, returnTaggedString, returnUserRoutes } from "./index";
+import { returnDate, returnTaggedString } from "./index";
 import { useLazyQuery } from "react-apollo";
 import { userCommentLookup } from "../../../queries/queries";
-import { connect } from "react-redux";
-import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
 import styles from "./styles.module.scss";
 
@@ -18,18 +15,13 @@ interface Mapper {
   tag: string;
 }
 
-interface Redux {
-  userRoutes: UserRoute[];
-  onUserRouteSet: (userRoutes: UserRoute[]) => void;
-}
-
 export interface PostInterface {
   title: string;
-  postUserId: string;
-  userProfileImage: string;
+  userId: string;
+  profileImage: string;
   postImage: string;
   postId: string;
-  postUsername: string;
+  username: string;
   text: string;
   timestamp: number;
   likes: number;
@@ -59,12 +51,12 @@ export interface PostInterface {
   }[];
 }
 
-interface Props extends Redux {
+interface Props {
   post: PostInterface;
   modPostLoad: (postId: string) => void;
 }
 
-const RenderModalPre: React.FC<Props> = (props) => {
+export const RenderModal: React.FC<Props> = (props) => {
   const [likes, setLikes] = useState(props.post.likes);
   const [dislikes, setDislikes] = useState(props.post.dislikes);
   const [comments, setComments] = useState(props.post.comments.length);
@@ -73,6 +65,11 @@ const RenderModalPre: React.FC<Props> = (props) => {
     if (props.post.postImage == "null") return null;
     else return <PostImage postImage={props.post.postImage} />;
   }
+
+  useEffect(() => {
+    console.log("RenderModalPre userid:");
+    console.log(props.post.userId);
+  }, []);
 
   function modLikes() {
     setLikes(likes + 1);
@@ -85,15 +82,6 @@ const RenderModalPre: React.FC<Props> = (props) => {
   function modComments() {
     setComments(comments + 1);
   }
-
-  useEffect(() => {
-    let returned = returnUserRoutes(
-      props.post.postUsername,
-      props.post.postUserId,
-      props.userRoutes
-    );
-    if (returned) props.onUserRouteSet(returned);
-  }, []);
 
   function returnText() {
     let tag = returnTaggedString(props.post.text);
@@ -110,7 +98,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
     if (props.post.allowLikes === true) {
       return (
         <PostInteraction
-          userId={props.post.postUserId}
+          userId={props.post.userId}
           postId={props.post.postId}
           likes={likes}
           dislikes={dislikes}
@@ -130,8 +118,8 @@ const RenderModalPre: React.FC<Props> = (props) => {
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
         <h2>{props.post.title}</h2>
-        <Link href={`/home/user/${props.post.postUserId}`}>
-          <a>{props.post.postUsername}</a>
+        <Link href={`/home/user/${props.post.userId}`}>
+          <a>{props.post.username}</a>
         </Link>
         <div
           className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
@@ -139,10 +127,10 @@ const RenderModalPre: React.FC<Props> = (props) => {
         >
           <img
             className={styles.feed_profile_image}
-            src={props.post.userProfileImage}
+            src={props.post.profileImage}
           />
         </div>
-        <h3 className={styles.feed_link_name}>{props.post.postUsername}</h3>
+        <h3 className={styles.feed_link_name}>{props.post.username}</h3>
 
         {returnImage()}
         <p className={styles.post_text}>{returnText()}</p>
@@ -153,7 +141,7 @@ const RenderModalPre: React.FC<Props> = (props) => {
         </p>
         {returnAllowed()}
         <CommentInputPost
-          userId={props.post.postUserId}
+          userId={props.post.userId}
           postId={props.post.postId}
           modComments={modComments}
           allowComments={props.post.allowComments}
@@ -206,8 +194,3 @@ const IndMapper: React.FC<Mapper> = (props) => {
 
   return renderFunc();
 };
-
-export const RenderModal = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RenderModalPre);

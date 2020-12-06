@@ -19,10 +19,6 @@ const Post: React.FC<Redux> = (props) => {
   const [showRender, setShowRender] = useState(false);
 
   useEffect(() => {
-    console.log(router.query.postId);
-  }, []);
-
-  useEffect(() => {
     if (data) {
       setShowRender(true);
       console.log(data);

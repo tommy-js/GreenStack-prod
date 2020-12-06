@@ -85,21 +85,3 @@ export function returnTaggedString(text: string) {
   }
   return strSplit;
 }
-
-export function returnUserRoutes(
-  username: string,
-  userId: string,
-  userRoutes: UserRoute[]
-) {
-  let foundInd = userRoutes.find((el: UserRoute) => el.userId === userId);
-  if (!foundInd) {
-    let obj = {
-      username: username,
-      userId: userId,
-      bio: "",
-      profileImage: "",
-    };
-    let arr = [...userRoutes, obj];
-    return arr;
-  }
-}

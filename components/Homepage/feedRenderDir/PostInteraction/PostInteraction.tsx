@@ -25,7 +25,7 @@ export const PostInteraction: React.FC<Props> = (props) => {
         postId={props.postId}
         modLikes={props.modLikes}
       />
-      <div className={styles.post_values}>
+      <div className={styles.dislikes}>
         <span className={styles.post_value_inner}>{props.dislikes}</span>
       </div>
       <DislikePost
