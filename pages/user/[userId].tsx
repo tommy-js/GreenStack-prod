@@ -18,7 +18,6 @@ const Post: React.FC = () => {
   }, [router.query.userId]);
 
   useEffect(() => {
-    console.log(data);
     if (data) setShowRender(true);
   }, [data]);
 
@@ -28,6 +27,7 @@ const Post: React.FC = () => {
         <UserProfile
           inspectUsername={data.altUser.username}
           inspectUserId={data.altUser.userId}
+          inspectTimestamp={data.altUser.timestamp}
           inspectBio={data.altUser.bio}
           inspectProfileImage={data.altUser.profileImage}
           inspectFollowers={data.altUser.followers}

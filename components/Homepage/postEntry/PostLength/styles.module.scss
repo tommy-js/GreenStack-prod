@@ -1,0 +1,11 @@
+@import "../../../globals/variables.scss";
+
+.text {
+  position: relative;
+  margin-left: 15px;
+  bottom: 10px;
+  font-size: 14px;
+  font-family: $standard_font;
+  color: $light_blue;
+  display: inline-block;
+}

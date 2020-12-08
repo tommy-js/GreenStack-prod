@@ -16,16 +16,6 @@ interface Redux {
 const UserProfilePostsRedux: React.FC<Redux> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
 
-  function renderShowPostOptions() {
-    if (postingToFeed === true)
-      return (
-        <PortfolioValuePostModal
-          setPostingToFeed={() => setPostingToFeed(false)}
-        />
-      );
-    else return null;
-  }
-
   function renderPosts() {
     if (props.posts.length > 0) {
       return (
@@ -38,17 +28,7 @@ const UserProfilePostsRedux: React.FC<Redux> = (props) => {
     } else return <NoPosts />;
   }
 
-  return (
-    <div>
-      <NavBar />
-      <div className={styles.green_block_left}></div>
-      <div className={styles.homepage}>
-        <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        {renderShowPostOptions()}
-        {renderPosts()}
-      </div>
-    </div>
-  );
+  return <div>{renderPosts()}</div>;
 };
 
 export const UserProfilePosts = connect(mapStateToProps)(UserProfilePostsRedux);

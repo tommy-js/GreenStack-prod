@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { UserSearchReturn } from "../UserSearchReturn/UserSearchReturn";
+import { UserSearchReturn } from "../../UserSearchReturn/UserSearchReturn";
 import { connect } from "react-redux";
-import { mapStateToProps } from "../../actions/actions";
-import { FollowingItem, FollowerItem } from "../../types/types";
+import { mapStateToProps } from "../../../actions/actions";
+import { FollowingItem, FollowerItem } from "../../../types/types";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -20,6 +20,13 @@ const PostTextInputRender: React.FC<Props> = (props) => {
   const [userSplice, setUserSplice] = useState("");
   const [start, setStart] = useState();
   const [userList, setUserList] = useState([] as any);
+  const [textareaHeight, setTextareaHeight] = useState("125px");
+
+  useEffect(() => {
+    if (props.text.length > 250) {
+      setTextareaHeight("400px");
+    } else setTextareaHeight("125px");
+  }, [props.text]);
 
   function injectUsername(username: string) {
     let splitText = props.text.slice(0, start);
@@ -75,6 +82,7 @@ const PostTextInputRender: React.FC<Props> = (props) => {
       <textarea
         onChange={(e) => props.updateText(e.target.value)}
         value={props.text}
+        style={{ height: textareaHeight }}
         className={styles.post_textarea}
         placeholder="What's on your mind?"
       />

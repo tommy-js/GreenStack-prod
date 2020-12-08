@@ -19,6 +19,8 @@ export const IndividualUserProfilePost: React.FC<Props> = ({ post }: Props) => {
         dislikes={post.dislikes}
         timestamp={post.timestamp}
         comments={post.comments}
+        postImage={post.postImage}
+        username={post.username}
       />
     </Link>
   );
@@ -36,13 +38,27 @@ const PostLink = React.forwardRef(
       dislikes,
       timestamp,
       comments,
+      postImage,
+      username,
     },
     ref
   ) => {
+    function returnImage() {
+      if (postImage != "null") {
+        return (
+          <div className={styles.image_block}>
+            <img className={styles.image} src={postImage} />
+          </div>
+        );
+      } else return null;
+    }
+
     return (
       <a className={styles.link} href={href} onClick={onClick} ref={ref}>
         <div className={styles.user_profile_post}>
           <h2 className={styles.user_profile_title}>{title}</h2>
+          <h3 className={styles.username}>{username}</h3>
+          {returnImage()}
           <p className={styles.user_profile_text}>{text}</p>
           <PostStatus
             likes={likes}

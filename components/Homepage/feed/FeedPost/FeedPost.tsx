@@ -230,9 +230,7 @@ const PostLink = React.forwardRef(
           </div>
           <div>{returnImage()}</div>
           <p>{returnText()}</p>
-          <p className={styles.post_return_date}>
-            Posted {returnDate(timestamp)}
-          </p>
+          <p className={styles.post_return_date}>{returnDate(timestamp)}</p>
         </div>
       </a>
     );

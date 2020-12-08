@@ -24,6 +24,7 @@ interface Props extends Redux {
   inspectProfileImage: string;
   inspectUserId: string;
   inspectBio: string;
+  inspectTimestamp: number;
   inspectFollowers: FollowerItem[];
   inspectFollowing: FollowingItem[];
   inspectPosts: PostItem[];
@@ -46,20 +47,20 @@ const UserProf: React.FC<Props> = (props) => {
   return (
     <div>
       <NavBar />
-      <div className={styles.main_body}>
+      <div className={styles.green_block_left}></div>
+      <div className={styles.homepage}>
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <div key={props.userId} className={styles.feed}>
-          <RenderSearchRes
-            inspectUsername={props.inspectUsername}
-            inspectUserId={props.inspectUserId}
-            inspectBio={props.inspectBio}
-            inspectProfileImage={props.inspectProfileImage}
-            inspectFollowers={props.inspectFollowers}
-            inspectFollowing={props.inspectFollowing}
-            inspectPosts={props.inspectPosts}
-          />
-          {renderShowPostOptions()}
-        </div>
+        <RenderSearchRes
+          inspectUsername={props.inspectUsername}
+          inspectUserId={props.inspectUserId}
+          inspectBio={props.inspectBio}
+          inspectTimestamp={props.inspectTimestamp}
+          inspectProfileImage={props.inspectProfileImage}
+          inspectFollowers={props.inspectFollowers}
+          inspectFollowing={props.inspectFollowing}
+          inspectPosts={props.inspectPosts}
+        />
+        {renderShowPostOptions()}
       </div>
     </div>
   );

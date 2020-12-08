@@ -29,29 +29,31 @@ const SubmitPostMutation: React.FC<Props> = (props) => {
 
       let taggedArr = taggedUsers(props.text);
 
-      props
-        .postMutation({
-          variables: {
-            token: sessionStorage.getItem("Token"),
-            title: props.title,
-            text: props.text,
-            historyText: "Posted",
-            style: "Post",
-            postImage: image,
-            accompaniedURL: props.accompaniedURL,
-            allowComments: props.allowComments,
-            allowLikes: props.allowLikes,
-            taggedUsers: taggedArr,
-          },
-        })
-        .catch((err: any) => {
-          console.log(err);
-          if (props.unsuccessfulEvent) props.unsuccessfulEvent();
-        })
-        .then((res: any) => {
-          console.log(res);
-          if (props.successfulEvent) props.successfulEvent();
-        });
+      if (props.text.length <= 5000) {
+        props
+          .postMutation({
+            variables: {
+              token: sessionStorage.getItem("Token"),
+              title: props.title,
+              text: props.text,
+              historyText: "Posted",
+              style: "Post",
+              postImage: image,
+              accompaniedURL: props.accompaniedURL,
+              allowComments: props.allowComments,
+              allowLikes: props.allowLikes,
+              taggedUsers: taggedArr,
+            },
+          })
+          .catch((err: any) => {
+            console.log(err);
+            if (props.unsuccessfulEvent) props.unsuccessfulEvent();
+          })
+          .then((res: any) => {
+            console.log(res);
+            if (props.successfulEvent) props.successfulEvent();
+          });
+      }
     }
   }
 

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { SubmitPost } from "../SubmitPost/SubmitPost";
 import { PostNotifIcon } from "../../PostNotifIcon/PostNotifIcon";
 import { PostOptions } from "../PostOptions/PostOptions";
-import { PostTextInput } from "../../PostTextInput/PostTextInput";
+import { PostTextInput } from "../PostTextInput/PostTextInput";
 import { Dropbox } from "../Dropbox/Dropbox";
 import { PostHeader } from "../../PostHeader/PostHeader";
+import { PostLength } from "../PostLength/PostLength";
+import { PostHeadInput } from "../PostHeadInput/PostHeadInput";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../actions/actions";
 const settings = require("../../../../public/settings.png");
@@ -39,6 +41,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
     setText("");
     setSuccess(true);
     setPosted(true);
+    setValueOpacity(0);
   }
 
   function unsuccessfulEvent() {
@@ -80,20 +83,23 @@ const PostRenderPre: React.FC<Redux> = (props) => {
   }
 
   function updateText(input: string) {
-    if (input.length > 0) setValueOpacity(1);
+    if (input.length > 0 || title.length > 0) setValueOpacity(1);
     else setValueOpacity(0);
     setText(input);
+  }
+
+  function modTitle(input: string) {
+    setTitle(input);
   }
 
   return (
     <div id="post" className={styles.post_container}>
       <PostHeader />
-      <input
-        value={title}
-        style={{ opacity: valueOpacity }}
-        placeholder="Give it a title..."
-        className={styles.post_header}
-        onChange={(e) => setTitle(e.target.value)}
+
+      <PostHeadInput
+        title={title}
+        valueOpacity={valueOpacity}
+        modTitle={modTitle}
       />
       <PostTextInput text={text} updateText={updateText} />
       <div
@@ -117,6 +123,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
         image={image}
         valueOpacity={valueOpacity}
       />
+      <PostLength text={text} />
       <PostOptions
         allowComments={allowComments}
         allowLikes={allowLikes}

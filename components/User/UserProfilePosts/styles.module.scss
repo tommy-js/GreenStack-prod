@@ -1,26 +1,7 @@
 @import "../../globals/variables.scss";
 
-.homepage {
-  position: relative;
-  width: 80%;
-  min-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.green_block_left {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: calc(10% + 260px);
-  box-shadow: 8px 8px 5px $softer_grey;
-  height: 100vh;
-  background-color: $island_green;
-}
-
 .profile_posts {
   position: relative;
-  width: 50%;
-  left: 25%;
-  margin-top: 50px;
+  width: 100%;
+  margin-top: 25px;
 }

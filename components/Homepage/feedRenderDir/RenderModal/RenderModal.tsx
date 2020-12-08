@@ -66,11 +66,6 @@ export const RenderModal: React.FC<Props> = (props) => {
     else return <PostImage postImage={props.post.postImage} />;
   }
 
-  useEffect(() => {
-    console.log("RenderModalPre userid:");
-    console.log(props.post.userId);
-  }, []);
-
   function modLikes() {
     setLikes(likes + 1);
   }
@@ -118,7 +113,7 @@ export const RenderModal: React.FC<Props> = (props) => {
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
         <h2>{props.post.title}</h2>
-        <Link href={`/home/user/${props.post.userId}`}>
+        <Link href={`/user/${props.post.userId}`}>
           <a>{props.post.username}</a>
         </Link>
         <div

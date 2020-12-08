@@ -1,15 +1,7 @@
 @import "../../../globals/variables.scss";
 
-.post_header {
-  font-family: $standard_font;
-  font-size: 20px;
-  border: 1px solid $light_blue;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 3px;
-  padding: 5px;
-  box-sizing: border-box;
-  transition: 0.3s;
+.post_container {
+  margin-bottom: 50px;
 }
 
 .image_block {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FollowUser } from "../FollowUser/FollowUser";
 import { UserProfilePosts } from "../UserProfilePosts/UserProfilePosts";
 import { FollowingItem, FollowerItem, PostItem } from "../../types/types";
-import { returnFoundUser } from "./index";
+import { returnFoundUser, returnDate } from "./index";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
@@ -17,6 +17,7 @@ interface Props extends Redux {
   inspectUsername: string;
   inspectUserId: string;
   inspectProfileImage: string;
+  inspectTimestamp: number;
   inspectBio: string;
   inspectFollowers: FollowerItem[];
   inspectFollowing: FollowingItem[];
@@ -67,6 +68,9 @@ const RenderSearchResRedux: React.FC<Props> = (props) => {
       <h2 className={styles.following_number}>
         {props.inspectFollowing.length} Following
       </h2>
+      <p className={styles.timestamp}>
+        Member since {returnDate(props.inspectTimestamp)}
+      </p>
       <UserProfilePosts posts={props.inspectPosts} />
     </div>
   );

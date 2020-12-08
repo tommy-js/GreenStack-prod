@@ -12,6 +12,7 @@ const userSchema = new Schema({
   darkmode: Boolean,
   invisible: Boolean,
   membership: Boolean,
+  timestamp: Number,
   newUser: {
     newLog: Boolean,
     newPortfolio: Boolean,

@@ -124,7 +124,6 @@ const FeedRender: React.FC<Props> = (props) => {
   return (
     <div className={styles.feed}>
       <PostRender setToFeed={setToFeed} />
-      <Suggested />
       {renderFeed()}
     </div>
   );

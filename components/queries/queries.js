@@ -644,6 +644,7 @@ const otherUserQuery = gql`
       userId
       username
       money
+      timestamp
       membership
       profileImage
       following {
@@ -874,6 +875,7 @@ const userQuery = gql`
         userId
         postId
         profileImage
+        postImage
         username
         timestamp
         likes
@@ -1009,6 +1011,8 @@ const individualPostQuery = gql`
       userId
       timestamp
       profileImage
+      postImage
+      username
       postId
       likes
       dislikes

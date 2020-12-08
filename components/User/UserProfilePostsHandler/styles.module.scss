@@ -1,5 +1,14 @@
 @import "../../globals/variables.scss";
 
+.container {
+  margin-top: 50px;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
 .homepage {
   position: relative;
   width: 80%;

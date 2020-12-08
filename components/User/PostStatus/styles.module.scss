@@ -1,16 +1,45 @@
+@import "../../globals/variables.scss";
+
 .post_status {
   position: relative;
   width: 100%;
-  height: 25px;
   bottom: 0;
 }
 
-.post_status_element {
-  display: inline-block;
-  height: 100%;
+.timestamp {
+  font-family: $standard_font;
+  color: $text_black;
+  opacity: 0.5;
+  font-size: 14px;
   margin: 0;
-  text-align: center;
-  vertical-align: top;
-  width: 33%;
-  box-sizing: border-box;
+}
+
+.like,
+.dislike,
+.comment {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.like_img,
+.dislike_img,
+.comment_img {
+  width: 100%;
+  height: 100%;
+}
+
+.status {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 0;
+}
+
+.text {
+  position: relative;
+  bottom: 5px;
+  font-size: 18px;
+  display: inline-block;
+  margin-right: 2.5px;
 }
