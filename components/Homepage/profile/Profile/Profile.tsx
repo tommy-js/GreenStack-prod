@@ -15,7 +15,7 @@ export const Profile: React.FC = () => {
       <div className={styles.green_block_left}></div>
       <div className={styles.homepage}>
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <div className={`${styles.feed} ${styles.martop}`}>
+        <div className={`${styles.profile} ${styles.martop}`}>
           <ProfileHeader />
           <Settings />
           <PersonalHistory />

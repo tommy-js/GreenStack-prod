@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { postMutation } from "../../queries/queries.js";
+import { postMutation } from "../../../queries/queries.js";
 import { taggedUsers } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   allowComments: boolean;
   allowLikes: boolean;
   image: string;
+  valueOpacity: number;
   postMutation: (variables: object) => any;
   unsuccessfulEvent?: () => void;
   successfulEvent?: () => void;
@@ -53,7 +55,15 @@ const SubmitPostMutation: React.FC<Props> = (props) => {
     }
   }
 
-  return <button onClick={() => submit()}>{props.buttonTitle}</button>;
+  return (
+    <button
+      style={{ opacity: props.valueOpacity }}
+      className={styles.button}
+      onClick={() => submit()}
+    >
+      {props.buttonTitle}
+    </button>
+  );
 };
 
 export const SubmitPost = compose(

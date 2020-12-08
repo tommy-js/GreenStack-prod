@@ -29,7 +29,7 @@ const UserProfilePostsRedux: React.FC<Redux> = (props) => {
   function renderPosts() {
     if (props.posts.length > 0) {
       return (
-        <div className={styles.feed}>
+        <div className={styles.profile_posts}>
           {props.posts.map((el: PostItem) => (
             <IndividualUserProfilePost post={el} />
           ))}

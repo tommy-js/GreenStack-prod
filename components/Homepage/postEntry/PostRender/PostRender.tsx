@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { SubmitPost } from "../SubmitPost/SubmitPost";
-import { PostNotifIcon } from "../PostNotifIcon/PostNotifIcon";
-import { PostOptions } from "../post/PostOptions/PostOptions";
-import { PostTextInput } from "../PostTextInput/PostTextInput";
-import { ProfileDropzone } from "../profile/ProfileDropzone/ProfileDropzone";
-import { PostHeader } from "../PostHeader/PostHeader";
+import { PostNotifIcon } from "../../PostNotifIcon/PostNotifIcon";
+import { PostOptions } from "../PostOptions/PostOptions";
+import { PostTextInput } from "../../PostTextInput/PostTextInput";
+import { Dropbox } from "../Dropbox/Dropbox";
+import { PostHeader } from "../../PostHeader/PostHeader";
 import { connect } from "react-redux";
-import { mapStateToProps } from "../../actions/actions";
-const settings = require("../../../public/settings.png");
+import { mapStateToProps } from "../../../actions/actions";
+const settings = require("../../../../public/settings.png");
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -30,6 +30,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
   const [allowLikes, setAllowLikes] = useState(true);
   const [optionHeight, setOptionHeight] = useState("0");
   const [maxHeightOptions, setMaxHeightOptions] = useState(false);
+  const [valueOpacity, setValueOpacity] = useState(0);
 
   const [image, setImage] = useState();
 
@@ -79,6 +80,8 @@ const PostRenderPre: React.FC<Redux> = (props) => {
   }
 
   function updateText(input: string) {
+    if (input.length > 0) setValueOpacity(1);
+    else setValueOpacity(0);
     setText(input);
   }
 
@@ -87,36 +90,41 @@ const PostRenderPre: React.FC<Redux> = (props) => {
       <PostHeader />
       <input
         value={title}
+        style={{ opacity: valueOpacity }}
         placeholder="Give it a title..."
         className={styles.post_header}
         onChange={(e) => setTitle(e.target.value)}
       />
       <PostTextInput text={text} updateText={updateText} />
-      <div className={styles.image_block} onClick={() => modSettingsHeight()}>
+      <div
+        style={{ opacity: valueOpacity }}
+        className={styles.image_block}
+        onClick={() => modSettingsHeight()}
+      >
         <img className={styles.image} src={settings} />
       </div>
+      <Dropbox modifyImg={modifyImg} valueOpacity={valueOpacity} />
+      <SubmitPost
+        username={props.username}
+        title={title}
+        text={text}
+        buttonTitle="Post"
+        successfulEvent={successfulEvent}
+        unsuccessfulEvent={unsuccessfulEvent}
+        allowComments={allowComments}
+        allowLikes={allowLikes}
+        accompaniedURL=""
+        image={image}
+        valueOpacity={valueOpacity}
+      />
       <PostOptions
         allowComments={allowComments}
         allowLikes={allowLikes}
         optionHeight={optionHeight}
         modAllowComments={modAllowComments}
         modAllowLikes={modAllowLikes}
+        valueOpacity={valueOpacity}
       />
-      <ProfileDropzone modifyImg={modifyImg} />
-      <div className={styles.post_button}>
-        <SubmitPost
-          username={props.username}
-          title={title}
-          text={text}
-          buttonTitle="Post"
-          successfulEvent={successfulEvent}
-          unsuccessfulEvent={unsuccessfulEvent}
-          allowComments={allowComments}
-          allowLikes={allowLikes}
-          accompaniedURL=""
-          image={image}
-        />
-      </div>
       {returnPass()}
     </div>
   );

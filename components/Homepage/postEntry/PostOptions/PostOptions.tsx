@@ -7,11 +7,15 @@ interface Props {
   optionHeight: string;
   modAllowComments: () => void;
   modAllowLikes: () => void;
+  valueOpacity: number;
 }
 
 export const PostOptions: React.FC<Props> = (props) => {
   return (
-    <div className={styles.post_options} style={{ height: props.optionHeight }}>
+    <div
+      className={styles.post_options}
+      style={{ height: props.optionHeight, opacity: props.valueOpacity }}
+    >
       <label>Allow Comments</label>
       <input
         type="checkbox"

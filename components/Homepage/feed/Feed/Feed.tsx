@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FeedElement } from "../FeedElement/FeedElement";
 import { Suggested } from "../../Suggested/Suggested";
-import { PostRender } from "../../PostRender/PostRender";
+import { PostRender } from "../../postEntry/PostRender/PostRender";
 import { FeedScrolledBottom } from "../FeedScrolledBottom/FeedScrolledBottom";
 import { LoadingGeneral } from "../../../login/Loading/Loading";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";

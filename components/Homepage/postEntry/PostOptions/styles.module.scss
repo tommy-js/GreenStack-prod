@@ -1,10 +1,9 @@
 @import "../../../globals/variables.scss";
 
 .post_options {
-  display: inline-block;
+  display: block;
   vertical-align: top;
   overflow: hidden;
   font-family: $standard_font;
-  transition: 0.2s;
-  @include testing;
+  transition: 0.3s;
 }

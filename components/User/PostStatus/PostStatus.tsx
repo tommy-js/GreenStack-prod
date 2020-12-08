@@ -1,4 +1,5 @@
 import React from "react";
+import { returnDate } from "./index";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -14,7 +15,9 @@ export const PostStatus: React.FC<Props> = (props) => {
       <p className={styles.post_status_element}>
         likes: {props.likes}, dislikes: {props.dislikes}
       </p>
-      <p className={styles.post_status_element}>posted at {props.timestamp}</p>
+      <p className={styles.post_status_element}>
+        {returnDate(props.timestamp)}
+      </p>
       <p className={styles.post_status_element}>
         Comments: {props.commentCount}
       </p>

@@ -10,18 +10,48 @@ interface Props {
 
 export const IndividualUserProfilePost: React.FC<Props> = ({ post }: Props) => {
   return (
-    <div className={styles.user_profile_post}>
-      <Link href={`/home/post/${post.postId}`}>
-        <a>{post.title}</a>
-      </Link>
-      <h2 className={styles.user_profile_title}>{post.title}</h2>
-      <p className={styles.user_profile_text}>{post.text}</p>
-      <PostStatus
+    <Link href={`/post/${post.postId}`} passHref>
+      <PostLink
+        postId={post.postId}
+        title={post.title}
+        text={post.text}
         likes={post.likes}
         dislikes={post.dislikes}
         timestamp={post.timestamp}
-        commentCount={post.comments.length}
+        comments={post.comments}
       />
-    </div>
+    </Link>
   );
 };
+
+const PostLink = React.forwardRef(
+  (
+    {
+      onClick,
+      href,
+      postId,
+      title,
+      text,
+      likes,
+      dislikes,
+      timestamp,
+      comments,
+    },
+    ref
+  ) => {
+    return (
+      <a className={styles.link} href={href} onClick={onClick} ref={ref}>
+        <div className={styles.user_profile_post}>
+          <h2 className={styles.user_profile_title}>{title}</h2>
+          <p className={styles.user_profile_text}>{text}</p>
+          <PostStatus
+            likes={likes}
+            dislikes={dislikes}
+            timestamp={timestamp}
+            commentCount={comments.length}
+          />
+        </div>
+      </a>
+    );
+  }
+);
