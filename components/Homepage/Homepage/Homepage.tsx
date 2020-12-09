@@ -55,10 +55,10 @@ const HomepageRender: React.FC<Redux> = (props) => {
     } else if (props.newaccount === false) {
       return (
         <div>
+          {renderShowPostOptions()}
           <NavBar />
           <div className={styles.green_block_left}></div>
           <div className={styles.homepage}>
-            {renderShowPostOptions()}
             <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
           </div>
           <Feed />

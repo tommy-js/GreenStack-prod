@@ -3,6 +3,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { postMutation } from "../../queries/queries.js";
 import { taggedUsers } from "./index";
+import styles from "./styles.module.scss";
 
 interface Props {
   money: any;
@@ -51,7 +52,11 @@ const PostPortfolioValueMutation: React.FC<Props> = (props) => {
     }
   }
 
-  return <button onClick={() => submit()}>{props.buttonTitle}</button>;
+  return (
+    <button className={styles.button} onClick={() => submit()}>
+      {props.buttonTitle}
+    </button>
+  );
 };
 
 export const PostPortfolioValue = compose(

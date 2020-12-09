@@ -10,7 +10,7 @@ interface Props {
 
 export const FollowerElement: React.FC<Props> = (props) => {
   return (
-    <div className={styles.homepage_block_component}>
+    <div className={styles.homepage_block_component} key={props.userId}>
       <Link href={`/home/user/${props.userId}`}>
         <a className={`${styles.block_link} ${styles.element_username}`}>
           {props.username}

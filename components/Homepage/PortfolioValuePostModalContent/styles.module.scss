@@ -1,0 +1,46 @@
+@import "../../globals/variables.scss";
+
+.text {
+  width: 365px;
+  margin-left: auto;
+  margin-right: auto;
+  @include noselect;
+}
+
+.span {
+  font-family: $standard_font;
+  font-size: 18px;
+  color: $cream_white;
+}
+
+.img_container {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.textarea_block {
+  position: relative;
+  margin-top: 10px;
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  padding: 5px;
+  font-family: $standard_font;
+  color: $text_black;
+}

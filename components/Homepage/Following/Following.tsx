@@ -10,16 +10,13 @@ interface Redux {
   userId: string;
 }
 
-interface Array {
-  userId: string;
-}
-
 const FollowingRender: React.FC<Redux> = (props) => {
   return (
     <div className={styles.following}>
       <h2 className={styles.header}>Following({props.following.length})</h2>
       {props.following.map((el: FollowingItem) => (
         <FollowingElement
+          key={el.userId}
           userId={el.userId}
           username={el.username}
           bio={el.bio}

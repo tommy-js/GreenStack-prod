@@ -22,19 +22,21 @@ const PortfolioValuePostModalContentRender: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.portfolio_value_post_modal_content}>
-      <p className={styles.portfolio_value_post_modal_content_text}>
+    <div>
+      <div className={styles.text}>
         <div className={styles.img_container}>
           <img className={styles.img} src={confetti} />
         </div>
-        Announce your portfolio value of ${props.money}
+        <span className={styles.span}>
+          Announce your portfolio value of ${props.money}
+        </span>
         <div className={styles.img_container}>
           <img className={styles.img} src={confetti} />
         </div>
-      </p>
-      <div className={styles.portfolio_value_post_modal_content_textarea_block}>
+      </div>
+      <div className={styles.textarea_block}>
         <textarea
-          className={styles.portfolio_value_post_modal_content_textarea}
+          className={styles.textarea}
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
