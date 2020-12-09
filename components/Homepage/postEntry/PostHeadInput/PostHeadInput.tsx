@@ -29,7 +29,7 @@ export const PostHeadInput: React.FC<Props> = (props) => {
   }
 
   useEffect(() => {
-    if (props.title.length > 20) setHeadLen("500px");
+    if (props.title.length > 20) setHeadLen("450px");
     else setHeadLen("200px");
   }, [props.title]);
 

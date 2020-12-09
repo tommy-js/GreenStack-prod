@@ -107,7 +107,7 @@ export const RenderModal: React.FC<Props> = (props) => {
   return (
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
-        <h2>{props.post.title}</h2>
+        <h2 className={styles.title}>{props.post.title}</h2>
         <Link href={`/user/${props.post.userId}`} passHref>
           <UserLink
             profileImage={props.post.profileImage}

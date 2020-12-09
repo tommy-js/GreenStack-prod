@@ -56,10 +56,9 @@ const PostLink = React.forwardRef(
     return (
       <a className={styles.link} href={href} onClick={onClick} ref={ref}>
         <div className={styles.user_profile_post}>
-          <h2 className={styles.user_profile_title}>{title}</h2>
-          <h3 className={styles.username}>{username}</h3>
+          <h2 className={styles.title}>{title}</h2>
           {returnImage()}
-          <p className={styles.user_profile_text}>{text}</p>
+          <p className={styles.text}>{text}</p>
           <PostStatus
             likes={likes}
             dislikes={dislikes}

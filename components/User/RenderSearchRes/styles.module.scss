@@ -2,16 +2,14 @@
 
 .container {
   margin-top: 50px;
-  width: 50%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
   padding: 10px;
-  @include testing;
 }
 
 .header_container {
-  @include testing;
 }
 
 .header {

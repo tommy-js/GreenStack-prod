@@ -18,6 +18,14 @@
 .link {
   text-decoration: none;
   color: $text_black;
+  border-bottom: 1px solid transparent;
+  transition: 0.15s;
+}
+
+.link:hover {
+  color: $forest_green;
+  border-bottom: 1px solid $forest_green;
+  transition: 0.15s;
 }
 
 .feed_profile_image_block {
@@ -32,6 +40,11 @@
 .feed_profile_image {
   height: 100%;
   width: 100%;
+}
+
+.title {
+  font-family: $standard_font;
+  color: $light_blue;
 }
 
 .username {
