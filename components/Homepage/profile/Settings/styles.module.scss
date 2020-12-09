@@ -1,3 +1,6 @@
-.settings {
-  margin-top: 100px;
+@import "../../../globals/variables.scss";
+
+.header {
+  font-family: $standard_font;
+  color: $text_black;
 }

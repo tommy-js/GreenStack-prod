@@ -20,11 +20,7 @@ const PersonalHistoryRender: React.FC = () => {
     }
   }
 
-  return (
-    <React.Fragment>
-      <h2 className={styles.personal_history_header}>History</h2>
-    </React.Fragment>
-  );
+  return <h2 className={styles.header}>History</h2>;
 };
 
 export const PersonalHistory = connect(mapStateToProps)(PersonalHistoryRender);

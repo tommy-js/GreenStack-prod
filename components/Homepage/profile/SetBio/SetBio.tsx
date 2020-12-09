@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 const save = require("../../../../public/save.png");
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
@@ -7,11 +7,18 @@ import styles from "./styles.module.scss";
 
 interface Props {
   bio: string;
-  modEditing: (isEdit: boolean) => void;
   setBioMutation: (variables: object) => any;
 }
 
 const SetBioMutation: React.FC<Props> = (props) => {
+  const [opac, setOpac] = useState(0);
+  const [initialBio] = useState(props.bio);
+
+  useEffect(() => {
+    if (props.bio === initialBio) setOpac(0);
+    else setOpac(1);
+  }, [props.bio]);
+
   function modBio() {
     if (props.bio.length <= 120) {
       props
@@ -26,13 +33,17 @@ const SetBioMutation: React.FC<Props> = (props) => {
         })
         .then((res: any) => {
           console.log(res);
-          props.modEditing(false);
         });
     }
   }
 
   return (
-    <img className={styles.bio_image} onClick={() => modBio()} src={save} />
+    <img
+      style={{ opacity: opac }}
+      className={styles.bio_image}
+      onClick={() => modBio()}
+      src={save}
+    />
   );
 };
 

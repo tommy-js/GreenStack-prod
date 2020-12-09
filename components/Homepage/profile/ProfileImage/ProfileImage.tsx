@@ -4,6 +4,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProfileImageMutation } from "../../../queries/queries.js";
 import styles from "./styles.module.scss";
+const add = require("../../../../public/add_image.png");
 
 interface Props {
   profileImage: string;
@@ -44,14 +45,17 @@ const ProfileImageMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <section className={styles.profile_image_dropzone}>
+    <div className={styles.profile_image_dropzone}>
       <div {...getRootProps({ id: "dropzone" })}>
         <input {...getInputProps()} />
         <div className={styles.profile_image_container}>
           <img className={styles.img} src={props.profileImage} />
         </div>
+        <div className={styles.add_image_block}>
+          <img className={styles.add_image} src={add} />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

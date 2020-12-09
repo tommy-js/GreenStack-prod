@@ -1,6 +1,10 @@
+@import "../../../globals/variables.scss";
+
 .bio_counter {
   position: relative;
   height: 20px;
-  top: 0;
-  margin: 0;
+  margin-top: 10px;
+  font-family: $standard_font;
+  font-size: 14px;
+  transition: 0.15s;
 }

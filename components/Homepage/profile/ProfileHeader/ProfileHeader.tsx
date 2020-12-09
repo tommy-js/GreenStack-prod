@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SetBio } from "../SetBio/SetBio";
-import { SaveProfileImage } from "../SaveProfileImage/SaveProfileImage";
 import { BioCounter } from "../BioCounter/BioCounter";
-import { ProfileDropzone } from "../ProfileDropzone/ProfileDropzone";
 import { ProfileImage } from "../ProfileImage/ProfileImage";
 const edit = require("../../../../public/edit.png");
 import { connect } from "react-redux";
@@ -17,58 +15,45 @@ interface Redux {
 }
 
 const ProfileHeaderRender: React.FC<Redux> = (props) => {
-  const [profileImage, setProfileImage] = useState(props.profileImage);
-  const [editing, setEditing] = useState(false);
   const [bio, setBio] = useState(props.bio);
-  const [editingProfileImage, setEditingProfileImage] = useState(false);
+  const [textareaHeight, setTextareaHeight] = useState("40px");
 
-  function modEditing(isEdit: boolean) {
-    setEditing(isEdit);
-  }
-
-  function returnEditing() {
-    if (editing === true) {
-      return (
-        <React.Fragment>
-          <textarea
-            className={styles.bio_edit_textarea}
-            onChange={(e) => setBio(e.target.value)}
-            value={bio}
-          />
-          <SetBio bio={bio} modEditing={modEditing} />
-          <BioCounter bio={bio} />
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <div onClick={() => setEditing(true)}>
-          <div className={styles.left_container}>
-            <p className={styles.bio_edit_textarea}>{bio}</p>
-          </div>
-          <div className={styles.right_container}>
-            <img className={styles.bio_image} src={edit} />
-          </div>
-        </div>
-      );
-    }
-  }
+  useEffect(() => {
+    if (bio.length > 60) setTextareaHeight("70px");
+    else setTextareaHeight("40px");
+  }, [bio]);
 
   function modifyImg(imgData: any) {
-    setProfileImage(imgData);
     props.onProfileImageSet(imgData);
   }
 
-  function saveImage(img: string) {
-    props.onProfileImageSet(img);
+  function focusTextarea() {
+    document.getElementById("textareaID").focus();
   }
 
   return (
     <div className={styles.profile_header}>
       <div className={styles.profile_header_container}>
         <ProfileImage profileImage={props.profileImage} modifyImg={modifyImg} />
-        <h2 className={styles.profile_header_username}>{props.username}</h2>
+        <h2 className={styles.username}>{props.username}</h2>
       </div>
-      <div className={styles.profile_bio_container}>{returnEditing()}</div>
+      <div className={styles.profile_bio_container}>
+        <textarea
+          id="textareaID"
+          className={styles.textarea}
+          style={{ height: textareaHeight }}
+          onChange={(e) => setBio(e.target.value)}
+          value={bio}
+        />
+        <div
+          className={styles.edit_image_block}
+          onClick={() => focusTextarea()}
+        >
+          <img className={styles.edit_image} src={edit} />
+        </div>
+        <SetBio bio={bio} />
+        <BioCounter bio={bio} />
+      </div>
     </div>
   );
 };

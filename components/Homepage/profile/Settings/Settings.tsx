@@ -9,7 +9,7 @@ import styles from "./styles.module.scss";
 const SettingsRender: React.FC = () => {
   return (
     <div className={styles.settings}>
-      <h2>Settings</h2>
+      <h2 className={styles.header}>Settings</h2>
       <DarkMode />
       <Private />
       <AllowComments />
