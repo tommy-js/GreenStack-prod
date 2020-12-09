@@ -6,6 +6,7 @@ import { PasswordInput } from "../PasswordInput/PasswordInput";
 import { PasswordValidation } from "../PasswordValidation/PasswordValidation";
 import { CreateNewUser } from "../CreateNewUser/CreateNewUser";
 import { UserAlreadyExists } from "../UserAlreadyExists/UserAlreadyExists";
+import { MustIncludeNumerics } from "../MustIncludeNumerics/MustIncludeNumerics";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -62,6 +63,7 @@ export const CreateAccountPage: React.FC<Props> = (props) => {
           placeholder="Username"
           nullUserName={nullUserName}
         />
+        <MustIncludeNumerics username={username} />
         <UserAlreadyExists visible={usernameAlreadyExists} />
         <PasswordInput
           password={password}

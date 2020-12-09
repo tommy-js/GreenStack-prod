@@ -29,6 +29,7 @@ interface Props extends Redux {
 
 const CreateNewUserMutation: React.FC<Props> = (props) => {
   const [newUsername, setNewUsername] = useState(false);
+  const [spaceIncluded, setSpaceIncluded] = useState(false);
   const router = useRouter();
   const [callUser, { data }] = useLazyQuery(distinctUserQuery, {
     variables: { username: props.queryUsername },
@@ -42,14 +43,23 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
     includesNum: false,
   });
 
+  function renderSpaceIncluded() {
+    if (spaceIncluded === true) {
+      return (
+        <p className={styles.space_included}>*Password cannot include spaces</p>
+      );
+    } else return null;
+  }
+
   function checkValidity() {
     let checkBool = checkTruth(passwordEffective);
-    console.log("new username: " + newUsername + " checkBool: " + checkBool);
-    console.log(
-      "username: " + props.queryUsername + "password: " + props.password
-    );
+    let passwordTest = / /g.test(props.password);
     if (props.queryUsername.length > 0 && props.password.length > 0) {
-      if (newUsername === true && checkBool === true) {
+      if (
+        newUsername === true &&
+        checkBool === true &&
+        passwordTest === false
+      ) {
         submitButton();
       }
     } else if (props.queryUsername.length === 0 && props.password.length != 0) {
@@ -59,6 +69,9 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
     } else {
       props.renderUsernameNull();
       props.renderPasswordNull();
+    }
+    if (passwordTest === true) {
+      setSpaceIncluded(true);
     }
   }
 
@@ -72,15 +85,12 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   // Checks for username in the database
   useEffect(() => {
     if (data) {
-      console.log(data);
       if (data.specUser) {
         setNewUsername(false);
         props.alreadyExists(true);
-        console.log("already exists");
       } else {
         setNewUsername(true);
         props.alreadyExists(false);
-        console.log("does not already exists");
       }
     }
   }, [data]);
@@ -97,7 +107,6 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   }
 
   useEffect(() => {
-    console.log(newUsername);
     callUser();
 
     let testedSpecial = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g.test(
@@ -158,9 +167,12 @@ const CreateNewUserMutation: React.FC<Props> = (props) => {
   }
 
   return (
-    <button className={styles.button} onClick={() => checkValidity()}>
-      Create Account
-    </button>
+    <div>
+      <button className={styles.button} onClick={() => checkValidity()}>
+        Create Account
+      </button>
+      {renderSpaceIncluded()}
+    </div>
   );
 };
 

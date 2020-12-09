@@ -1,3 +1,5 @@
+@import "../../globals/variables.scss";
+
 .input_container {
   position: relative;
   padding: 5px;
@@ -9,4 +11,11 @@
   margin-right: auto;
   display: block;
   box-sizing: border-box;
+}
+
+.invalid_log {
+  font-family: $standard_font;
+  font-size: 12px;
+  text-align: center;
+  color: $space_red;
 }
