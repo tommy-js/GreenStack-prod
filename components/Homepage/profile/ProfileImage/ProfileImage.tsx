@@ -48,6 +48,7 @@ const ProfileImageMutation: React.FC<Props> = (props) => {
     <div className={styles.profile_image_dropzone}>
       <div {...getRootProps({ id: "dropzone" })}>
         <input {...getInputProps()} />
+        <div className={styles.overlay}></div>
         <div className={styles.profile_image_container}>
           <img className={styles.img} src={props.profileImage} />
         </div>

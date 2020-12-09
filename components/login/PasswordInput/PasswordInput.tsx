@@ -32,10 +32,11 @@ export const PasswordInput: React.FC<Props> = (props) => {
   function renderShowPass() {
     if (props.password.length > 0) {
       return (
-        <div className={styles.show_password} onClick={() => showPassword()}>
+        <div className={styles.show_password}>
           <input
             className={styles.checkbox}
             checked={viewable}
+            onChange={() => showPassword()}
             type="checkbox"
           />
           <label className={styles.text}>Show Password</label>

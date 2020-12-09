@@ -66,6 +66,7 @@ export const SearchResults: React.FC<Props> = (props) => {
   return (
     <div>
       <NavBar />
+      <div className={styles.green_block_left}></div>
       <div className={styles.main_body}>
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
         <div className={styles.feed}>

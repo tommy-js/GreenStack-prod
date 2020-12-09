@@ -2,7 +2,7 @@
 
 .profile {
   position: relative;
-  width: 50%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -23,7 +23,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: calc(10% + 260px);
+  width: 30%;
   box-shadow: 8px 8px 5px $softer_grey;
   height: 100vh;
   background-color: $island_green;
