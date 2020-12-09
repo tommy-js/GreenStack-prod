@@ -11,15 +11,23 @@ interface Redux {
 
 const SidebarUsernameRender: React.FC<Redux> = (props) => {
   return (
-    <React.Fragment>
-      <div className={`${styles.image_block} ${styles.link_spec}`}>
-        <img className={styles.image} src={props.profileImage} />
-      </div>
-      <Link href="/profile">
-        <a className={styles.username}>{props.username}</a>
-      </Link>
-    </React.Fragment>
+    <Link href="/profile" passHref>
+      <UserLink username={props.username} profileImage={props.profileImage} />
+    </Link>
   );
 };
+
+const UserLink = React.forwardRef(
+  ({ onClick, href, username, profileImage }, ref) => {
+    return (
+      <a className={styles.user_link} href={href} onClick={onClick} ref={ref}>
+        <div className={`${styles.image_block} ${styles.link_spec}`}>
+          <img className={styles.image} src={profileImage} />
+        </div>
+        <a className={styles.username}>{username}</a>
+      </a>
+    );
+  }
+);
 
 export const SidebarUsername = connect(mapStateToProps)(SidebarUsernameRender);

@@ -14,8 +14,6 @@ interface Redux {
 }
 
 const UserProfilePostsRedux: React.FC<Redux> = (props) => {
-  const [postingToFeed, setPostingToFeed] = useState(false);
-
   function renderPosts() {
     if (props.posts.length > 0) {
       return (

@@ -3,6 +3,7 @@ import { SetBio } from "../SetBio/SetBio";
 import { SaveProfileImage } from "../SaveProfileImage/SaveProfileImage";
 import { BioCounter } from "../BioCounter/BioCounter";
 import { ProfileDropzone } from "../ProfileDropzone/ProfileDropzone";
+import { ProfileImage } from "../ProfileImage/ProfileImage";
 const edit = require("../../../../public/edit.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
@@ -54,36 +55,20 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
 
   function modifyImg(imgData: any) {
     setProfileImage(imgData);
+    props.onProfileImageSet(imgData);
   }
 
   function saveImage(img: string) {
     props.onProfileImageSet(img);
   }
 
-  function renderDropzone() {
-    if (editingProfileImage === true) {
-      return (
-        <div className={styles.render_dropzone}>
-          <ProfileDropzone modifyImg={modifyImg} />
-          <SaveProfileImage image={profileImage} saveImage={saveImage} />
-        </div>
-      );
-    } else return null;
-  }
-
   return (
     <div className={styles.profile_header}>
       <div className={styles.profile_header_container}>
-        <div
-          className={styles.profile_image_container}
-          onClick={() => setEditingProfileImage(!editingProfileImage)}
-        >
-          <img className={styles.img_id} src={profileImage} />
-        </div>
+        <ProfileImage profileImage={props.profileImage} modifyImg={modifyImg} />
         <h2 className={styles.profile_header_username}>{props.username}</h2>
       </div>
       <div className={styles.profile_bio_container}>{returnEditing()}</div>
-      {renderDropzone()}
     </div>
   );
 };

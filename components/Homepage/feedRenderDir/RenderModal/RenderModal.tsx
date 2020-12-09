@@ -104,29 +104,16 @@ export const RenderModal: React.FC<Props> = (props) => {
     } else return null;
   }
 
-  function unlockScrollState() {
-    const feed = document.getElementById("feed")!;
-    if (feed) enableBodyScroll(feed);
-  }
-
   return (
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
         <h2>{props.post.title}</h2>
-        <Link href={`/user/${props.post.userId}`}>
-          <a>{props.post.username}</a>
-        </Link>
-        <div
-          className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
-          onClick={() => unlockScrollState()}
-        >
-          <img
-            className={styles.feed_profile_image}
-            src={props.post.profileImage}
+        <Link href={`/user/${props.post.userId}`} passHref>
+          <UserLink
+            profileImage={props.post.profileImage}
+            username={props.post.username}
           />
-        </div>
-        <h3 className={styles.feed_link_name}>{props.post.username}</h3>
-
+        </Link>
         {returnImage()}
         <p className={styles.post_text}>{returnText()}</p>
       </div>
@@ -189,3 +176,18 @@ const IndMapper: React.FC<Mapper> = (props) => {
 
   return renderFunc();
 };
+
+const UserLink = React.forwardRef(
+  ({ onClick, href, profileImage, username }, ref) => {
+    return (
+      <a className={styles.link} href={href} onClick={onClick} ref={ref}>
+        <div
+          className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
+        >
+          <img className={styles.feed_profile_image} src={profileImage} />
+        </div>
+        <h3 className={styles.username}>{username}</h3>
+      </a>
+    );
+  }
+);

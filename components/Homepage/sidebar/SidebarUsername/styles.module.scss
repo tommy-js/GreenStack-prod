@@ -13,8 +13,15 @@
 }
 
 .username {
+  position: relative;
+  bottom: 5px;
   font-size: 22px;
   text-decoration: none;
   color: $cream_white;
+  font-family: $standard_font;
   margin-left: 5px;
+}
+
+.user_link {
+  text-decoration: none;
 }

@@ -15,6 +15,11 @@
   text-decoration: none;
 }
 
+.link {
+  text-decoration: none;
+  color: $text_black;
+}
+
 .feed_profile_image_block {
   height: 25px;
   width: 25px;
@@ -29,10 +34,13 @@
   width: 100%;
 }
 
-.feed_link_name {
+.username {
+  position: relative;
+  bottom: 5px;
+  font-family: $standard_font;
 }
 
-.feed_link_name,
+.username,
 .feed_link_unfollow {
   display: inline-block;
 }

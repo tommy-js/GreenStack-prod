@@ -98,6 +98,7 @@ const PostRenderPre: React.FC<Redux> = (props) => {
 
       <PostHeadInput
         title={title}
+        text={text}
         valueOpacity={valueOpacity}
         modTitle={modTitle}
       />
