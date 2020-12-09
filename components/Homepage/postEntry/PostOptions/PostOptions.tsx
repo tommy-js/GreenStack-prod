@@ -19,13 +19,13 @@ export const PostOptions: React.FC<Props> = (props) => {
       <label>Allow Comments</label>
       <input
         type="checkbox"
-        onClick={() => props.modAllowComments()}
+        onChange={() => props.modAllowComments()}
         checked={props.allowComments}
       />
       <label>Allow Likes</label>
       <input
         type="checkbox"
-        onClick={() => props.modAllowLikes()}
+        onChange={() => props.modAllowLikes()}
         checked={props.allowLikes}
       />
     </div>

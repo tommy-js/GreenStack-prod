@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
 interface Props {
+  key: string;
   ticker: string;
   title: string;
   img: string;
@@ -31,7 +32,11 @@ export const TickerContainer: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.ticker_container} onClick={() => selectCompany()}>
+    <div
+      className={styles.ticker_container}
+      onClick={() => selectCompany()}
+      key={props.key}
+    >
       <p className={styles.ticker_id} style={{ color: color }}>
         <span className={styles.ticker_title}>{props.title}</span>{" "}
         <span className={styles.ticker}>#{props.ticker}</span>

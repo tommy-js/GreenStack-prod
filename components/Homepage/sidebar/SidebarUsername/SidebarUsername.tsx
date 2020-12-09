@@ -24,7 +24,7 @@ const UserLink = React.forwardRef(
         <div className={`${styles.image_block} ${styles.link_spec}`}>
           <img className={styles.image} src={profileImage} />
         </div>
-        <a className={styles.username}>{username}</a>
+        <div className={styles.username}>{username}</div>
       </a>
     );
   }

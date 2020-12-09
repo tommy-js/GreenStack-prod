@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FeedElement } from "../FeedElement/FeedElement";
-import { Suggested } from "../../Suggested/Suggested";
 import { PostRender } from "../../postEntry/PostRender/PostRender";
 import { FeedScrolledBottom } from "../FeedScrolledBottom/FeedScrolledBottom";
 import { LoadingGeneral } from "../../../login/Loading/Loading";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { useLazyQuery } from "react-apollo";
+import { useQuery } from "react-apollo";
 import { returnFeedQuery } from "../../../queries/queries";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
@@ -14,11 +12,11 @@ import styles from "./styles.module.scss";
 
 interface Props {
   posts: PostItem[];
-  onFeedSet: (feed: FeedItem[]) => void;
 }
 
 const FeedRender: React.FC<Props> = (props) => {
-  const [callFeed, { data }] = useLazyQuery(returnFeedQuery, {
+  const { data } = useQuery(returnFeedQuery, {
+    variables: { token: sessionStorage.getItem("Token") },
     pollInterval: 200,
   });
   const [feed, setFeed] = useState([] as any);
@@ -26,15 +24,8 @@ const FeedRender: React.FC<Props> = (props) => {
   const [view, setView] = useState(0);
 
   useEffect(() => {
-    callFeed({
-      variables: { token: sessionStorage.getItem("Token") },
-    });
-  }, []);
-
-  useEffect(() => {
     if (data) {
       setFeed(data.returnFollowerFeed.posts);
-      console.log(data);
 
       let arr = [
         ...data.returnFollowerFeed.posts,
@@ -88,11 +79,10 @@ const FeedRender: React.FC<Props> = (props) => {
 
   function renderFeed() {
     if (feed) {
-      props.onFeedSet(feed);
       return (
         <React.Fragment>
           {feed.map((el: any) => (
-            <div className={styles.feed_component}>
+            <div className={styles.feed_component} key={el.postId}>
               <FeedElement
                 title={el.title}
                 text={el.text}

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { RenderSearchRes } from "../RenderSearchRes/RenderSearchRes";
-import { connect } from "react-redux";
-import { mapStateToProps } from "../../actions/actions";
 import {
   FollowingItem,
   FollowerItem,
@@ -13,13 +11,7 @@ import {
 } from "../../types/types";
 import styles from "./styles.module.scss";
 
-interface Redux {
-  userId: string;
-  username: string;
-  following: FollowingItem[];
-}
-
-interface Props extends Redux {
+interface Props {
   inspectUsername: string;
   inspectProfileImage: string;
   inspectUserId: string;
@@ -31,8 +23,13 @@ interface Props extends Redux {
   modRoutes?: (route: UserRoute) => void;
 }
 
-const UserProf: React.FC<Props> = (props) => {
+export const UserProfile: React.FC<Props> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
+
+  useEffect(() => {
+    console.log("UserProf");
+    console.log(props.inspectPosts);
+  }, []);
 
   function renderShowPostOptions() {
     if (postingToFeed === true)
@@ -65,5 +62,3 @@ const UserProf: React.FC<Props> = (props) => {
     </div>
   );
 };
-
-export const UserProfile = connect(mapStateToProps)(UserProf);

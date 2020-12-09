@@ -4,13 +4,11 @@ import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { Feed } from "../feed/Feed/Feed";
 import { NewAccountRender } from "../../NewAccountRender/NewAccountRender/NewAccountRender";
-import { useLazyQuery } from "react-apollo";
 import { connect } from "react-redux";
 import {
   mapStateToProps,
   mapDispatchToProps,
 } from "../../../components/actions/actions";
-import { nonTokenModifyUserQuery } from "../../../components/queries/queries";
 import {
   PostItem,
   FeedItem,
@@ -39,27 +37,6 @@ interface Redux {
 }
 
 const HomepageRender: React.FC<Redux> = (props) => {
-  const [getUser, { data: getUserData }] = useLazyQuery(
-    nonTokenModifyUserQuery,
-    {
-      pollInterval: 500,
-    }
-  );
-
-  useEffect(() => {
-    if (getUserData) {
-      props.onInitialPostsSet(getUserData.noTokenMod.posts);
-      props.onInitialFollowerSet(getUserData.noTokenMod.followers);
-      props.onInitialFollowingSet(getUserData.noTokenMod.following);
-      props.onInitialNotificationsSet(getUserData.noTokenMod.notifications);
-      props.onWatchlistSet(getUserData.noTokenMod.watchlist);
-    }
-  }, [getUserData]);
-
-  useEffect(() => {
-    console.log("new account: " + props.newaccount);
-  }, []);
-
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -87,7 +64,7 @@ const HomepageRender: React.FC<Redux> = (props) => {
           <Feed />
         </div>
       );
-    }
+    } else return null;
   }
 
   return returnIfNewUser();

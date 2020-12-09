@@ -135,6 +135,7 @@ export const TickerList: React.FC<Props> = (props) => {
     <div className={styles.ticker_list}>
       {tickers.map((el: any) => (
         <TickerContainer
+          key={el.stockId}
           ticker={el.ticker}
           title={el.title}
           img={el.img}

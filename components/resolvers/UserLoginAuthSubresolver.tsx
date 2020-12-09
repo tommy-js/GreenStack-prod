@@ -36,32 +36,25 @@ interface Props extends Redux {
 }
 
 const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
-  const [
-    logUserIn,
-    { loading: loadingLogIn, data: dataLogIn, error: errorLogIn },
-  ] = useLazyQuery(userQuery);
+  const [logUserIn, { data: dataLogIn }] = useLazyQuery(userQuery);
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
-      let token = sessionStorage.getItem("Token");
-      if (token) {
-        logUserIn({
-          variables: {
-            token: token,
-          },
-        });
-      } else {
-        if (props.renderLoadingFalse) props.renderLoadingFalse();
-        router.push("/login");
-      }
-    }, 500);
+    let token = sessionStorage.getItem("Token");
+    if (token) {
+      logUserIn({
+        variables: {
+          token: token,
+        },
+      });
+    } else {
+      if (props.renderLoadingFalse) props.renderLoadingFalse();
+      router.push("/login");
+    }
   }, []);
 
   useEffect(() => {
-    if (dataLogIn) {
-      pushToUser();
-    }
+    if (dataLogIn) pushToUser();
   }, [dataLogIn]);
 
   function pushToUser() {

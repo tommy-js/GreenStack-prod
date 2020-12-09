@@ -18,7 +18,11 @@ const Post: React.FC = () => {
   }, [router.query.userId]);
 
   useEffect(() => {
-    if (data) setShowRender(true);
+    if (data) {
+      console.log(data);
+      console.log(data.altUser.posts);
+      setShowRender(true);
+    }
   }, [data]);
 
   function renderPost() {

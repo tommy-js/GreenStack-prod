@@ -4,7 +4,6 @@ import { createStore } from "redux";
 import reducer from "../components/reducers/reducers";
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import MainPage from "./index";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",

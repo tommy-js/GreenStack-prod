@@ -14,7 +14,7 @@ const MainPage: React.FC<Redux> = (props) => {
   useEffect(() => {
     if (props.status === false) setLoadingInUser(true);
     else setLoadingInUser(false);
-  }, [props.status]);
+  }, []);
 
   function checkReturn() {
     if (loadingInUser === true) {

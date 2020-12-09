@@ -12,13 +12,27 @@ interface Props {
 export const FollowingElement: React.FC<Props> = (props) => {
   return (
     <div className={styles.homepage_block_component}>
-      <Link href={`/home/user/${props.userId}`}>
-        <a className={`${styles.block_link} ${styles.element_username}`}>
-          {props.username}
-        </a>
+      <Link href={`/user/${props.userId}`} passHref>
+        <UserLink
+          userId={props.userId}
+          username={props.username}
+          bio={props.bio}
+        />
       </Link>
-      <p className={styles.following_element_descriptor}>{props.bio}</p>
       <UnfollowUser userId={props.userId} />
     </div>
   );
 };
+
+const UserLink = React.forwardRef(
+  ({ onClick, href, userId, username, bio }, ref) => {
+    return (
+      <a className={styles.link} href={href} onClick={onClick} ref={ref}>
+        <div className={`${styles.block_link} ${styles.element_username}`}>
+          {username}
+        </div>
+        <p className={styles.bio}>{bio}</p>
+      </a>
+    );
+  }
+);

@@ -75,5 +75,5 @@ export const FeedElement: React.FC<Props> = (props) => {
     }
   }
 
-  return <React.Fragment>{path()}</React.Fragment>;
+  return <div key={props.postId}>{path()}</div>;
 };

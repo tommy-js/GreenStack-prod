@@ -5,8 +5,7 @@ import { InlineUnfollow } from "../InlineUnfollow/InlineUnfollow";
 import { UserIndex } from "../../../about/UserIndex/UserIndex";
 import Link from "next/link";
 const comment = require("../../../../public/comment.png");
-import { returnDate } from "./index";
-import { returnTaggedString } from "../../../globals/functions/returnTagged";
+import { returnDate, returnTaggedString } from "./index";
 import { useLazyQuery } from "react-apollo";
 import { userCommentLookup } from "../../../queries/queries";
 import { connect } from "react-redux";
@@ -14,15 +13,10 @@ import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import { enableBodyScroll } from "body-scroll-lock";
 import styles from "./styles.module.scss";
 
-type Routes = {
-  username: string;
-  userId: string;
-  bio: string;
-  profileImage: string;
-};
-
 interface Mapper {
   tag: string;
+  key: any;
+  accessKey: any;
 }
 
 interface Redux {
@@ -113,49 +107,6 @@ const FeedPostRender: React.FC<Props> = (props) => {
   );
 };
 
-const IndMapper: React.FC<Mapper> = (props) => {
-  const [callUser, { data }] = useLazyQuery(userCommentLookup);
-  const [userData, setUserData] = useState();
-
-  useEffect(() => {
-    if (props.tag.includes("@")) {
-      callUser({
-        variables: {
-          username: getUsername(),
-        },
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (data) {
-      setUserData(data.specUser);
-    }
-  }, [data]);
-
-  function getUsername() {
-    let username = props.tag.slice(1, props.tag.length);
-    return username;
-  }
-
-  function renderFunc() {
-    if (data && userData && data.specUser != null) {
-      return (
-        <UserIndex
-          highlightUsername={userData.username}
-          highlightUserId={userData.userId}
-          highlightBio={userData.bio}
-          highlightProfileImage={userData.profileImage}
-        />
-      );
-    } else {
-      return <span className={styles.tag_span}> {props.tag} </span>;
-    }
-  }
-
-  return renderFunc();
-};
-
 export const FeedPost = connect(
   mapStateToProps,
   mapDispatchToProps
@@ -177,13 +128,15 @@ const PostLink = React.forwardRef(
   ) => {
     const [over, setOver] = useState(false);
     const [styledOpac, setStyledOpac] = useState(0);
+    const [tag] = useState(returnTaggedString(text));
 
     function returnText() {
-      let tag = returnTaggedString(text);
       return (
         <React.Fragment>
           {tag.map((el: any) => (
-            <IndMapper tag={el} />
+            <div key={el.key}>
+              <IndMapper tag={el.text} key={el.key} accessKey={el.key} />
+            </div>
           ))}
         </React.Fragment>
       );
@@ -219,9 +172,7 @@ const PostLink = React.forwardRef(
           >
             <img className={styles.feed_profile_image} src={postProfileImage} />
           </div>
-          <Link href={`/home/user/${postUserId}`}>
-            <a className={styles.feed_link_name}>{postUsername}</a>
-          </Link>
+          <div className={styles.feed_link_name}>{postUsername}</div>
           <div
             style={{ opacity: styledOpac }}
             className={styles.feed_link_unfollow}
@@ -229,10 +180,51 @@ const PostLink = React.forwardRef(
             <InlineUnfollow followerId={postUserId} />
           </div>
           <div>{returnImage()}</div>
-          <p>{returnText()}</p>
+          <div>{returnText()}</div>
           <p className={styles.post_return_date}>{returnDate(timestamp)}</p>
         </div>
       </a>
     );
   }
 );
+
+const IndMapper: React.FC<Mapper> = (props) => {
+  const [callUser, { data }] = useLazyQuery(userCommentLookup);
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    if (props.tag.includes("@")) {
+      callUser({
+        variables: {
+          username: getUsername(),
+        },
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (data) setUserData(data.specUser);
+  }, [data]);
+
+  function getUsername() {
+    let username = props.tag.slice(1, props.tag.length);
+    return username;
+  }
+
+  function renderFunc() {
+    if (data && userData && data.specUser != null) {
+      return (
+        <UserIndex
+          highlightUsername={userData.username}
+          highlightUserId={userData.userId}
+          highlightBio={userData.bio}
+          highlightProfileImage={userData.profileImage}
+        />
+      );
+    } else {
+      return <span className={styles.tag_span}> {props.tag} </span>;
+    }
+  }
+
+  return <div key={props.accessKey}>{renderFunc()}</div>;
+};

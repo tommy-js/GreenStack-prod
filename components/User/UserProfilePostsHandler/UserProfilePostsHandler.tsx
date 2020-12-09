@@ -4,10 +4,12 @@ import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { UserProfilePosts } from "../UserProfilePosts/UserProfilePosts";
 import { YourPosts } from "../YourPosts/YourPosts";
+import { PostItem } from "../../types/types";
 import styles from "./styles.module.scss";
 
 interface Props {
   username: string;
+  posts: PostItem[];
 }
 
 export const UserProfilePostsHandler: React.FC<Props> = (props) => {
@@ -31,7 +33,7 @@ export const UserProfilePostsHandler: React.FC<Props> = (props) => {
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
         <div className={styles.container}>
           <YourPosts />
-          <UserProfilePosts />
+          <UserProfilePosts posts={props.posts} />
         </div>
         {renderShowPostOptions()}
       </div>

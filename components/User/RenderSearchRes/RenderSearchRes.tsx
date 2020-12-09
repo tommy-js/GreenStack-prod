@@ -30,6 +30,7 @@ const RenderSearchResRedux: React.FC<Props> = (props) => {
   useEffect(() => {
     let foundUser = returnFoundUser(props.inspectUserId, props.following);
     setAlreadyAdded(foundUser);
+    console.log(props.inspectPosts);
   }, []);
 
   function modAlreadyAdded() {

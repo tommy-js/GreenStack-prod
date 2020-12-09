@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { IndividualUserProfilePost } from "../IndividualUserProfilePost/IndividualUserProfilePost";
-import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
-import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
-import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { PostItem } from "../../types/types";
 import { NoPosts } from "../NoPosts/NoPosts";
-import { connect } from "react-redux";
-import { mapStateToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
 
-interface Redux {
+interface Props {
   posts: PostItem[];
 }
 
-const UserProfilePostsRedux: React.FC<Redux> = (props) => {
+export const UserProfilePosts: React.FC<Props> = (props) => {
   function renderPosts() {
     if (props.posts.length > 0) {
       return (
@@ -28,5 +23,3 @@ const UserProfilePostsRedux: React.FC<Redux> = (props) => {
 
   return <div>{renderPosts()}</div>;
 };
-
-export const UserProfilePosts = connect(mapStateToProps)(UserProfilePostsRedux);

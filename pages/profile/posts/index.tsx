@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { UserProfilePostsHandler } from "../../../components/User/UserProfilePostsHandler/UserProfilePostsHandler";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
+import { PostItem } from "../../../components/types/types";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
 
 interface Redux {
   status: boolean;
   username: string;
+  posts: PostItem[];
 }
 
 const ProfilePosts: React.FC<Redux> = (props) => {
@@ -22,7 +24,13 @@ const ProfilePosts: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <UserProfilePostsHandler username={props.username} />;
+    } else
+      return (
+        <UserProfilePostsHandler
+          username={props.username}
+          posts={props.posts}
+        />
+      );
   }
 
   return checkReturn();
