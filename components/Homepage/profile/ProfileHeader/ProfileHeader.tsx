@@ -44,6 +44,7 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
           style={{ height: textareaHeight }}
           onChange={(e) => setBio(e.target.value)}
           value={bio}
+          spellCheck={false}
         />
         <div
           className={styles.edit_image_block}

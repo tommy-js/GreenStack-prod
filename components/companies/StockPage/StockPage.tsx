@@ -11,8 +11,9 @@ interface Props {
   title: string;
   ticker: string;
   stockId: string;
+  sector: string;
   description: string;
-  price: number;
+  country: string;
 }
 
 export const StockPage: React.FC<Props> = (props) => {

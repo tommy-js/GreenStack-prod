@@ -26,7 +26,7 @@ export const CompanyGraph = ({ title, ticker }) => {
   function renderEl() {
     const graphicalEffects = {
       graphHeight: "100%",
-      graphWidth: "100%",
+      graphWidth: "80%",
       graphLeft: 0,
       graphRight: 0,
       positioning: "0",
@@ -58,5 +58,9 @@ export const CompanyGraph = ({ title, ticker }) => {
     else return <LoadingGeneral />;
   }
 
-  return <div className={styles.graph}>{returnInfo()}</div>;
+  return (
+    <div id="company_graph_block" className={styles.graph}>
+      {returnInfo()}
+    </div>
+  );
 };

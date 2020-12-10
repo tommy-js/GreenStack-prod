@@ -20,7 +20,7 @@ export const StockComment: React.FC<Props> = (props) => {
   }, []);
 
   return (
-    <div className={styles.stock_comment}>
+    <div className={styles.stock_comment} key={props.commentId}>
       <h4 className={styles.username}>{props.username}</h4>
       <p className={styles.text}>{props.text}</p>
       <p className={styles.posted}>Posted {time}</p>

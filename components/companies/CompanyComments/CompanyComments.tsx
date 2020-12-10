@@ -51,7 +51,9 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button onClick={() => pushData()}>Submit</button>
+      <button className={styles.button} onClick={() => pushData()}>
+        Submit
+      </button>
       <CompanyCommentMap comments={comments} />
     </div>
   );

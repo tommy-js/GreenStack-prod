@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
+const usaFlag = require("../../../public/usa_flag.png");
 
 interface User {
   username: string;
@@ -64,21 +65,44 @@ export const QueryStockResult: React.FC<Stock> = (props) => {
         country={props.country}
         description={props.description}
         stockId={props.stockId}
+        countryFlag={usaFlag}
       />
     </Link>
   );
 };
 
 const PushToStock = React.forwardRef(
-  ({ onClick, href, title, ticker, country, description, stockId }, ref) => {
+  (
+    {
+      onClick,
+      href,
+      title,
+      ticker,
+      country,
+      description,
+      stockId,
+      countryFlag,
+    },
+    ref
+  ) => {
     return (
       <React.Fragment>
-        <a href={`/stock/${stockId}`} onClick={onClick} ref={ref}>
-          <p>
-            {title} #{ticker}
-          </p>
-          <p>{country}</p>
-          <p>{description}</p>
+        <a
+          className={styles.link}
+          href={`/stock/${stockId}`}
+          onClick={onClick}
+          ref={ref}
+        >
+          <div className={styles.container}>
+            <div className={styles.flag_container}>
+              <img className={styles.flag} src={countryFlag} />
+            </div>
+            <h2 className={styles.header}>
+              {title} #{ticker}
+            </h2>
+            <p>{country}</p>
+            <h3 className={styles.bio}>{description}</h3>
+          </div>
         </a>
       </React.Fragment>
     );

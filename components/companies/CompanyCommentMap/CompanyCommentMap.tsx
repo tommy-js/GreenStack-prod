@@ -20,6 +20,7 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
               timestamp={el.timestamp}
               likes={el.likes}
               dislikes={el.dislikes}
+              key={el.commentId}
             />
           ))}
         </React.Fragment>

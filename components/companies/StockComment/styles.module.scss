@@ -1,19 +1,24 @@
+@import "../../globals/variables.scss";
+
 .stock_comment {
-  border: 1px solid grey;
-  border-radius: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-family: $standard_font;
+  border-bottom: 1px solid $light_blue;
 }
 
 .username {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .text {
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 150%;
+  margin: 0;
 }
 
 .posted {
-  font-size: 18px;
+  font-size: 12px;
+  opacity: 0.5;
 }
