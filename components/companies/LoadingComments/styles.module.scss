@@ -3,18 +3,18 @@
 .loading_comments {
   position: relative;
   width: 100%;
-  @include testing;
+  margin-bottom: 100px;
 }
 
 .loading {
   position: relative;
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin-top: 0px;
   text-align: center;
   font-family: $standard_font;
-  color: $text_black;
+  color: $forest_green;
   font-size: 22px;
-  @include testing;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 @keyframes spinning_dial {
@@ -30,6 +30,7 @@
   position: relative;
   width: 35px;
   height: 35px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -52,5 +53,5 @@
 
 .spinning_dial_general:before {
   @include spinning_dial;
-  border-top-color: black;
+  border-top-color: $forest_green;
 }
