@@ -21,6 +21,27 @@
   margin-right: 15px;
   margin-top: 5px;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.15s;
+}
+
+.navbar_icon:hover,
+.logout_icon:hover {
+  border-bottom: 2px solid $forest_green;
+  transition: 0.15s;
+}
+
+.logout_icon {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  float: right;
+  margin-right: 15px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.15s;
 }
 
 .notification_container {

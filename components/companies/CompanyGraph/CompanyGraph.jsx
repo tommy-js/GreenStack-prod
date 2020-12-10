@@ -29,7 +29,7 @@ export const CompanyGraph = ({ title, ticker }) => {
       graphWidth: "80%",
       graphLeft: 0,
       graphRight: 0,
-      positioning: "0",
+      positioning: "auto",
       title: ``,
       ticker: ``,
       fontSize: 18,

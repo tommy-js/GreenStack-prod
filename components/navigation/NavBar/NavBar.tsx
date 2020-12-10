@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { NotificationIcon } from "../../notifications/NotificationIcon/NotificationIcon";
 import { NavBarHeader } from "../NavBarHeader/NavBarHeader";
-const home = require("../../../public/mainicon.png");
+const home = require("../../../public/logo.png");
 const portfolio = require("../../../public/portfolio_icon.png");
 const tutorial = require("../../../public/tutorial_icon.png");
+const logout = require("../../../public/logout.png");
 import styles from "./styles.module.scss";
 
 export const NavBar: React.FC = () => {
@@ -36,7 +37,11 @@ export const NavBar: React.FC = () => {
         <img src={tutorial} className={styles.navbar_icon} />
       </Link>
       <Link href="/login">
-        <a onClick={() => dropToken()}>Logout</a>
+        <img
+          src={logout}
+          className={styles.logout_icon}
+          onClick={() => dropToken()}
+        />
       </Link>
       <NavBarHeader />
       <div

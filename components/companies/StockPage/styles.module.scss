@@ -1,6 +1,9 @@
+@import "../../globals/variables.scss";
+
 .stock_page {
   position: relative;
-  width: 45%;
-  left: 30%;
+  width: 50%;
   top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }

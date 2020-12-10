@@ -2,12 +2,17 @@
 
 .navbar_header {
   position: relative;
-  width: 200px;
+  width: 160px;
   height: 40px;
   top: -35px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+}
+
+.navbar_header:hover .text {
+  color: $forest_green;
+  transition: 0.2s;
 }
 
 .image_container {
@@ -40,4 +45,5 @@
   line-height: 100%;
   font-size: 22px;
   font-family: $standard_font;
+  transition: 0.2s;
 }
