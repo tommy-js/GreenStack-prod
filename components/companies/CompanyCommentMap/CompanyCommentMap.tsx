@@ -13,15 +13,16 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
       return (
         <React.Fragment>
           {props.comments.map((el: CommentItem) => (
-            <StockComment
-              username={el.username}
-              text={el.text}
-              commentId={el.commentId}
-              timestamp={el.timestamp}
-              likes={el.likes}
-              dislikes={el.dislikes}
-              key={el.commentId}
-            />
+            <div key={el.commentId}>
+              <StockComment
+                username={el.username}
+                text={el.text}
+                commentId={el.commentId}
+                timestamp={el.timestamp}
+                likes={el.likes}
+                dislikes={el.dislikes}
+              />
+            </div>
           ))}
         </React.Fragment>
       );

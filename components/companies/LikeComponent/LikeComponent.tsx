@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import {
@@ -18,52 +18,63 @@ interface Props {
 const LikeComponentRender: React.FC<Props> = (props) => {
   function like() {
     let token = sessionStorage.getItem("Token");
-    props
-      .likeStockMutation({
-        variables: {
-          token: token,
-          text: "Liked stock comment",
-          style: "Like",
-          commentId: props.commentId,
-          likes: 1,
-        },
-      })
-      .catch((err: any) => {
-        console.log(err);
-      })
-      .then((res: any) => {
-        console.log(res);
-      });
+    if (token) {
+      props
+        .likeStockMutation({
+          variables: {
+            token: token,
+            text: "Liked stock comment",
+            style: "Like",
+            commentId: props.commentId,
+          },
+        })
+        .catch((err: any) => {
+          console.log(err);
+        })
+        .then((res: any) => {
+          console.log(res);
+        });
+    }
   }
 
   function dislike() {
-    props
-      .dislikeStockMutation({
-        variables: {
-          token: sessionStorage.getItem("Token"),
-          text: "Disliked stock comment",
-          style: "Dislike",
-          commentId: props.commentId,
-          dislikes: 1,
-        },
-      })
-      .catch((err: any) => {
-        console.log(err);
-      })
-      .then((res: any) => {
-        console.log(res);
-      });
+    let token = sessionStorage.getItem("Token");
+    if (token) {
+      props
+        .dislikeStockMutation({
+          variables: {
+            token: token,
+            text: "Disliked stock comment",
+            style: "Dislike",
+            commentId: props.commentId,
+          },
+        })
+        .catch((err: any) => {
+          console.log(err);
+        })
+        .then((res: any) => {
+          console.log(res);
+        });
+    }
   }
 
   return (
-    <React.Fragment>
-      <p className={styles.like_block}>
-        <span className={styles.likes}>{props.likes}</span> /{" "}
-        <span className={styles.likes}>{props.dislikes}</span>
-      </p>
-      <button onClick={() => like()}>Like</button>
-      <button onClick={() => dislike()}>Dislike</button>
-    </React.Fragment>
+    <div className={styles.like_component}>
+      <span className={styles.likes}>{props.likes}</span>
+      <div className={styles.likes_block} onClick={() => like()}>
+        <img
+          className={styles.like}
+          src={require("../../../public/like.png")}
+        />
+      </div>
+      <span className={styles.likes}>{props.dislikes}</span>
+      <div className={styles.dislikes_block} onClick={() => dislike()}>
+        <img
+          className={styles.dislike}
+          src={require("../../../public/dislike.png")}
+        />
+      </div>
+    </div>
   );
 };
 
