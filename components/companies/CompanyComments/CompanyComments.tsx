@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CompanyCommentMap } from "../CompanyCommentMap/CompanyCommentMap";
+import { LoadingComments } from "../LoadingComments/LoadingComments";
 import { useQuery } from "react-apollo";
 import { stockQuery, addCommentStockMutation } from "../../queries/queries";
 import { flowRight as compose } from "lodash";
@@ -38,10 +39,16 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
           text: text,
         },
       })
-      .then((res: any) => {
+      .then(() => {
         setText("");
       })
       .catch((err: any) => console.log(err));
+  }
+
+  function returnCompanyComments() {
+    if (data && comments.length > 0) {
+      return <CompanyCommentMap comments={comments} />;
+    } else return <LoadingComments />;
   }
 
   return (
@@ -54,7 +61,7 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
       <button className={styles.button} onClick={() => pushData()}>
         Submit
       </button>
-      <CompanyCommentMap comments={comments} />
+      {returnCompanyComments()}
     </div>
   );
 };
