@@ -7,7 +7,7 @@ export const VoidAlert: React.FC = () => {
     <React.Fragment>
       <h3 className={styles.void_text}>Nothing found!</h3>
       <div className={styles.void_img}>
-        <img className={styles.history_void_img} src={history} />
+        <img className={styles.img} src={history} />
       </div>
     </React.Fragment>
   );

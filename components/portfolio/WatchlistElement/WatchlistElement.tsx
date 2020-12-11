@@ -11,19 +11,29 @@ interface Props {
 
 export const WatchlistElement: React.FC<Props> = (props) => {
   return (
-    <React.Fragment>
-      <Link href={`/home/stock/${props.stockId}`}>
-        <a>{props.title}</a>
-      </Link>
-      <p
+    <Link href={`/stock/${props.stockId}`}>
+      <WatchlistLink
+        title={props.title}
+        ticker={props.ticker}
         key={props.key}
-        className={`${styles.watch_listing_link} ${styles.watch_listing}`}
-      >
-        {props.title}{" "}
-        <span className={styles.watch_listing_ticker_span}>
-          #{props.ticker}
-        </span>
-      </p>
-    </React.Fragment>
+      />
+    </Link>
   );
 };
+
+const WatchlistLink = React.forwardRef(
+  ({ onClick, href, title, key, ticker }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <a>{title}</a>
+        <p
+          key={key}
+          className={`${styles.watch_listing_link} ${styles.watch_listing}`}
+        >
+          {title}{" "}
+          <span className={styles.watch_listing_ticker_span}>#{ticker}</span>
+        </p>
+      </a>
+    );
+  }
+);
