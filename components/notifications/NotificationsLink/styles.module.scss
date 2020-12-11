@@ -7,6 +7,11 @@
   @include testing;
 }
 
+.notifications_link:hover .notifications_link_text {
+  color: $space_red;
+  transition: 0.25s;
+}
+
 .notifications_link_text {
   padding-left: 5px;
 }

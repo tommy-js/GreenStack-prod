@@ -1,5 +1,4 @@
 import React from "react";
-import { NotificationsPortfolioValue } from "../NotificationsPortfolioValue/NotificationsPortfolioValue";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import Link from "next/link";
@@ -11,15 +10,24 @@ interface Redux {
 
 const NotificationsHead: React.FC<Redux> = (props) => {
   return (
-    <div className={styles.notifications_header}>
-      <div className={styles.notifications_link_text}>
-        <Link href="/profile">
-          <a className={styles.no_style}>{props.username}</a>
-        </Link>
-      </div>
-      <NotificationsPortfolioValue />
-    </div>
+    <Link href="/profile">
+      <NotificationLink username={props.username} />
+    </Link>
   );
 };
+
+const NotificationLink = React.forwardRef(
+  ({ onClick, href, username }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <div className={styles.notifications_header}>
+          <div className={styles.notifications_link_text}>
+            <a className={styles.no_style}>{username}</a>
+          </div>
+        </div>
+      </a>
+    );
+  }
+);
 
 export const NotificationsHeader = connect(mapStateToProps)(NotificationsHead);

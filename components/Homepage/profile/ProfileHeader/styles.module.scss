@@ -105,3 +105,10 @@
   width: 100%;
   height: 100%;
 }
+
+.valid {
+  position: relative;
+  margin: 0;
+  font-family: $standard_font;
+  color: $space_red;
+}

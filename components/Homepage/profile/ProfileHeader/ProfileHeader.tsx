@@ -17,14 +17,27 @@ interface Redux {
 const ProfileHeaderRender: React.FC<Redux> = (props) => {
   const [bio, setBio] = useState(props.bio);
   const [textareaHeight, setTextareaHeight] = useState("40px");
+  const [imageValid, setImageValid] = useState(true);
 
   useEffect(() => {
     if (bio.length > 60) setTextareaHeight("70px");
     else setTextareaHeight("40px");
   }, [bio]);
 
+  function invalidImage() {
+    setImageValid(false);
+  }
+  function validImage() {
+    setImageValid(true);
+  }
+
   function modifyImg(imgData: any) {
     props.onProfileImageSet(imgData);
+  }
+
+  function returnValid() {
+    if (imageValid === true) return null;
+    else return <p className={styles.valid}>Your image is too large!</p>;
   }
 
   function focusTextarea() {
@@ -34,7 +47,12 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
   return (
     <div className={styles.profile_header}>
       <div className={styles.profile_header_container}>
-        <ProfileImage profileImage={props.profileImage} modifyImg={modifyImg} />
+        <ProfileImage
+          profileImage={props.profileImage}
+          modifyImg={modifyImg}
+          validImage={validImage}
+          invalidImage={invalidImage}
+        />
         <h2 className={styles.username}>{props.username}</h2>
       </div>
       <div className={styles.profile_bio_container}>
@@ -54,6 +72,7 @@ const ProfileHeaderRender: React.FC<Redux> = (props) => {
         </div>
         <SetBio bio={bio} />
         <BioCounter bio={bio} />
+        {returnValid()}
       </div>
     </div>
   );

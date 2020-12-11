@@ -7,6 +7,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { dropNotificationMutation } from "../../queries/queries";
 import styles from "./styles.module.scss";
+const checkmark = require("../../../public/checkmark.png");
 
 interface Redux {
   notifications: NotificationItem[];
@@ -49,8 +50,10 @@ const NotifMutation: React.FC<Props> = (props) => {
   return (
     <div className={styles.notif}>
       <p className={styles.notif_content}>{props.content}</p>
+      <div onClick={() => dropNotification()} className={styles.check_img_box}>
+        <img src={checkmark} className={styles.check_img} />
+      </div>
       <NotifTime timestamp={props.timestamp} />
-      <button onClick={() => dropNotification()}>Dismiss</button>
     </div>
   );
 };

@@ -1,0 +1,21 @@
+@import "../../globals/variables.scss";
+
+.notification {
+  font-family: $standard_font;
+  text-align: center;
+  font-size: 22px;
+}
+
+.image_block {
+  position: relative;
+  width: 75px;
+  overflow: hidden;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}

@@ -4,9 +4,22 @@
   width: 20px;
   height: 20px;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.notif_backdrop {
+  position: absolute;
+  top: 4px;
+  height: 90%;
+  width: 90%;
+  background-color: white;
+  z-index: 2;
 }
 
 .image {
+  position: absolute;
+  top: 0;
   height: 100%;
   width: 100%;
+  z-index: 34;
 }

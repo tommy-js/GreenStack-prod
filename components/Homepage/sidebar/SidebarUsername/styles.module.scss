@@ -5,6 +5,7 @@
   height: 35px;
   display: inline-block;
   overflow: hidden;
+  border-radius: 7.5px;
 }
 
 .image {
@@ -14,8 +15,8 @@
 
 .username {
   position: relative;
-  bottom: 5px;
-  font-size: 22px;
+  bottom: 10px;
+  font-size: 24px;
   text-decoration: none;
   display: inline-block;
   color: $cream_white;

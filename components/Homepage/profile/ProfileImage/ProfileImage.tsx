@@ -10,6 +10,8 @@ interface Props {
   profileImage: string;
   updateUserProfileImageMutation: (variables: object) => any;
   modifyImg: (imgData: any) => void;
+  validImage: () => void;
+  invalidImage: () => void;
 }
 
 const ProfileImageMutation: React.FC<Props> = (props) => {
@@ -20,9 +22,12 @@ const ProfileImageMutation: React.FC<Props> = (props) => {
       reader.onload = () => {
         const binaryStr = reader.result;
         props.modifyImg(binaryStr);
-        submit(binaryStr);
+        let byteLen = Buffer.byteLength(binaryStr, "utf8") / 1000;
+        if (byteLen < 400) submit(binaryStr);
+        else props.invalidImage();
       };
       reader.readAsDataURL(file);
+      props.validImage();
     });
   }, []);
   const { getRootProps, getInputProps } = useDropzone({

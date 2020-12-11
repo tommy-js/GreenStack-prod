@@ -1,14 +1,16 @@
 @import "../../globals/variables.scss";
 
 .notifications_page {
-  min-width: 50%;
-  width: 600px;
+  width: 40%;
+  min-width: 450px;
+  margin-top: 75px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px dashed grey;
   font-family: $standard_font;
 }
 
 .notification_header {
-  color: #5c5cfc;
+  color: $forest_green;
+  text-align: center;
+  margin-bottom: 50px;
 }
