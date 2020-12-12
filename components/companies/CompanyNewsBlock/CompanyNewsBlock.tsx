@@ -15,6 +15,7 @@ export const CompanyNewsBlock = (props: any) => {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       if (data.returnNews.articles) {
         setLoggedNews(data.returnNews.articles);
         setMaxLength(data.returnNews.articles.length);
