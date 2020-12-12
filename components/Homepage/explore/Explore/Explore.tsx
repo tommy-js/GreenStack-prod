@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ExploreCompany } from "../ExploreCompany/ExploreCompany";
+import { SuggestAStock } from "../SuggestAStock/SuggestAStock";
 import { useQuery } from "react-apollo";
 import { getStocksQuery } from "../../../queries/queries";
 import styles from "./styles.module.scss";

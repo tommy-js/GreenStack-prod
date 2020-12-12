@@ -1,0 +1,26 @@
+@import "../../../globals/variables.scss";
+
+.suggestion_body {
+  height: 30px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title,
+.ticker {
+  position: relative;
+  display: block;
+  font-family: $standard_font;
+  color: $text_black;
+  font-size: 16px;
+  padding: 3px;
+}
+
+.title {
+  float: left;
+}
+
+.ticker {
+  float: right;
+}

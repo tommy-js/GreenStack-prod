@@ -1,0 +1,17 @@
+@import "../../../globals/variables.scss";
+
+.suggestion_header {
+  font-family: $standard_font;
+}
+
+.header {
+  color: $forest_green;
+  font-size: 22px;
+  text-align: center;
+}
+
+.subheader {
+  color: $light_blue;
+  font-size: 18px;
+  text-align: center;
+}
