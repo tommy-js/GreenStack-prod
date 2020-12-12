@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 const usaFlag = require("../../../public/usa_flag.png");
+const germanFlag = require("../../../public/german_flag.png");
+const indiaFlag = require("../../../public/india_flag.png");
+const netherlandsFlag = require("../../../public/netherlands.png");
+const englandFlag = require("../../../public/england_flag.png");
+const chinaFlag = require("../../../public/china_flag.png");
+const russiaFlag = require("../../../public/russia_flag.png");
+const southKoreaFlag = require("../../../public/south_korea_flag.png");
+const swedishFlag = require("../../../public/swedish_flag.png");
+const swissFlag = require("../../../public/switzerland.png");
+const canadianFlag = require("../../../public/canada_flag.png");
+const frenchFlag = require("../../../public/french_flag.png");
+const japanFlag = require("../../../public/japan_flag.png");
+const brazilFlag = require("../../../public/brazil_flag.png");
+const irishFlag = require("../../../public/irish_flag.png");
+const mexicoFlag = require("../../../public/mexico_flag.png");
+const placeholderFlag = require("../../../public/placeholder_flag.png");
 
 interface User {
   username: string;
@@ -16,6 +32,8 @@ interface Stock {
   stockId: string;
   description: string;
   country: string;
+  countryCode: number;
+  date: string;
 }
 
 export const QueryUserResult: React.FC<User> = (props) => {
@@ -65,7 +83,8 @@ export const QueryStockResult: React.FC<Stock> = (props) => {
         country={props.country}
         description={props.description}
         stockId={props.stockId}
-        countryFlag={usaFlag}
+        countryCode={props.countryCode}
+        date={props.date}
       />
     </Link>
   );
@@ -81,10 +100,64 @@ const PushToStock = React.forwardRef(
       country,
       description,
       stockId,
-      countryFlag,
+      countryCode,
+      date,
     },
     ref
   ) => {
+    const [flag, setFlag] = useState(placeholderFlag);
+
+    useEffect(() => {
+      returnFlag();
+    }, []);
+
+    function returnFlag() {
+      switch (countryCode) {
+        case 840:
+          setFlag(usaFlag);
+          break;
+        case 276:
+          setFlag(germanFlag);
+          break;
+        case 752:
+          setFlag(swedishFlag);
+          break;
+        case 124:
+          setFlag(canadianFlag);
+          break;
+        case 826:
+          setFlag(englandFlag);
+          break;
+        case 528:
+          setFlag(netherlandsFlag);
+          break;
+        case 250:
+          setFlag(frenchFlag);
+          break;
+        case 756:
+          setFlag(swissFlag);
+          break;
+        case 392:
+          setFlag(japanFlag);
+          break;
+        case 156:
+          setFlag(chinaFlag);
+          break;
+        case 76:
+          setFlag(brazilFlag);
+          break;
+        case 372:
+          setFlag(irishFlag);
+          break;
+        case 484:
+          setFlag(mexicoFlag);
+          break;
+        case 643:
+          setFlag(russiaFlag);
+          break;
+      }
+    }
+
     return (
       <React.Fragment>
         <a
@@ -94,14 +167,17 @@ const PushToStock = React.forwardRef(
           ref={ref}
         >
           <div className={styles.container}>
-            <div className={styles.flag_container}>
-              <img className={styles.flag} src={countryFlag} />
+            <div className={styles.header_container}>
+              <div className={styles.flag_container}>
+                <img className={styles.flag} src={flag} />
+              </div>
+              <h2 className={styles.header}>
+                {title} <span className={styles.ticker}>#{ticker}</span>
+              </h2>
+              <p className={styles.country}>{country}</p>
             </div>
-            <h2 className={styles.header}>
-              {title} #{ticker}
-            </h2>
-            <p>{country}</p>
-            <h3 className={styles.bio}>{description}</h3>
+            <p className={styles.bio}>{description}</p>
+            <p className={styles.date}>Founded {date}</p>
           </div>
         </a>
       </React.Fragment>

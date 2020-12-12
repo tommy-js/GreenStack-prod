@@ -25,3 +25,10 @@
   height: 100vh;
   background-color: $island_green;
 }
+
+.user_header,
+.stocks_header {
+  font-family: $standard_font;
+  color: $forest_green;
+  text-align: center;
+}

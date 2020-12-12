@@ -964,6 +964,8 @@ const getStocksQuery = gql`
       title
       description
       country
+      countryCode
+      date
       sector
       comments {
         userId
