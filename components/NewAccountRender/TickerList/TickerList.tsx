@@ -90,8 +90,8 @@ export const TickerList: React.FC<Props> = (props) => {
     {
       ticker: "AMZ",
       title: "Amazon",
-      img: tech,
-      filledImg: filledTech,
+      img: service,
+      filledImg: filledService,
       stockId: "11",
     },
     {

@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 type Company = {
-  keyId: number;
   stockId: string;
   title: string;
   ticker: string;
@@ -16,14 +15,30 @@ interface Props {
 
 export const ExploreCompany: React.FC<Props> = ({ company }: Props) => {
   return (
-    <div key={company.keyId} className={styles.container}>
-      <Link href={`/home/stock/${company.stockId}`}>
-        <a>{company.title}</a>
+    <div key={company.stockId}>
+      <Link href={`/stock/${company.stockId}`}>
+        <CompanyLink
+          stockId={company.stockId}
+          title={company.title}
+          ticker={company.ticker}
+          description={company.description}
+        />
       </Link>
-      <p className={styles.link}>
-        {company.title} #{company.ticker}
-      </p>
-      <p>{company.description}</p>
     </div>
   );
 };
+
+const CompanyLink = React.forwardRef(
+  ({ onClick, href, title, ticker, description }, ref) => {
+    return (
+      <a href={href} onClick={onClick} ref={ref}>
+        <div className={styles.container}>
+          <p className={styles.link}>
+            {title} #{ticker}
+          </p>
+          <p>{description}</p>
+        </div>
+      </a>
+    );
+  }
+);
