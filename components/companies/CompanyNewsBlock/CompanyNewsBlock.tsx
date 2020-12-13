@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NewsComponent } from "../../Homepage/NewsComponent/NewsComponent";
+import { NewsComponent } from "../NewsComponent/NewsComponent";
 import { Header } from "../../User/Header/Header";
 import { useQuery } from "react-apollo";
 import { returnNewsQuery } from "../../queries/queries";
@@ -15,7 +15,6 @@ export const CompanyNewsBlock = (props: any) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       if (data.returnNews.articles) {
         setLoggedNews(data.returnNews.articles);
         setMaxLength(data.returnNews.articles.length);
@@ -59,7 +58,7 @@ export const CompanyNewsBlock = (props: any) => {
 
   return (
     <div className={styles.news_component}>
-      <Header text="News" />
+      <Header text="Today's News" />
       {passData()}
     </div>
   );

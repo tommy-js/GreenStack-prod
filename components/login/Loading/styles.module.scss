@@ -1,10 +1,12 @@
+@import "../../globals/variables.scss";
+
 @mixin loading_user {
   position: relative;
   font-size: 24px;
   width: 100%;
   text-align: center;
-  color: white;
   height: 50px;
+  font-family: $standard_font;
 }
 
 @keyframes spinning_dial {
@@ -32,7 +34,7 @@
   height: 75px;
   border-radius: 50%;
   border: 5px solid transparent;
-  animation: spinning_dial 1s linear infinite;
+  animation: spinning_dial 1.5s linear infinite;
 }
 
 .spinning_dial:before {
@@ -42,15 +44,15 @@
 
 .spinning_dial_general:before {
   @include spinning_dial;
-  border-top-color: black;
+  border-top-color: $text_black;
 }
 
 .loading_user {
   @include loading_user;
-  color: white;
+  color: $cream_white;
 }
 
 .loading_user_general {
   @include loading_user;
-  color: black;
+  color: $text_black;
 }
