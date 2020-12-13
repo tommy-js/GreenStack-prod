@@ -1098,11 +1098,18 @@ export const companyList = [
 ];
 
 export function findStocks(arg: string) {
+  let lowerCaseArg = arg.toLowerCase();
   let returnArray = [];
   for (let i = 0; i < companyList.length; i++) {
+    let titleToLower = companyList[i].title.toLowerCase();
+    let tickerToLower = companyList[i].ticker.toLowerCase();
+    let countryToLower = companyList[i].country.toLowerCase();
+    let sectorToLower = companyList[i].sector.toLowerCase();
     if (
-      companyList[i].title.includes(arg) ||
-      companyList[i].ticker.includes(arg)
+      titleToLower.includes(lowerCaseArg) ||
+      tickerToLower.includes(arg) ||
+      countryToLower.includes(lowerCaseArg) ||
+      sectorToLower.includes(lowerCaseArg)
     ) {
       returnArray.push(companyList[i]);
     }

@@ -90,6 +90,9 @@
   transition: 0.2s;
 }
 
-.date {
+.date,
+.sector {
   opacity: 0.5;
+  display: inline-block;
+  margin-right: 15px;
 }

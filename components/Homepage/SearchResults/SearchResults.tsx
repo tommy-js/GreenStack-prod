@@ -5,6 +5,7 @@ import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/Fe
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
 import { LoadingGeneral } from "../../login/Loading/Loading";
 import { NoResults } from "../NoResults/NoResults";
+import { LoadMoreStocks } from "../LoadMoreStocks/LoadMoreStocks";
 import { searchQuery } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import { findStocks } from "./index";
@@ -52,7 +53,9 @@ export const SearchResults: React.FC<Props> = (props) => {
       if (data.searchUser) {
         return (
           <div>
-            <h2 className={styles.user_header}>Users</h2>
+            <h2 className={styles.user_header}>
+              Your User Results for {props.res}
+            </h2>
             {users.map((el: any) => (
               <QueryUserResult
                 username={el.username}
@@ -71,7 +74,10 @@ export const SearchResults: React.FC<Props> = (props) => {
     if (stocks.length > 0) {
       return (
         <div>
-          <h2 className={styles.stocks_header}>Your Stock Results</h2>
+          <h2 className={styles.stocks_header}>
+            Your Stock Results for{" "}
+            <span className={styles.res_header}>{props.res}</span>
+          </h2>
           {stocks.map((el: any) => (
             <QueryStockResult
               title={el.title}
@@ -81,8 +87,10 @@ export const SearchResults: React.FC<Props> = (props) => {
               countryCode={el.countryCode}
               date={el.date}
               stockId={el.stockId}
+              sector={el.sector}
             />
           ))}
+          <LoadMoreStocks />
         </div>
       );
     } else return null;

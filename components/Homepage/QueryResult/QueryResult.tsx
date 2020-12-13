@@ -34,6 +34,7 @@ interface Stock {
   country: string;
   countryCode: number;
   date: string;
+  sector: string;
 }
 
 export const QueryUserResult: React.FC<User> = (props) => {
@@ -85,6 +86,7 @@ export const QueryStockResult: React.FC<Stock> = (props) => {
         stockId={props.stockId}
         countryCode={props.countryCode}
         date={props.date}
+        sector={props.sector}
       />
     </Link>
   );
@@ -102,6 +104,7 @@ const PushToStock = React.forwardRef(
       stockId,
       countryCode,
       date,
+      sector,
     },
     ref
   ) => {
@@ -109,7 +112,7 @@ const PushToStock = React.forwardRef(
 
     useEffect(() => {
       returnFlag();
-    }, []);
+    }, [countryCode]);
 
     function returnFlag() {
       switch (countryCode) {
@@ -178,6 +181,7 @@ const PushToStock = React.forwardRef(
             </div>
             <p className={styles.bio}>{description}</p>
             <p className={styles.date}>Founded {date}</p>
+            <p className={styles.sector}>{sector}</p>
           </div>
         </a>
       </React.Fragment>

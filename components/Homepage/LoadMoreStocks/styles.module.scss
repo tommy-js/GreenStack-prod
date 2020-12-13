@@ -1,0 +1,9 @@
+@import "../../globals/variables.scss";
+
+.button {
+  font-family: $standard_font;
+  background-color: $forest_green;
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
