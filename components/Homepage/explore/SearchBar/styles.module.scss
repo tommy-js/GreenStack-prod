@@ -16,15 +16,36 @@
   color: $forest_green;
 }
 
-.search {
+.search_container {
   position: relative;
   display: block;
-  font-size: 16px;
-  padding: 3px;
-  width: 50%;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+  width: 75%;
+}
+
+.search {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  padding: 3px;
+  width: 75%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid $text_black;
   font-family: $standard_font;
   color: $text_black;
+}
+
+.search_button {
+  display: inline-block;
+  width: 25%;
+  padding: 3px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid $forest_green;
+  background-color: $forest_green;
+  font-family: $standard_font;
+  color: $cream_white;
 }

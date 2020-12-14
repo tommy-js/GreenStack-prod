@@ -1,29 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { QueryStockResult } from "../../QueryResult/QueryResult";
 import { SuggestAStock } from "../SuggestAStock/SuggestAStock";
 import { Company } from "../../../types/types";
 import { SearchOptions } from "../SearchOptions/SearchOptions";
-import { SearchQuery } from "../SearchQuery/SearchQuery";
+import { EmptyResults } from "../EmptyResults/EmptyResults";
 import { findStocks, findSelectStocks, companyList } from "./index";
 import styles from "./styles.module.scss";
 
 export const Explore: React.FC = () => {
   const [stocks, setStocks] = useState(companyList);
-  const [returnSpan, setReturnSpan] = useState(false);
   const [companyItems, setCompanyItems] = useState(companyList.length);
+  const [returnedEmpy, setReturnedEmpty] = useState(false);
+  const [enteredInput, setEnteredInput] = useState(false);
+  const [searchedParam, setSearchedParam] = useState("");
+  const [selectedParam, setSelectedParam] = useState({
+    select1: "Any",
+    select2: "Any",
+  });
 
   function modifySearchParams(arg: string) {
     let returnedStocks = findStocks(arg);
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
-    setReturnSpan(true);
+    setSelectedParam({ select1: "Any", select2: "Any" });
+    setSearchedParam(arg);
+    setEnteredInput(true);
   }
 
   function modifySelectParams(paramObj: any) {
     let returnedStocks = findSelectStocks(paramObj);
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
+    setEnteredInput(false);
   }
+
+  useEffect(() => {
+    if (stocks.length > 0) setReturnedEmpty(false);
+    else setReturnedEmpty(true);
+  }, [stocks]);
 
   function returnStocks() {
     return (
@@ -44,27 +58,48 @@ export const Explore: React.FC = () => {
     );
   }
 
-  function returnYourQuery() {
-    if (returnSpan === true) return <SearchQuery />;
-    else return null;
-  }
-
   function returnSpanParam() {
     if (companyItems != 1) return "ies";
     else return "y";
   }
 
+  function matchingParam() {
+    if (searchedParam.length > 0) {
+      if (enteredInput === true) {
+        return (
+          <span>
+            matching <span className={styles.flair}>"{searchedParam}"</span>
+          </span>
+        );
+      } else return null;
+    } else return null;
+  }
+
+  function renderHeader() {
+    if (stocks.length != 0) {
+      return (
+        <h3 className={styles.explore_header}>
+          Explore <span className={styles.company_list}>{companyItems}</span>{" "}
+          Compan{returnSpanParam()} {matchingParam()}
+        </h3>
+      );
+    } else return null;
+  }
+
+  function renderEmpty() {
+    if (returnedEmpy === true) return <EmptyResults />;
+    else return null;
+  }
+
   return (
     <div className={styles.explore_container}>
-      <h3 className={styles.explore_header}>
-        Explore <span className={styles.company_list}>{companyItems}</span>{" "}
-        Compan{returnSpanParam()}
-      </h3>
       <SearchOptions
         modifySearchParams={modifySearchParams}
         modifySelectParams={modifySelectParams}
+        selectedParam={selectedParam}
       />
-      {returnYourQuery()}
+      {renderHeader()}
+      {renderEmpty()}
       {returnStocks()}
       <SuggestAStock />
     </div>

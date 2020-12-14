@@ -17,8 +17,8 @@
 
 .image_container {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   display: inline-block;
   box-sizing: border-box;
@@ -32,7 +32,7 @@
 .text_block {
   position: absolute;
   width: 150px;
-  height: 40px;
+  height: 30px;
   display: inline-block;
   box-sizing: border-box;
   color: $text_black;
@@ -41,7 +41,8 @@
 
 .text {
   position: absolute;
-  top: 10px;
+  top: 5px;
+  margin-left: 5px;
   line-height: 100%;
   font-size: 22px;
   font-family: $standard_font;
