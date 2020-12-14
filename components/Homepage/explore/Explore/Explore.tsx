@@ -4,22 +4,46 @@ import { SuggestAStock } from "../SuggestAStock/SuggestAStock";
 import { Company } from "../../../types/types";
 import { SearchOptions } from "../SearchOptions/SearchOptions";
 import { EmptyResults } from "../EmptyResults/EmptyResults";
+import { LoadMore } from "../LoadMore/LoadMore";
 import { findStocks, findSelectStocks, companyList } from "./index";
 import styles from "./styles.module.scss";
 
 export const Explore: React.FC = () => {
   const [stocks, setStocks] = useState(companyList);
+  const [loadedStocks, setLoadedStocks] = useState([] as any);
   const [companyItems, setCompanyItems] = useState(companyList.length);
   const [returnedEmpy, setReturnedEmpty] = useState(false);
   const [enteredInput, setEnteredInput] = useState(false);
   const [searchedParam, setSearchedParam] = useState("");
+  const [loadMoreButtonDisplay, setLoadMoreButtonDisplay] = useState("block");
   const [selectedParam, setSelectedParam] = useState({
     select1: "Any",
     select2: "Any",
   });
 
+  useEffect(() => {
+    let slicedStocks = companyList.slice(0, 20);
+    setLoadedStocks(slicedStocks);
+  }, []);
+
+  function loadMoreStocks() {
+    let renderLength = loadedStocks.length + 20;
+    if (renderLength < stocks.length) {
+      let slicedStocks = stocks.slice(0, renderLength);
+      setLoadedStocks(slicedStocks);
+    } else {
+      setLoadMoreButtonDisplay("none");
+      setLoadedStocks(stocks);
+    }
+  }
+
   function modifySearchParams(arg: string) {
     let returnedStocks = findStocks(arg);
+    if (returnedStocks.length > 20) {
+      let slicedReturnedStocked = returnedStocks.slice(0, 20);
+      setLoadedStocks(slicedReturnedStocked);
+      setLoadMoreButtonDisplay("block");
+    } else setLoadedStocks(returnedStocks);
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
     setSelectedParam({ select1: "Any", select2: "Any" });
@@ -29,6 +53,7 @@ export const Explore: React.FC = () => {
 
   function modifySelectParams(paramObj: any) {
     let returnedStocks = findSelectStocks(paramObj);
+    setLoadedStocks(returnedStocks);
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
     setEnteredInput(false);
@@ -41,8 +66,8 @@ export const Explore: React.FC = () => {
 
   function returnStocks() {
     return (
-      <div>
-        {stocks.map((el: Company) => (
+      <React.Fragment>
+        {loadedStocks.map((el: Company) => (
           <QueryStockResult
             title={el.title}
             ticker={el.ticker}
@@ -54,7 +79,11 @@ export const Explore: React.FC = () => {
             sector={el.sector}
           />
         ))}
-      </div>
+        <LoadMore
+          loadMoreButtonDisplay={loadMoreButtonDisplay}
+          loadMoreStocks={loadMoreStocks}
+        />
+      </React.Fragment>
     );
   }
 

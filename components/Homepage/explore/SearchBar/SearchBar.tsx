@@ -12,7 +12,7 @@ export const SearchBar: React.FC<Props> = (props) => {
     if (keyPress.key === "Enter") {
       props.modifySearchParams(inputVal);
     }
-    setInputVal(keyPress.value);
+    console.log(inputVal);
   }
 
   return (
@@ -21,6 +21,7 @@ export const SearchBar: React.FC<Props> = (props) => {
       <div className={styles.search_container}>
         <input
           className={styles.search}
+          value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
           onKeyPress={(e) => passSearchParam(e)}
           placeholder="Search..."
