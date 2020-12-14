@@ -1,6 +1,19 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-export const LoadMoreStocks: React.FC = () => {
-  return <button className={styles.button}>Load More</button>;
+interface Props {
+  display: string;
+  loadMoreStocks: () => void;
+}
+
+export const LoadMoreStocks: React.FC<Props> = (props) => {
+  return (
+    <button
+      style={{ display: props.display }}
+      className={styles.button}
+      onClick={() => props.loadMoreStocks()}
+    >
+      Load More
+    </button>
+  );
 };

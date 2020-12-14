@@ -1,0 +1,30 @@
+@import "../../../globals/variables.scss";
+
+.search_bar {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.header {
+  font-size: 18px;
+  margin-top: 0;
+  text-align: center;
+  font-family: $standard_font;
+  color: $forest_green;
+}
+
+.search {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  padding: 3px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  font-family: $standard_font;
+  color: $text_black;
+}

@@ -1,9 +1,25 @@
 @import "../../globals/variables.scss";
 
 .button {
+  position: relative;
   font-family: $standard_font;
   background-color: $forest_green;
-  width: 75px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
+  display: block;
+  margin-bottom: 50px;
+  padding: 3px;
+  color: $cream_white;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  border: 1px solid $space_red;
+  color: $space_red;
+  transition: 0.3s;
 }

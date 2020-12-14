@@ -218,3 +218,14 @@ export type SubCommentItem = {
   dislikes: number;
   parentCommentId: string;
 };
+
+export type Company = {
+  stockId: string;
+  ticker: string;
+  title: string;
+  description: string;
+  country: string;
+  countryCode: number;
+  date: string;
+  sector: string;
+};

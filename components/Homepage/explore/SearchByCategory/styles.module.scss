@@ -1,0 +1,27 @@
+@import "../../../globals/variables.scss";
+
+.search_by_category {
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.header {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+  font-family: $standard_font;
+  color: $forest_green;
+}
+
+.sector_dropdown,
+.country_dropdown {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sector_dropdown select,
+.country_dropdown select {
+  width: 100%;
+}
