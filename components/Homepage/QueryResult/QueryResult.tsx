@@ -17,6 +17,8 @@ const japanFlag = require("../../../public/japan_flag.png");
 const brazilFlag = require("../../../public/brazil_flag.png");
 const irishFlag = require("../../../public/irish_flag.png");
 const mexicoFlag = require("../../../public/mexico_flag.png");
+const finlandFlag = require("../../../public/finland_flag.png");
+const denmarkFlag = require("../../../public/denmark_flag.png");
 const placeholderFlag = require("../../../public/placeholder_flag.png");
 
 interface User {
@@ -157,6 +159,12 @@ const PushToStock = React.forwardRef(
           break;
         case 643:
           setFlag(russiaFlag);
+          break;
+        case 246:
+          setFlag(finlandFlag);
+          break;
+        case 208:
+          setFlag(denmarkFlag);
           break;
       }
     }

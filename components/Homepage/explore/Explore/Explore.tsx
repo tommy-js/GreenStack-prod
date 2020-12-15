@@ -43,7 +43,10 @@ export const Explore: React.FC = () => {
       let slicedReturnedStocked = returnedStocks.slice(0, 20);
       setLoadedStocks(slicedReturnedStocked);
       setLoadMoreButtonDisplay("block");
-    } else setLoadedStocks(returnedStocks);
+    } else {
+      setLoadMoreButtonDisplay("none");
+      setLoadedStocks(returnedStocks);
+    }
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
     setSelectedParam({ select1: "Any", select2: "Any" });
@@ -53,7 +56,14 @@ export const Explore: React.FC = () => {
 
   function modifySelectParams(paramObj: any) {
     let returnedStocks = findSelectStocks(paramObj);
-    setLoadedStocks(returnedStocks);
+    if (returnedStocks.length > 20) {
+      let slicedReturnedStocked = returnedStocks.slice(0, 20);
+      setLoadedStocks(slicedReturnedStocked);
+      setLoadMoreButtonDisplay("block");
+    } else {
+      setLoadMoreButtonDisplay("none");
+      setLoadedStocks(returnedStocks);
+    }
     setStocks(returnedStocks);
     setCompanyItems(returnedStocks.length);
     setEnteredInput(false);

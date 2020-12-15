@@ -59,7 +59,7 @@ export const SearchByCategory: React.FC<Props> = (props) => {
             <option>Sweden</option>
             <option>Switzerland</option>
             <option>Canada</option>
-            <option>The Netherlands</option>
+            <option>Netherlands</option>
             <option>France</option>
             <option>China</option>
             <option>Russia</option>
