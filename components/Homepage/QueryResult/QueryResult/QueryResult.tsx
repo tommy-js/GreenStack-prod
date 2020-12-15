@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { AddToWatchlist } from "../AddToWatchlist/AddToWatchlist";
+import { RemoveFromWatchlist } from "../RemoveFromWatchlist/RemoveFromWatchlist";
+import { AddToOwned } from "../AddToOwned/AddToOwned";
 import Link from "next/link";
+import { connect } from "react-redux";
+import { mapStateToProps } from "../../../../components/actions/actions";
 import styles from "./styles.module.scss";
-const usaFlag = require("../../../public/usa_flag.png");
-const germanFlag = require("../../../public/german_flag.png");
-const indiaFlag = require("../../../public/india_flag.png");
-const netherlandsFlag = require("../../../public/netherlands.png");
-const englandFlag = require("../../../public/england_flag.png");
-const chinaFlag = require("../../../public/china_flag.png");
-const russiaFlag = require("../../../public/russia_flag.png");
-const southKoreaFlag = require("../../../public/south_korea_flag.png");
-const swedishFlag = require("../../../public/swedish_flag.png");
-const swissFlag = require("../../../public/switzerland.png");
-const canadianFlag = require("../../../public/canada_flag.png");
-const frenchFlag = require("../../../public/french_flag.png");
-const japanFlag = require("../../../public/japan_flag.png");
-const brazilFlag = require("../../../public/brazil_flag.png");
-const irishFlag = require("../../../public/irish_flag.png");
-const mexicoFlag = require("../../../public/mexico_flag.png");
-const finlandFlag = require("../../../public/finland_flag.png");
-const denmarkFlag = require("../../../public/denmark_flag.png");
-const placeholderFlag = require("../../../public/placeholder_flag.png");
+const usaFlag = require("../../../../public/usa_flag.png");
+const germanFlag = require("../../../../public/german_flag.png");
+const indiaFlag = require("../../../../public/india_flag.png");
+const netherlandsFlag = require("../../../../public/netherlands.png");
+const englandFlag = require("../../../../public/england_flag.png");
+const chinaFlag = require("../../../../public/china_flag.png");
+const russiaFlag = require("../../../../public/russia_flag.png");
+const southKoreaFlag = require("../../../../public/south_korea_flag.png");
+const swedishFlag = require("../../../../public/swedish_flag.png");
+const swissFlag = require("../../../../public/switzerland.png");
+const canadianFlag = require("../../../../public/canada_flag.png");
+const frenchFlag = require("../../../../public/french_flag.png");
+const japanFlag = require("../../../../public/japan_flag.png");
+const brazilFlag = require("../../../../public/brazil_flag.png");
+const irishFlag = require("../../../../public/irish_flag.png");
+const mexicoFlag = require("../../../../public/mexico_flag.png");
+const finlandFlag = require("../../../../public/finland_flag.png");
+const denmarkFlag = require("../../../../public/denmark_flag.png");
+const placeholderFlag = require("../../../../public/placeholder_flag.png");
 
-interface User {
-  username: string;
-  profileImage: string;
-  userId: string;
-  bio: string;
+interface Redux {
+  watchlist: any;
 }
 
-interface Stock {
+interface User {
+  usernameUser: string;
+  profileImageUser: string;
+  userIdUser: string;
+  bioUser: string;
+}
+
+interface Stock extends Redux {
   title: string;
   ticker: string;
   stockId: string;
@@ -77,7 +86,7 @@ const PushToUser = React.forwardRef(
   }
 );
 
-export const QueryStockResult: React.FC<Stock> = (props) => {
+const QueryStockResultRedux: React.FC<Stock> = (props) => {
   return (
     <Link href={`/stock/${props.stockId}`} passHref>
       <PushToStock
@@ -89,6 +98,7 @@ export const QueryStockResult: React.FC<Stock> = (props) => {
         countryCode={props.countryCode}
         date={props.date}
         sector={props.sector}
+        watchlist={props.watchlist}
       />
     </Link>
   );
@@ -107,10 +117,12 @@ const PushToStock = React.forwardRef(
       countryCode,
       date,
       sector,
+      watchlist,
     },
     ref
   ) => {
     const [flag, setFlag] = useState(placeholderFlag);
+    const [inWatchlist, setInWatchlist] = useState(false);
 
     useEffect(() => {
       returnFlag();
@@ -169,15 +181,42 @@ const PushToStock = React.forwardRef(
       }
     }
 
+    useEffect(() => {
+      for (let i = 0; i < watchlist.length; i++) {
+        if (watchlist[i].stockId === stockId) setInWatchlist(true);
+      }
+    }, []);
+
+    function returnWatchlistButtons() {
+      if (inWatchlist === true) {
+        return (
+          <RemoveFromWatchlist
+            title={title}
+            ticker={ticker}
+            stockId={stockId}
+            modInWatchlist={() => setInWatchlist(false)}
+          />
+        );
+      } else
+        return (
+          <AddToWatchlist
+            title={title}
+            ticker={ticker}
+            stockId={stockId}
+            modInWatchlist={() => setInWatchlist(true)}
+          />
+        );
+    }
+
     return (
       <React.Fragment>
-        <a
-          className={styles.link}
-          href={`/stock/${stockId}`}
-          onClick={onClick}
-          ref={ref}
-        >
-          <div className={styles.container}>
+        <div className={styles.container}>
+          <a
+            className={styles.link}
+            href={`/stock/${stockId}`}
+            onClick={onClick}
+            ref={ref}
+          >
             <div className={styles.header_container}>
               <div className={styles.flag_container}>
                 <img className={styles.flag} src={flag} />
@@ -188,11 +227,19 @@ const PushToStock = React.forwardRef(
               <p className={styles.country}>{country}</p>
             </div>
             <p className={styles.bio}>{description}</p>
+          </a>
+          <div className={styles.margin_container}>
             <p className={styles.date}>Founded {date}</p>
             <p className={styles.sector}>{sector}</p>
+            <div className={styles.reveal_on_hover}>
+              {returnWatchlistButtons()}
+              <AddToOwned />
+            </div>
           </div>
-        </a>
+        </div>
       </React.Fragment>
     );
   }
 );
+
+export const QueryStockResult = connect(mapStateToProps)(QueryStockResultRedux);

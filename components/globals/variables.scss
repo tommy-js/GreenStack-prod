@@ -46,6 +46,42 @@
   transition: 0.2s;
 }
 
+@mixin button_micro {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $cream_white;
+  background-color: $forest_green;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@mixin button_micro_negative {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $cream_white;
+  background-color: $space_red;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@mixin button_hover_negative {
+  border: 1px solid $forest_green;
+  color: $forest_green;
+  transition: 0.2s;
+}
+
 @mixin button_hover {
   border: 1px solid $space_red;
   color: $space_red;

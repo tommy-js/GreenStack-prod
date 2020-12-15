@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { QueryStockResult } from "../../QueryResult/QueryResult";
+import { QueryStockResult } from "../../QueryResult/QueryResult/QueryResult";
 import { SuggestAStock } from "../SuggestAStock/SuggestAStock";
 import { Company } from "../../../types/types";
 import { SearchOptions } from "../SearchOptions/SearchOptions";

@@ -1,0 +1,11 @@
+@import "../../../globals/variables.scss";
+
+.add_to_owned {
+  @include button_micro;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.add_to_owned:hover {
+  @include button_hover;
+}

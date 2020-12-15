@@ -697,6 +697,8 @@ const otherUserQuery = gql`
       }
       watchlist {
         stockId
+        title
+        ticker
         timestamp
       }
     }
@@ -789,6 +791,8 @@ const nonTokenModifyUserQuery = gql`
       }
       watchlist {
         stockId
+        title
+        ticker
         timestamp
       }
       notifications {
@@ -913,6 +917,8 @@ const userQuery = gql`
       }
       watchlist {
         stockId
+        title
+        ticker
         timestamp
       }
       notifications {

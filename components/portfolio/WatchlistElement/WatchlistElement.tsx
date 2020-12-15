@@ -25,7 +25,6 @@ const WatchlistLink = React.forwardRef(
   ({ onClick, href, title, key, ticker }, ref) => {
     return (
       <a href={href} onClick={onClick} ref={ref}>
-        <a>{title}</a>
         <p
           key={key}
           className={`${styles.watch_listing_link} ${styles.watch_listing}`}

@@ -1,4 +1,4 @@
-@import "../../globals/variables.scss";
+@import "../../../globals/variables.scss";
 
 .header_block {
   position: relative;
@@ -10,11 +10,11 @@
 .link {
   color: black;
   text-decoration: none;
-  padding: 10px;
   font-family: $standard_font;
 }
 
 .container {
+  margin-top: 15px;
   border-bottom: 1px solid $forest_green;
 }
 
@@ -57,6 +57,7 @@
 
 .bio {
   font-size: 16px;
+  margin-bottom: 0;
   margin-top: 0;
   color: $text_black;
   margin-top: 5px;
@@ -90,9 +91,26 @@
   transition: 0.2s;
 }
 
+.margin_container {
+  display: inline-block;
+  font-family: $standard_font;
+  font-size: 14px;
+}
+
 .date,
 .sector {
   opacity: 0.5;
   display: inline-block;
   margin-right: 15px;
+}
+
+.reveal_on_hover {
+  display: inline-block;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.container:hover .reveal_on_hover {
+  opacity: 1;
+  transition: 0.3s;
 }

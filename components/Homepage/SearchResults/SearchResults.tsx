@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { QueryUserResult, QueryStockResult } from "../QueryResult/QueryResult";
+import {
+  QueryUserResult,
+  QueryStockResult,
+} from "../QueryResult/QueryResult/QueryResult";
 import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
