@@ -48,6 +48,7 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
             <div key={el.commentId}>
               <StockComment
                 username={el.username}
+                userId={el.userId}
                 text={el.text}
                 commentId={el.commentId}
                 timestamp={el.timestamp}

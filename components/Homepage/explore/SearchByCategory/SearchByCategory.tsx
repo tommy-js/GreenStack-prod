@@ -67,7 +67,9 @@ export const SearchByCategory: React.FC<Props> = (props) => {
           </select>
         </div>
       </div>
-      <button onClick={() => submit()}>Search</button>
+      <button className={styles.button} onClick={() => submit()}>
+        Search
+      </button>
     </div>
   );
 };

@@ -1103,7 +1103,12 @@ export function findStocks(arg: string) {
   for (let i = 0; i < companyList.length; i++) {
     let titleToLower = companyList[i].title.toLowerCase();
     let tickerToLower = companyList[i].ticker.toLowerCase();
-    if (titleToLower.includes(lowerCaseArg) || tickerToLower.includes(arg)) {
+    let descriptionToLower = companyList[i].description.toLowerCase();
+    if (
+      titleToLower.includes(lowerCaseArg) ||
+      tickerToLower.includes(arg) ||
+      descriptionToLower.includes(arg)
+    ) {
       returnArray.push(companyList[i]);
     }
   }

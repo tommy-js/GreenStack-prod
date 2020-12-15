@@ -42,3 +42,11 @@
   font-family: $standard_font;
   color: $text_black;
 }
+
+.button {
+  @include button_small;
+}
+
+.button:hover {
+  @include button_hover;
+}

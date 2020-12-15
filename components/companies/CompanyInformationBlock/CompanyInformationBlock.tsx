@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "../../User/Header/Header";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 export const CompanyInformationBlock: React.FC<Props> = (props) => {
   return (
     <div className={styles.company_information_block}>
-      <Header text={props.title} />
+      <p className={styles.header}>{props.title}</p>
     </div>
   );
 };

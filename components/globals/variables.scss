@@ -16,6 +16,42 @@
   text-decoration: none;
 }
 
+@mixin button_large {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $cream_white;
+  background-color: $forest_green;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@mixin button_small {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $cream_white;
+  background-color: $forest_green;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+@mixin button_hover {
+  border: 1px solid $space_red;
+  color: $space_red;
+  transition: 0.2s;
+}
+
 $background_white: #f8f8f8;
 
 $standard_font: "Roboto", sans-serif;

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { returnDate } from "./index";
 import { LikeComponent } from "../LikeComponent/LikeComponent";
+import Link from "next/link";
+import { returnDate } from "./index";
 import styles from "./styles.module.scss";
 
 interface Props {
   username: string;
+  userId: string;
   text: string;
   timestamp: number;
   commentId: string;
@@ -21,7 +23,9 @@ export const StockComment: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.stock_comment} key={props.commentId}>
-      <h4 className={styles.username}>{props.username}</h4>
+      <Link href={`/user/${props.userId}`} passHref>
+        <UserLink username={props.username} />
+      </Link>
       <p className={styles.text}>{props.text}</p>
       <p className={styles.posted}>Posted {time}</p>
       <LikeComponent
@@ -32,3 +36,11 @@ export const StockComment: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+const UserLink = React.forwardRef(({ onClick, href, username }, ref) => {
+  return (
+    <a href={href} className={styles.link} onClick={onClick} ref={ref}>
+      <h4 className={styles.username}>{username}</h4>
+    </a>
+  );
+});
