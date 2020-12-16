@@ -11,7 +11,7 @@ export const NeedNewAccount: React.FC<Props> = (props) => {
       <p className={styles.text}>Want to join the party?</p>
       <div className={styles.centered_button}>
         <button className={styles.link} onClick={props.triggerNewAccount}>
-          Create a new account
+          Create a free account
         </button>
       </div>
     </React.Fragment>

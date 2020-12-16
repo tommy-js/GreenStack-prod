@@ -740,7 +740,7 @@ const nonTokenModifyUserQuery = gql`
         stockId
         title
         shares
-        color
+        sector
         ticker
       }
       posts {
@@ -865,7 +865,7 @@ const userQuery = gql`
         stockId
         title
         shares
-        color
+        sector
         ticker
       }
       posts {

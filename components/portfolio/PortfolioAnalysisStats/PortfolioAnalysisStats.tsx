@@ -36,55 +36,55 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
       console.log(stockObj);
       switch (stockObj.sector) {
         case "Raw Materials":
-          j = 1;
+          j = 0;
           break;
         case "Agriculture":
-          j = 2;
+          j = 1;
           break;
         case "Manufacturing":
-          j = 3;
+          j = 2;
           break;
         case "Utilities":
-          j = 4;
+          j = 3;
           break;
         case "Construction":
-          j = 5;
+          j = 4;
           break;
         case "Technology":
-          j = 6;
+          j = 5;
           break;
         case "Retail":
-          j = 7;
+          j = 6;
           break;
         case "Medicine":
-          j = 8;
+          j = 7;
           break;
         case "Financial Services":
-          j = 9;
+          j = 8;
           break;
         case "Communication":
-          j = 10;
+          j = 9;
           break;
         case "Transportation":
-          j = 11;
+          j = 10;
           break;
         case "Hospitality":
-          j = 12;
+          j = 11;
           break;
         case "Advertizing":
-          j = 13;
+          j = 12;
           break;
         case "Media":
-          j = 14;
+          j = 13;
           break;
         case "Food Production":
-          j = 15;
+          j = 14;
           break;
         case "Food Services":
-          j = 16;
+          j = 15;
           break;
         case "Real Estate":
-          j = 17;
+          j = 16;
           break;
       }
       industriesObject[j].value += 1;

@@ -5,7 +5,6 @@ import { IndividualOwnedStockDropdown } from "../IndividualOwnedStockDropdown/In
 type Stocks = {
   country: string;
   description: string;
-  marketcap: string;
   sector: string;
   shares: number;
   stockId: string;
@@ -25,6 +24,7 @@ export const WatchlistStocksDropdown: React.FC<Props> = (props) => {
           stockId={el.stockId}
           title={el.title}
           ticker={el.ticker}
+          sector={el.sector}
         />
       ))}
     </React.Fragment>
@@ -39,6 +39,7 @@ export const OwnedStocksDropdown: React.FC<Props> = (props) => {
           stockId={el.stockId}
           title={el.title}
           ticker={el.ticker}
+          sector={el.sector}
         />
       ))}
     </React.Fragment>

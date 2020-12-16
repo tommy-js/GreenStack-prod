@@ -21,6 +21,7 @@ export const OwnedElement: React.FC<Props> = (props) => {
           <span className={styles.ticker}>#{props.ticker}</span>
         </div>
         <span className={styles.shares}>{props.shares}</span>
+        <span className={styles.sector}>{props.sector}</span>
       </div>
     </div>
   );

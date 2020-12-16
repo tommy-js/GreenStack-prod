@@ -38,6 +38,7 @@ const OwnedStockSpecRender: React.FC<Props> = (props) => {
 
   function pushStock() {
     let token = sessionStorage.getItem("Token");
+    console.log("SECTOR_OwnedStockSpecRender: " + props.sector);
 
     let parsedInputVal = parseInt(inputVal);
     let validateObj = validateStocks(

@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 
 interface Props {
   stockId: string;
+  sector: string;
   pushStockToUserMutation: (variables: object) => any;
 }
 
@@ -24,6 +25,7 @@ const AddToOwnedMutation: React.FC<Props> = (props) => {
             token: token,
             stockId: props.stockId,
             shares: parsed,
+            sector: props.sector,
           },
         })
         .catch((err: any) => console.log(err))

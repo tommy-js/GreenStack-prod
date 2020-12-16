@@ -1,10 +1,29 @@
 import React from "react";
 import styles from "./styles.module.scss";
+const explore = require("../../../public/explore.png");
 const discussion = require("../../../public/discussion.png");
 const learn = require("../../../public/learn.png");
 const news = require("../../../public/news.png");
 
 export const LoginPageFeedInfo: React.FC = () => {
+  return (
+    <div className={styles.login_page_info}>
+      <div className={styles.image_container}>
+        <img className={styles.image} src={explore} />
+      </div>
+      <div className={styles.text_box}>
+        <p className={styles.header}>Explore Over 500 Companies</p>
+        <p className={styles.text}>
+          Easily find new companies to invest in. Add stocks to your portfolio
+          and use our advanced tools to help you make the best choices
+          long-term.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export const LoginPageCommunityInfo: React.FC = () => {
   return (
     <div className={styles.login_page_info}>
       <div className={styles.image_container}>
@@ -16,23 +35,6 @@ export const LoginPageFeedInfo: React.FC = () => {
           Receive live updates, recent news, and discussions about companies and
           their stocks. Engage with those you follow and those who follow you in
           real-time.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-export const LoginPageCommunityInfo: React.FC = () => {
-  return (
-    <div className={styles.login_page_info}>
-      <div className={styles.image_container}>
-        <img className={styles.image} src={discussion} />
-      </div>
-      <div className={styles.text_box}>
-        <p className={styles.header}>Be Social</p>
-        <p className={styles.text}>
-          Follow and be followed, engage in discussion and make bets with others
-          on where the stocks are going to go. Comment on companies and posts
         </p>
       </div>
     </div>

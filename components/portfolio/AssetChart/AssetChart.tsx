@@ -18,15 +18,14 @@ interface Redux {
 const AssetChartRender: React.FC<Redux> = (props) => {
   const stockTitles = props.stocks.map((el: StockItem) => el.title);
   const stockData = props.stocks.map((el: StockItem) => el.shares);
-  const stockColor = props.stocks.map((el: StockItem) => el.color);
   const pieData = {
     labels: stockTitles,
     datasets: [
       {
         label: "",
         data: stockData,
-        backgroundColor: stockColor,
-        borderWidth: 1,
+        backgroundColor: "green",
+        borderWidth: 2,
       },
     ],
   };
