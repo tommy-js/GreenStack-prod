@@ -15,7 +15,7 @@ type StockItem = {
   stockId: string;
   title: string;
   shares: number;
-  color: string;
+  sector: string;
   ticker: string;
 };
 

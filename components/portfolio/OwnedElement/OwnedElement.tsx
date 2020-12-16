@@ -7,6 +7,7 @@ interface Props {
   ticker: string;
   stockId: string;
   shares: number;
+  sector: string;
 }
 
 export const OwnedElement: React.FC<Props> = (props) => {

@@ -289,8 +289,13 @@ const pushCommentStockMutation = gql`
 `;
 
 const pushStockToUserMutation = gql`
-  mutation($token: String!, $stockId: ID!, $shares: Int!) {
-    pushStockToUser(token: $token, stockId: $stockId, shares: $shares) {
+  mutation($token: String!, $stockId: ID!, $shares: Int!, $sector: String!) {
+    pushStockToUser(
+      token: $token
+      stockId: $stockId
+      shares: $shares
+      sector: $sector
+    ) {
       username
     }
   }

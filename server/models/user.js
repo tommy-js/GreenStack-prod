@@ -105,8 +105,9 @@ const userSchema = new Schema({
       stockId: String,
       title: String,
       shares: Number,
-      color: String,
+      sector: String,
       ticker: String,
+      timestamp: Number,
     },
   ],
   watchlist: [

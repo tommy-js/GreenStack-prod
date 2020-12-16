@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {
-  mapStateToProps,
-  mapDispatchToProps,
-} from "../../../components/actions/actions";
+import { mapStateToProps } from "../../../components/actions/actions";
 import { Radar } from "react-chartjs-2";
 
 interface Redux {
   stocks: any;
 }
 
-export const IndustryInvolvementChart: React.FC<Redux> = (props) => {
+const IndustryInvolvementChartRedux: React.FC<Redux> = (props) => {
   const [industries, setIndustries] = useState({
     RawMaterials: 0,
     Agriculture: 0,
     Manufacturing: 0,
     Utilities: 0,
     Construction: 0,
+    Technology: 0,
     Retail: 0,
+    Medicine: 0,
     FinancialServices: 0,
     Communication: 0,
+    Transportation: 0,
     Hospitality: 0,
+    Advertizing: 0,
+    Media: 0,
+    FoodProduction: 0,
+    FoodServices: 0,
     RealEstate: 0,
-    InformationTechnology: 0,
-    Education: 0,
-    Research: 0,
   });
 
   const data = {
@@ -33,15 +34,19 @@ export const IndustryInvolvementChart: React.FC<Redux> = (props) => {
       "Agriculture",
       "Manufacturing",
       "Utilities",
+      "Advertizing",
       "Construction",
       "Retail",
+      "Transportation",
+      "Technology",
       "Financial Services",
       "Communication",
+      "Medicine",
       "Hospitality",
+      "Media",
+      "Food Services",
+      "Food Production",
       "Real Estate",
-      "Information Technology",
-      "Education",
-      "Research",
     ],
     datasets: [
       {
@@ -50,15 +55,19 @@ export const IndustryInvolvementChart: React.FC<Redux> = (props) => {
           industries.Agriculture,
           industries.Manufacturing,
           industries.Utilities,
+          industries.Transportation,
           industries.Construction,
           industries.Retail,
           industries.FinancialServices,
           industries.Communication,
           industries.Hospitality,
+          industries.Media,
+          industries.Medicine,
+          industries.Advertizing,
+          industries.FoodProduction,
+          industries.Technology,
           industries.RealEstate,
-          industries.InformationTechnology,
-          industries.Education,
-          industries.Research,
+          industries.FoodServices,
         ],
         borderColor: "green",
       },
@@ -79,3 +88,7 @@ export const IndustryInvolvementChart: React.FC<Redux> = (props) => {
 
   return <Radar data={data} options={options} />;
 };
+
+export const IndustryInvolvementChart = connect(mapStateToProps)(
+  IndustryInvolvementChartRedux
+);

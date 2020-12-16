@@ -1,0 +1,14 @@
+@import "../../globals/variables.scss";
+
+.portfolio_analysis_stats {
+  @include testing;
+}
+
+.left_container,
+.right_container {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  vertical-align: top;
+  @include testing;
+}

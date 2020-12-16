@@ -11,7 +11,7 @@ type StockItem = {
   stockId: string;
   title: string;
   shares: number;
-  color: string;
+  sector: string;
   ticker: string;
 };
 
@@ -24,6 +24,7 @@ interface Props extends Redux {
   stockId: string;
   title: string;
   ticker: string;
+  sector: string;
   pushStockToUserMutation: (variables: object) => any;
 }
 
@@ -55,6 +56,7 @@ const OwnedStockSpecRender: React.FC<Props> = (props) => {
           title: props.title,
           ticker: props.ticker,
           shares: parsedInputVal,
+          sector: props.sector,
         },
       })
       .catch((err: any) => {

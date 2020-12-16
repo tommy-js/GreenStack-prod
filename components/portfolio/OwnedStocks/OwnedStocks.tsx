@@ -10,7 +10,7 @@ type StockItem = {
   stockId: string;
   title: string;
   shares: number;
-  color: string;
+  sector: string;
   ticker: string;
 };
 
@@ -29,6 +29,7 @@ const OwnedStocksRender: React.FC<Redux> = (props) => {
           stockId={el.stockId}
           ticker={el.ticker}
           shares={el.shares}
+          sector={el.sector}
         />
       ))}
       <StockSearchBox modResults={(res) => setResults(res)} />

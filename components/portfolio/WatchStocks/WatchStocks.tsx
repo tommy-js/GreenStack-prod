@@ -4,6 +4,7 @@ import { StockSearchBox } from "./../StockSearchBox/StockSearchBox";
 import { WatchlistStocksDropdown } from "../StocksDropdown/StocksDropdown";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
+import styles from "./styles.module.scss";
 
 interface Keys {
   keyId: number;
@@ -20,7 +21,7 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
   const [results, setResults] = useState([] as any);
 
   return (
-    <React.Fragment>
+    <div className={styles.watchlist}>
       {props.watchlist.map((el: Keys) => (
         <WatchlistElement
           stockId={el.stockId}
@@ -31,7 +32,7 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
       ))}
       <StockSearchBox modResults={(res) => setResults(res)} />
       <WatchlistStocksDropdown stocks={results} />
-    </React.Fragment>
+    </div>
   );
 };
 
