@@ -68,7 +68,6 @@ const OwnedStockSpecRender: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.owned_stock_spec}>
-      <label className={styles.owned_stock_label}>Owned Shares</label>
       <input
         className={styles.owned_stock_input}
         type="text"

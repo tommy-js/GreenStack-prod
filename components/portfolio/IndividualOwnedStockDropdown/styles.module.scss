@@ -1,0 +1,31 @@
+@import "../../globals/variables.scss";
+
+.individual_stock_dropdown {
+  position: relative;
+  background-color: $forest_green;
+  color: $cream_white;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid $text_black;
+}
+
+.individual_stock_dropdown_text {
+  margin: 5px;
+  padding: 5px;
+  width: 70%;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: $standard_font;
+  cursor: pointer;
+  transition: 0.2s;
+  @include noselect;
+}
+
+.individual_stock_dropdown_text:hover {
+  color: $space_red;
+  transition: 0.2s;
+}

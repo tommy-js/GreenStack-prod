@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-apollo";
-import { getStocksQuery } from "../../queries/queries";
 import { returnStockSearch } from "./index";
 import styles from "./styles.module.scss";
 
@@ -10,15 +8,7 @@ interface Props {
 }
 
 export const StockSearchBox: React.FC<Props> = (props) => {
-  const { data } = useQuery(getStocksQuery);
-  const [stocks, setStocks] = useState();
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if (data) {
-      setStocks(data.getStocks);
-    }
-  }, [data]);
 
   function returnSearch(input: string) {
     setSearch(input);
@@ -26,7 +16,7 @@ export const StockSearchBox: React.FC<Props> = (props) => {
       props.modResults([]);
       if (props.parsingSearchResults) props.parsingSearchResults(false);
     } else {
-      let searchResults = returnStockSearch(input, stocks);
+      let searchResults = returnStockSearch(input);
       if (searchResults.length > 4) {
         let splicedResults = searchResults.slice(0, 4);
         props.modResults(splicedResults);

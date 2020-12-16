@@ -1,13 +1,28 @@
+@import "../../globals/variables.scss";
+
 .owned_stock_spec {
   padding: 5px;
-}
-
-.owned_stock_label {
+  display: inline-block;
+  float: right;
+  width: 25%;
+  box-sizing: border-box;
 }
 
 .owned_stock_input {
-  width: 50px;
+  width: 60%;
+  display: inline-block;
+  font-family: $standard_font;
+  font-size: 14px;
+  border: 1px solid $text_black;
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 .owned_stock_button {
+  display: inline-block;
+  width: 40%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 2px;
+  font-family: $standard_font;
 }
