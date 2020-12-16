@@ -1,11 +1,45 @@
 @import "../../../globals/variables.scss";
 
 .add_to_owned {
-  @include button_micro;
   display: inline-block;
   margin-right: 15px;
 }
 
-.add_to_owned:hover {
+.label,
+.input {
+  display: inline-block;
+  font-family: $standard_font;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: 18px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.input {
+  width: 75px;
+  padding: 2px;
+  font-size: 14px;
+  margin-right: 5px;
+  -moz-appearance: textfield;
+}
+
+.button {
+  @include button_micro;
+  display: inline-block;
+}
+
+.button:hover {
   @include button_hover;
+}
+
+.positive_return_flair {
+  position: relative;
+  display: inline-block;
+  font-family: $standard_font;
+  font-size: 14px;
+  color: $space_red;
+  margin-left: 5px;
 }

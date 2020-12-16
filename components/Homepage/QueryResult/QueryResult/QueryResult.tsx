@@ -233,7 +233,7 @@ const PushToStock = React.forwardRef(
             <p className={styles.sector}>{sector}</p>
             <div className={styles.reveal_on_hover}>
               {returnWatchlistButtons()}
-              <AddToOwned />
+              <AddToOwned stockId={stockId} />
             </div>
           </div>
         </div>
