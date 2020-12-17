@@ -8,7 +8,7 @@ interface Props {
   img: string;
   filledImg: string;
   stockId: string;
-  modSelected: (stockId: string) => void;
+  modSelected: (passObj: any) => void;
 }
 
 export const TickerContainer: React.FC<Props> = (props) => {
@@ -28,7 +28,12 @@ export const TickerContainer: React.FC<Props> = (props) => {
 
   function selectCompany() {
     setSelected(!selected);
-    props.modSelected(props.stockId);
+    let obj = {
+      stockId: props.stockId,
+      title: props.title,
+      ticker: props.ticker,
+    };
+    props.modSelected(obj);
   }
 
   return (

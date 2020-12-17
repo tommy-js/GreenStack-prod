@@ -1,6 +1,5 @@
 import React from "react";
-import { IndustryInvolvementChart } from "../IndustryInvolvementChart/IndustryInvolvementChart";
-import { AssetBreakdown } from "../AssetBreakdown/AssetBreakdown";
+import { RecommendedArticles } from "../RecommendedArticles/RecommendedArticles";
 import { PortfolioAnalysisStats } from "../PortfolioAnalysisStats/PortfolioAnalysisStats";
 import styles from "./styles.module.scss";
 
@@ -13,7 +12,7 @@ export const PortfolioAnalysis: React.FC<Props> = (props) => {
     <div className={styles.portfolio_analysis}>
       <h1 className={styles.header}>Analysis</h1>
       <PortfolioAnalysisStats stocks={props.stocks} />
-      <IndustryInvolvementChart />
+      <RecommendedArticles />
     </div>
   );
 };

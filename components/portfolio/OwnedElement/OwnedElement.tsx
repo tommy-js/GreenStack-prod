@@ -1,4 +1,6 @@
 import React from "react";
+import { AddOwned } from "../AddOwned/AddOwned";
+import { RemoveOwned } from "../RemoveOwned/RemoveOwned";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
@@ -22,6 +24,8 @@ export const OwnedElement: React.FC<Props> = (props) => {
         </div>
         <span className={styles.shares}>{props.shares}</span>
         <span className={styles.sector}>{props.sector}</span>
+        <AddOwned />
+        <RemoveOwned />
       </div>
     </div>
   );

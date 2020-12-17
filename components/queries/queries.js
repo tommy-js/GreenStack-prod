@@ -381,7 +381,7 @@ const unfollowUserMutation = gql`
 `;
 
 const addStocksInitialUserMutation = gql`
-  mutation($stockList: [ID!]!, $token: String!) {
+  mutation($stockList: [StockList]!, $token: String!) {
     addStocksInitialUser(stockList: $stockList, token: $token) {
       username
     }

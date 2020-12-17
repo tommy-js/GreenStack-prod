@@ -17,11 +17,8 @@ interface Redux {
 }
 
 const AssetChartRender: React.FC<Redux> = (props) => {
-  const stockTitles = props.stocks.map((el: StockItem) => el.title);
-  const stockData = props.stocks.map((el: StockItem) => el.shares);
   const info = props.industries.map((el: any) => el.value);
   const infoTitles = props.industries.map((el: any) => el.title);
-  const stockColor = props.stocks.map((el: StockItem) => el.color);
   const colors = [
     "#ff4646",
     "#fc8621",
@@ -57,7 +54,11 @@ const AssetChartRender: React.FC<Redux> = (props) => {
       <Pie
         data={pieData}
         options={{
-          title: { display: true, text: "Your Share Breakdown", fontSize: 20 },
+          title: {
+            display: true,
+            text: "Your Industry Breakdown",
+            fontSize: 20,
+          },
           legend: { display: false },
           cutoutPercentage: 25,
         }}

@@ -22,15 +22,17 @@ interface Props extends Redux {
 const RenderPageTwoMutation: React.FC<Props> = (props) => {
   const [selected, setSelected] = useState([]);
 
-  function modSelected(stockId: string) {
+  function modSelected(passObj: any) {
     let stockArray = [...selected];
-    let searchArr = stockArray.find((el: string) => el === stockId);
+    let searchArr = stockArray.find(
+      (el: any) => el.stockId === passObj.stockId
+    );
     if (searchArr) {
       let searchArrIndex = stockArray.indexOf(searchArr);
       stockArray.splice(searchArrIndex, 1);
       setSelected(stockArray);
     } else {
-      stockArray.push(stockId);
+      stockArray.push(passObj);
       setSelected(stockArray);
     }
     console.log(stockArray);

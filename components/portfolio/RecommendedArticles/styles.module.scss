@@ -1,0 +1,32 @@
+@import "../../globals/variables.scss";
+
+.recommended_block {
+  width: 450px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recommended {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-top-right-radius: 5px;
+  box-sizing: border-box;
+}
+
+.recommended_inner {
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  transition: 0.3s;
+}
+
+.recommended_inner:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
