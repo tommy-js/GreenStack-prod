@@ -12,6 +12,7 @@ type StockItem = {
   shares: number;
   sector: string;
   ticker: string;
+  color: string;
 };
 
 interface Redux {

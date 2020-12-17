@@ -12,3 +12,13 @@
   vertical-align: top;
   @include testing;
 }
+
+.header {
+  font-family: $standard_font;
+  color: $forest_green;
+}
+
+.text {
+  font-family: $standard_font;
+  color: $text_black;
+}

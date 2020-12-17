@@ -6,6 +6,7 @@ import { PortfolioHeader } from "../PortfolioHeader/PortfolioHeader";
 import { OwnedStocks } from "../OwnedStocks/OwnedStocks";
 import { PortfolioAnalysis } from "../PortfolioAnalysis/PortfolioAnalysis";
 import { AnalysisNotifyer } from "../AnalysisNotifyer/AnalysisNotifyer";
+import { VoidStocks } from "../VoidStocks/VoidStocks";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
 import styles from "./styles.module.scss";
@@ -21,11 +22,17 @@ const DefaultPortfolioRedux: React.FC<Redux> = (props) => {
     } else return <AnalysisNotifyer />;
   }
 
+  function returnOwned() {
+    if (props.stocks.length > 0) {
+      return <OwnedStocks />;
+    } else return <VoidStocks />;
+  }
+
   return (
     <div className={styles.portfolio}>
       <MainPortfolioHeader text="Your Portfolio" />
       <PortfolioHeader text="Your Stocks" />
-      <OwnedStocks />
+      {returnOwned()}
       <PortfolioHeader text="Watchlist" />
       <WatchStocks />
       {returnAnalysis()}

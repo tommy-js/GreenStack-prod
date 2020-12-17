@@ -10,6 +10,7 @@ type Stocks = {
   stockId: string;
   ticker: string;
   title: string;
+  color: string;
 };
 
 interface Props {
@@ -40,6 +41,7 @@ export const OwnedStocksDropdown: React.FC<Props> = (props) => {
           title={el.title}
           ticker={el.ticker}
           sector={el.sector}
+          color={el.color}
         />
       ))}
     </React.Fragment>

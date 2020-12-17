@@ -107,6 +107,7 @@ const userSchema = new Schema({
       shares: Number,
       sector: String,
       ticker: String,
+      color: String,
       timestamp: Number,
     },
   ],

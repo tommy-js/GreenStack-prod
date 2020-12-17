@@ -289,12 +289,19 @@ const pushCommentStockMutation = gql`
 `;
 
 const pushStockToUserMutation = gql`
-  mutation($token: String!, $stockId: ID!, $shares: Int!, $sector: String!) {
+  mutation(
+    $token: String!
+    $stockId: ID!
+    $shares: Int!
+    $sector: String!
+    $color: String!
+  ) {
     pushStockToUser(
       token: $token
       stockId: $stockId
       shares: $shares
       sector: $sector
+      color: $color
     ) {
       username
     }
@@ -741,6 +748,7 @@ const nonTokenModifyUserQuery = gql`
         title
         shares
         sector
+        color
         ticker
       }
       posts {
@@ -866,6 +874,7 @@ const userQuery = gql`
         title
         shares
         sector
+        color
         ticker
       }
       posts {
@@ -978,6 +987,7 @@ const getStocksQuery = gql`
       countryCode
       date
       sector
+      color
       comments {
         userId
         username

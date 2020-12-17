@@ -228,4 +228,5 @@ export type Company = {
   countryCode: number;
   date: string;
   sector: string;
+  color: string;
 };

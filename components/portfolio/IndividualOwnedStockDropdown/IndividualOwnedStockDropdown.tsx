@@ -8,6 +8,7 @@ interface Props {
   title: string;
   ticker: string;
   sector: string;
+  color: string;
 }
 
 export const IndividualOwnedStockDropdown: React.FC<Props> = (props) => {
@@ -28,6 +29,7 @@ export const IndividualOwnedStockDropdown: React.FC<Props> = (props) => {
         title={props.title}
         ticker={props.ticker}
         sector={props.sector}
+        color={props.color}
       />
     </div>
   );

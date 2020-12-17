@@ -90,8 +90,16 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
       industriesObject[j].value += 1;
     }
     setIndustries(industriesObject);
-    console.log(industriesObject);
+    setIndustryCount(countIndustries(industriesObject));
   }, []);
+
+  function countIndustries(array: any) {
+    let u = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].value > 0) u++;
+    }
+    return u;
+  }
 
   return (
     <div className={styles.portfolio_analysis_stats}>
@@ -99,8 +107,11 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
         <AssetChart />
       </div>
       <div className={styles.right_container}>
-        <h2>The Basics</h2>
-        <p>You own stock in {props.stocks.length} companies across .</p>
+        <h2 className={styles.header}>The Basics</h2>
+        <p className={styles.text}>
+          You own stock in {props.stocks.length} companies across{" "}
+          {industryCount} industries.
+        </p>
       </div>
     </div>
   );

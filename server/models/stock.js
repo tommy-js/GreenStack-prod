@@ -10,6 +10,7 @@ const stockSchema = new Schema({
   sector: String,
   countryCode: Number,
   date: String,
+  color: String,
   comments: [
     {
       userId: String,

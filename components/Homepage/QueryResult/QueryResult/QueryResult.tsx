@@ -46,6 +46,7 @@ interface Stock extends Redux {
   countryCode: number;
   date: string;
   sector: string;
+  color: string;
 }
 
 export const QueryUserResult: React.FC<User> = (props) => {
@@ -99,6 +100,7 @@ const QueryStockResultRedux: React.FC<Stock> = (props) => {
         date={props.date}
         sector={props.sector}
         watchlist={props.watchlist}
+        color={props.color}
       />
     </Link>
   );
@@ -118,6 +120,7 @@ const PushToStock = React.forwardRef(
       date,
       sector,
       watchlist,
+      color,
     },
     ref
   ) => {
@@ -233,7 +236,7 @@ const PushToStock = React.forwardRef(
             <p className={styles.sector}>{sector}</p>
             <div className={styles.reveal_on_hover}>
               {returnWatchlistButtons()}
-              <AddToOwned stockId={stockId} sector={sector} />
+              <AddToOwned stockId={stockId} sector={sector} color={color} />
             </div>
           </div>
         </div>

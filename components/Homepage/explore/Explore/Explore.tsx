@@ -87,6 +87,7 @@ export const Explore: React.FC = () => {
             date={el.date}
             stockId={el.stockId}
             sector={el.sector}
+            color={el.color}
           />
         ))}
         <LoadMore
