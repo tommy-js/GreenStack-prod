@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AssetChart } from "../AssetChart/AssetChart";
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 interface Props {
@@ -7,9 +8,10 @@ interface Props {
 }
 
 export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
+  const [diversificationScore, setDiversificationScore] = useState(0);
   const [industryCount, setIndustryCount] = useState(0);
   const [industries, setIndustries] = useState([
-    { title: "RawMaterials", value: 0 },
+    { title: "Raw Materials", value: 0 },
     { title: "Agriculture", value: 0 },
     { title: "Manufacturing", value: 0 },
     { title: "Utilities", value: 0 },
@@ -17,15 +19,15 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     { title: "Technology", value: 0 },
     { title: "Retail", value: 0 },
     { title: "Medicine", value: 0 },
-    { title: "FinancialServices", value: 0 },
+    { title: "Financial Services", value: 0 },
     { title: "Communication", value: 0 },
     { title: "Transportation", value: 0 },
     { title: "Hospitality", value: 0 },
     { title: "Advertizing", value: 0 },
     { title: "Media", value: 0 },
-    { title: "FoodProduction", value: 0 },
-    { title: "FoodServices", value: 0 },
-    { title: "RealEstate", value: 0 },
+    { title: "Food Production", value: 0 },
+    { title: "Food Services", value: 0 },
+    { title: "Real Estate", value: 0 },
   ]);
 
   useEffect(() => {
@@ -98,19 +100,51 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     for (let i = 0; i < array.length; i++) {
       if (array[i].value > 0) u++;
     }
+    returnScore(u);
     return u;
+  }
+
+  function returnScore(value: number) {
+    let score = Math.floor((value / 17) * 100);
+    setDiversificationScore(score);
+  }
+
+  function returnEmptyIndustries() {
+    let nullIndustries = [];
+    if (industryCount != 17) {
+      for (let i = 0; i < 17; i++) {
+        if (industries[i].value === 0) {
+          nullIndustries.push(industries[i].title);
+        }
+      }
+      return (
+        <div className={styles.null_industries}>
+          <p>You do not hold any shares in the following industries:</p>
+          {nullIndustries.map((el: any) => (
+            <span className={styles.null_element}> {el},</span>
+          ))}
+        </div>
+      );
+    } else return null;
   }
 
   return (
     <div className={styles.portfolio_analysis_stats}>
       <div className={styles.left_container}>
-        <AssetChart />
+        <AssetChart industries={industries} />
       </div>
       <div className={styles.right_container}>
         <h2 className={styles.header}>The Basics</h2>
         <p className={styles.text}>
           You own stock in {props.stocks.length} companies across{" "}
           {industryCount} industries.
+          {returnEmptyIndustries()}
+        </p>
+        <p className={styles.text}>
+          Your diversification score is{" "}
+          <Link href="/about/learn/protection">
+            <span className={styles.score}>{diversificationScore}%</span>
+          </Link>
         </p>
       </div>
     </div>

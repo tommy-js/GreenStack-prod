@@ -13,19 +13,41 @@ type StockItem = {
 
 interface Redux {
   stocks: StockItem[];
+  industries: any;
 }
 
 const AssetChartRender: React.FC<Redux> = (props) => {
   const stockTitles = props.stocks.map((el: StockItem) => el.title);
   const stockData = props.stocks.map((el: StockItem) => el.shares);
+  const info = props.industries.map((el: any) => el.value);
+  const infoTitles = props.industries.map((el: any) => el.title);
   const stockColor = props.stocks.map((el: StockItem) => el.color);
+  const colors = [
+    "#ff4646",
+    "#fc8621",
+    "#ffefa0",
+    "#30475e",
+    "#821752",
+    "#511845",
+    "#ffd31d",
+    "#7fa998",
+    "#ad1d45",
+    "#a773c3",
+    "#355c7d",
+    "#c06c84",
+    "#ff7844",
+    "#5b252d",
+    "#ffd460",
+    "#c83b3b",
+    "#ff7844",
+  ];
   const pieData = {
-    labels: stockTitles,
+    labels: infoTitles,
     datasets: [
       {
         label: "",
-        data: stockData,
-        backgroundColor: stockColor,
+        data: info,
+        backgroundColor: colors,
         borderWidth: 1,
       },
     ],

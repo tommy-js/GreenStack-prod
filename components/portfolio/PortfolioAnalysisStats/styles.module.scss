@@ -22,3 +22,17 @@
   font-family: $standard_font;
   color: $text_black;
 }
+
+.null_industries {
+  font-family: $standard_font;
+  line-height: 165%;
+}
+
+.null_element {
+}
+
+.score {
+  color: $honey_yellow;
+  border-bottom: 1px solid $honey_yellow;
+  cursor: pointer;
+}
