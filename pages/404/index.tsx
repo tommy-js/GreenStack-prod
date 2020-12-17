@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
+import { Imp404 } from "../../components/404/Page404";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../components/actions/actions";
 
@@ -20,7 +21,7 @@ const Page404: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <h1>Oops! Wrong turn! 404</h1>;
+    } else return <Imp404 />;
   }
 
   return checkReturn();

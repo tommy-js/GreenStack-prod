@@ -1,0 +1,50 @@
+@import "../globals/variables.scss";
+
+.page {
+  position: relative;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  @include noselect;
+}
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  margin: 0;
+  filter: blur(2.5px) brightness(0.75);
+}
+
+.img_block {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+}
+
+.text {
+  color: $honey_yellow;
+  font-size: 45px;
+  font-family: $standard_font;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 5px 2px 1px $text_black;
+}
+
+.subtext {
+  color: $honey_yellow;
+  font-size: 30px;
+  font-family: $standard_font;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 5px 2px 1px $text_black;
+}
