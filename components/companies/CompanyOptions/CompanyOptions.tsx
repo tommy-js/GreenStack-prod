@@ -19,6 +19,7 @@ interface Props extends Redux {
   title: string;
   ticker: string;
   userId: string;
+  sector: string;
   pushStockToWatchlistMutation: (variables: object) => any;
   removeStockFromWatchlistMutation: (variables: object) => any;
 }
@@ -50,6 +51,7 @@ const CompanyOptionsRender: React.FC<Props> = (props) => {
           stockId: props.stockId,
           title: props.title,
           ticker: props.ticker,
+          sector: props.sector,
         },
       })
       .catch(() => console.log("err"))

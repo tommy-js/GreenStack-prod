@@ -159,7 +159,13 @@ const pushSharesToUserMutation = gql`
 `;
 
 const updateNewPortfolioMutation = gql`
-  mutation($token: String!, $stockId: ID!, $title: String!, $ticker: String!) {
+  mutation(
+    $token: String!
+    $stockId: ID!
+    $title: String!
+    $ticker: String!
+    $sector: String!
+  ) {
     updateNewPortfolio(token: $token) {
       username
     }
@@ -168,6 +174,7 @@ const updateNewPortfolioMutation = gql`
       stockId: $stockId
       title: $title
       ticker: $ticker
+      sector: $sector
     ) {
       username
     }
@@ -392,12 +399,19 @@ const addStocksInitialUserMutation = gql`
 `;
 
 const pushStockToWatchlistMutation = gql`
-  mutation($stockId: ID!, $token: String!, $title: String!, $ticker: String!) {
+  mutation(
+    $stockId: ID!
+    $token: String!
+    $title: String!
+    $ticker: String!
+    $sector: String!
+  ) {
     pushStockToWatchlist(
       stockId: $stockId
       ticker: $ticker
       title: $title
       token: $token
+      sector: $sector
     ) {
       username
     }
@@ -712,6 +726,7 @@ const otherUserQuery = gql`
         title
         ticker
         timestamp
+        sector
       }
     }
   }
@@ -807,6 +822,7 @@ const nonTokenModifyUserQuery = gql`
         title
         ticker
         timestamp
+        sector
       }
       notifications {
         content
@@ -934,6 +950,7 @@ const userQuery = gql`
         title
         ticker
         timestamp
+        sector
       }
       notifications {
         content

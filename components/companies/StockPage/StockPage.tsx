@@ -27,6 +27,7 @@ export const StockPage: React.FC<Props> = (props) => {
         stockId={props.stockId}
         title={props.title}
         ticker={props.ticker}
+        sector={props.sector}
       />
       <CompanyComments
         title={props.title}

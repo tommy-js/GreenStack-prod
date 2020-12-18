@@ -8,6 +8,7 @@ interface Props {
   stockId: string;
   ticker: string;
   title: string;
+  sector: string;
   modInWatchlist: () => void;
   pushStockToWatchlistMutation: (variables: object) => any;
 }
@@ -22,6 +23,7 @@ const AddToWatchlistMutation: React.FC<Props> = (props) => {
             stockId: props.stockId,
             ticker: props.ticker,
             title: props.title,
+            sector: props.sector,
             token: token,
           },
         })

@@ -11,6 +11,7 @@ type WatchListItem = {
   stockId: string;
   title: string;
   ticker: string;
+  sector: string;
   timestamp: number;
 };
 
@@ -24,6 +25,7 @@ interface Props extends Redux {
   stockId: string;
   title: string;
   ticker: string;
+  sector: string;
   updateNewPortfolioMutation: (variables: object) => any;
 }
 
@@ -35,6 +37,7 @@ const IndividualStockDropdown: React.FC<Props> = (props) => {
       props.stockId,
       props.title,
       props.ticker,
+      props.sector,
       props.watchlist
     );
     props
@@ -44,6 +47,7 @@ const IndividualStockDropdown: React.FC<Props> = (props) => {
           stockId: props.stockId,
           title: props.title,
           ticker: props.ticker,
+          sector: props.sector,
         },
       })
       .catch((err: any) => console.log(err))

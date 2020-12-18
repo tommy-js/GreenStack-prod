@@ -34,6 +34,7 @@ const StockPage: React.FC = () => {
           description={data.stock.description}
           country={data.stock.country}
           stockId={data.stock.stockId}
+          sector={data.stock.sector}
           comments={data.stock.comments}
         />
       );

@@ -1,5 +1,26 @@
+@import "../../globals/variables.scss";
+
 .watchlist {
   width: 75%;
+  height: 650px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.watchlist_box,
+.stats_box {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.watchlist_box {
+  height: 60%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-left: 1px solid $light_blue;
+}
+
+.stats_box {
+  vertical-align: top;
 }

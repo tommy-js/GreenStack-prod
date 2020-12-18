@@ -206,6 +206,7 @@ const PushToStock = React.forwardRef(
             title={title}
             ticker={ticker}
             stockId={stockId}
+            sector={sector}
             modInWatchlist={() => setInWatchlist(true)}
           />
         );

@@ -1,6 +1,7 @@
 import React from "react";
 import { IndividualWatchlistStockDropdown } from "../IndividualWatchlistStockDropdown/IndividualWatchlistStockDropdown";
 import { IndividualOwnedStockDropdown } from "../IndividualOwnedStockDropdown/IndividualOwnedStockDropdown";
+import styles from "./styles.module.scss";
 
 type Stocks = {
   country: string;
@@ -19,7 +20,7 @@ interface Props {
 
 export const WatchlistStocksDropdown: React.FC<Props> = (props) => {
   return (
-    <React.Fragment>
+    <div className={styles.watchlist_stocks_dropdown}>
       {props.stocks.map((el: Stocks) => (
         <IndividualWatchlistStockDropdown
           stockId={el.stockId}
@@ -28,13 +29,13 @@ export const WatchlistStocksDropdown: React.FC<Props> = (props) => {
           sector={el.sector}
         />
       ))}
-    </React.Fragment>
+    </div>
   );
 };
 
 export const OwnedStocksDropdown: React.FC<Props> = (props) => {
   return (
-    <React.Fragment>
+    <div>
       {props.stocks.map((el: Stocks) => (
         <IndividualOwnedStockDropdown
           stockId={el.stockId}
@@ -44,6 +45,6 @@ export const OwnedStocksDropdown: React.FC<Props> = (props) => {
           color={el.color}
         />
       ))}
-    </React.Fragment>
+    </div>
   );
 };

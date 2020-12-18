@@ -117,6 +117,7 @@ const userSchema = new Schema({
       title: String,
       ticker: String,
       timestamp: Number,
+      sector: String,
     },
   ],
   notifications: [

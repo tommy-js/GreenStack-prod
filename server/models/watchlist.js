@@ -6,6 +6,7 @@ const watchlistSchema = new Schema({
   title: String,
   ticker: String,
   timestamp: Number,
+  sector: String,
 });
 
 module.exports = mongoose.model("Watchlist", watchlistSchema);

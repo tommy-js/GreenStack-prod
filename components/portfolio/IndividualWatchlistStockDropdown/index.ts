@@ -3,12 +3,14 @@ type WatchListItem = {
   title: string;
   ticker: string;
   timestamp: number;
+  sector: string;
 };
 
 export function watchlistArray(
   stockId: string,
   title: string,
   ticker: string,
+  sector: string,
   watchlist: WatchListItem[]
 ) {
   let timestamp = Math.floor(Date.now() / 1000);
@@ -17,6 +19,7 @@ export function watchlistArray(
     title: title,
     ticker: ticker,
     timestamp: timestamp,
+    sector: sector,
   };
   let watchListArr = [...watchlist];
   watchListArr.push(watchlistItem);
