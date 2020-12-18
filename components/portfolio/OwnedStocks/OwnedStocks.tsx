@@ -24,15 +24,17 @@ const OwnedStocksRender: React.FC<Redux> = (props) => {
 
   return (
     <div className={styles.owned_stocks}>
-      {props.stocks.map((el: StockItem) => (
-        <OwnedElement
-          title={el.title}
-          stockId={el.stockId}
-          ticker={el.ticker}
-          shares={el.shares}
-          sector={el.sector}
-        />
-      ))}
+      <div className={styles.owned_elements}>
+        {props.stocks.map((el: StockItem) => (
+          <OwnedElement
+            title={el.title}
+            stockId={el.stockId}
+            ticker={el.ticker}
+            shares={el.shares}
+            sector={el.sector}
+          />
+        ))}
+      </div>
       <StockSearchBox modResults={(res) => setResults(res)} />
       <OwnedStocksDropdown stocks={results} />
     </div>

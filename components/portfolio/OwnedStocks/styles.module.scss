@@ -1,9 +1,16 @@
+@import "../../globals/variables.scss";
+
 .owned_stocks {
   margin-top: 50px;
   margin-bottom: 50px;
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
+  // border: 1px solid black;
   border-radius: 5px;
+}
+
+.owned_elements {
+  padding-bottom: 15px;
+  border-bottom: 1px solid $softer_grey;
 }
