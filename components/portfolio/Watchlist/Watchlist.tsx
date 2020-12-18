@@ -28,7 +28,7 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
     { title: "Construction", value: 0 },
     { title: "Technology", value: 0 },
     { title: "Retail", value: 0 },
-    { title: "Medicine", value: 0 },
+    { title: "Medical", value: 0 },
     { title: "Financial Services", value: 0 },
     { title: "Communication", value: 0 },
     { title: "Transportation", value: 0 },
@@ -138,4 +138,4 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
   );
 };
 
-export const WatchStocks = connect(mapStateToProps)(WatchStocksRender);
+export const Watchlist = connect(mapStateToProps)(WatchStocksRender);

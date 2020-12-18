@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { MedicineBody } from "../MedicineBody/MedicineBody";
+import { MedicalBody } from "../MedicalBody/MedicalBody";
 import { FeedSidebar } from "../../../Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import styles from "./styles.module.scss";
 
-export const MedicinePage: React.FC = () => {
+export const MedicalPage: React.FC = () => {
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -24,7 +24,7 @@ export const MedicinePage: React.FC = () => {
       <div className={styles.homepage}>
         {renderShowPostOptions()}
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <MedicineBody />
+        <MedicalBody />
       </div>
     </div>
   );

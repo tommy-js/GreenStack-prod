@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-export const MedicineBody: React.FC = () => {
+export const MedicalBody: React.FC = () => {
   return (
     <div>
       <h1>Medicine Body</h1>

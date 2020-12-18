@@ -557,7 +557,7 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "January 1886",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#f64b3c",
   },
   {
@@ -665,7 +665,7 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1849",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#f8b195",
   },
   {
@@ -952,7 +952,7 @@ export const companyList = [
     country: "Ireland",
     countryCode: 372,
     date: "1949",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#8f4426",
   },
   {
@@ -1036,7 +1036,7 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1888",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#272121",
   },
   {
@@ -1060,7 +1060,7 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "April 8, 1980",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#940a37",
   },
   {
@@ -1144,7 +1144,7 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "June 22, 1987",
-    sector: "Medicine",
+    sector: "Medical",
     color: "#bbeaa6",
   },
   {
@@ -1229,7 +1229,7 @@ export const companyList = [
     countryCode: 276,
     date: "1876",
     sector: "Manufacturing",
-    color: null,
+    color: "#d35656",
   },
   {
     stockId: "3ca34435-4323-4a17-82f3-9761529a407b",
@@ -1241,7 +1241,7 @@ export const companyList = [
     countryCode: 643,
     date: "August 1994",
     sector: "Raw Materials",
-    color: null,
+    color: "#ed9a73",
   },
   {
     stockId: "540762f4-5a9b-47f7-9c21-b1c56891677e",
@@ -1253,7 +1253,7 @@ export const companyList = [
     countryCode: 124,
     date: "1951",
     sector: "Utilities",
-    color: null,
+    color: "#230338",
   },
   {
     stockId: "b923a845-0dbb-47c5-8a8f-6f0b81fc3af5",
@@ -1265,7 +1265,7 @@ export const companyList = [
     countryCode: 372,
     date: "1970",
     sector: "Manufacturing",
-    color: null,
+    color: "#e16363",
   },
   {
     stockId: "27f118bf-b663-4494-98a9-c9d82db42a38",
@@ -1277,7 +1277,7 @@ export const companyList = [
     countryCode: 250,
     date: "1963",
     sector: "Retail",
-    color: null,
+    color: "#3c3d47",
   },
   {
     stockId: "a8e4e219-ba0a-4a18-8bbf-aab83738f530",
@@ -1289,7 +1289,7 @@ export const companyList = [
     countryCode: 392,
     date: "April 5, 1955",
     sector: "Construction",
-    color: null,
+    color: "#e688a1",
   },
   {
     stockId: "e017240c-ce77-443b-910f-1f391713e749",
@@ -1301,7 +1301,7 @@ export const companyList = [
     countryCode: 124,
     date: "1980",
     sector: "Retail",
-    color: null,
+    color: "#02383c",
   },
   {
     stockId: "22f81ad5-3042-4806-911c-73810b784263",
@@ -1313,7 +1313,7 @@ export const companyList = [
     countryCode: 392,
     date: "1 January 1931",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffd692",
   },
   {
     stockId: "25452364-2d44-4f1d-9d3b-cf6b540c1f85",
@@ -1325,7 +1325,7 @@ export const companyList = [
     countryCode: 840,
     date: "1938",
     sector: "Financial Services",
-    color: null,
+    color: "#ffb997",
   },
   {
     stockId: "5b380fb1-e7e2-4e69-9c82-3b539946cc59",
@@ -1337,7 +1337,7 @@ export const companyList = [
     countryCode: 840,
     date: "1935",
     sector: "Food Production",
-    color: null,
+    color: "#cf455c",
   },
   {
     stockId: "cf0a00ef-e30e-4b5a-a22d-2eb0f91536b5",
@@ -1349,7 +1349,7 @@ export const companyList = [
     countryCode: 250,
     date: "1665",
     sector: "Manufacturing",
-    color: null,
+    color: "#44000d",
   },
   {
     stockId: "846ba63a-d13a-45ef-9083-b83905997053",
@@ -1361,7 +1361,7 @@ export const companyList = [
     countryCode: 840,
     date: "1841",
     sector: "Technology",
-    color: null,
+    color: "#ff935c",
   },
   {
     stockId: "3717b905-c098-4444-a2ae-51d2c52810c5",
@@ -1372,8 +1372,8 @@ export const companyList = [
     country: "Denmark",
     countryCode: 208,
     date: "December 21, 1923",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#f67e7d",
   },
   {
     stockId: "6b3e363e-6ccf-4d7a-8f2a-95d7bf8c0114",
@@ -1385,7 +1385,7 @@ export const companyList = [
     countryCode: 528,
     date: "2007",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffdd67",
   },
   {
     stockId: "6170890d-2700-4306-b684-1f1c126d79b1",
@@ -1397,7 +1397,7 @@ export const companyList = [
     countryCode: 840,
     date: "1999",
     sector: "Raw Materials",
-    color: null,
+    color: "#83142c",
   },
   {
     stockId: "bfb3003d-4032-4a31-9da1-ec56285522b4",
@@ -1409,7 +1409,7 @@ export const companyList = [
     countryCode: 840,
     date: "1998",
     sector: "Utilities",
-    color: null,
+    color: "#dc5353",
   },
   {
     stockId: "42e97404-c480-44e3-bbaf-8edaf574b047",
@@ -1421,7 +1421,7 @@ export const companyList = [
     countryCode: 372,
     date: "1911",
     sector: "Utilities",
-    color: null,
+    color: "#843b62",
   },
   {
     stockId: "00aab570-139b-4d52-8bd4-d2cc7a59a389",
@@ -1433,7 +1433,7 @@ export const companyList = [
     countryCode: 840,
     date: "1970",
     sector: "Financial Services",
-    color: null,
+    color: "#ff8a5c",
   },
   {
     stockId: "a0741da4-9aa4-48b2-ba49-e008d2e5f70c",
@@ -1444,8 +1444,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1897",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#ff8a5c",
   },
   {
     stockId: "b6ef2659-b25d-4009-83be-919de027417e",
@@ -1456,8 +1456,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1941",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#ad1d45",
   },
   {
     stockId: "99ec013c-0838-457f-9c66-e56e4eb4d10d",
@@ -1469,7 +1469,7 @@ export const companyList = [
     countryCode: 840,
     date: "1997",
     sector: "Raw Materials",
-    color: null,
+    color: "#a72461",
   },
   {
     stockId: "211ea5dc-0df8-4730-8dd1-41653ebde38c",
@@ -1481,7 +1481,7 @@ export const companyList = [
     countryCode: 840,
     date: "1905",
     sector: "Financial Services",
-    color: null,
+    color: "#0b032d",
   },
   {
     stockId: "13d19572-1b0b-4f42-8569-a84ab14f1443",
@@ -1493,7 +1493,7 @@ export const companyList = [
     countryCode: 840,
     date: "1894",
     sector: "Financial Services",
-    color: null,
+    color: "#444444",
   },
   {
     stockId: "609fde7c-5f02-4dea-8ee7-bf056051187d",
@@ -1505,7 +1505,7 @@ export const companyList = [
     countryCode: 840,
     date: "1939",
     sector: "Retail",
-    color: null,
+    color: "#f9d276",
   },
   {
     stockId: "8d245a80-6882-42e3-b21f-4c6512c9d577",
@@ -1517,7 +1517,7 @@ export const companyList = [
     countryCode: 124,
     date: "1983",
     sector: "Raw Materials",
-    color: null,
+    color: "#fdef96",
   },
   {
     stockId: "2f354e5b-a323-4766-959c-225966980eeb",
@@ -1529,7 +1529,7 @@ export const companyList = [
     countryCode: 826,
     date: "1909",
     sector: "Raw Materials",
-    color: null,
+    color: "#ca5fa6",
   },
   {
     stockId: "319e7695-704f-4227-bf39-0119ab55c608",
@@ -1541,7 +1541,7 @@ export const companyList = [
     countryCode: 392,
     date: "10 August 1937",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffc6be",
   },
   {
     stockId: "16a59cfa-60da-4548-9e38-f085246930cf",
@@ -1553,7 +1553,7 @@ export const companyList = [
     countryCode: 250,
     date: "2006",
     sector: "Financial Services",
-    color: null,
+    color: "#c05c7e",
   },
   {
     stockId: "e6f75834-6e5c-4572-85b4-8a7ba5f7ba48",
@@ -1565,7 +1565,7 @@ export const companyList = [
     countryCode: 250,
     date: "14 December 1853",
     sector: "Media",
-    color: null,
+    color: "#f36886",
   },
   {
     stockId: "59fb326f-a7f2-45ae-b49c-4d5c2fd006c6",
@@ -1577,7 +1577,7 @@ export const companyList = [
     countryCode: 756,
     date: "1857",
     sector: "Financial Services",
-    color: null,
+    color: "#f7b71d",
   },
   {
     stockId: "15dd950a-177e-4e7e-9487-23088ed242e9",
@@ -1588,8 +1588,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1978",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#ffa1c5",
   },
   {
     stockId: "8c837306-4790-4295-8222-6ff4058962ab",
@@ -1601,7 +1601,7 @@ export const companyList = [
     countryCode: 392,
     date: "July 15, 1941",
     sector: "Real Estate",
-    color: null,
+    color: "#f3826f",
   },
   {
     stockId: "857edb61-2059-473a-a697-184fce4c65ba",
@@ -1613,7 +1613,7 @@ export const companyList = [
     countryCode: 840,
     date: "June 20, 1866",
     sector: "Food Production",
-    color: null,
+    color: "#fa8282",
   },
   {
     stockId: "b3413097-72f5-4c8f-85eb-6fc569007c98",
@@ -1625,7 +1625,7 @@ export const companyList = [
     countryCode: 250,
     date: "1 January 1958",
     sector: "Retail",
-    color: null,
+    color: "#afa939",
   },
   {
     stockId: "78de5f6f-c21f-42f8-8c54-4445fa6dc829",
@@ -1637,7 +1637,7 @@ export const companyList = [
     countryCode: 392,
     date: "October 25, 1924",
     sector: "Manufacturing",
-    color: null,
+    color: "#a773c3",
   },
   {
     stockId: "bc056487-2958-43a5-820f-832eabac6d7e",
@@ -1648,8 +1648,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1979",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#ffb961",
   },
   {
     stockId: "c0ae8678-5cda-43ab-a0cd-794856f15598",
@@ -1661,7 +1661,7 @@ export const companyList = [
     countryCode: 840,
     date: "1985",
     sector: "Financial Services",
-    color: null,
+    color: "#ffaf65",
   },
   {
     stockId: "f7eb4413-84ce-41e3-aa81-70049af61db0",
@@ -1673,7 +1673,7 @@ export const companyList = [
     countryCode: 840,
     date: "September 12, 2003",
     sector: "Financial Services",
-    color: null,
+    color: "#2b580c",
   },
   {
     stockId: "daa47557-54d1-4d81-8f5f-9ec5262496fc",
@@ -1685,7 +1685,7 @@ export const companyList = [
     countryCode: 250,
     date: "28 May 1889",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffb961",
   },
   {
     stockId: "feceb34c-99d4-46f4-95cf-c64337064d39",
@@ -1697,7 +1697,7 @@ export const companyList = [
     countryCode: 840,
     date: "1905",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffaf65",
   },
   {
     stockId: "0b09e29b-f917-4971-bf20-b2f83d149132",
@@ -1709,7 +1709,7 @@ export const companyList = [
     countryCode: 840,
     date: "1810",
     sector: "Financial Services",
-    color: null,
+    color: "#2b580c",
   },
   {
     stockId: "300aebf6-1f05-4271-835d-e90c0f6c6c74",
@@ -1721,7 +1721,7 @@ export const companyList = [
     countryCode: 528,
     date: "15 May 1891",
     sector: "Technology",
-    color: null,
+    color: "#854777",
   },
   {
     stockId: "5e08fa78-19a8-4428-a70e-6f27e33d01d5",
@@ -1733,7 +1733,7 @@ export const companyList = [
     countryCode: 840,
     date: "May 11, 2000",
     sector: "Financial Services",
-    color: null,
+    color: "#293462",
   },
   {
     stockId: "6c91f3da-c645-4386-8574-aaad4e90d3ec",
@@ -1745,7 +1745,7 @@ export const companyList = [
     countryCode: 826,
     date: "30 November 1999",
     sector: "Technology",
-    color: null,
+    color: "#b206b0",
   },
   {
     stockId: "0dd370fa-eba0-4bf5-8cb7-f1ac1deb5fdf",
@@ -1757,7 +1757,7 @@ export const companyList = [
     countryCode: 840,
     date: "March 19, 1969",
     sector: "Food Services",
-    color: null,
+    color: "#211717",
   },
   {
     stockId: "85d6e338-fa54-4510-8c46-fa5c8dd9ce74",
@@ -1769,7 +1769,7 @@ export const companyList = [
     countryCode: 250,
     date: "1959",
     sector: "Financial Services",
-    color: null,
+    color: "#240041",
   },
   {
     stockId: "ff881d3e-1744-4945-8929-dc26053a0c44",
@@ -1781,7 +1781,7 @@ export const companyList = [
     countryCode: 392,
     date: "December 16, 1949",
     sector: "Manufacturing",
-    color: null,
+    color: "#a64942",
   },
   {
     stockId: "77474346-050e-4e27-876c-3b462da68469",
@@ -1793,7 +1793,7 @@ export const companyList = [
     countryCode: 276,
     date: "July 1924",
     sector: "Manufacturing",
-    color: null,
+    color: "#e41749",
   },
   {
     stockId: "c645bf77-80f8-48c9-92ce-1d9ccb246688",
@@ -1805,7 +1805,7 @@ export const companyList = [
     countryCode: 124,
     date: "1957",
     sector: "Manufacturing",
-    color: null,
+    color: "#a34a28",
   },
   {
     stockId: "08d32c30-19af-47f0-8006-70573046893b",
@@ -1817,7 +1817,7 @@ export const companyList = [
     countryCode: 124,
     date: "1951",
     sector: "Financial Services",
-    color: null,
+    color: "#900048",
   },
   {
     stockId: "6d2db9ea-166f-4467-8e75-ef68919017b6",
@@ -1829,7 +1829,7 @@ export const companyList = [
     countryCode: 392,
     date: "26 December 1933",
     sector: "Manufacturing",
-    color: null,
+    color: "#fe5f55",
   },
   {
     stockId: "682947b8-2121-4e1b-b42b-169c30591a12",
@@ -1841,7 +1841,7 @@ export const companyList = [
     countryCode: 76,
     date: "1 June 1942",
     sector: "Raw Materials",
-    color: null,
+    color: "#f5587b",
   },
   {
     stockId: "9b12a8dc-698f-46c5-a957-4385b488cbda",
@@ -1853,7 +1853,7 @@ export const companyList = [
     countryCode: 840,
     date: "September 3, 1995",
     sector: "Technology",
-    color: null,
+    color: "#f58b54",
   },
   {
     stockId: "c7c376b6-5191-490b-bce5-96e62bc69d22",
@@ -1865,7 +1865,7 @@ export const companyList = [
     countryCode: 840,
     date: "January 17, 1903",
     sector: "Utilities",
-    color: null,
+    color: "#ff4057",
   },
   {
     stockId: "57254577-ab79-4f75-9f1d-36b823e67d11",
@@ -1877,7 +1877,7 @@ export const companyList = [
     countryCode: 528,
     date: "1983",
     sector: "Financial Services",
-    color: null,
+    color: "#fff1c1",
   },
   {
     stockId: "d41ee231-5dc7-4f8c-9ff5-ecc230a06b54",
@@ -1889,7 +1889,7 @@ export const companyList = [
     countryCode: 840,
     date: "1915",
     sector: "Manufacturing",
-    color: null,
+    color: "#ff8a5c",
   },
   {
     stockId: "87f516db-78de-476c-8c0b-f87696346a2e",
@@ -1901,7 +1901,7 @@ export const companyList = [
     countryCode: 840,
     date: "December 30, 1968",
     sector: "Transport",
-    color: null,
+    color: "#dfddc7",
   },
   {
     stockId: "df2de5c4-957c-4906-8010-00430f7e3a35",
@@ -1913,7 +1913,7 @@ export const companyList = [
     countryCode: 840,
     date: "1889",
     sector: "Financial Services",
-    color: null,
+    color: "#ff8260",
   },
   {
     stockId: "9a08b257-0da3-4c2a-a431-7a30721167ad",
@@ -1925,7 +1925,7 @@ export const companyList = [
     countryCode: 392,
     date: "23 September 1889",
     sector: "Media",
-    color: null,
+    color: "#480032",
   },
   {
     stockId: "ea64f2bd-c7dc-403b-84b9-39be1ab55d3b",
@@ -1937,7 +1937,7 @@ export const companyList = [
     countryCode: 276,
     date: "10 March 1870",
     sector: "Financial Services",
-    color: null,
+    color: "#99235c",
   },
   {
     stockId: "956ca03f-c836-493c-9225-2bbb50ee978b",
@@ -1949,7 +1949,7 @@ export const companyList = [
     countryCode: 124,
     date: "1960",
     sector: "Communication",
-    color: null,
+    color: "#6d3580",
   },
   {
     stockId: "6ab0369d-20b7-433f-bada-7dd0219a8f12",
@@ -1961,7 +1961,7 @@ export const companyList = [
     countryCode: 372,
     date: "1871",
     sector: "Manufacturing",
-    color: null,
+    color: "#5e0606",
   },
   {
     stockId: "c02307fd-f6a0-479f-815c-2d12c0657f41",
@@ -1973,7 +1973,7 @@ export const companyList = [
     countryCode: 840,
     date: "1940",
     sector: "Manufacturing",
-    color: null,
+    color: "#df0054",
   },
   {
     stockId: "ff30ef67-3c6b-4fe7-9bef-5cf0a76b6ebf",
@@ -1985,7 +1985,7 @@ export const companyList = [
     countryCode: 840,
     date: "1905",
     sector: "Financial Services",
-    color: null,
+    color: "#df4d19",
   },
   {
     stockId: "3ab54b2f-e32b-4f36-a651-a2d4aaa730a7",
@@ -1997,7 +1997,7 @@ export const companyList = [
     countryCode: 124,
     date: "1990",
     sector: "Communication",
-    color: null,
+    color: "#cc4165",
   },
   {
     stockId: "49af3740-a4f1-430c-b510-bdfa4fcd9403",
@@ -2009,7 +2009,7 @@ export const companyList = [
     countryCode: 840,
     date: "1983",
     sector: "Real Estate",
-    color: null,
+    color: "#831212",
   },
   {
     stockId: "1c1fa62e-4304-4afc-b170-c796dd794aca",
@@ -2021,7 +2021,7 @@ export const companyList = [
     countryCode: 276,
     date: "2007",
     sector: "Manufacturing",
-    color: null,
+    color: "#ff8b6a",
   },
   {
     stockId: "aaf993e7-6aca-441c-a206-c62631b0e9ce",
@@ -2033,7 +2033,7 @@ export const companyList = [
     countryCode: 840,
     date: "1828",
     sector: "Financial Services",
-    color: null,
+    color: "#a43737",
   },
   {
     stockId: "3187a5e6-0aa3-4753-ad44-642968cfaa05",
@@ -2045,7 +2045,7 @@ export const companyList = [
     countryCode: 840,
     date: "1978",
     sector: "Construction",
-    color: null,
+    color: "#e4734f",
   },
   {
     stockId: "81ddcd97-dcc3-4623-b5d3-f67f3b150e56",
@@ -2057,7 +2057,7 @@ export const companyList = [
     countryCode: 826,
     date: "5 January 2016",
     sector: "Financial Services",
-    color: null,
+    color: "#970690",
   },
   {
     stockId: "85929c3e-d92b-4fbb-890a-56651187da2f",
@@ -2069,7 +2069,7 @@ export const companyList = [
     countryCode: 840,
     date: "1980",
     sector: "Utilities",
-    color: null,
+    color: "#ffd6c2",
   },
   {
     stockId: "82b2231b-5f3a-4bd8-b04f-0a45c177c0bb",
@@ -2081,7 +2081,7 @@ export const companyList = [
     countryCode: 840,
     date: "February 3, 1999",
     sector: "Technology",
-    color: null,
+    color: "#572121",
   },
   {
     stockId: "c955c9ff-a45c-4fbc-89c2-82b2780ebb54",
@@ -2093,7 +2093,7 @@ export const companyList = [
     countryCode: 840,
     date: "1985",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffe26f",
   },
   {
     stockId: "d36188b8-0325-47cf-8853-1a161166482e",
@@ -2105,7 +2105,7 @@ export const companyList = [
     countryCode: 840,
     date: "1966",
     sector: "Utilities",
-    color: null,
+    color: "#ffa400",
   },
   {
     stockId: "42bb1e85-5736-4a2f-b6bc-5e53c17e8d4f",
@@ -2117,7 +2117,7 @@ export const companyList = [
     countryCode: 840,
     date: "1917",
     sector: "Manufacturing",
-    color: null,
+    color: "#fff4e3",
   },
   {
     stockId: "e3ee22de-cc73-4a0b-820a-cc865e6a7b75",
@@ -2128,8 +2128,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1931",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#feffdb",
   },
   {
     stockId: "35d3ae77-af0b-45b1-835b-eb0e37a34db9",
@@ -2141,7 +2141,7 @@ export const companyList = [
     countryCode: 276,
     date: "1992",
     sector: "Financial Services",
-    color: null,
+    color: "#900c3f",
   },
   {
     stockId: "f4007ce4-140f-4288-92d9-d7ba1fca4b3b",
@@ -2153,7 +2153,7 @@ export const companyList = [
     countryCode: 840,
     date: "1896",
     sector: "Utilities",
-    color: null,
+    color: "#d34848",
   },
   {
     stockId: "f16d39d8-4c9d-4d0f-82e3-3e4de8a52500",
@@ -2165,7 +2165,7 @@ export const companyList = [
     countryCode: 840,
     date: "1986",
     sector: "Retail",
-    color: null,
+    color: "#ffcdab",
   },
   {
     stockId: "aaaefa00-f6ac-4d7a-a8cc-b1df23892a46",
@@ -2177,7 +2177,7 @@ export const companyList = [
     countryCode: 840,
     date: "1986",
     sector: "Hospitality",
-    color: null,
+    color: "#ffc60b",
   },
   {
     stockId: "f45cd4b5-c7e8-4464-9d2c-07d2c57f6586",
@@ -2189,7 +2189,7 @@ export const companyList = [
     countryCode: 840,
     date: "1898",
     sector: "Manufacturing",
-    color: null,
+    color: "#c70039",
   },
   {
     stockId: "abda5bb2-0ac5-415a-ac3a-a66dc45c499b",
@@ -2201,7 +2201,7 @@ export const companyList = [
     countryCode: 840,
     date: "1883",
     sector: "Manufacturing",
-    color: null,
+    color: "#ff8162",
   },
   {
     stockId: "2ec74df0-0f44-46c9-84a2-142907cb2085",
@@ -2213,7 +2213,7 @@ export const companyList = [
     countryCode: 840,
     date: "1994",
     sector: "Communications",
-    color: null,
+    color: "#ffa45c",
   },
   {
     stockId: "a10adfee-886a-44d7-944b-02cbe47dc722",
@@ -2225,7 +2225,7 @@ export const companyList = [
     countryCode: 840,
     date: "July 2, 1998",
     sector: "Utilities",
-    color: null,
+    color: "#ff8b00",
   },
   {
     stockId: "c2897e2e-b9de-4571-91c6-ed91e3d4aed4",
@@ -2237,7 +2237,7 @@ export const companyList = [
     countryCode: 826,
     date: "21 January 2011",
     sector: "Transportation",
-    color: null,
+    color: "#ff5733",
   },
   {
     stockId: "59176d74-cf60-41fb-b158-06cab8514295",
@@ -2249,7 +2249,7 @@ export const companyList = [
     countryCode: 246,
     date: "12 May 1865",
     sector: "Technology",
-    color: null,
+    color: "#ffcd60",
   },
   {
     stockId: "3e52dc78-b468-4172-a629-e05b2ce00532",
@@ -2261,7 +2261,7 @@ export const companyList = [
     countryCode: 840,
     date: "1986",
     sector: "Media",
-    color: null,
+    color: "#5d5d5a",
   },
   {
     stockId: "da3fa808-6991-4f0d-80b0-cd0549d89e4c",
@@ -2273,7 +2273,7 @@ export const companyList = [
     countryCode: 528,
     date: "1926",
     sector: "Raw Materials",
-    color: null,
+    color: "#444444",
   },
   {
     stockId: "63be62c4-82f2-4379-b6a8-992ab0694904",
@@ -2285,7 +2285,7 @@ export const companyList = [
     countryCode: 840,
     date: "1843",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffc300",
   },
   {
     stockId: "c2b0ddfe-5150-4977-afc2-8f8a90f8e8f1",
@@ -2297,7 +2297,7 @@ export const companyList = [
     countryCode: 840,
     date: "February 19, 1906",
     sector: "Food Production",
-    color: null,
+    color: "#fffa67",
   },
   {
     stockId: "9f1356c9-c409-4273-a975-4a708d05639b",
@@ -2309,7 +2309,7 @@ export const companyList = [
     countryCode: 840,
     date: "1968",
     sector: "Financial Services",
-    color: null,
+    color: "#cd4545",
   },
   {
     stockId: "bd89eca5-814d-4730-8294-001726fb69dc",
@@ -2320,8 +2320,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1988",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#fe9191",
   },
   {
     stockId: "c7095110-aaf1-4cb2-a3ed-f96cfb3f3b1e",
@@ -2333,7 +2333,7 @@ export const companyList = [
     countryCode: 840,
     date: "1997",
     sector: "Hospitality",
-    color: null,
+    color: "#6e3b3b",
   },
   {
     stockId: "01a6056b-b023-4879-b76c-e9ff6d6d7ba5",
@@ -2345,7 +2345,7 @@ export const companyList = [
     countryCode: 392,
     date: "1918",
     sector: "Financial Services",
-    color: null,
+    color: "#e6dedd",
   },
   {
     stockId: "ee9cef4b-ffb5-4600-a41b-bc27f92164bf",
@@ -2357,7 +2357,7 @@ export const companyList = [
     countryCode: 840,
     date: "November 7, 1997",
     sector: "Utilities",
-    color: null,
+    color: "#f16821",
   },
   {
     stockId: "15b3d128-b5d1-40ae-9839-db3f73a2b594",
@@ -2368,8 +2368,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1927",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#e4406f",
   },
   {
     stockId: "2dbb1bc6-cd95-4d3b-8472-cb9701cdc7cc",
@@ -2381,7 +2381,7 @@ export const companyList = [
     countryCode: 840,
     date: "July 10, 2008",
     sector: "Media",
-    color: null,
+    color: "#ac3f21",
   },
   {
     stockId: "859353e7-b664-4a16-ad39-508572256b8f",
@@ -2393,7 +2393,7 @@ export const companyList = [
     countryCode: 840,
     date: "September 1993",
     sector: "Retail",
-    color: null,
+    color: "#8f1d14",
   },
   {
     stockId: "79a66490-4db9-4f7b-af11-37a3dc4b64da",
@@ -2405,7 +2405,7 @@ export const companyList = [
     countryCode: 840,
     date: "1993",
     sector: "Real Estate",
-    color: null,
+    color: "#ea5f2d",
   },
   {
     stockId: "05703e53-b604-4f4b-95fd-9393d219aff2",
@@ -2417,7 +2417,7 @@ export const companyList = [
     countryCode: 840,
     date: "June 1920",
     sector: "Raw Materials",
-    color: null,
+    color: "#521168",
   },
   {
     stockId: "dbec64c4-8a05-4587-b698-b2e36c7444d0",
@@ -2429,7 +2429,7 @@ export const companyList = [
     countryCode: 250,
     date: "1992",
     sector: "Construction",
-    color: null,
+    color: "#851e52",
   },
   {
     stockId: "14423a0c-1cfe-4e58-94b0-d125f46bf55f",
@@ -2441,7 +2441,7 @@ export const companyList = [
     countryCode: 276,
     date: "June 2007",
     sector: "Manufacturing",
-    color: null,
+    color: "#ca431d",
   },
   {
     stockId: "ed32ea48-270c-49ef-a4f4-711deeb779cc",
@@ -2453,7 +2453,7 @@ export const companyList = [
     countryCode: 276,
     date: "1874",
     sector: "Manufacturing",
-    color: null,
+    color: "#f34949",
   },
   {
     stockId: "723249ba-91eb-4b6f-8cbb-c41d0ffb9fc9",
@@ -2465,7 +2465,7 @@ export const companyList = [
     countryCode: 840,
     date: "July 4, 1979",
     sector: "Retail",
-    color: null,
+    color: "#fec8d8",
   },
   {
     stockId: "b1869349-6c4e-4aa3-9ee2-19a0dec5946b",
@@ -2477,7 +2477,7 @@ export const companyList = [
     countryCode: 156,
     date: "1 November 1984",
     sector: "Technology",
-    color: null,
+    color: "#d3560e",
   },
   {
     stockId: "132fe16e-808b-4cf9-a67c-fbc6530811d1",
@@ -2489,7 +2489,7 @@ export const companyList = [
     countryCode: 372,
     date: "1885",
     sector: "Manufacturing",
-    color: null,
+    color: "#ff9900",
   },
   {
     stockId: "98bf6b17-1ddb-49ef-a4a9-875b50104b8c",
@@ -2501,7 +2501,7 @@ export const companyList = [
     countryCode: 840,
     date: "1985",
     sector: "Financial Services",
-    color: null,
+    color: "#ffd96a",
   },
   {
     stockId: "306a71d7-3087-47db-9e1b-4f69c39e54c4",
@@ -2513,7 +2513,7 @@ export const companyList = [
     countryCode: 840,
     date: "2015",
     sector: "Manufacturing",
-    color: null,
+    color: "#ffdfd3",
   },
   {
     stockId: "dc14b4c4-e82f-4381-8579-5120cdcbf781",
@@ -2525,7 +2525,7 @@ export const companyList = [
     countryCode: 578,
     date: "1855",
     sector: "Communication",
-    color: null,
+    color: "#ff8000",
   },
   {
     stockId: "299f63ae-d4f8-4ec3-874a-f90dcf8d9b78",
@@ -2537,7 +2537,7 @@ export const companyList = [
     countryCode: 392,
     date: "November 11, 1963",
     sector: "Manufacturing",
-    color: null,
+    color: "#ef5a5a",
   },
   {
     stockId: "3af23da6-4c10-4ac6-b0c3-618d5d1390f7",
@@ -2549,7 +2549,7 @@ export const companyList = [
     countryCode: 840,
     date: "1940",
     sector: "Raw Materials",
-    color: null,
+    color: "#60424c",
   },
   {
     stockId: "704ef53c-331e-4eee-ad25-5ed21ff4817e",
@@ -2561,7 +2561,7 @@ export const companyList = [
     countryCode: 752,
     date: "1876",
     sector: "Technology",
-    color: null,
+    color: "#7c064d",
   },
   {
     stockId: "1f437c05-8cda-476b-9efa-842306671d86",
@@ -2573,7 +2573,7 @@ export const companyList = [
     countryCode: 156,
     date: "January 1, 2000",
     sector: "Technology",
-    color: null,
+    color: "#fbd5af",
   },
   {
     stockId: "c1b53114-f1d1-4678-88df-54d1937f4e05",
@@ -2585,7 +2585,7 @@ export const companyList = [
     countryCode: 840,
     date: "March 2009",
     sector: "Transportation",
-    color: null,
+    color: "#ffa952",
   },
   {
     stockId: "66c5c3bf-c437-4d8b-8402-a20d745a6755",
@@ -2597,7 +2597,7 @@ export const companyList = [
     countryCode: 76,
     date: "1962",
     sector: "Utilities",
-    color: null,
+    color: "#984a59",
   },
   {
     stockId: "cf383c8c-6a3b-4197-b994-77582c6e7990",
@@ -2609,7 +2609,7 @@ export const companyList = [
     countryCode: 840,
     date: "1965",
     sector: "Technology",
-    color: null,
+    color: "#f12d2d",
   },
   {
     stockId: "0c3eb079-63a3-4aa9-a42c-5ae743a49e5e",
@@ -2621,7 +2621,7 @@ export const companyList = [
     countryCode: 250,
     date: "1837",
     sector: "Manufacturing",
-    color: null,
+    color: "#e76838",
   },
   {
     stockId: "e5146e60-2056-4a0e-a96c-6d90da5c3a0c",
@@ -2633,7 +2633,7 @@ export const companyList = [
     countryCode: 208,
     date: "1847",
     sector: "Food Production",
-    color: null,
+    color: "#ffe79a",
   },
   {
     stockId: "874a5fcf-aef7-4981-b324-edbf6b0da4f2",
@@ -2645,7 +2645,7 @@ export const companyList = [
     countryCode: 124,
     date: "April 17, 2008",
     sector: "Media",
-    color: null,
+    color: "#ff5959",
   },
   {
     stockId: "20d0868e-738d-4f65-828c-1c51dd03c5a0",
@@ -2657,7 +2657,7 @@ export const companyList = [
     countryCode: 840,
     date: "October 1899",
     sector: "Manufacturing",
-    color: null,
+    color: "#f79f24",
   },
   {
     stockId: "a6185373-57de-4597-81ee-454aa9bf2fa4",
@@ -2669,7 +2669,7 @@ export const companyList = [
     countryCode: 840,
     date: "1919",
     sector: "Food Production",
-    color: null,
+    color: "#db2d43",
   },
   {
     stockId: "9e2a66af-94ed-49f5-b903-568d5a60f0c5",
@@ -2681,7 +2681,7 @@ export const companyList = [
     countryCode: 840,
     date: "1930",
     sector: "Communication",
-    color: null,
+    color: "#feffdf",
   },
   {
     stockId: "e9dcc495-d60d-4697-976d-f0651c1871e0",
@@ -2693,7 +2693,7 @@ export const companyList = [
     countryCode: 840,
     date: "December 2, 1957",
     sector: "Manufacturing",
-    color: null,
+    color: "#ff8f56",
   },
   {
     stockId: "aeb9440a-1635-4d4c-8420-d0da9fe98c6f",
@@ -2705,7 +2705,7 @@ export const companyList = [
     countryCode: 840,
     date: "1882",
     sector: "Utilities",
-    color: null,
+    color: "#ffeed0",
   },
   {
     stockId: "044bd392-eed3-44ee-9f39-2ce30fa6634a",
@@ -2717,7 +2717,7 @@ export const companyList = [
     countryCode: 840,
     date: "2019",
     sector: "Agriculture",
-    color: null,
+    color: "#a8026f",
   },
   {
     stockId: "c2ccc1fc-c6ab-47dc-8710-48f0ba1aee32",
@@ -2729,7 +2729,7 @@ export const companyList = [
     countryCode: 208,
     date: "1945",
     sector: "Manufacturing",
-    color: null,
+    color: "#fefcdb",
   },
   {
     stockId: "a969b848-1dd7-47a7-9fec-fc086fce4e96",
@@ -2741,7 +2741,7 @@ export const companyList = [
     countryCode: 840,
     date: "Late 1800s",
     sector: "Manufacturing",
-    color: null,
+    color: "#1a3263",
   },
   {
     stockId: "5d48cf4c-3360-46a1-a230-358e1a2d7998",
@@ -2753,7 +2753,7 @@ export const companyList = [
     countryCode: 840,
     date: "20 September 1853",
     sector: "Manufacturing",
-    color: null,
+    color: "#8f1537",
   },
   {
     stockId: "df548b42-e45a-42a5-9d9c-2505cfdaacaa",
@@ -2765,7 +2765,7 @@ export const companyList = [
     countryCode: 840,
     date: "1983",
     sector: "Technology",
-    color: null,
+    color: "#f2f1e7",
   },
   {
     stockId: "1c1f46c6-0e57-4e97-b812-1487ce17dea3",
@@ -2777,7 +2777,7 @@ export const companyList = [
     countryCode: 246,
     date: "1910",
     sector: "Manufacturing",
-    color: null,
+    color: "#f2f1e7",
   },
   {
     stockId: "2aa7c492-3728-4892-9761-3f3e84eded58",
@@ -2789,7 +2789,7 @@ export const companyList = [
     countryCode: 840,
     date: "1999",
     sector: "Financial Services",
-    color: null,
+    color: "#fff0bc",
   },
   {
     stockId: "55e49384-b399-44b4-8af3-671f691cfc65",
@@ -2801,7 +2801,7 @@ export const companyList = [
     countryCode: 250,
     date: "1926",
     sector: "Advertising",
-    color: null,
+    color: "#f5564e",
   },
   {
     stockId: "f5cc7de7-ffbb-42b0-850f-5343254c2cc2",
@@ -2813,7 +2813,7 @@ export const companyList = [
     countryCode: 840,
     date: "1996",
     sector: "Raw Materials",
-    color: null,
+    color: "#c7004c",
   },
   {
     stockId: "1efb60ee-8b9f-4cbb-a15a-84a9451aae1f",
@@ -2825,7 +2825,7 @@ export const companyList = [
     countryCode: 156,
     date: "1986",
     sector: "Raw Materials",
-    color: null,
+    color: "#f7931e",
   },
   {
     stockId: "bcfcfee6-9331-4397-a135-58f97c39b2b9",
@@ -2837,7 +2837,7 @@ export const companyList = [
     countryCode: 156,
     date: "1985",
     sector: "Technology",
-    color: null,
+    color: "#fab95b",
   },
   {
     stockId: "18d6f13c-cb25-460b-8795-33fcd16ab66a",
@@ -2849,7 +2849,7 @@ export const companyList = [
     countryCode: 840,
     date: "1991",
     sector: "Financial Services",
-    color: null,
+    color: "#e37070",
   },
   {
     stockId: "e3d00716-cafe-4ee3-97ae-9a6c4f69892e",
@@ -2861,7 +2861,7 @@ export const companyList = [
     countryCode: 392,
     date: "December 7, 1935",
     sector: "Manufacturing",
-    color: null,
+    color: "#f05a28",
   },
   {
     stockId: "29cdef59-f2d7-4954-95f5-3155b67afa14",
@@ -2873,7 +2873,7 @@ export const companyList = [
     countryCode: 840,
     date: "1997",
     sector: "Raw Materials",
-    color: null,
+    color: "#e8e2db",
   },
   {
     stockId: "7b0c9a8e-dbb9-4a95-837c-3041e7365627",
@@ -2885,7 +2885,7 @@ export const companyList = [
     countryCode: 840,
     date: "May 31, 1919",
     sector: "Hospitality",
-    color: null,
+    color: "#ffaaaa",
   },
   {
     stockId: "829068a9-8161-4690-bee3-9285823c6241",
@@ -2896,8 +2896,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1992",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#5c4d4d",
   },
   {
     stockId: "6f6691dc-8a3b-4084-a12b-965a235e9d62",
@@ -2909,7 +2909,7 @@ export const companyList = [
     countryCode: 250,
     date: "25 February 1899",
     sector: "Manufacturing",
-    color: null,
+    color: "#f89d13",
   },
   {
     stockId: "b7be7b19-f8c3-404a-8b84-f2e006af0047",
@@ -2921,7 +2921,7 @@ export const companyList = [
     countryCode: 840,
     date: "1880",
     sector: "Manufacturing",
-    color: null,
+    color: "#f3cf7a",
   },
   {
     stockId: "82c69d00-4127-4a9b-97ca-8bb411898058",
@@ -2933,7 +2933,7 @@ export const companyList = [
     countryCode: 124,
     date: "December 15, 2014",
     sector: "Food Services",
-    color: null,
+    color: "#9c297f",
   },
   {
     stockId: "62d56b13-1029-4225-88da-0336d43a47fd",
@@ -2945,7 +2945,7 @@ export const companyList = [
     countryCode: 840,
     date: "1997",
     sector: "Utilities",
-    color: null,
+    color: "#fffe9a",
   },
   {
     stockId: "540e6f37-8d27-48e5-b920-3a0c7aa6451b",
@@ -2956,8 +2956,8 @@ export const companyList = [
     country: "United States of America",
     countryCode: 840,
     date: "1952",
-    sector: "Medicine",
-    color: null,
+    sector: "Medical",
+    color: "#1b120f",
   },
   {
     stockId: "42502af2-2100-4112-aa33-87b1c2687ab4",
@@ -2969,7 +2969,7 @@ export const companyList = [
     countryCode: 840,
     date: "1906",
     sector: "Raw Materials",
-    color: null,
+    color: "#be6a15",
   },
   {
     stockId: "23bb92b6-db9d-4959-b912-5889c2d186d4",
@@ -2981,7 +2981,7 @@ export const companyList = [
     countryCode: 372,
     date: "28 November 1984",
     sector: "Transportation",
-    color: null,
+    color: "#ca2374",
   },
   {
     stockId: "eec2260f-10c0-4dd4-bdce-36d0edc17a22",
@@ -2993,7 +2993,7 @@ export const companyList = [
     countryCode: 392,
     date: "July 1875",
     sector: "Manufacturing",
-    color: null,
+    color: "#f3a333",
   },
 ];
 

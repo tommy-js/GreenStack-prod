@@ -18,7 +18,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     { title: "Construction", value: 0, url: "/explore/construction" },
     { title: "Technology", value: 0, url: "/explore/technology" },
     { title: "Retail", value: 0, url: "/explore/retail" },
-    { title: "Medicine", value: 0, url: "/explore/medicine" },
+    { title: "Medical", value: 0, url: "/explore/Medical" },
     {
       title: "Financial Services",
       value: 0,
@@ -62,7 +62,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
         case "Retail":
           j = 6;
           break;
-        case "Medicine":
+        case "Medical":
           j = 7;
           break;
         case "Financial Services":

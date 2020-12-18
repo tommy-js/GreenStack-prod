@@ -23,4 +23,5 @@
   font-family: $standard_font;
   color: $text_black;
   opacity: 0.75;
+  @include noselect;
 }

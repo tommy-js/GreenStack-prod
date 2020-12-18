@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MedicinePage } from "../../../components/companies/industries/MedicinePage/MedicinePage";
+import { MedicalPage } from "../../../components/companies/industries/MedicalPage/MedicalPage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
@@ -8,7 +8,7 @@ interface Redux {
   status: boolean;
 }
 
-const Medicine: React.FC<Redux> = (props) => {
+const Medical: React.FC<Redux> = (props) => {
   const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const Medicine: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <MedicinePage />;
+    } else return <MedicalPage />;
   }
 
   return checkReturn();
 };
 
-export default connect(mapStateToProps)(Medicine);
+export default connect(mapStateToProps)(Medical);

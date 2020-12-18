@@ -1,7 +1,10 @@
 @import "../../globals/variables.scss";
 
 .portfolio_analysis_stats {
-  @include testing;
+  border: 1px solid $text_black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 40px;
 }
 
 .left_container,
@@ -10,7 +13,6 @@
   width: 50%;
   box-sizing: border-box;
   vertical-align: top;
-  @include testing;
 }
 
 .header {

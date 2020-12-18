@@ -1,6 +1,6 @@
 import React from "react";
 import { Assets } from "../Assets/Assets";
-import { WatchStocks } from "../WatchStocks/WatchStocks";
+import { Watchlist } from "../Watchlist/Watchlist";
 import { MainPortfolioHeader } from "../MainPortfolioHeader/MainPortfolioHeader";
 import { PortfolioHeader } from "../PortfolioHeader/PortfolioHeader";
 import { OwnedStocks } from "../OwnedStocks/OwnedStocks";
@@ -34,7 +34,7 @@ const DefaultPortfolioRedux: React.FC<Redux> = (props) => {
       <PortfolioHeader text="Your Stocks" />
       {returnOwned()}
       <PortfolioHeader text="Watchlist" />
-      <WatchStocks />
+      <Watchlist />
       {returnAnalysis()}
     </div>
   );
