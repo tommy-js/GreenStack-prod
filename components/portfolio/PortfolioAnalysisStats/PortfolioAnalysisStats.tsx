@@ -11,7 +11,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
   const [diversificationScore, setDiversificationScore] = useState(0);
   const [industryCount, setIndustryCount] = useState(0);
   const [industries, setIndustries] = useState([
-    { title: "Raw Materials", value: 0 },
+    { title: "Raw Materials", value: 0, link: "/explore/rawMaterials" },
     { title: "Agriculture", value: 0 },
     { title: "Manufacturing", value: 0 },
     { title: "Utilities", value: 0 },
@@ -121,7 +121,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
         <div className={styles.null_industries}>
           <p>You do not hold any shares in the following industries:</p>
           {nullIndustries.map((el: any) => (
-            <Link href="/">
+            <Link href="/explore/rawMaterials">
               <HrefLink el={el} />
             </Link>
           ))}

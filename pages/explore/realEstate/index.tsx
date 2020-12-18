@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RealEstate } from "../../../components/companies/RealEstate/RealEstate";
+import { RealEstatePage } from "../../../components/companies/RealEstatePage/RealEstatePage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
