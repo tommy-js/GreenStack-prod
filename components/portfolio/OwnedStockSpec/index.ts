@@ -15,8 +15,9 @@ type StockItem = {
   stockId: string;
   title: string;
   shares: number;
-  sector: string;
+  color: string;
   ticker: string;
+  sector: string;
 };
 
 export function validateStocks(
@@ -24,7 +25,8 @@ export function validateStocks(
   parsedInputVal: number,
   stockId: string,
   title: string,
-  ticker: string
+  ticker: string,
+  sector: string
 ) {
   let stocksArr: StockItem[] = [...stocks];
   let stock: StockItem = {
@@ -33,6 +35,7 @@ export function validateStocks(
     ticker: ticker,
     shares: parsedInputVal,
     color: "",
+    sector: sector,
   };
   stocksArr.push(stock);
   return stocksArr;

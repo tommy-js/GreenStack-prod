@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import { mapStateToProps } from "../../actions/actions";
 import { connect } from "react-redux";
@@ -17,8 +17,16 @@ interface Redux {
 }
 
 const AssetChartRender: React.FC<Redux> = (props) => {
-  const info = props.industries.map((el: any) => el.value);
-  const infoTitles = props.industries.map((el: any) => el.title);
+  const [info, setInfo] = useState([] as any);
+  const [infoTitles, setInfoTitles] = useState([] as any);
+  useEffect(() => {
+    const information = props.industries.map((el: any) => el.value);
+    const informationTitles = props.industries.map((el: any) => el.title);
+
+    setInfo(information);
+    setInfoTitles(informationTitles);
+  }, [props.industries]);
+
   const colors = [
     "#ff4646",
     "#fc8621",

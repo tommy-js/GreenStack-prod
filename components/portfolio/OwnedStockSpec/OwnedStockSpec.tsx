@@ -48,7 +48,8 @@ const OwnedStockSpecRender: React.FC<Props> = (props) => {
       parsedInputVal,
       props.stockId,
       props.title,
-      props.ticker
+      props.ticker,
+      props.sector
     );
 
     props

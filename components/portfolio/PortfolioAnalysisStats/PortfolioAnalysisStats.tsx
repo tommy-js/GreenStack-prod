@@ -97,7 +97,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     }
     setIndustries(industriesObject);
     setIndustryCount(countIndustries(industriesObject));
-  }, []);
+  }, [props.stocks]);
 
   function countIndustries(array: any) {
     let u = 0;
