@@ -121,7 +121,9 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
         <div className={styles.null_industries}>
           <p>You do not hold any shares in the following industries:</p>
           {nullIndustries.map((el: any) => (
-            <span className={styles.null_element}> {el},</span>
+            <Link href="/">
+              <HrefLink el={el} />
+            </Link>
           ))}
         </div>
       );
@@ -150,3 +152,12 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+const HrefLink = React.forwardRef(({ onClick, href, el }, ref) => {
+  return (
+    <a href={href} onClick={onClick} ref={ref}>
+      <span className={styles.link}> {el}</span>
+      <span>,</span>
+    </a>
+  );
+});

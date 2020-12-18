@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ExplorePage } from "../../../components/Homepage/explore/ExplorePage/ExplorePage";
+import { TechnologyPage } from "../../../components/companies/TechnologyPage/TechnologyPage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
@@ -8,7 +8,7 @@ interface Redux {
   status: boolean;
 }
 
-const Explore: React.FC<Redux> = (props) => {
+const Technology: React.FC<Redux> = (props) => {
   const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const Explore: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <ExplorePage />;
+    } else return <TechnologyPage />;
   }
 
   return checkReturn();
 };
 
-export default connect(mapStateToProps)(Explore);
+export default connect(mapStateToProps)(Technology);
