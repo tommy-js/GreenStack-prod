@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { CommunicationBody } from "../CommunicationBody/CommunicationBody";
+import { ManufacturingBody } from "../ManufacturingBody/ManufacturingBody";
 import { FeedSidebar } from "../../../Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
 import styles from "./styles.module.scss";
 
-export const CommunicationPage: React.FC = () => {
+export const ManufacturingPage: React.FC = () => {
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -25,7 +25,7 @@ export const CommunicationPage: React.FC = () => {
       <div className={styles.homepage}>
         {renderShowPostOptions()}
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <CommunicationBody />
+        <ManufacturingBody />
       </div>
     </div>
   );

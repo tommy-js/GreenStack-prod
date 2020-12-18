@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ManufacturingPage } from "../../../components/companies/ManufacturingPage/ManufacturingPage";
+import { ManufacturingPage } from "../../../components/companies/industries/ManufacturingPage/ManufacturingPage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";

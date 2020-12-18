@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UtilitiesPage } from "../../../components/companies/UtilitiesPage/UtilitiesPage";
+import { UtilitiesPage } from "../../../components/companies/industries/UtilitiesPage/UtilitiesPage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";

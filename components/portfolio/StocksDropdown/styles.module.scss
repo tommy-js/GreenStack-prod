@@ -1,6 +1,26 @@
 @import "../../globals/variables.scss";
 
 .watchlist_stocks_dropdown {
-  height: 200px;
-  @include testing;
+  height: 175px;
+}
+
+.image_block {
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image_text {
+  text-align: center;
+  font-family: $standard_font;
+  color: $text_black;
+  opacity: 0.75;
 }

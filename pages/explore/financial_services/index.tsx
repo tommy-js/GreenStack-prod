@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RawMaterialsPage } from "../../../components/companies/RawMaterialsPage/RawMaterialsPage";
+import { FinancialServicesPage } from "../../../components/companies/industries/FinancialServicesPage/FinancialServicesPage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
@@ -8,7 +8,7 @@ interface Redux {
   status: boolean;
 }
 
-const RawMaterials: React.FC<Redux> = (props) => {
+const FinancialServices: React.FC<Redux> = (props) => {
   const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const RawMaterials: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <RawMaterialsPage />;
+    } else return <FinancialServicesPage />;
   }
 
   return checkReturn();
 };
 
-export default connect(mapStateToProps)(RawMaterials);
+export default connect(mapStateToProps)(FinancialServices);

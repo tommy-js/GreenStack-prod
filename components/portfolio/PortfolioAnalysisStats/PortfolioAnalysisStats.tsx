@@ -11,23 +11,27 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
   const [diversificationScore, setDiversificationScore] = useState(0);
   const [industryCount, setIndustryCount] = useState(0);
   const [industries, setIndustries] = useState([
-    { title: "Raw Materials", value: 0, link: "/explore/rawMaterials" },
-    { title: "Agriculture", value: 0 },
-    { title: "Manufacturing", value: 0 },
-    { title: "Utilities", value: 0 },
-    { title: "Construction", value: 0 },
-    { title: "Technology", value: 0 },
-    { title: "Retail", value: 0 },
-    { title: "Medicine", value: 0 },
-    { title: "Financial Services", value: 0 },
-    { title: "Communication", value: 0 },
-    { title: "Transportation", value: 0 },
-    { title: "Hospitality", value: 0 },
-    { title: "Advertizing", value: 0 },
-    { title: "Media", value: 0 },
-    { title: "Food Production", value: 0 },
-    { title: "Food Services", value: 0 },
-    { title: "Real Estate", value: 0 },
+    { title: "Raw Materials", value: 0, url: "/explore/raw_materials" },
+    { title: "Agriculture", value: 0, url: "/explore/agriculture" },
+    { title: "Manufacturing", value: 0, url: "/explore/manufacturing" },
+    { title: "Utilities", value: 0, url: "/explore/utilities" },
+    { title: "Construction", value: 0, url: "/explore/construction" },
+    { title: "Technology", value: 0, url: "/explore/technology" },
+    { title: "Retail", value: 0, url: "/explore/retail" },
+    { title: "Medicine", value: 0, url: "/explore/medicine" },
+    {
+      title: "Financial Services",
+      value: 0,
+      url: "/explore/financial_services",
+    },
+    { title: "Communication", value: 0, url: "/explore/communication" },
+    { title: "Transportation", value: 0, url: "/explore/transportation" },
+    { title: "Hospitality", value: 0, url: "/explore/hospitality" },
+    { title: "Advertizing", value: 0, url: "/explore/advertizing" },
+    { title: "Media", value: 0, url: "/explore/media" },
+    { title: "Food Production", value: 0, url: "/explore/food_production" },
+    { title: "Food Services", value: 0, url: "/explore/food_services" },
+    { title: "Real Estate", value: 0, url: "/explore/real_estate" },
   ]);
 
   useEffect(() => {
@@ -114,14 +118,18 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     if (industryCount != 17) {
       for (let i = 0; i < 17; i++) {
         if (industries[i].value === 0) {
-          nullIndustries.push(industries[i].title);
+          let obj = {
+            title: industries[i].title,
+            url: industries[i].url,
+          };
+          nullIndustries.push(obj);
         }
       }
       return (
         <div className={styles.null_industries}>
           <p>You do not hold any shares in the following industries:</p>
           {nullIndustries.map((el: any) => (
-            <Link href="/explore/rawMaterials">
+            <Link href={el.url}>
               <HrefLink el={el} />
             </Link>
           ))}
@@ -156,7 +164,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
 const HrefLink = React.forwardRef(({ onClick, href, el }, ref) => {
   return (
     <a href={href} onClick={onClick} ref={ref}>
-      <span className={styles.link}> {el}</span>
+      <span className={styles.link}> {el.title}</span>
       <span>,</span>
     </a>
   );

@@ -1,5 +1,9 @@
 @import "../../globals/variables.scss";
 
+.portfolio_analysis {
+  border-top: 1px solid $text_black;
+}
+
 .header {
   font-family: $standard_font;
   color: $honey_yellow;

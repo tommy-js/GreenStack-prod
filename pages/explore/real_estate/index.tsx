@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FoodServicesPage } from "../../../components/companies/FoodServicesPage/FoodServicesPage";
+import { RealEstatePage } from "../../../components/companies/industries/RealEstatePage/RealEstatePage";
 import UserLoginAuthSubresolver from "../../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../components/actions/actions";
@@ -8,7 +8,7 @@ interface Redux {
   status: boolean;
 }
 
-const FoodServices: React.FC<Redux> = (props) => {
+const RealEstate: React.FC<Redux> = (props) => {
   const [loadingInUser, setLoadingInUser] = useState(true);
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const FoodServices: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <FoodServicesPage />;
+    } else return <RealEstatePage />;
   }
 
   return checkReturn();
 };
 
-export default connect(mapStateToProps)(FoodServices);
+export default connect(mapStateToProps)(RealEstate);
