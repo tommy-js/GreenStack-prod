@@ -154,6 +154,7 @@ export const TickerList: React.FC<Props> = (props) => {
           key={el.stockId}
           ticker={el.ticker}
           title={el.title}
+          sector={el.sector}
           img={el.img}
           filledImg={el.filledImg}
           stockId={el.stockId}

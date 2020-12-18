@@ -46,7 +46,7 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
   useEffect(() => {
     setIndustries(industriesObj);
     setIndustryCount(0);
-    let industriesObject = [...industries];
+    let industriesObject = [...industriesObj];
     for (let i = 0; i < props.watchlist.length; i++) {
       let j = 0;
       let stockObj = props.watchlist[i];
@@ -103,10 +103,10 @@ const WatchStocksRender: React.FC<Redux> = (props) => {
           j = 16;
           break;
       }
-      industriesObject[j].value += 1;
+      industriesObj[j].value += 1;
     }
-    setIndustries(industriesObject);
-    setIndustryCount(countIndustries(industriesObject));
+    setIndustries(industriesObj);
+    setIndustryCount(countIndustries(industriesObj));
   }, [props.watchlist]);
 
   function countIndustries(array: any) {
