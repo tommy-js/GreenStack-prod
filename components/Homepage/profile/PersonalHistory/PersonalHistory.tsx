@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import { HistoryElement } from "../HistoryElement/HistoryElement";
-import { connect } from "react-redux";
-import { mapStateToProps } from "../../../actions/actions";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../../../actions/actions";
 import styles from "./styles.module.scss";
 
-const PersonalHistoryRender: React.FC = () => {
-  const [postRendered, setPostRendered] = useState(false);
-  const [postInfo, setPostInfo] = useState();
+interface Redux {
+  userHistory: any;
+}
 
-  function modPostLoad(postId: string) {
-    const feed = document.getElementById("feed")!;
-    if (postRendered === true) {
-      setPostRendered(false);
-      enableBodyScroll(feed);
-    } else {
-      setPostRendered(true);
-      disableBodyScroll(feed);
-    }
-  }
-
-  return <h2 className={styles.header}>History</h2>;
+const PersonalHistoryRender: React.FC<Redux> = (props) => {
+  return (
+    <div>
+      <h2 className={styles.header}>History</h2>
+      {props.userHistory.map((el: any) => (
+        <HistoryElement
+          text={el.text}
+          timestamp={el.timestamp}
+          postId={el.postId}
+          typename={el.__typename}
+        />
+      ))}
+    </div>
+  );
 };
 
 export const PersonalHistory = connect(mapStateToProps)(PersonalHistoryRender);

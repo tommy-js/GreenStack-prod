@@ -39,6 +39,19 @@ export const SearchByCategory: React.FC<Props> = (props) => {
             <option>Transportation</option>
             <option>Manufacturing</option>
             <option>Technology</option>
+            <option>Agriculture</option>
+            <option>Utilities</option>
+            <option>Construction</option>
+            <option>Retail</option>
+            <option>Medical</option>
+            <option>Financial Services</option>
+            <option>Communication</option>
+            <option>Hospitality</option>
+            <option>Advertising</option>
+            <option>Media</option>
+            <option>Food Production</option>
+            <option>Food Services</option>
+            <option>Real Estate</option>
           </select>
         </div>
       </div>

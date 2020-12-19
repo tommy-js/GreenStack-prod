@@ -721,6 +721,20 @@ const otherUserQuery = gql`
           profileImage
         }
       }
+      dislikes {
+        userId
+        username
+        profileImage
+        dislikeId
+        timestamp
+        text
+        reference {
+          postId
+          text
+          username
+          profileImage
+        }
+      }
       watchlist {
         stockId
         title
@@ -808,6 +822,20 @@ const nonTokenModifyUserQuery = gql`
         username
         profileImage
         likeId
+        timestamp
+        text
+        reference {
+          postId
+          text
+          username
+          profileImage
+        }
+      }
+      dislikes {
+        userId
+        username
+        profileImage
+        dislikeId
         timestamp
         text
         reference {
@@ -936,6 +964,20 @@ const userQuery = gql`
         username
         profileImage
         likeId
+        timestamp
+        text
+        reference {
+          postId
+          text
+          username
+          profileImage
+        }
+      }
+      dislikes {
+        userId
+        username
+        profileImage
+        dislikeId
         timestamp
         text
         reference {

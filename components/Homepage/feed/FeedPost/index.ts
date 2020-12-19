@@ -87,7 +87,11 @@ export function returnTaggedString(text: string) {
       };
       strSplit.push(firstObj, secondObj);
     } else {
-      strSplit.push(str);
+      let altObj = {
+        text: str,
+        key: Math.floor(Math.random() * 1000000),
+      };
+      strSplit.push(altObj);
     }
 
     if (i === tags.length - 1) {

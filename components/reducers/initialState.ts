@@ -28,4 +28,5 @@ export const initialState = {
   feed: [],
   history: [],
   userRoutes: [],
+  userHistory: [],
 };

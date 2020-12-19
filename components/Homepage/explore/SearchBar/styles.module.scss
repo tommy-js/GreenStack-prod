@@ -32,7 +32,7 @@
   padding: 3px;
   width: 75%;
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 3px 0px 0px 3px;
   border: 1px solid $text_black;
   font-family: $standard_font;
   color: $text_black;
@@ -48,4 +48,13 @@
   background-color: $forest_green;
   font-family: $standard_font;
   color: $cream_white;
+  cursor: pointer;
+  border-radius: 0px 3px 3px 0px;
+  transition: 0.3s;
+}
+
+.search_button:hover {
+  color: $space_red;
+  border: 1px solid $space_red;
+  transition: 0.3s;
 }

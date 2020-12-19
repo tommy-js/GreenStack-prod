@@ -38,6 +38,7 @@ export const mapStateToProps = (state: any) => {
     currentPrices: state.currentPrices,
     feed: state.feed,
     history: state.history,
+    userHistory: state.userHistory,
     userRoutes: state.userRoutes,
   };
 };
@@ -98,6 +99,8 @@ export const mapDispatchToProps = (dispatch: any) => {
       dispatch({ type: "SET_CURRENT_PRICES", payload: currentPrices }),
     onFeedSet: (feed: FeedItem[]) =>
       dispatch({ type: "SET_FEED", payload: feed }),
+    onUserHistorySet: (userHistory: any) =>
+      dispatch({ type: "SET_USER_HISTORY", payload: userHistory }),
     onUserRouteSet: (userRoutes: any) =>
       dispatch({ type: "SET_USER_ROUTES", payload: userRoutes }),
   };

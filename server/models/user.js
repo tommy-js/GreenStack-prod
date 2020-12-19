@@ -79,6 +79,22 @@ const userSchema = new Schema({
       },
     },
   ],
+  dislikes: [
+    {
+      userId: String,
+      username: String,
+      profileImage: String,
+      dislikeId: String,
+      timestamp: Number,
+      text: String,
+      reference: {
+        postId: String,
+        text: String,
+        username: String,
+        profileImage: String,
+      },
+    },
+  ],
   comments: [
     {
       userId: String,

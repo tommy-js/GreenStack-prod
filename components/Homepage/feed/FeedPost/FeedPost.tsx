@@ -131,15 +131,18 @@ const PostLink = React.forwardRef(
     const [tag] = useState(returnTaggedString(text));
 
     function returnText() {
-      return (
-        <React.Fragment>
-          {tag.map((el: any) => (
-            <div key={el.key}>
-              <IndMapper tag={el.text} key={el.key} accessKey={el.key} />
-            </div>
-          ))}
-        </React.Fragment>
-      );
+      if (tag.length > 0) {
+        console.log(tag);
+        return (
+          <React.Fragment>
+            {tag.map((el: any) => (
+              <div key={el.key}>
+                <IndMapper tag={el.text} key={el.key} accessKey={el.key} />
+              </div>
+            ))}
+          </React.Fragment>
+        );
+      } else return null;
     }
 
     function unlockScrollState() {

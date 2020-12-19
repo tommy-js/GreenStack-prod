@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { renderFull } from "stock-graphics";
 
 export const LearnGraphs = (props) => {
