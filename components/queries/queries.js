@@ -590,7 +590,7 @@ const likePostMutation = gql`
     $likeText: String!
     $postId: ID!
   ) {
-    likePost(postId: $postId) {
+    likePost(postId: $postId, token: $token) {
       username
     }
     pushUserNotifications(userId: $userId, content: $content) {
@@ -603,8 +603,11 @@ const likePostMutation = gql`
 `;
 
 const dislikePostMutation = gql`
-  mutation($userId: ID!, $content: String!, $postId: String!) {
-    dislikePost(postId: $postId) {
+  mutation($userId: ID!, $content: String!, $postId: ID!, $token: String!) {
+    dislikePost(postId: $postId, token: $token) {
+      username
+    }
+    pushToDislikes(postId: $postId, text: $content, token: $token) {
       username
     }
     pushUserNotifications(userId: $userId, content: $content) {

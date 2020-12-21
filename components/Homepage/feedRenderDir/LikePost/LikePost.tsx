@@ -18,23 +18,26 @@ const LikePostRender: React.FC<Props> = (props) => {
   const [imgColor, setImgColor] = useState(like);
 
   function passData() {
-    props
-      .likePostMutation({
-        variables: {
-          token: sessionStorage.getItem("Token"),
-          userId: props.userId,
-          postId: props.postId,
-          content: `${props.postUsername} liked your post`,
-          likeText: `Liked a post submitted by ${props.postUsername}`,
-        },
-      })
-      .then(() => {
-        if (props.modLikes) props.modLikes();
-        setImgColor(likeFilled);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
+    let token = sessionStorage.getItem("Token");
+    if (token) {
+      props
+        .likePostMutation({
+          variables: {
+            token: token,
+            userId: props.userId,
+            postId: props.postId,
+            content: `${props.postUsername} liked your post`,
+            likeText: `Liked a post submitted by ${props.postUsername}`,
+          },
+        })
+        .then(() => {
+          if (props.modLikes) props.modLikes();
+          setImgColor(likeFilled);
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
+    }
   }
 
   return (

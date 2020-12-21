@@ -17,21 +17,25 @@ const DislikePostRender: React.FC<Props> = (props) => {
   const [imgColor, setImgColor] = useState(dislike);
 
   function passData() {
-    props
-      .dislikePostMutation({
-        variables: {
-          userId: props.userId,
-          postId: props.postId,
-          content: "A user disliked your post",
-        },
-      })
-      .then(() => {
-        if (props.modDislikes) props.modDislikes();
-        setImgColor(dislikeFilled);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
+    let token = sessionStorage.getItem("Token");
+    if (token) {
+      props
+        .dislikePostMutation({
+          variables: {
+            token: token,
+            userId: props.userId,
+            postId: props.postId,
+            content: "A user disliked your post",
+          },
+        })
+        .then(() => {
+          if (props.modDislikes) props.modDislikes();
+          setImgColor(dislikeFilled);
+        })
+        .catch((err: any) => {
+          console.log(err);
+        });
+    }
   }
 
   return (
