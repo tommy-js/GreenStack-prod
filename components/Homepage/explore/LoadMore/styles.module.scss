@@ -1,6 +1,7 @@
 @import "../../../globals/variables.scss";
 
 .button {
+  margin-top: 25px;
   @include button_large;
 }
 

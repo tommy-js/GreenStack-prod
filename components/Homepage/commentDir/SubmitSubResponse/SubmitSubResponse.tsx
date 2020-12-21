@@ -8,6 +8,7 @@ interface Props {
   postId: string;
   commentId: string;
   text: string;
+  successful: () => void;
   pushCommentNestMutation: (variables: object) => any;
 }
 
@@ -24,7 +25,10 @@ const SubmitSubResponseMutation: React.FC<Props> = (props) => {
           },
         })
         .catch((err: any) => console.log(err))
-        .then((res: any) => console.log(res));
+        .then((res: any) => {
+          console.log(res);
+          props.successful();
+        });
     }
   }
 

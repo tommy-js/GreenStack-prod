@@ -24,6 +24,7 @@ export const IndividualCommentReply: React.FC<Props> = (props) => {
             postId={props.postId}
             commentId={props.commentId}
             text={text}
+            successful={() => setText("")}
           />
         </React.Fragment>
       );

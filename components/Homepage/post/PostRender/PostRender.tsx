@@ -3,7 +3,7 @@ import { PostTitle } from "../PostTitle/PostTitle";
 import { PostText } from "../PostText/PostText";
 import { PostInformation } from "../PostInformation/PostInformation";
 import { PostComments } from "../PostComments/PostComments";
-import { CommentInputPost } from "../../CommentInputPost/CommentInputPost";
+import { CommentInputPost } from "../../feedRenderDir/CommentInputPost/CommentInputPost";
 import styles from "./styles.module.scss";
 
 interface Data {

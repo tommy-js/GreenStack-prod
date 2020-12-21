@@ -22,12 +22,12 @@ export const Explore: React.FC = () => {
   });
 
   useEffect(() => {
-    let slicedStocks = companyList.slice(0, 20);
+    let slicedStocks = companyList.slice(0, 35);
     setLoadedStocks(slicedStocks);
   }, []);
 
   function loadMoreStocks() {
-    let renderLength = loadedStocks.length + 20;
+    let renderLength = loadedStocks.length + 35;
     if (renderLength < stocks.length) {
       let slicedStocks = stocks.slice(0, renderLength);
       setLoadedStocks(slicedStocks);
@@ -39,8 +39,8 @@ export const Explore: React.FC = () => {
 
   function modifySearchParams(arg: string) {
     let returnedStocks = findStocks(arg);
-    if (returnedStocks.length > 20) {
-      let slicedReturnedStocked = returnedStocks.slice(0, 20);
+    if (returnedStocks.length > 35) {
+      let slicedReturnedStocked = returnedStocks.slice(0, 35);
       setLoadedStocks(slicedReturnedStocked);
       setLoadMoreButtonDisplay("block");
     } else {
@@ -56,8 +56,8 @@ export const Explore: React.FC = () => {
 
   function modifySelectParams(paramObj: any) {
     let returnedStocks = findSelectStocks(paramObj);
-    if (returnedStocks.length > 20) {
-      let slicedReturnedStocked = returnedStocks.slice(0, 20);
+    if (returnedStocks.length > 35) {
+      let slicedReturnedStocked = returnedStocks.slice(0, 35);
       setLoadedStocks(slicedReturnedStocked);
       setLoadMoreButtonDisplay("block");
     } else {
