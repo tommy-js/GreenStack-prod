@@ -28,7 +28,7 @@ export const FeedComment: React.FC<Props> = (props) => {
   }, [props.view]);
 
   return (
-    <Link href={`/home/post/${props.reference.postId}`}>
+    <Link href={`/post/${props.reference.postId}`}>
       <CommentLink
         profileImage={props.profileImage}
         postUsername={props.postUsername}
