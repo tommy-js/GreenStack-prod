@@ -604,9 +604,6 @@ const dislikePostMutation = gql`
     dislikePost(postId: $postId, token: $token) {
       username
     }
-    pushToDislikes(postId: $postId, text: $content, token: $token) {
-      username
-    }
     pushUserNotifications(userId: $userId, content: $content) {
       username
     }

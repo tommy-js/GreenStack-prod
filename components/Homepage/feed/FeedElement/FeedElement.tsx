@@ -50,7 +50,7 @@ export const FeedElement: React.FC<Props> = (props) => {
     } else if (props.type === "UserComment") {
       return (
         <FeedComment
-          username={props.postUsername}
+          postUsername={props.postUsername}
           profileImage={props.postProfileImage}
           text={props.text}
           reference={props.reference}

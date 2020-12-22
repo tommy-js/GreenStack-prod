@@ -52,6 +52,7 @@ export interface PostInterface {
 
 interface Props {
   post: PostInterface;
+  updateModal: (view: boolean) => void;
   modPostLoad: (postId: string) => void;
 }
 
@@ -114,7 +115,7 @@ export const RenderModal: React.FC<Props> = (props) => {
             username={props.post.username}
           />
         </Link>
-        {returnImage()}
+        <div onClick={() => props.updateModal(true)}>{returnImage()}</div>
         <p className={styles.post_text}>{returnText()}</p>
       </div>
       <div className={styles.post_lower_block}>

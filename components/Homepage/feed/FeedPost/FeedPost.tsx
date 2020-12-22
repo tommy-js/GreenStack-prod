@@ -151,11 +151,6 @@ const PostLink = React.forwardRef(
       } else return null;
     }
 
-    function unlockScrollState() {
-      const feed = document.getElementById("feed")!;
-      if (feed) enableBodyScroll(feed);
-    }
-
     function returnImage() {
       if (postImage == "null") {
         return null;
@@ -177,7 +172,6 @@ const PostLink = React.forwardRef(
         >
           <div
             className={`${styles.feed_profile_image_block} ${styles.feed_link}`}
-            onClick={() => unlockScrollState()}
           >
             <img className={styles.feed_profile_image} src={postProfileImage} />
           </div>

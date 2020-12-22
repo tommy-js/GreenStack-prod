@@ -17,7 +17,7 @@ interface Props {
 const FeedRender: React.FC<Props> = (props) => {
   const { data } = useQuery(returnFeedQuery, {
     variables: { token: sessionStorage.getItem("Token") },
-    pollInterval: 200,
+    pollInterval: 1000,
   });
   const [feed, setFeed] = useState([] as any);
   const [maxFeed, setMaxFeed] = useState([] as any);
