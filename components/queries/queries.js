@@ -590,13 +590,10 @@ const likePostMutation = gql`
     $likeText: String!
     $postId: ID!
   ) {
-    likePost(postId: $postId, token: $token) {
+    likePost(postId: $postId, token: $token, text: $likeText) {
       username
     }
     pushUserNotifications(userId: $userId, content: $content) {
-      username
-    }
-    postLike(token: $token, postId: $postId, text: $likeText) {
       username
     }
   }

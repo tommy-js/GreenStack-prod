@@ -8,7 +8,6 @@ import Link from "next/link";
 import { returnDate, returnTaggedString } from "./index";
 import { useLazyQuery } from "react-apollo";
 import { userCommentLookup } from "../../../queries/queries";
-import { enableBodyScroll } from "body-scroll-lock";
 import styles from "./styles.module.scss";
 
 interface Mapper {
@@ -93,10 +92,11 @@ export const RenderModal: React.FC<Props> = (props) => {
     if (props.post.allowLikes === true) {
       return (
         <PostInteraction
-          userId={props.post.userId}
+          postUserId={props.post.userId}
           postId={props.post.postId}
-          likes={likes}
-          dislikes={dislikes}
+          likesCount={likes}
+          dislikesCount={dislikes}
+          commentsCount={comments}
           modLikes={modLikes}
           modDislikes={modDislikes}
         />

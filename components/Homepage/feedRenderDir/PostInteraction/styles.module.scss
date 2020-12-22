@@ -2,9 +2,29 @@
 
 .post_interaction {
   width: 60%;
+  font-family: $standard_font;
 }
 
 .likes,
 .dislikes {
+  display: inline-block;
+}
+
+.like_button_block {
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  overflow: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.like_button_image {
+  height: 100%;
+  width: 100%;
+}
+
+.post_values {
   display: inline-block;
 }

@@ -15,7 +15,7 @@ export const CommentSection: React.FC<Props> = (props) => {
   useEffect(() => {
     let sortedComments = sortComments(props.comments);
     setComments(sortedComments);
-  }, []);
+  }, [props.comments]);
 
   function returnRender() {
     if (comments.length > 0) {

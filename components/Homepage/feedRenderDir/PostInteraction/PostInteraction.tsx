@@ -1,44 +1,55 @@
 import React from "react";
 import { LikePost } from "../LikePost/LikePost";
 import { DislikePost } from "../DislikePost/DislikePost";
-const comment = require("../../../../public/comment.png");
+import { connect } from "react-redux";
+import { mapStateToProps } from "../../../actions/actions";
 import styles from "./styles.module.scss";
+const comment = require("../../../../public/comment.png");
 
-interface Props {
-  userId: string;
+interface Redux {
+  likes: any;
+  dislikes: any;
+}
+
+interface Props extends Redux {
+  postUserId: string;
   postId: string;
-  likes: number;
-  dislikes: number;
-  comments: number;
+  likesCount: number;
+  dislikesCount: number;
+  commentsCount: number;
   modLikes: () => void;
   modDislikes: () => void;
 }
 
-export const PostInteraction: React.FC<Props> = (props) => {
+const PostInteractionRedux: React.FC<Props> = (props) => {
   return (
     <div className={styles.post_interaction}>
       <div className={styles.likes}>
-        <span className={styles.post_value_inner}>{props.likes}</span>
+        <span className={styles.post_value_inner}>{props.likesCount}</span>
       </div>
       <LikePost
         userId={props.postUserId}
         postId={props.postId}
+        likes={props.likes}
         modLikes={props.modLikes}
       />
       <div className={styles.dislikes}>
-        <span className={styles.post_value_inner}>{props.dislikes}</span>
+        <span className={styles.post_value_inner}>{props.dislikesCount}</span>
       </div>
       <DislikePost
         userId={props.postUserId}
         postId={props.postId}
+        dislikes={props.dislikes}
         modDislikes={props.modDislikes}
       />
       <div className={styles.post_values}>
-        <span className={styles.post_value_inner}>{props.comments}</span>
+        <span className={styles.post_value_inner}>{props.commentsCount}</span>
       </div>
       <div className={styles.like_button_block}>
-        <img className={styles.like_button_image} src={props.comment} />
+        <img className={styles.like_button_image} src={comment} />
       </div>
     </div>
   );
 };
+
+export const PostInteraction = connect(mapStateToProps)(PostInteractionRedux);

@@ -38,6 +38,7 @@ export const CommentInputPost: React.FC<Post> = (props) => {
             postId={props.postId}
             text={text}
             modComments={props.modComments}
+            submit={() => setText("")}
           />
         </React.Fragment>
       );
