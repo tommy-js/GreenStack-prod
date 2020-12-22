@@ -26,6 +26,12 @@ const userReducer = (state = initialState, action: any) => {
   if (action.type == "SET_INITIAL_WATCHLIST") {
     newState.watchlist = action.payload;
   }
+  if (action.type == "SET_LIKES") {
+    newState.likes = action.payload;
+  }
+  if (action.type == "SET_DISLIKES") {
+    newState.dislikes = action.payload;
+  }
   if (action.type == "SET_INITIAL_POSTS") {
     newState.posts = action.payload;
   }

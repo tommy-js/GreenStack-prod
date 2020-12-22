@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 interface Props {
   userId: string;
   postId: string;
+  dislikes: any;
   modDislikes?: () => void;
   dislikePostMutation: (variables: object) => any;
 }
@@ -18,7 +19,18 @@ const DislikePostRender: React.FC<Props> = (props) => {
 
   function passData() {
     let token = sessionStorage.getItem("Token");
-    if (token) {
+
+    let valid = testValid();
+
+    function testValid() {
+      let valid = true;
+      for (let i = 0; i < props.dislikes.length; i++) {
+        if (props.dislikes[i].reference.postId === props.postId) valid = false;
+      }
+      return valid;
+    }
+
+    if (token && valid === true) {
       props
         .dislikePostMutation({
           variables: {

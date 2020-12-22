@@ -22,6 +22,8 @@ export const mapStateToProps = (state: any) => {
     newaccount: state.newaccount,
     newPortfolio: state.newPortfolio,
     watchlist: state.watchlist,
+    likes: state.likes,
+    dislikes: state.dislikes,
     stocks: state.stocks,
     posts: state.posts,
     progressElements: state.progressElements,
@@ -60,6 +62,9 @@ export const mapDispatchToProps = (dispatch: any) => {
       dispatch({ type: "SET_NEW_PORTFOLIO", payload: newPortfolio }),
     onWatchlistSet: (watchlist: WatchListItem[]) =>
       dispatch({ type: "SET_INITIAL_WATCHLIST", payload: watchlist }),
+    onLikesSet: (likes: any) => dispatch({ type: "SET_LIKES", payload: likes }),
+    onDislikesSet: (dislikes: any) =>
+      dispatch({ type: "SET_DISLIKES", payload: dislikes }),
     onInitialPostsSet: (posts: PostItem[]) =>
       dispatch({ type: "SET_INITIAL_POSTS", payload: posts }),
     onInitialFollowerSet: (followers: FollowerItem[]) =>

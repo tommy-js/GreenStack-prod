@@ -7,6 +7,8 @@ export const initialState = {
   newaccount: true,
   newPortfolio: true,
   watchlist: [],
+  likes: [],
+  dislikes: [],
   posts: [],
   comments: [],
   progress: [],

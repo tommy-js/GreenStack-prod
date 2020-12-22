@@ -12,6 +12,8 @@ interface Redux {
   onUserIDSet: (userId: string) => void;
   onBioSet: (bio: string) => void;
   onWatchlistSet: (watchlist: any) => void;
+  onLikesSet: (likes: any) => void;
+  onDislikesSet: (dislikes: any) => void;
   onMoneySet: (money: number) => void;
   onNewAccountSet: (newaccount: boolean) => void;
   onNewPortfolioSet: (newPortfolio: boolean) => void;
@@ -73,6 +75,8 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
       props.onUserIDSet(user.userId);
       props.onBioSet(user.bio);
       props.onWatchlistSet(user.watchlist);
+      props.onLikesSet(user.likes);
+      props.onDislikesSet(user.dislikes);
       props.onMoneySet(user.money);
       props.onNewAccountSet(user.newUser.newLog);
       props.onNewPortfolioSet(user.newUser.newPortfolio);

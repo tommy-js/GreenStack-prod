@@ -36,8 +36,8 @@ export const FeedElement: React.FC<Props> = (props) => {
           postUserId={props.postUserId}
           postUsername={props.postUsername}
           timestamp={props.timestamp}
-          likes={props.likes}
-          dislikes={props.dislikes}
+          likesCount={props.likes}
+          dislikesCount={props.dislikes}
           comments={props.comments}
           postId={props.postId}
           allowComments={props.allowComments}

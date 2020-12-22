@@ -10,6 +10,7 @@ interface Props {
   postId: string;
   postUsername: string;
   userId: string;
+  likes: any;
   modLikes?: () => void;
   likePostMutation: (variables: object) => any;
 }
@@ -19,7 +20,18 @@ const LikePostRender: React.FC<Props> = (props) => {
 
   function passData() {
     let token = sessionStorage.getItem("Token");
-    if (token) {
+
+    let valid = testValid();
+
+    function testValid() {
+      let valid = true;
+      for (let i = 0; i < props.likes.length; i++) {
+        if (props.likes[i].reference.postId === props.postId) valid = false;
+      }
+      return valid;
+    }
+
+    if (token && valid === true) {
       props
         .likePostMutation({
           variables: {

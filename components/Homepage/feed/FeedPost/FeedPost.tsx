@@ -21,6 +21,8 @@ interface Mapper {
 
 interface Redux {
   userRoutes: any;
+  likes: any;
+  dislikes: any;
   onUserRouteSet: (userRoutes: any) => void;
 }
 
@@ -32,8 +34,8 @@ interface Props extends Redux {
   postUsername: string;
   text: string;
   timestamp: number;
-  likes: number;
-  dislikes: number;
+  likesCount: number;
+  dislikesCount: number;
   comments: any;
   postId: string;
   allowComments: boolean;
@@ -62,20 +64,24 @@ const FeedPostRender: React.FC<Props> = (props) => {
       return (
         <React.Fragment>
           <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{props.likes}</span>
+            <span className={styles.post_value_inner}>{props.likesCount}</span>
           </div>
           <LikePost
             userId={props.postUserId}
             postUsername={props.postUsername}
             postId={props.postId}
+            likes={props.likes}
           />
           <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{props.dislikes}</span>
+            <span className={styles.post_value_inner}>
+              {props.dislikesCount}
+            </span>
           </div>
           <DislikePost
             userId={props.postUserId}
             postUsername={props.postUsername}
             postId={props.postId}
+            dislikes={props.dislikes}
           />
           <div className={styles.post_values}>
             <span className={styles.post_value_inner}>
