@@ -42,6 +42,7 @@ export const mapStateToProps = (state: any) => {
     history: state.history,
     userHistory: state.userHistory,
     userRoutes: state.userRoutes,
+    tutorialScores: state.tutorialScores,
   };
 };
 
@@ -108,5 +109,7 @@ export const mapDispatchToProps = (dispatch: any) => {
       dispatch({ type: "SET_USER_HISTORY", payload: userHistory }),
     onUserRouteSet: (userRoutes: any) =>
       dispatch({ type: "SET_USER_ROUTES", payload: userRoutes }),
+    onTutorialScoresSet: (tutorialScores: any) =>
+      dispatch({ type: "SET_TUTORIAL_SCORES", payload: tutorialScores }),
   };
 };

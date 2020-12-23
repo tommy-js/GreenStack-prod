@@ -157,6 +157,12 @@ const userSchema = new Schema({
       ],
     },
   ],
+  tutorialScores: [
+    {
+      id: String,
+      scored: Boolean,
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);

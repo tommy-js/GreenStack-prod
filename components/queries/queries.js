@@ -43,9 +43,12 @@ const updatePostMutation = gql`
 `;
 
 const updateTutorialScoreMutation = gql`
-  mutation($token: String!, $score: Int!) {
-    updateTutorialScore(token: $token, score: $score) {
-      title
+  mutation($token: String!, $score: Int!, $id: String!) {
+    updateTutorialScore(token: $token, score: $score, id: $id) {
+      score
+    }
+    updateUserScore(token: $token, id: $id) {
+      username
     }
   }
 `;
@@ -755,6 +758,10 @@ const otherUserQuery = gql`
         timestamp
         sector
       }
+      tutorialScores {
+        id
+        scored
+      }
     }
   }
 `;
@@ -1021,6 +1028,10 @@ const userQuery = gql`
           id
           passed
         }
+      }
+      tutorialScores {
+        id
+        scored
       }
     }
   }

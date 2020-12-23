@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tutorialScore = new Schema({
-  tutorialNum: Number,
+  id: String,
   scored: Boolean,
 });
 

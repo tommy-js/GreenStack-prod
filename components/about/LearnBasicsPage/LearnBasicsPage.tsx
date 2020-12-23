@@ -24,6 +24,7 @@ interface Redux {
   status: boolean;
   progress: any;
   progressElements: any;
+  tutorialScores: any;
 }
 
 const LearnBasicsPageRender: React.FC<Redux> = (props) => {
@@ -285,7 +286,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           always so good for those looking to make a lot quicker.
         </p>
 
-        <TutorialScore />
+        <TutorialScore id="1" scores={props.tutorialScores[0]} />
 
         <CommentSection id="1" comments={comments} />
       </div>

@@ -2,11 +2,15 @@ import React from "react";
 import { Score } from "../Score/Score";
 import styles from "./styles.module.scss";
 
-export const TutorialScore: React.FC = () => {
+interface Props {
+  id: string;
+  scores: any;
+}
+
+export const TutorialScore: React.FC<Props> = (props) => {
   return (
     <div>
-      <h3 className={styles.header}>How Would You Rate This Tutorial?</h3>
-      <Score />
+      <Score id={props.id} scores={props.scores} />
     </div>
   );
 };

@@ -98,6 +98,9 @@ const userReducer = (state = initialState, action: any) => {
   if (action.type == "SET_USER_HISTORY") {
     newState.userHistory = action.payload;
   }
+  if (action.type == "SET_TUTORIAL_SCORES") {
+    newState.tutorialScores = action.payload;
+  }
   return newState;
 };
 

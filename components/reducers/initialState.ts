@@ -31,4 +31,5 @@ export const initialState = {
   history: [],
   userRoutes: [],
   userHistory: [],
+  tutorialScores: [],
 };
