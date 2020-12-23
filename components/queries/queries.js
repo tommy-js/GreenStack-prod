@@ -42,6 +42,14 @@ const updatePostMutation = gql`
   }
 `;
 
+const updateTutorialScoreMutation = gql`
+  mutation($token: String!, $score: Int!) {
+    updateTutorialScore(token: $token, score: $score) {
+      title
+    }
+  }
+`;
+
 const updateUserProgressMutation = gql`
   mutation($id: ID!, $specId: ID!, $increment: Int!) {
     updateUserProgress(id: $id, specId: $specId, increment: $increment) {
@@ -1253,6 +1261,7 @@ export {
   createUserMutation,
   pushCommentNestMutation,
   updatePostMutation,
+  updateTutorialScoreMutation,
   updateDarkModeMutation,
   updateAllowCommentsMutation,
   updateUserProfileImageMutation,

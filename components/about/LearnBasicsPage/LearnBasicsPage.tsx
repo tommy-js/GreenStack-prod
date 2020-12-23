@@ -5,6 +5,7 @@ import { Footer } from "../Footer/Footer";
 import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
+import { TutorialScore } from "../TutorialScore/TutorialScore";
 import Router from "next/router";
 import {
   APPLE2MonthEffects,
@@ -283,6 +284,8 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           looking to slowly gain over a period of years or decades, but not
           always so good for those looking to make a lot quicker.
         </p>
+
+        <TutorialScore />
 
         <CommentSection id="1" comments={comments} />
       </div>

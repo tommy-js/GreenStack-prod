@@ -3,6 +3,13 @@ const Schema = mongoose.Schema;
 
 const tutorialSchema = new Schema({
   id: String,
+  score: Number,
+  submittedScores: [
+    {
+      userId: String,
+      score: Number,
+    },
+  ],
   comments: [
     {
       userId: String,

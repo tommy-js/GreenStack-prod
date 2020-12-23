@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProgressMutation } from "../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   id: string;
@@ -32,7 +33,11 @@ const KCAcceptButtonMutation: React.FC<Props> = (props) => {
     }
   }
 
-  return <button onClick={() => submit()}>Check</button>;
+  return (
+    <button className={styles.button} onClick={() => submit()}>
+      Check
+    </button>
+  );
 };
 
 export const KCAcceptButton = compose(
