@@ -25,7 +25,14 @@
 }
 
 .emphasize {
-  color: $island_green;
+  color: $forest_green;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.emphasize:hover {
+  border-bottom: 2px solid $forest_green;
+  transition: 0.2s;
 }
 
 .learn_page_subheader {

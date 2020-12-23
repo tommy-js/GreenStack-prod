@@ -20,9 +20,13 @@
 }
 
 .comment_section_button {
-  position: relative;
-  padding: 5px;
-  left: 7.5%;
+  @include button_small;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.comment_section_button:hover {
+  @include button_hover;
 }
 
 .comment_section_input {
