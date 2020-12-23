@@ -12,6 +12,7 @@ const mad = require("../../../public/mad.png");
 interface Props {
   id: string;
   scores: any;
+  onSubmit: () => void;
   updateTutorialScoreMutation: (variables: object) => any;
 }
 
@@ -29,7 +30,9 @@ const ScoreMutation: React.FC<Props> = (props) => {
             },
           })
           .catch((err: any) => console.log(err))
-          .then((res: any) => console.log(res));
+          .then((res: any) => {
+            props.onSubmit();
+          });
       }
     }
   }

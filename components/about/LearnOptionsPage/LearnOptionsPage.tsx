@@ -5,6 +5,7 @@ import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { SelectAll } from "../SelectAll/SelectAll";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
+import { TutorialScore } from "../TutorialScore/TutorialScore";
 import Router from "next/router";
 import {
   APPLE2month,
@@ -24,6 +25,7 @@ interface Redux {
   status: boolean;
   progress: any;
   progressElements: any;
+  tutorialScores: any;
 }
 
 export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
@@ -264,6 +266,7 @@ export const LearnOptionsPageRender: React.FC<Redux> = (props) => {
           currentProgress={currentProgress}
           increment={5}
         />
+        <TutorialScore id="2" scores={props.tutorialScores[2]} />
         <CommentSection id="2" comments={comments} />
       </div>
     </div>

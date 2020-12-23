@@ -15,6 +15,30 @@
   text-align: center;
 }
 
+.sub_info {
+  border-bottom: 1px solid $text_black;
+  margin-bottom: 50px;
+}
+
+.published {
+  color: $text_black;
+  display: inline-block;
+  margin-left: 25px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.sub_info_flair {
+  color: $forest_green;
+}
+
+.score {
+  color: $honey_yellow;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
 .learn_page_paragraph {
   position: relative;
   margin-top: 15px;
@@ -43,4 +67,5 @@
   position: relative;
   font-size: 20px;
   font-weight: bold;
+  text-decoration: underline;
 }

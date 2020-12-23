@@ -17,7 +17,6 @@ import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
-import { Pie } from "react-chartjs-2";
 import styles from "./styles.module.scss";
 
 interface Redux {
@@ -33,46 +32,23 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
     pollInterval: 500,
   });
   const [comments, setComments] = useState([] as any);
+  const [score, setScore] = useState(0);
   const [id] = useState(props.progress[0].id);
   const [currentProgress] = useState(props.progress[0].percent);
 
   useEffect(() => {
-    if (data && data.tutorial) setComments(data.tutorial.comments);
+    if (data && data.tutorial) {
+      setComments(data.tutorial.comments);
+      setScore(data.tutorial.score);
+    }
   }, [data]);
-
-  const pieData = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
 
   const options1 = {
     title: "Checkpoint 1",
     options: [
       {
         text:
-          "Answer true or false: it is better to invest in few stocks rather than many.",
+          "True or false: it is better to invest in few stocks rather than many.",
         correctAnswer: "false",
         value: 2,
         id: 0,
@@ -89,7 +65,32 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
       <NavBar />
       <div className={styles.learn_page}>
         <h2 className={styles.learn_page_header}>Getting Started</h2>
+        <div className={styles.sub_info}>
+          <p className={styles.learn_page_paragraph}>
+            Learn the basics of stock investing. Become familiar with terms such
+            as{" "}
+            <Link href="/about/glossary">
+              <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+                shares
+              </a>
+            </Link>{" "}
+            and{" "}
+            <Link href="/about/glossary">
+              <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+                diversification
+              </a>
+            </Link>
+            . Introduce yourself to the concepts of risk, risk management, and
+            understand the value in investing consistently over time.
+          </p>
+          <p className={styles.score}>{score}/5</p>
+          <p className={styles.published}>
+            Published 1/1/21 by{" "}
+            <span className={styles.sub_info_flair}>GreenStack</span>
+          </p>
+        </div>
 
+        <p className={styles.learn_page_subheader}>The Very Basics</p>
         <p className={styles.learn_page_paragraph}>
           Getting involved in the stock market can be intimidating. From the
           outside it seems very complicated; not only do you need to have the
@@ -99,14 +100,6 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           down the basics of the stock market into terms that are easy to
           understand.
         </p>
-        <Pie
-          data={pieData}
-          options={{
-            title: { display: true, text: "Avg Rainfall", fontSize: 20 },
-            legend: { display: true, position: "left" },
-            cutoutPercentage: 25,
-          }}
-        />
         <p className={styles.learn_page_paragraph}>
           At its most basic, the stock market is composed of companies and their
           investors(that's you!). Investors purchase portions of companies,
@@ -178,7 +171,8 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
         <p className={styles.learn_page_paragraph}>
           That being said, Amazon is an extreme example of this kind of growth.
           Invested into another popular company, Walmart, that $1,000 would be
-          worth roughly $2,769 after those ten years.
+          worth roughly $2,769 after those ten years. Still a good chunk of
+          change, but not enough to make you a millionaire from nothing
         </p>
         <p className={styles.learn_page_paragraph}>
           Not everyone has $1,000, $10,000, or $100,000 lying around, though. A
@@ -188,8 +182,8 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
               retail investors
             </a>
           </Link>
-          , which are normal individuals rather than institutions. This brings
-          up an important saying: "time in the market beats timing the market."
+          , who are normal individuals rather than institutions. This brings up
+          an important saying: "time in the market beats timing the market."
           Instead of trying to pick the perfect stock and get it at the perfect
           time, small consistent investments into the market as a whole will
           almost always yield better results.
@@ -207,16 +201,16 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           significantly less risk involved through investing in an index than
           there is when putting all your money into one company.
         </p>
-        <p className={styles.learn_page_subheader}>Growth not guaranteed</p>
+        <p className={styles.learn_page_subheader}>Growth Not Guaranteed</p>
         <LearnGraphs
           graphicalEffects={HTZGQ5YearEffects.graphicalEffects}
           contentsDiv="hertz_10_year"
         />
         <p className={styles.learn_page_paragraph}>
           It's tempting to think that because certain companies have seen
-          massive growth and success over a few short years, this means every
-          company will see success. Unfortunately, this couldn't be further from
-          the truth.
+          massive growth and increased value over a few short years, that means
+          every company will experience success. Unfortunately, this couldn't be
+          further from the truth.
         </p>
         <p className={styles.learn_page_paragraph}>
           Some companies, such as Gamestop and Hertz, have been on the downtrend
@@ -258,32 +252,28 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           options={options1.options}
         />
         <p className={styles.learn_page_paragraph}>
-          There is good reason to invest in many different industries. In just
-          this past year we could see a very good example of why this is the
-          case. The pandemic has caused some very dramatic shifts in industries.
-          Airline stocks, for instance, have been heavily impacted by the
-          shut-downs, and have suffered as a result. Tech stocks, such as
-          Twitter and Netflix, however, have never done better.
+          There is good reason to invest in many different industries. For
+          example, the pandemic of 2020 has caused some very dramatic shifts in
+          industries. Airline stocks, for instance, have been heavily impacted
+          by the shut-downs, and have suffered as a result. Tech stocks, such as
+          Twitter and Netflix, however, have never done better. It is for this
+          reason that highly diversified portfolios are safer than ones heavily
+          invested into only a handful of companies.
         </p>
         <p className={styles.learn_page_paragraph}>
-          This isn't to say that predicting the pandemic and therefore investing
-          heavily in tech was the only way to remain solvent, of course. Well
-          diversified portfolios were no doubt able to withstand the pandemic,
-          as their losses were offset by their gains.
-        </p>
-        <p className={styles.learn_page_paragraph}>
-          Like most things concerning stocks, things aren't so simple. You
-          really need to identify your priorities when you first get started.
-          Increasing your diversification reduces your risk and the inherent{" "}
+          Of course, things aren't nearly so simple. You really need to identify
+          your priorities when you first get started. Increasing your
+          diversification reduces your risk and the inherent{" "}
           <Link href="/about/glossary">
             <a className={`${styles.emphasize} ${styles.featureless_link}`}>
               volatility
             </a>
           </Link>{" "}
           you take on from the stock market. In this case, to be volatile is to
-          be subject to large jumps and drops in value. This is great for those
-          looking to slowly gain over a period of years or decades, but not
-          always so good for those looking to make a lot quicker.
+          be subject to large jumps and drops in value. Keeping volatility low
+          is great for those looking to slowly gain over a period of years or
+          decades, but not always so good for those looking to make a lot
+          quicker.
         </p>
 
         <TutorialScore id="1" scores={props.tutorialScores[0]} />

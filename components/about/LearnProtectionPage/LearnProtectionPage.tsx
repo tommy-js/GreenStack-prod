@@ -3,12 +3,19 @@ import { NavBar } from "../../navigation/NavBar/NavBar";
 import { CommentSection } from "../CommentSection/CommentSection";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
 import { SP500HalfDecade } from "../graphData.js";
+import { TutorialScore } from "../TutorialScore/TutorialScore";
 import Link from "next/link";
 import { useQuery } from "react-apollo";
 import { tutorialQuery } from "../../queries/queries";
+import { connect } from "react-redux";
+import { mapStateToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
 
-export const LearnProtectionPage: React.FC = () => {
+interface Redux {
+  tutorialScores: any;
+}
+
+const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
   const { data } = useQuery(tutorialQuery, {
     variables: { id: 4 },
     pollInterval: 500,
@@ -81,8 +88,13 @@ export const LearnProtectionPage: React.FC = () => {
           the economic state of the US has improved drastically in only a few
           years.
         </p>
+        <TutorialScore id="3" scores={props.tutorialScores[3]} />
         <CommentSection id="4" comments={comments} />
       </div>
     </div>
   );
 };
+
+export const LearnProtectionPage = connect(mapStateToProps)(
+  LearnProtectionPageRedux
+);

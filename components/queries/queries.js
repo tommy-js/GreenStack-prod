@@ -48,7 +48,10 @@ const updateTutorialScoreMutation = gql`
       score
     }
     updateUserScore(token: $token, id: $id) {
-      username
+      tutorialScores {
+        id
+        scored
+      }
     }
   }
 `;
@@ -887,6 +890,10 @@ const nonTokenModifyUserQuery = gql`
           passed
         }
       }
+      tutorialScores {
+        id
+        scored
+      }
     }
   }
 `;
@@ -1255,6 +1262,7 @@ const tutorialQuery = gql`
   query($id: ID!) {
     tutorial(id: $id) {
       id
+      score
       comments {
         userId
         username
