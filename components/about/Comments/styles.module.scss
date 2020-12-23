@@ -5,23 +5,12 @@
 }
 
 .button {
-  position: relative;
-  width: 100px;
   margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  padding: 3px;
-  border-radius: 3px;
-  background-color: $forest_green;
-  border: 1px solid $light_blue;
-  cursor: pointer;
+  @include button_large;
 }
 
-.button_span {
-  color: white;
-  font-size: 16px;
-  font-family: $standard_font;
+.button:hover {
+  @include button_hover;
 }
 
 .empty {

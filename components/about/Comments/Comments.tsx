@@ -20,7 +20,8 @@ export const Comments: React.FC<Props> = (props) => {
 
   function loadMore() {
     let comLen = commentLength;
-    comLen += 10;
+    if (comLen <= props.comments.length - 10) comLen += 10;
+    else comLen = props.comments.length;
     setCommentLength(comLen);
     updateComments(comLen);
   }
@@ -29,6 +30,18 @@ export const Comments: React.FC<Props> = (props) => {
     let orderedComments = returnOrder(props.comments);
     let trimmedComs = orderedComments.slice(0, len);
     setComments(trimmedComs);
+  }
+
+  function returnButton() {
+    if (props.comments.length === commentLength) {
+      return null;
+    } else {
+      return (
+        <button className={styles.button} onClick={() => loadMore()}>
+          Load More
+        </button>
+      );
+    }
   }
 
   function conditionalCommentRender() {
@@ -43,9 +56,7 @@ export const Comments: React.FC<Props> = (props) => {
               timestamp={el.timestamp}
             />
           ))}
-          <button className={styles.button} onClick={() => loadMore()}>
-            <span className={styles.button_span}>Load More</span>
-          </button>
+          {returnButton()}
         </React.Fragment>
       );
     } else {

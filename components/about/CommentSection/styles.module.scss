@@ -1,9 +1,12 @@
+@import "../../globals/variables.scss";
+
 .comment_section_header {
   text-align: center;
 }
 
 .comment_section {
   position: relative;
+  border-top: 1px solid $light_blue;
   margin-top: 50px;
   width: 85%;
   margin-left: auto;

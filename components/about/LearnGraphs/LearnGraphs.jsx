@@ -3,7 +3,7 @@ import { renderFull } from "stock-graphics";
 
 export const LearnGraphs = (props) => {
   useEffect(() => {
-    renderFull(props.points, props.graphicalEffects);
+    renderFull(props.graphicalEffects);
   }, []);
 
   return (

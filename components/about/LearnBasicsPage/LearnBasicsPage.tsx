@@ -6,7 +6,7 @@ import { MultipleChoice } from "../MultipleChoice/MultipleChoice";
 import { Blanks } from "../Blanks/Blanks";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
 import Router from "next/router";
-import { APPLE2month, AMZN10Year } from "../graphData.js";
+import { APPLE2MonthEffects, AMZN10YearEffects } from "../graphData.js";
 import Link from "next/link";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
@@ -97,6 +97,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           options={{
             title: { display: true, text: "Avg Rainfall", fontSize: 20 },
             legend: { display: true, position: "left" },
+            cutoutPercentage: 25,
           }}
         />
         <p className={styles.learn_page_paragraph}>
@@ -118,8 +119,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
         </p>
 
         <LearnGraphs
-          points={APPLE2month.points}
-          graphicalEffects={APPLE2month.graphicalEffects}
+          graphicalEffects={APPLE2MonthEffects.graphicalEffects}
           contentsDiv="apple_learning_graph"
         />
 
@@ -161,8 +161,7 @@ const LearnBasicsPageRender: React.FC<Redux> = (props) => {
           June of 2010 would have been worth $26.771.43 in October of 2020.
         </p>
         <LearnGraphs
-          points={AMZN10Year.points}
-          graphicalEffects={AMZN10Year.graphicalEffects}
+          graphicalEffects={AMZN10YearEffects.graphicalEffects}
           contentsDiv="amazon_10_year"
         />
         <p className={styles.learn_page_paragraph}>
