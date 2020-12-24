@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { NavBar } from "../../navigation/NavBar/NavBar";
 import { CommentSection } from "../CommentSection/CommentSection";
 import { LearnGraphs } from "../LearnGraphs/LearnGraphs.jsx";
-import { SP500HalfDecade } from "../graphData.js";
+import {
+  SP500HalfDecadeEffects,
+  MCD2020Effects,
+  AMD2020Effects,
+} from "../graphData.js";
 import { TutorialScore } from "../TutorialScore/TutorialScore";
 import Link from "next/link";
 import { useQuery } from "react-apollo";
@@ -21,9 +25,11 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
     pollInterval: 500,
   });
   const [comments, setComments] = useState([] as any);
+  const [score, setScore] = useState(0);
   useEffect(() => {
     if (data && data.tutorial) {
       setComments(data.tutorial.comments);
+      setScore(data.tutorial.score);
     }
   }, [data]);
   return (
@@ -31,18 +37,31 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
       <NavBar />
       <div className={styles.learn_page}>
         <h2 className={styles.learn_page_header}>Diversification</h2>
+
+        <div className={styles.sub_info}>
+          <p className={styles.learn_page_paragraph}>
+            Become familiar with the concept of diversification. Learn to use
+            this to help you minimize risk and maximize profits.
+          </p>
+          <p className={styles.score}>{score}/5</p>
+          <p className={styles.published}>
+            Published 1/1/21 by{" "}
+            <span className={styles.sub_info_flair}>GreenStack</span>
+          </p>
+        </div>
+
         <p className={styles.learn_page_paragraph}>
           The stock market can be a volatile place, and many traders have lost
-          fortunes through not protecting themselves well enough. In this
-          tutorial we'll give you some pointers for how to continue growing
-          amidst uncertain times.
+          fortunes by investing too heavily in one stock or sector. In this
+          tutorial we'll give you some pointers for how to continue growing your
+          portfolio amidst uncertain times.
         </p>
         <p className={styles.learn_page_paragraph}>
-          It can be tempting when looking at stocks such as Amazon, Tesla, or
-          Apple to just put everything in these companies. However, the stock
-          market can be a risky place. Even though it is very unlikely, there is
-          always the possibility that a company like Amazon or Apple begins to
-          fail, or are outpaced by the general market.
+          It can be tempting when looking at the growth of stocks such as
+          Amazon, Tesla, or Apple to just put everything into these companies.
+          However, the stock market can be a risky place. There is always the
+          possibility that a company like Amazon or Apple loses stock value, or
+          are outpaced by the general market.
         </p>
         <p className={styles.learn_page_paragraph}>
           There are two main ways investors protect their assets, and both rely
@@ -57,16 +76,34 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
           AMD stock, which is in the tech sector, as well as McDonalds stock,
           which is a member of the service industry.
         </p>
+
+        <LearnGraphs
+          graphicalEffects={MCD2020Effects.graphicalEffects}
+          contentsDiv="mcdonalds_2020_year"
+        />
+        <LearnGraphs
+          graphicalEffects={AMD2020Effects.graphicalEffects}
+          contentsDiv="amd_2020_year"
+        />
+
         <p className={styles.learn_page_paragraph}>
-          The motivation for doing this is simple; over time, the economy as a
-          whole tends to grow. Individual companies may die off, but if you're
-          looking for consistent, long-term growth, buying into the larger
-          economy as a whole is your best bet.
+          With a situation like the Coronavirus pandemic of 2020, your stocks
+          would be generally well protected here. Even though you own a stock in
+          the service industry, which was heavily affected, you also own one in
+          the tech sector. Technology has generally done very well through the
+          pandemic, and so at the very least you should be shielded from a great
+          deal of volatility.
+        </p>
+        <p className={styles.learn_page_paragraph}>
+          Even assuming a situation such as the pandemic never occurs again, the
+          motivation for doing this is simple; over time, the economy as a whole
+          tends to grow. Individual companies may die off, but if you're looking
+          for consistent, long-term growth, buying into the larger economy as a
+          whole is your best bet.
         </p>
 
         <LearnGraphs
-          points={SP500HalfDecade.points}
-          graphicalEffects={SP500HalfDecade.graphicalEffects}
+          graphicalEffects={SP500HalfDecadeEffects.graphicalEffects}
           contentsDiv="sp_5_year"
         />
 
@@ -88,7 +125,7 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
           the economic state of the US has improved drastically in only a few
           years.
         </p>
-        <TutorialScore id="3" scores={props.tutorialScores[3]} />
+        <TutorialScore id="3" scores={props.tutorialScores[2]} />
         <CommentSection id="4" comments={comments} />
       </div>
     </div>
