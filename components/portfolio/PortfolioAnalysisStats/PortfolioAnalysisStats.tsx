@@ -18,7 +18,7 @@ export const PortfolioAnalysisStats: React.FC<Props> = (props) => {
     { title: "Construction", value: 0, url: "/explore/construction" },
     { title: "Technology", value: 0, url: "/explore/technology" },
     { title: "Retail", value: 0, url: "/explore/retail" },
-    { title: "Medical", value: 0, url: "/explore/Medical" },
+    { title: "Medical", value: 0, url: "/explore/medical" },
     {
       title: "Financial Services",
       value: 0,

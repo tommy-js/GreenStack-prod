@@ -3,7 +3,7 @@ import { FinancialServicesBody } from "../FinancialServicesBody/FinancialService
 import { FeedSidebar } from "../../../Homepage/sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../../Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
-import styles from "./styles.module.scss;";
+import styles from "./styles.module.scss";
 
 export const FinancialServicesPage: React.FC = () => {
   const [postingToFeed, setPostingToFeed] = useState(false);
