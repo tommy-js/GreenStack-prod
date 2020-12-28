@@ -44,13 +44,17 @@ export const CompanyGraph = ({ title, ticker }) => {
       infoDivWidth: 100,
       buttonSize: { width: 40, height: 25 },
       buttonFontSize: 10,
+      indexed: [0, 0],
+      indexedArray: [{ a: 0, b: 0 }],
+      initialValues: points,
+      modifiedPoints: points,
       buttonColor: "grey",
       buttonFontColor: "black",
       buttonBorder: "1px solid red",
       contentsDiv: "company_graph_block",
     };
 
-    renderFull(points, graphicalEffects);
+    renderFull(graphicalEffects);
   }
 
   function returnInfo() {
