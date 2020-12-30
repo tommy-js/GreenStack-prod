@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { likePostMutation } from "../../queries/queries";
@@ -17,21 +17,25 @@ interface Props {
 
 const LikePostRender: React.FC<Props> = (props) => {
   const [imgColor, setImgColor] = useState(like);
+  const [validCheck, setValidCheck] = useState(true);
+
+  useEffect(() => {
+    let checkDislikes = props.likes.find(
+      (el: any) => el.reference.id === props.postId
+    );
+    if (checkDislikes) {
+      setValidCheck(false);
+      setImgColor(likeFilled);
+    } else {
+      setValidCheck(true);
+      setImgColor(like);
+    }
+  }, [props.likes]);
 
   function passData() {
     let token = sessionStorage.getItem("Token");
 
-    let valid = testValid();
-
-    function testValid() {
-      let valid = true;
-      for (let i = 0; i < props.likes.length; i++) {
-        if (props.likes[i].reference.postId === props.postId) valid = false;
-      }
-      return valid;
-    }
-
-    if (token && valid === true) {
+    if (token && validCheck === true) {
       props
         .likePostMutation({
           variables: {

@@ -18,9 +18,6 @@ const DislikePostCommentMutation: React.FC<Props> = (props) => {
   const [imgColor, setImgColor] = useState(dislike);
   const [validCheck, setValidCheck] = useState(true);
 
-  console.log("dislikes:");
-  console.log(props.dislikes);
-
   useEffect(() => {
     let checkDislikes = props.dislikes.find(
       (el: any) => el.reference.id === props.commentId

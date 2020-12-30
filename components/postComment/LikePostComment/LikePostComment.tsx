@@ -31,9 +31,6 @@ const LikePostCommentMutation: React.FC<Props> = (props) => {
     }
   }, [props.likes]);
 
-  console.log("likes:");
-  console.log(props.likes);
-
   function passData() {
     if (validCheck === true) {
       props
