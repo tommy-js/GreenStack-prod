@@ -19,9 +19,9 @@ interface Redux {
   tutorialScores: any;
 }
 
-const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
+const LearnDiversificationPageRedux: React.FC<Redux> = (props) => {
   const { data } = useQuery(tutorialQuery, {
-    variables: { id: 4 },
+    variables: { id: 3 },
     pollInterval: 500,
   });
   const [comments, setComments] = useState([] as any);
@@ -30,6 +30,7 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
     if (data && data.tutorial) {
       setComments(data.tutorial.comments);
       setScore(data.tutorial.score);
+      console.log(data);
     }
   }, [data]);
   return (
@@ -143,12 +144,12 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
           years.
         </p>
         <TutorialScore id="3" scores={props.tutorialScores[2]} />
-        <CommentSection id="4" comments={comments} />
+        <CommentSection id="3" comments={comments} />
       </div>
     </div>
   );
 };
 
-export const LearnProtectionPage = connect(mapStateToProps)(
-  LearnProtectionPageRedux
+export const LearnDiversificationPage = connect(mapStateToProps)(
+  LearnDiversificationPageRedux
 );

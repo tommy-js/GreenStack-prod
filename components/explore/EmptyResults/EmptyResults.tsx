@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-const nothingFound = require("../../../../public/nothing_found.png");
+const nothingFound = require("../../../public/nothing_found.png");
 
 export const EmptyResults: React.FC = () => {
   return (

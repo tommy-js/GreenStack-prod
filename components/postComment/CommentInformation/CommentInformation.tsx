@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { LikePostComment } from "../../post/LikePostComment/LikePostComment";
 import { DislikePostComment } from "../../post/DislikePostComment/DislikePostComment";
-const comment = require("../../../../public/comment.png");
-const reply_icon = require("../../../../public/reply_icon.png");
+const comment = require("../../../public/comment.png");
+const reply_icon = require("../../../public/reply_icon.png");
 import styles from "./styles.module.scss";
 
 type SubComments = {

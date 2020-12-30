@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
-const edit = require("../../../../public/edit.png");
-const edit_highlight = require("../../../../public/edit_highlight.png");
+const edit = require("../../../public/edit.png");
+const edit_highlight = require("../../../public/edit_highlight.png");
 
 interface Props {
   postId: string;

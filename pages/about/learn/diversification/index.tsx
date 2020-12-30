@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserLoginAuthSubresolver from "../../../../components/resolvers/UserLoginAuthSubresolver";
-import { LearnProtectionPage } from "../../../../components/about/LearnDiversificationPage/LearnDiversificationPage";
+import { LearnDiversificationPage } from "../../../../components/about/LearnDiversificationPage/LearnDiversificationPage";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../../components/actions/actions";
 
@@ -21,7 +21,7 @@ const Protection: React.FC<Redux> = (props) => {
       return (
         <UserLoginAuthSubresolver loggedIn={() => setLoadingInUser(false)} />
       );
-    } else return <LearnProtectionPage />;
+    } else return <LearnDiversificationPage />;
   }
 
   return checkReturn();

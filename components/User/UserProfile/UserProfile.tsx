@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
+import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
 import { RenderSearchRes } from "../RenderSearchRes/RenderSearchRes";
 import {
   FollowingItem,
@@ -25,11 +25,6 @@ interface Props {
 
 export const UserProfile: React.FC<Props> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
-
-  useEffect(() => {
-    console.log("UserProf");
-    console.log(props.inspectPosts);
-  }, []);
 
   function renderShowPostOptions() {
     if (postingToFeed === true)

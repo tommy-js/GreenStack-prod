@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitPost } from "../../Homepage/postEntry/SubmitPost/SubmitPost";
+import { SubmitPost } from "../../enterPost/SubmitPost/SubmitPost";
 import styles from "./styles.module.scss";
 
 interface Props {

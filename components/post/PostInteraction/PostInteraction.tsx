@@ -5,7 +5,7 @@ import { EditPost } from "../EditPost/EditPost";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
-const comment = require("../../../../public/comment.png");
+const comment = require("../../../public/comment.png");
 
 interface Redux {
   likes: any;

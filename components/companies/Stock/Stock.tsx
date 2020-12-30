@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
+import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
 import { StockPage } from "../StockPage/StockPage";
 import styles from "./styles.module.scss";
 

@@ -703,7 +703,7 @@ const otherUserQuery = gql`
         allowComments
         allowLikes
         comments {
-          id
+          commentId
           username
           commentId
           timestamp
@@ -748,7 +748,7 @@ const otherUserQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
