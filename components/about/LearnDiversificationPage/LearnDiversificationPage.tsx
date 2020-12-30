@@ -58,10 +58,10 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
         </p>
         <p className={styles.learn_page_paragraph}>
           It can be tempting when looking at the growth of stocks such as
-          Amazon, Tesla, or Apple to just put everything into these companies.
-          However, the stock market can be a risky place. There is always the
-          possibility that a company like Amazon or Apple loses stock value, or
-          are outpaced by the general market.
+          Amazon, Tesla, or Apple to just put everything into these or similar
+          tech companies. Of course, this idea is flawed in that there is always
+          the possibility that a company like Amazon or Apple loses stock value,
+          or are outpaced by the general market.
         </p>
         <p className={styles.learn_page_paragraph}>
           There are two main ways investors protect their assets, and both rely
@@ -71,7 +71,7 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
               diversification
             </a>
           </Link>
-          . This is the process of splitting up your portfolio among many
+          . This is the process of splitting up your portfolio amongst many
           stocks, and ideally many different sectors. For example, you might buy
           AMD stock, which is in the tech sector, as well as McDonalds stock,
           which is a member of the service industry.
@@ -95,11 +95,21 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
           deal of volatility.
         </p>
         <p className={styles.learn_page_paragraph}>
-          Even assuming a situation such as the pandemic never occurs again, the
-          motivation for doing this is simple; over time, the economy as a whole
-          tends to grow. Individual companies may die off, but if you're looking
-          for consistent, long-term growth, buying into the larger economy as a
-          whole is your best bet.
+          The second way to protect yourself from market volatility is to invest
+          in an{" "}
+          <Link href="/about/glossary">
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              index fund
+            </a>
+          </Link>
+          . An index fund mirrors an{" "}
+          <Link href="/about/glossary">
+            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
+              index
+            </a>
+          </Link>
+          , which is a grouping of stocks designed to reflect the overall
+          economy.
         </p>
 
         <LearnGraphs
@@ -109,15 +119,22 @@ const LearnProtectionPageRedux: React.FC<Redux> = (props) => {
 
         <p className={styles.learn_page_paragraph}>
           The graph above shows the value of the S&P 500 from 2011 to 2020. The
-          S&P 500 is an{" "}
-          <Link href="/about/glossary">
-            <a className={`${styles.emphasize} ${styles.featureless_link}`}>
-              index
-            </a>
-          </Link>
-          , or a measurement that takes account of a number of stocks. In the
-          case of the S&P 500, it is an index that measures the value of the 500
-          largest companies listed on US stock exchanges.
+          S&P 500 is a very popular and well-known index. In the case of the S&P
+          500, it is an index that measures the value of the 500 largest
+          companies listed on US stock exchanges.
+        </p>
+        <p className={styles.learn_page_paragraph}>
+          While you can't buy shares of the S&P 500, you can buy shares of index
+          funds that hold similar or even identical stocks. If you're looking
+          for minimal work and good results long-term, this is probably the way
+          to go.
+        </p>
+        <p className={styles.learn_page_paragraph}>
+          Even assuming a situation such as the pandemic never occurs again, the
+          motivation for diversifying is simple; over time, the economy as a
+          whole tends to grow. Individual companies may die off, but if you're
+          looking for consistent, long-term growth, buying into the larger
+          economy as a whole is your best bet.
         </p>
         <p className={styles.learn_page_paragraph}>
           You can get a sense of how the overall economy is doing from these

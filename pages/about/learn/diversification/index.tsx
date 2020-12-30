@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserLoginAuthSubresolver from "../../../../components/resolvers/UserLoginAuthSubresolver";
-import { LearnProtectionPage } from "../../../../components/about/LearnProtectionPage/LearnProtectionPage";
+import { LearnProtectionPage } from "../../../../components/about/LearnDiversificationPage/LearnDiversificationPage";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../../../components/actions/actions";
 

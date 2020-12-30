@@ -28,7 +28,7 @@ export const Learn: React.FC<Props> = (props) => {
     {
       title: "What Is 'Diversification?'",
       subtitle: "Learn to protect yourself from the market",
-      path: "/about/learn/protection",
+      path: "/about/learn/diversification",
       percent: 0,
     },
   ]);
