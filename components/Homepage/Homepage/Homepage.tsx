@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
-import { Feed } from "../feed/Feed/Feed";
+import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
+import { Feed } from "../../feed/Feed/Feed";
 import { NewAccountRender } from "../../NewAccountRender/NewAccountRender/NewAccountRender";
 import { connect } from "react-redux";
 import {

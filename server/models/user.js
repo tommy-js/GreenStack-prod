@@ -72,7 +72,7 @@ const userSchema = new Schema({
       timestamp: Number,
       text: String,
       reference: {
-        postId: String,
+        id: String,
         text: String,
         username: String,
         profileImage: String,
@@ -88,7 +88,7 @@ const userSchema = new Schema({
       timestamp: Number,
       text: String,
       reference: {
-        postId: String,
+        id: String,
         text: String,
         username: String,
         profileImage: String,
@@ -107,7 +107,7 @@ const userSchema = new Schema({
       dislikes: Number,
       referenceId: String,
       reference: {
-        postId: String,
+        id: String,
         text: String,
         username: String,
         profileImage: String,

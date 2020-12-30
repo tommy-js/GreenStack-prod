@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { EditPage } from "../EditPage/EditPage";
 import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
-import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { SearchBar } from "../SearchBar/SearchBar";
+import { NavBar } from "../../navigation/NavBar/NavBar";
 import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
 import styles from "./styles.module.scss";
 
-export const SearchPage: React.FC = () => {
+interface Props {
+  post: any;
+}
+
+export const EditPostPage: React.FC<Props> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -19,14 +23,14 @@ export const SearchPage: React.FC = () => {
   }
 
   return (
-    <div className={styles.search}>
+    <div>
+      {renderShowPostOptions()}
       <NavBar />
       <div className={styles.green_block_left}></div>
       <div className={styles.homepage}>
-        {renderShowPostOptions()}
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <SearchBar />
       </div>
+      <EditPage post={props.post} />
     </div>
   );
 };

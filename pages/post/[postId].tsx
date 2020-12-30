@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PostHandler } from "../../components/Homepage/feed/PostHandler/PostHandler";
+import { PostHandler } from "../../components/feed/PostHandler/PostHandler";
 import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
 import { useLazyQuery } from "react-apollo";
 import { individualPostQuery } from "../../components/queries/queries";

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import {
   QueryUserResult,
   QueryStockResult,
-} from "../QueryResult/QueryResult/QueryResult";
-import { PortfolioValuePostModal } from "../../../components/Homepage/PortfolioValuePostModal/PortfolioValuePostModal";
-import { FeedSidebar } from "../../../components/Homepage/sidebar/FeedSidebar/FeedSidebar";
+} from "../../search/QueryResult/QueryResult";
+import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
+import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { LoadMoreStocks } from "../LoadMoreStocks/LoadMoreStocks";
-import { Company } from "../../../types/types";
+import { LoadMoreStocks } from "../../explore/LoadMoreStocks/LoadMoreStocks";
+import { Company } from "../../types/types";
 import { searchQuery } from "../../queries/queries";
 import { useLazyQuery } from "react-apollo";
 import { findStocks } from "./index";

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FeedSidebar } from "../../sidebar/FeedSidebar/FeedSidebar";
 import { NavBar } from "../../../components/navigation/NavBar/NavBar";
-import { SearchBar } from "../SearchBar/SearchBar";
 import { PortfolioValuePostModal } from "../../sidebar/PortfolioValuePostModal/PortfolioValuePostModal";
+import { Followers } from "../Followers/Followers";
 import styles from "./styles.module.scss";
 
-export const SearchPage: React.FC = () => {
+export const FollowersPage: React.FC = () => {
   const [postingToFeed, setPostingToFeed] = useState(false);
 
   function renderShowPostOptions() {
@@ -17,16 +17,15 @@ export const SearchPage: React.FC = () => {
       );
     else return null;
   }
-
   return (
-    <div className={styles.search}>
+    <div>
       <NavBar />
       <div className={styles.green_block_left}></div>
       <div className={styles.homepage}>
         {renderShowPostOptions()}
         <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
-        <SearchBar />
       </div>
+      <Followers />
     </div>
   );
 };

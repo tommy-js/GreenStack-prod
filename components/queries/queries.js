@@ -703,7 +703,7 @@ const otherUserQuery = gql`
         allowComments
         allowLikes
         comments {
-          userId
+          id
           username
           commentId
           timestamp
@@ -720,7 +720,7 @@ const otherUserQuery = gql`
         likes
         dislikes
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -734,7 +734,7 @@ const otherUserQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -834,7 +834,7 @@ const nonTokenModifyUserQuery = gql`
         likes
         dislikes
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -848,7 +848,7 @@ const nonTokenModifyUserQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -862,7 +862,7 @@ const nonTokenModifyUserQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -980,7 +980,7 @@ const userQuery = gql`
         likes
         dislikes
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -994,7 +994,7 @@ const userQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -1008,7 +1008,7 @@ const userQuery = gql`
         timestamp
         text
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -1205,7 +1205,7 @@ const returnFeedQuery = gql`
         text
         profileImage
         reference {
-          postId
+          id
           text
           username
           profileImage
@@ -1217,7 +1217,7 @@ const returnFeedQuery = gql`
         text
         profileImage
         reference {
-          postId
+          id
           text
           username
           profileImage

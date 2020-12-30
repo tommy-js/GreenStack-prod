@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LoginHeader } from "../LoginHeader/LoginHeader";
 import { RenderAccountLink } from "../RenderAccountLink/RenderAccountLink";
 import { UserNameInput } from "../UserNameInput/UserNameInput";
