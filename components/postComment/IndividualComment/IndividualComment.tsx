@@ -51,8 +51,8 @@ export const IndividualComment: React.FC<Props> = (props) => {
         text={props.text}
       />
       <CommentInformation
-        likes={props.likes}
-        dislikes={props.dislikes}
+        likeCount={props.likes}
+        dislikeCount={props.dislikes}
         postId={props.postId}
         commentId={props.commentId}
         subComments={props.subComments}

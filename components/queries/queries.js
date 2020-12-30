@@ -565,16 +565,16 @@ const sellStockMutation = gql`
 `;
 
 const likeCommentMutation = gql`
-  mutation($postId: ID!, $commentId: ID!) {
-    likeComment(postId: $postId, commentId: $commentId) {
+  mutation($token: String!, $postId: ID!, $commentId: ID!) {
+    likeComment(token: $token, postId: $postId, commentId: $commentId) {
       username
     }
   }
 `;
 
 const dislikeCommentMutation = gql`
-  mutation($postId: ID!, $commentId: ID!) {
-    dislikeComment(postId: $postId, commentId: $commentId) {
+  mutation($token: String!, $postId: ID!, $commentId: ID!) {
+    dislikeComment(token: $token, postId: $postId, commentId: $commentId) {
       username
     }
   }
