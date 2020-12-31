@@ -28,7 +28,7 @@ export const SearchResults: React.FC<Props> = (props) => {
     button2Display: "block",
   });
   const [callQuery, { data }] = useLazyQuery(searchQuery, {
-    variables: { argument: props.res },
+    variables: { argument: props.res.toLowerCase() },
   });
 
   useEffect(() => {

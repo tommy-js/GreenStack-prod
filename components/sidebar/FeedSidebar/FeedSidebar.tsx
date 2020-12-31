@@ -19,7 +19,8 @@ export const FeedSidebar: React.FC<Props> = (props) => {
   }
 
   function submitSearch(res: string) {
-    router.push(`/search/${res}`);
+    let lowerCaseKeys = res.toLowerCase();
+    router.push(`/search/${lowerCaseKeys}`);
   }
 
   return (
