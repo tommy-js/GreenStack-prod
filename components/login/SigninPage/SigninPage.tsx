@@ -6,7 +6,7 @@ import { QueryUserLogin } from "../QueryUserLogin/QueryUserLogin";
 
 interface Props {
   loadingUser: () => void;
-  passUserAuth: (id: number) => void;
+  passUserAuth: (id: string) => void;
 }
 
 export const SigninPage: React.FC<Props> = (props) => {

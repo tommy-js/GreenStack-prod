@@ -11,8 +11,7 @@ import {
 import { InfoHeader } from "../InfoHeader/InfoHeader";
 import { LearnMore } from "../LearnMore/LearnMore";
 import { LoginLogo } from "../LoginLogo/LoginLogo";
-import { queryToken } from "../../queries/queries";
-import { useLazyQuery } from "react-apollo";
+import { returnLoggedInQuery } from "../../queries/queries";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
@@ -20,38 +19,53 @@ import {
   mapStateToProps,
   mapDispatchToProps,
 } from "../../../components/actions/actions";
+import { graphql } from "react-apollo";
+import { flowRight as compose } from "lodash";
 
 interface Redux {
   status: boolean;
+  returnLoggedInQuery: (variables: object) => any;
   onStatusSet: (status: boolean) => void;
 }
 
 const LoginRender: React.FC<Redux> = (props) => {
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState("");
   const [newAccount, setNewAccount] = useState(false);
   const [loadingInUser, setLoadingInUser] = useState(false);
   const router = useRouter();
-
-  const [passToken, { data }] = useLazyQuery(queryToken);
 
   useEffect(() => {
     if (props.status === false) setLoadingInUser(true);
   }, [props.status]);
 
-  useEffect(() => {
-    let sessionToken = sessionStorage.getItem("Token");
-    if (data && data.token) {
-      console.log(data.token);
-      if (data.token.token === sessionToken) {
-        props.onStatusSet(true);
-        setUserId(data.token.userid);
-        setLoadingInUser(true);
-      }
-    }
-  }, data);
+  // useEffect(() => {
+  //   let sessionToken = sessionStorage.getItem("Token");
+  //   if (data && data.token) {
+  //     console.log(data.token);
+  //     if (data.token.token === sessionToken) {
+  //       console.log(data);
+  //       props.onStatusSet(true);
+  //       setUserId(data.token.userid);
+  //       setLoadingInUser(true);
+  //     }
+  //   }
+  // }, data);
 
-  function passUserAuth(id: number) {
+  function passUserAuth(id: string) {
     setUserId(id);
+    props
+      .returnLoggedInQuery({
+        variables: {
+          userId: id,
+        },
+      })
+      .catch((err: any) => console.log(err))
+      .then((res: any) => {
+        setUserId(id);
+        setLoadingInUser(true);
+        sessionStorage.setItem("Token", res.data.returnLoggedIn.token);
+        console.log(sessionStorage.getItem("Token"));
+      });
   }
 
   useEffect(() => {
@@ -124,4 +138,8 @@ const LoginRender: React.FC<Redux> = (props) => {
   );
 };
 
-export const Login = connect(mapStateToProps, mapDispatchToProps)(LoginRender);
+const LoginReducer = connect(mapStateToProps, mapDispatchToProps)(LoginRender);
+
+export const Login = compose(
+  graphql(returnLoggedInQuery, { name: "returnLoggedInQuery" })
+)(LoginReducer);

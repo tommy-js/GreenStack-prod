@@ -10,7 +10,7 @@ interface Props {
   loadingUser: () => void;
   renderPasswordNull: () => void;
   renderUsernameNull: () => void;
-  passUserAuth: (id: number) => void;
+  passUserAuth: (id: string) => void;
 }
 
 export const QueryUserLogin: React.FC<Props> = (props) => {

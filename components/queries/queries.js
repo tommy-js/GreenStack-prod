@@ -651,6 +651,14 @@ const queryToken = gql`
   }
 `;
 
+const returnLoggedInQuery = gql`
+  mutation($userId: ID!) {
+    returnLoggedIn(userId: $userId) {
+      token
+    }
+  }
+`;
+
 const distinctUserQuery = gql`
   query($username: String!) {
     specUser(username: $username) {
@@ -1337,6 +1345,7 @@ export {
   queryTradeQuery,
   queryPosts,
   queryToken,
+  returnLoggedInQuery,
   individualPostQuery,
   searchQuery,
   otherUserQuery,
