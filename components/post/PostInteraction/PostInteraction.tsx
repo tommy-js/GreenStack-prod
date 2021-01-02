@@ -19,17 +19,33 @@ interface Props extends Redux {
   likesCount: number;
   dislikesCount: number;
   commentsCount: number;
-  modLikes: () => void;
-  modDislikes: () => void;
+  modLikes: (value: number) => void;
+  modDislikes: (value: number) => void;
 }
 
 const PostInteractionRedux: React.FC<Props> = (props) => {
   const [currentUser, setCurrentUser] = useState(false);
+  const [state, setState] = useState({ like: 0, dislike: 0 });
 
   useEffect(() => {
     let posts = props.posts;
     for (let i = 0; i < posts.length; i++) {
       if (posts[i].postId === props.postId) setCurrentUser(true);
+    }
+    let checkDislikes = props.dislikes.find(
+      (el: any) => el.reference.id === props.postId
+    );
+    let checkLikes = props.likes.find(
+      (el: any) => el.reference.id === props.postId
+    );
+    if (checkDislikes) {
+      setState({ like: state.like, dislike: 1 });
+    }
+    if (checkLikes) {
+      setState({ like: 1, dislike: state.dislike });
+    }
+    if (checkDislikes && checkLikes) {
+      setState({ like: 1, dislike: 1 });
     }
   }, []);
 
@@ -37,6 +53,10 @@ const PostInteractionRedux: React.FC<Props> = (props) => {
     if (currentUser === true) {
       return <EditPost postId={props.postId} />;
     } else return null;
+  }
+
+  function modState(passObj: any) {
+    setState(passObj);
   }
 
   return (
@@ -49,6 +69,8 @@ const PostInteractionRedux: React.FC<Props> = (props) => {
         postId={props.postId}
         likes={props.likes}
         modLikes={props.modLikes}
+        state={state}
+        modState={modState}
       />
       <div className={styles.dislikes}>
         <span className={styles.post_value_inner}>{props.dislikesCount}</span>
@@ -58,6 +80,8 @@ const PostInteractionRedux: React.FC<Props> = (props) => {
         postId={props.postId}
         dislikes={props.dislikes}
         modDislikes={props.modDislikes}
+        state={state}
+        modState={modState}
       />
       <div className={styles.post_values}>
         <span className={styles.post_value_inner}>{props.commentsCount}</span>

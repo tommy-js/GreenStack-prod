@@ -66,12 +66,12 @@ export const RenderModal: React.FC<Props> = (props) => {
     else return <PostImage postImage={props.post.postImage} />;
   }
 
-  function modLikes() {
-    setLikes(likes + 1);
+  function modLikes(value: number) {
+    setLikes(likes + value);
   }
 
-  function modDislikes() {
-    setDislikes(dislikes + 1);
+  function modDislikes(value: number) {
+    setDislikes(dislikes + value);
   }
 
   function modComments() {

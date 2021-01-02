@@ -10,7 +10,9 @@ interface Props {
   userId: string;
   postId: string;
   dislikes: any;
-  modDislikes?: () => void;
+  state: any;
+  modState: (passObj: any) => void;
+  modDislikes?: (value: number) => void;
   dislikePostMutation: (variables: object) => any;
 }
 
@@ -31,10 +33,17 @@ const DislikePostRender: React.FC<Props> = (props) => {
     }
   }, [props.dislikes]);
 
+  useEffect(() => {
+    if (props.state.like === 1) {
+      setImgColor(dislike);
+      props.modDislikes(-1);
+    }
+  }, [props.state]);
+
   function passData() {
     let token = sessionStorage.getItem("Token");
 
-    if (token && validCheck === true) {
+    if (token && props.state.dislike === 0) {
       props
         .dislikePostMutation({
           variables: {
@@ -45,8 +54,9 @@ const DislikePostRender: React.FC<Props> = (props) => {
           },
         })
         .then(() => {
-          if (props.modDislikes) props.modDislikes();
+          if (props.modDislikes) props.modDislikes(1);
           setImgColor(dislikeFilled);
+          props.modState({ like: 0, dislike: 1 });
         })
         .catch((err: any) => {
           console.log(err);

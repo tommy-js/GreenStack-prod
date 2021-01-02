@@ -11,7 +11,9 @@ interface Props {
   postUsername: string;
   userId: string;
   likes: any;
-  modLikes?: () => void;
+  state: any;
+  modState: (passObj: any) => void;
+  modLikes?: (value: number) => void;
   likePostMutation: (variables: object) => any;
 }
 
@@ -20,10 +22,10 @@ const LikePostRender: React.FC<Props> = (props) => {
   const [validCheck, setValidCheck] = useState(true);
 
   useEffect(() => {
-    let checkDislikes = props.likes.find(
+    let checkLikes = props.likes.find(
       (el: any) => el.reference.id === props.postId
     );
-    if (checkDislikes) {
+    if (checkLikes) {
       setValidCheck(false);
       setImgColor(likeFilled);
     } else {
@@ -32,10 +34,17 @@ const LikePostRender: React.FC<Props> = (props) => {
     }
   }, [props.likes]);
 
+  useEffect(() => {
+    if (props.state.dislike === 1) {
+      setImgColor(like);
+      props.modLikes(-1);
+    }
+  }, [props.state]);
+
   function passData() {
     let token = sessionStorage.getItem("Token");
 
-    if (token && validCheck === true) {
+    if (token && props.state.like === 0) {
       props
         .likePostMutation({
           variables: {
@@ -47,8 +56,9 @@ const LikePostRender: React.FC<Props> = (props) => {
           },
         })
         .then(() => {
-          if (props.modLikes) props.modLikes();
+          if (props.modLikes) props.modLikes(1);
           setImgColor(likeFilled);
+          props.modState({ like: 1, dislike: 0 });
         })
         .catch((err: any) => {
           console.log(err);
