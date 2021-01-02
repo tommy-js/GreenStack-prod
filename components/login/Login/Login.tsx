@@ -64,7 +64,6 @@ const LoginRender: React.FC<Redux> = (props) => {
         setUserId(id);
         setLoadingInUser(true);
         sessionStorage.setItem("Token", res.data.returnLoggedIn.token);
-        console.log(sessionStorage.getItem("Token"));
       });
   }
 
