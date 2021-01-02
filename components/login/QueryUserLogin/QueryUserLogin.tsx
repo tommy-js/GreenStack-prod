@@ -3,6 +3,7 @@ import { useLazyQuery } from "react-apollo";
 import { userLoginQuery } from "../../queries/queries";
 import { comparePass } from "./index";
 import styles from "./styles.module.scss";
+var bcrypt = require("bcryptjs");
 
 interface Props {
   username: string;
@@ -16,20 +17,27 @@ interface Props {
 export const QueryUserLogin: React.FC<Props> = (props) => {
   const [delay, setDelay] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
-  const [
-    getUser,
-    { loading: loadingCheckUser, data: dataCheckUser, error: errorCheckUser },
-  ] = useLazyQuery(userLoginQuery);
+  const [getUser, { loading, data, error }] = useLazyQuery(userLoginQuery, {
+    fetchPolicy: "network-only",
+  });
 
   useEffect(() => {
+    if (data) {
+      checkValid();
+    }
+  }, [data]);
+
+  function initialLogin() {
     setTimeout(() => {
+      let lowerCaseUsername = props.username.toLowerCase();
+      // console.log(lowerCaseUsername);
       getUser({
         variables: {
-          username: props.username,
+          username: lowerCaseUsername,
         },
       });
     }, delay);
-  }, [props.password]);
+  }
 
   function checkValid() {
     if (props.username.length > 0 && props.password.length > 0) logIn();
@@ -39,27 +47,39 @@ export const QueryUserLogin: React.FC<Props> = (props) => {
 
   function logIn() {
     setTimeout(() => {
-      if (dataCheckUser) {
-        if (dataCheckUser.userLogin) {
-          let compared = comparePass(
+      if (data) {
+        // console.log("props.password:" + props.password);
+        // console.log("data.userLogin.hash:" + data.userLogin.hash);
+        console.log(data);
+        if (data.userLogin) {
+          bcrypt.compare(
             props.password,
-            dataCheckUser.userLogin.hash
+            data.userLogin.hash,
+            (err, isMatch) => {
+              comparing(isMatch);
+            }
           );
-          if (compared === true) {
-            props.passUserAuth(dataCheckUser.userLogin.userId);
-            props.loadingUser();
-          } else if (compared === false) {
-            let currentIncorrect = incorrectAnswers + 1;
-            setDelay(2 ** currentIncorrect * 1000);
-            setIncorrectAnswers(currentIncorrect);
-          }
         }
       }
     }, delay);
   }
 
+  function comparing(compared: boolean) {
+    console.log("compared passed");
+    if (compared === true) {
+      props.passUserAuth(data.userLogin.userId);
+      props.loadingUser();
+      console.log("compared true");
+    } else if (compared === false) {
+      console.log("compared false");
+      let currentIncorrect = incorrectAnswers + 1;
+      // setDelay(2 ** currentIncorrect * 1000);
+      setIncorrectAnswers(currentIncorrect);
+    }
+  }
+
   return (
-    <button className={styles.button} onClick={() => checkValid()}>
+    <button className={styles.button} onClick={() => initialLogin()}>
       Sign In
     </button>
   );

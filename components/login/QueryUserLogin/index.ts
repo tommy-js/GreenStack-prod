@@ -1,5 +1,10 @@
 var bcrypt = require("bcryptjs");
 
 export function comparePass(password: string, hash: string) {
-  return bcrypt.compareSync(password, hash);
+  console.log(password);
+  console.log(hash);
+  bcrypt.compare(password, hash, (err, isMatch) => {
+    console.log(isMatch);
+    return isMatch;
+  });
 }
