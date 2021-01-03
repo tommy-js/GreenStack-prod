@@ -65,7 +65,9 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
     } else {
       return (
         <div className={styles.notification_element}>
-          <button onClick={() => props.changeTab(0)}>back</button>
+          <button className={styles.button} onClick={() => props.changeTab(0)}>
+            back
+          </button>
           {props.notifications.map((el: any) => (
             <NotificationsElement
               key={el.id}
@@ -93,7 +95,9 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
     } else {
       return (
         <div className={styles.notification_element}>
-          <button onClick={() => props.changeTab(0)}>back</button>
+          <button className={styles.button} onClick={() => props.changeTab(0)}>
+            back
+          </button>
           {props.posts.map((el: any) => (
             <HistoryElement
               text={el.text}
