@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
 
 interface Mapper {
   tag: string;
+  keyId: number;
 }
 
 export interface PostInterface {
@@ -83,7 +84,11 @@ export const RenderModal: React.FC<Props> = (props) => {
     return (
       <React.Fragment>
         {tag.map((el: any) => (
-          <IndMapper tag={el} />
+          <IndMapper
+            tag={el}
+            key={Math.floor(Math.random() * 1000)}
+            keyId={Math.floor(Math.random() * 1000)}
+          />
         ))}
       </React.Fragment>
     );
@@ -175,7 +180,7 @@ const IndMapper: React.FC<Mapper> = (props) => {
     }
   }
 
-  return renderFunc();
+  return <div key={props.keyId}>{renderFunc()}</div>;
 };
 
 const UserLink = React.forwardRef(

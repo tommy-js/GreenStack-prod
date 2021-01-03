@@ -39,14 +39,13 @@ export const CompanyNewsBlock = (props: any) => {
       return (
         <React.Fragment>
           {shortLoggedNews.map((el: any) => (
-            <div>
-              <NewsComponent
-                title={el.title}
-                author={el.author}
-                description={el.description}
-                url={el.url}
-              />
-            </div>
+            <NewsComponent
+              title={el.title}
+              author={el.author}
+              description={el.description}
+              url={el.url}
+              key={el.url}
+            />
           ))}
           <button className={styles.center_button} onClick={() => loadMore()}>
             Load more

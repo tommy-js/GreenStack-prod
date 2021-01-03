@@ -89,20 +89,22 @@ const PushToUser = React.forwardRef(
 
 const QueryStockResultRedux: React.FC<Stock> = (props) => {
   return (
-    <Link href={`/stock/${props.stockId}`} passHref>
-      <PushToStock
-        title={props.title}
-        ticker={props.ticker}
-        country={props.country}
-        description={props.description}
-        stockId={props.stockId}
-        countryCode={props.countryCode}
-        date={props.date}
-        sector={props.sector}
-        watchlist={props.watchlist}
-        color={props.color}
-      />
-    </Link>
+    <div key={props.stockId}>
+      <Link href={`/stock/${props.stockId}`} passHref>
+        <PushToStock
+          title={props.title}
+          ticker={props.ticker}
+          country={props.country}
+          description={props.description}
+          stockId={props.stockId}
+          countryCode={props.countryCode}
+          date={props.date}
+          sector={props.sector}
+          watchlist={props.watchlist}
+          color={props.color}
+        />
+      </Link>
+    </div>
   );
 };
 

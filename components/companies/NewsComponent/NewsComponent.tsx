@@ -18,6 +18,7 @@ export const NewsComponent: React.FC<Props> = (props) => {
       className={styles.news_block}
       onMouseEnter={() => setPostOpacity(1)}
       onMouseLeave={() => setPostOpacity(0)}
+      key={props.url}
     >
       <a className={styles.standard_link} href={props.url}>
         <div className={styles.title_container}>
