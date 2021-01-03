@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SetBio } from "../SetBio/SetBio";
 import { BioCounter } from "../BioCounter/BioCounter";
 import { ProfileImage } from "../ProfileImage/ProfileImage";
-const edit = require("../../../../public/edit.png");
+const edit = require("../../../public/edit.png");
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";

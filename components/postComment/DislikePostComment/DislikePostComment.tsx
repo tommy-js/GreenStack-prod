@@ -32,11 +32,13 @@ const DislikePostCommentMutation: React.FC<Props> = (props) => {
   }, [props.dislikes]);
 
   function passData() {
-    if (validCheck === true) {
+    let token = sessionStorage.getItem("Token");
+
+    if (token) {
       props
         .dislikeCommentMutation({
           variables: {
-            token: sessionStorage.getItem("Token"),
+            token: token,
             postId: props.postId,
             commentId: props.commentId,
           },

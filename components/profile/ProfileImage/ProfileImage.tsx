@@ -4,7 +4,7 @@ import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { updateUserProfileImageMutation } from "../../queries/queries.js";
 import styles from "./styles.module.scss";
-const add = require("../../../../public/add_image.png");
+const add = require("../../../public/add_image.png");
 
 interface Props {
   profileImage: string;

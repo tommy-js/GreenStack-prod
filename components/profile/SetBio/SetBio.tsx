@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-const save = require("../../../../public/save.png");
+const save = require("../../../public/save.png");
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
 import { setBioMutation } from "../../queries/queries";

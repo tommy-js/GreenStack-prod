@@ -32,11 +32,13 @@ const LikePostCommentMutation: React.FC<Props> = (props) => {
   }, [props.likes]);
 
   function passData() {
-    if (validCheck === true) {
+    let token = sessionStorage.getItem("Token");
+
+    if (token) {
       props
         .likeCommentMutation({
           variables: {
-            token: sessionStorage.getItem("Token"),
+            token: token,
             postId: props.postId,
             commentId: props.commentId,
           },

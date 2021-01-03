@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { returnDate } from "./index";
 import styles from "./styles.module.scss";
-const page = require("../../../../public/blank_post.png");
-const like = require("../../../../public/like.png");
-const dislike = require("../../../../public/dislike.png");
+const page = require("../../../public/blank_post.png");
+const like = require("../../../public/like.png");
+const dislike = require("../../../public/dislike.png");
 
 interface Props {
   text: string;

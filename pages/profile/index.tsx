@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Profile } from "../../components/Homepage/profile/Profile/Profile";
+import { Profile } from "../../components/profile/Profile/Profile";
 import UserLoginAuthSubresolver from "../../components/resolvers/UserLoginAuthSubresolver";
 import { connect } from "react-redux";
 import { mapStateToProps } from "../../components/actions/actions";

@@ -45,6 +45,40 @@ interface Props extends Redux {
 }
 
 const FeedPostRender: React.FC<Props> = (props) => {
+  const [state, setState] = useState({ like: 0, dislike: 0 });
+  const [likes, setLikes] = useState(props.likesCount);
+  const [dislikes, setDislikes] = useState(props.dislikesCount);
+
+  function modLikes(value: number) {
+    setLikes(likes + value);
+  }
+
+  function modDislikes(value: number) {
+    setDislikes(dislikes + value);
+  }
+
+  useEffect(() => {
+    let checkDislikes = props.dislikes.find(
+      (el: any) => el.reference.id === props.postId
+    );
+    let checkLikes = props.likes.find(
+      (el: any) => el.reference.id === props.postId
+    );
+    if (checkDislikes) {
+      setState({ like: state.like, dislike: 1 });
+    }
+    if (checkLikes) {
+      setState({ like: 1, dislike: state.dislike });
+    }
+    if (checkDislikes && checkLikes) {
+      setState({ like: 1, dislike: 1 });
+    }
+  }, []);
+
+  function modState(passObj: any) {
+    setState(passObj);
+  }
+
   useEffect(() => {
     let postElement = document.getElementById(`id_${props.postId}`);
     if (postElement) {
@@ -67,9 +101,11 @@ const FeedPostRender: React.FC<Props> = (props) => {
           </div>
           <LikePost
             userId={props.postUserId}
-            postUsername={props.postUsername}
             postId={props.postId}
             likes={props.likes}
+            modLikes={modLikes}
+            state={state}
+            modState={modState}
           />
           <div className={styles.post_values}>
             <span className={styles.post_value_inner}>
@@ -78,9 +114,11 @@ const FeedPostRender: React.FC<Props> = (props) => {
           </div>
           <DislikePost
             userId={props.postUserId}
-            postUsername={props.postUsername}
             postId={props.postId}
             dislikes={props.dislikes}
+            modDislikes={modDislikes}
+            state={state}
+            modState={modState}
           />
           <div className={styles.post_values}>
             <span className={styles.post_value_inner}>
