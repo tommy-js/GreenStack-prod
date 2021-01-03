@@ -6,6 +6,7 @@ import {
   updateInvisibleMutation,
   updateAllowCommentsMutation,
 } from "../../queries/queries.js";
+import styles from "./styles.module.scss";
 
 interface Props {
   darkmode: boolean;
@@ -82,26 +83,35 @@ const UserSettingsMutations: React.FC<Props> = (props) => {
 
   return (
     <React.Fragment>
-      <input
-        type="checkbox"
-        checked={darkmodeChecked}
-        onChange={() => updateDarkMode()}
-      />
-      <label>Dark Mode</label>
+      <div className={styles.input_box}>
+        <input
+          type="checkbox"
+          className={styles.input}
+          checked={darkmodeChecked}
+          onChange={() => updateDarkMode()}
+        />
+        <label className={styles.label}>Dark Mode</label>
+      </div>
 
-      <input
-        type="checkbox"
-        checked={invisibleChecked}
-        onChange={() => updateInvisible()}
-      />
-      <label>Set Account To Private</label>
+      <div className={styles.input_box}>
+        <input
+          type="checkbox"
+          className={styles.input}
+          checked={invisibleChecked}
+          onChange={() => updateInvisible()}
+        />
+        <label className={styles.label}>Private Account</label>
+      </div>
 
-      <input
-        type="checkbox"
-        checked={allowChecked}
-        onChange={() => updateAllowComments()}
-      />
-      <label>Allow Comments on Posts</label>
+      <div className={styles.input_box}>
+        <input
+          type="checkbox"
+          className={styles.input}
+          checked={allowChecked}
+          onChange={() => updateAllowComments()}
+        />
+        <label className={styles.label}>Allow Comments</label>
+      </div>
     </React.Fragment>
   );
 };

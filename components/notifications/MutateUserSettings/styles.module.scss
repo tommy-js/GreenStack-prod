@@ -1,0 +1,20 @@
+@import "../../globals/variables.scss";
+
+.input_box {
+  display: block;
+  margin-top: 5px;
+}
+
+.input {
+  cursor: pointer;
+}
+
+.input,
+.label {
+  display: inline-block;
+}
+
+.label {
+  font-family: $standard_font;
+  font-size: 14px;
+}

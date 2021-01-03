@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NotificationsElement } from "../NotificationsElement/NotificationsElement";
 import { MutateUserSettings } from "../MutateUserSettings/MutateUserSettings";
+import { HistoryElement } from "../HistoryElement/HistoryElement";
 import { VoidAlert } from "../VoidAlert/VoidAlert";
 import { NotificationItem } from "../../types/types";
 import { connect } from "react-redux";
@@ -11,6 +12,9 @@ interface Redux {
   userId: string;
   invisible: boolean;
   allowCommentsOnPosts: boolean;
+  posts: any;
+  likes: any;
+  dislikes: any;
   darkmode: boolean;
   notifications: NotificationItem[];
   onDarkmodeSet: (darkmode: boolean) => void;
@@ -79,28 +83,27 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
   }
 
   function returnEmptyHistory() {
-    // if (props.history.length < 1) {
-    //   return (
-    //     <div>
-    //       <button onClick={() => props.changeTab(0)}>back</button>
-    //       <VoidAlert />
-    //     </div>
-    //   );
-    // } else {
-    //   return (
-    //     <div>
-    //       <button onClick={() => props.changeTab(0)}>back</button>
-    //       {props.history.map((el: any) => (
-    //         <HistoryElement
-    //           text={el.text}
-    //           style={el.style}
-    //           timestamp={el.timestamp}
-    //         />
-    //       ))}
-    //     </div>
-    //   );
-    // }
-    return null;
+    if (props.posts.length < 1) {
+      return (
+        <div>
+          <button onClick={() => props.changeTab(0)}>back</button>
+          <VoidAlert />
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.notification_element}>
+          <button onClick={() => props.changeTab(0)}>back</button>
+          {props.posts.map((el: any) => (
+            <HistoryElement
+              text={el.text}
+              style={el.style}
+              timestamp={el.timestamp}
+            />
+          ))}
+        </div>
+      );
+    }
   }
 
   function checkTab() {
@@ -111,7 +114,9 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
     } else if (props.tab === 3) {
       return (
         <React.Fragment>
-          <button onClick={() => props.changeTab(0)}>back</button>
+          <button className={styles.button} onClick={() => props.changeTab(0)}>
+            back
+          </button>
           <MutateUserSettings
             modDarkMode={modDarkMode}
             darkmode={props.darkmode}

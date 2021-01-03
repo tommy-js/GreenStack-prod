@@ -5,3 +5,12 @@
   overflow-y: scroll;
   height: 180px;
 }
+
+.button {
+  @include button_micro;
+  margin-left: 5px;
+}
+
+.button:hover {
+  @include button_hover;
+}
