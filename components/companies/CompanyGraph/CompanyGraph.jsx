@@ -4,12 +4,14 @@ import { renderFull } from "stock-graphics";
 import { useQuery } from "react-apollo";
 import { requestDataSetQuery } from "../../queries/queries.js";
 import styles from "./styles.module.scss";
+const error = require("../../../public/error.png");
 
 export const CompanyGraph = ({ title, ticker }) => {
   let arr = [];
   let tickers = arr.push(ticker);
   const reference = createRef();
   const [loaded, setLoaded] = useState(false);
+  const [renderErr, setRenderErr] = useState(false);
   const [points, setPoints] = useState([]);
   const { data, loading } = useQuery(requestDataSetQuery, {
     variables: { tickers: arr },
@@ -30,6 +32,8 @@ export const CompanyGraph = ({ title, ticker }) => {
         }
         setPoints(els);
         setLoaded(true);
+      } else if (info.elements.length === 0) {
+        setRenderErr(true);
       }
     }
   }, [data]);
@@ -39,6 +43,17 @@ export const CompanyGraph = ({ title, ticker }) => {
       renderEl();
     }
   }, [loaded]);
+
+  function returnError() {
+    if (renderErr === true) {
+      return (
+        <div className={styles.error_image_block}>
+          <img src={error} className={styles.error_image} />
+          <p className={styles.error_text}>We couldn't load this graph :(</p>
+        </div>
+      );
+    } else return null;
+  }
 
   function renderEl() {
     const graphicalEffects = {
@@ -85,6 +100,7 @@ export const CompanyGraph = ({ title, ticker }) => {
   return (
     <div id="company_graph_block" className={styles.graph}>
       {returnInfo()}
+      {returnError()}
     </div>
   );
 };

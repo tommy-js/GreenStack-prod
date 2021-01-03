@@ -1,3 +1,5 @@
+@import "../../globals/variables.scss";
+
 .graph {
   position: relative;
   width: 95%;
@@ -6,4 +8,26 @@
   margin-right: auto;
   padding-bottom: 10px;
   margin-bottom: 75px;
+}
+
+.error_image_block {
+  position: relative;
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_image {
+  position: relative;
+  display: block;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_text {
+  font-family: $standard_font;
+  color: $space_red;
+  font-size: 18px;
+  text-align: center;
 }
