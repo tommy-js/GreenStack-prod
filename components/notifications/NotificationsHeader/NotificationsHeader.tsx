@@ -21,9 +21,7 @@ const NotificationLink = React.forwardRef(
     return (
       <a href={href} onClick={onClick} ref={ref}>
         <div className={styles.notifications_header}>
-          <div className={styles.notifications_link_text}>
-            <p className={styles.no_style}>{username}</p>
-          </div>
+          <p className={styles.notifications_link_text}>{username}</p>
         </div>
       </a>
     );

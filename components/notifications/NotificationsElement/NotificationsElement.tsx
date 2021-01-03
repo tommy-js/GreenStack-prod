@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NotifTime } from "../NotifTime/NotifTime";
 import Link from "next/link";
 import { connect } from "react-redux";
@@ -30,6 +30,13 @@ interface Props extends Redux {
 
 const NotifEl: React.FC<Props> = (props) => {
   const [viewed, setViewed] = useState(props.viewed);
+  const [showButton, setShowButton] = useState(false);
+  const [buttonOpac, setButtonOpac] = useState(0);
+
+  useEffect(() => {
+    if (showButton === true) setButtonOpac(1);
+    else setButtonOpac(0);
+  }, [showButton]);
 
   function checkViewed() {
     if (viewed === false) {
@@ -81,14 +88,24 @@ const NotifEl: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.notifications_link} key={props.id}>
+    <div
+      className={styles.notifications_link}
+      key={props.id}
+      onMouseEnter={() => setShowButton(true)}
+      onMouseLeave={() => setShowButton(false)}
+    >
       <Link href="/notifications">
-        <p>{props.content}</p>
+        <p id="notif_content">{props.content}</p>
       </Link>
       <div id="notif">
-        <p id="notif_content">{props.content}</p>
         <NotifTime timestamp={props.timestamp} />
-        <button onClick={() => dropNotification()}>Dismiss</button>
+        <button
+          style={{ opacity: buttonOpac }}
+          className={styles.button}
+          onClick={() => dropNotification()}
+        >
+          Dismiss
+        </button>
       </div>
       {checkViewed()}
     </div>

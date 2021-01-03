@@ -9,7 +9,7 @@ interface Props {
 export const NotifTime: React.FC<Props> = (props) => {
   return (
     <div className={styles.submitted_notif_time}>
-      Submitted {returnDate(props.timestamp)}
+      Received {returnDate(props.timestamp)}
     </div>
   );
 };

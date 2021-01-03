@@ -69,6 +69,7 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
               id={el.id}
               content={el.content}
               viewed={el.viewed}
+              timestamp={el.timestamp}
               modNotifs={modNotifs}
             />
           ))}

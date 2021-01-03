@@ -1,9 +1,8 @@
 @import "../../globals/variables.scss";
 
 .notifications_link_container {
-  background-color: white;
+  background-color: $cream_white;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 200px;
-  box-shadow: 3px 3px 5px $softer_grey;
 }
