@@ -17,20 +17,28 @@ export const CompanyGraph = ({ title, ticker }) => {
 
   useEffect(() => {
     if (data) {
-      let els = data.requestData[0].elements;
-      for (let i = 0; i < points.length; i++) {
-        let integerVal = parseFloat(els[i].y);
-        els[i].y = integerVal;
+      let info = data.requestData[0];
+      if (info.elements.length > 0) {
+        let els = info.elements;
+        for (let i = 0; i < els.length; i++) {
+          let integerVal = parseFloat(els[i].y);
+          let pointVal = {
+            x: els[i].x,
+            y: integerVal,
+          };
+          els[i] = pointVal;
+        }
+        setPoints(els);
+        setLoaded(true);
       }
-      setPoints(els);
     }
   }, [data]);
 
   useEffect(() => {
-    if (points && points.length > 0) {
+    if (loaded === true) {
       renderEl();
     }
-  }, [points]);
+  }, [loaded]);
 
   function renderEl() {
     const graphicalEffects = {
@@ -46,8 +54,8 @@ export const CompanyGraph = ({ title, ticker }) => {
       backgroundColor: "white",
       lineWidth: 5,
       boundaryWidth: 3,
-      gainColor: "green",
-      lossColor: "red",
+      gainColor: "#57a773",
+      lossColor: "#990011ff",
       fillColor: "red",
       dateRangeActive: false,
       graphFontSize: 12,
@@ -70,7 +78,7 @@ export const CompanyGraph = ({ title, ticker }) => {
   }
 
   function returnInfo() {
-    if (points && points.length > 0) return null;
+    if (loaded === false) return null;
     else return <LoadingGeneral />;
   }
 
