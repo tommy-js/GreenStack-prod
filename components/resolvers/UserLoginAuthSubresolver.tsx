@@ -64,6 +64,7 @@ const UserLoginAuthSubresolver: React.FC<Props> = (props) => {
   function pushToUser() {
     if (dataLogIn && dataLogIn.user) {
       let user: any = dataLogIn.user;
+      console.log(dataLogIn.user);
 
       let progs = getProgEls(user);
 

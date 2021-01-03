@@ -19,22 +19,31 @@ interface Props extends Redux {
 
 const NotifIcon: React.FC<Props> = (props) => {
   const [notifyNew, setNotifyNew] = useState(false);
+  const [height, setHeight] = useState("40px");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     modNotificationColor(props.notifications);
   }, []);
+
+  useEffect(() => {
+    if (open === true) setHeight("250px");
+    else setHeight("40px");
+  }, [open]);
 
   function modNotificationColor(notifications: NotificationItem[]) {
     let returnViewed = returnNotifyNew(notifications);
     setNotifyNew(returnViewed);
   }
 
+  function modHeight() {
+    props.modDisplay();
+    setOpen(!open);
+  }
+
   return (
-    <div className={styles.notification_icon}>
-      <NotificationButton
-        notifyNew={notifyNew}
-        triggerDropdown={props.modDisplay}
-      />
+    <div className={styles.notification_icon} style={{ height: height }}>
+      <NotificationButton notifyNew={notifyNew} triggerDropdown={modHeight} />
       <div style={{ display: props.triggerDisplay }}>
         <Notification
           zeroTabOut={props.zeroTabOut}

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { NotifTime } from "../NotifTime/NotifTime";
 import Link from "next/link";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { updateUserNotificationsViewedMutation } from "../../queries/queries";
+import {
+  updateUserNotificationsViewedMutation,
+  dropNotificationMutation,
+} from "../../queries/queries";
 import { NotificationItem } from "../../types/types";
 import styles from "./styles.module.scss";
 
@@ -90,8 +95,17 @@ const NotifEl: React.FC<Props> = (props) => {
   );
 };
 
-export const NotificationsElement = compose(
+const NotificationsViewedMutation = compose(
   graphql(updateUserNotificationsViewedMutation, {
     name: "updateUserNotificationsViewedMutation",
   })
 )(NotifEl);
+
+const NotificationsDropElement = compose(
+  graphql(dropNotificationMutation, { name: "dropNotificationMutation" })
+)(NotificationsViewedMutation);
+
+export const NotificationsElement = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NotificationsDropElement);

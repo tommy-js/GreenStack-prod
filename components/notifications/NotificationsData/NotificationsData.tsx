@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { NotificationsElement } from "../NotificationsElement/NotificationsElement";
 import { MutateUserSettings } from "../MutateUserSettings/MutateUserSettings";
 import { VoidAlert } from "../VoidAlert/VoidAlert";
+import { NotificationItem } from "../../types/types";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
-import { NotificationItem } from "../../types/types";
+import styles from "./styles.module.scss";
 
 interface Redux {
   userId: string;
@@ -59,9 +60,9 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
       );
     } else {
       return (
-        <React.Fragment>
+        <div className={styles.notification_element}>
           <button onClick={() => props.changeTab(0)}>back</button>
-          {notifications.map((el: any) => (
+          {props.notifications.map((el: any) => (
             <NotificationsElement
               key={el.id}
               userId={props.userId}
@@ -71,7 +72,7 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
               modNotifs={modNotifs}
             />
           ))}
-        </React.Fragment>
+        </div>
       );
     }
   }

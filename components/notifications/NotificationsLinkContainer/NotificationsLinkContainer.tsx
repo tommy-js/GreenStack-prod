@@ -1,6 +1,7 @@
 import React from "react";
 import { NotificationsLink } from "../NotificationsLink/NotificationsLink";
 import { NotificationsHeader } from "../NotificationsHeader/NotificationsHeader";
+import styles from "./styles.module.scss";
 
 interface LocalLink {
   changeTab: (tab: number) => void;
@@ -8,7 +9,7 @@ interface LocalLink {
 
 export const NotificationsLinkContainer: React.FC<LocalLink> = (props) => {
   return (
-    <React.Fragment>
+    <div className={styles.notifications_link_container}>
       <NotificationsHeader />
       <NotificationsLink
         title="Notifications"
@@ -17,6 +18,6 @@ export const NotificationsLinkContainer: React.FC<LocalLink> = (props) => {
       />
       <NotificationsLink title="History" tab={2} changeTab={props.changeTab} />
       <NotificationsLink title="Settings" tab={3} changeTab={props.changeTab} />
-    </React.Fragment>
+    </div>
   );
 };

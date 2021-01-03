@@ -359,7 +359,7 @@ const pushUserNotificationsMutation = gql`
 const dropNotificationMutation = gql`
   mutation($token: String!, $id: ID!) {
     dropNotification(token: $token, id: $id) {
-      id
+      username
     }
   }
 `;

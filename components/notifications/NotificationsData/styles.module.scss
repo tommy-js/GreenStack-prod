@@ -1,0 +1,9 @@
+@import "../../globals/variables.scss";
+
+.notification_element {
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 210px;
+  box-shadow: 3px 3px 5px $softer_grey;
+}
