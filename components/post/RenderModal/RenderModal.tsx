@@ -27,6 +27,7 @@ export interface PostInterface {
   likes: number;
   dislikes: number;
   allowComments: boolean;
+  accompaniedURL: string;
   allowLikes: boolean;
   comments: {
     userId: string;
@@ -110,6 +111,16 @@ export const RenderModal: React.FC<Props> = (props) => {
     } else return null;
   }
 
+  function returnIfURL() {
+    if (props.post.accompaniedURL.length > 0) {
+      return (
+        <a className={styles.url_link} href={props.post.accompaniedURL}>
+          Read More
+        </a>
+      );
+    } else return null;
+  }
+
   return (
     <div className={styles.render_modal}>
       <div className={styles.post_upper_block}>
@@ -122,6 +133,7 @@ export const RenderModal: React.FC<Props> = (props) => {
         </Link>
         <div onClick={() => props.updateModal(true)}>{returnImage()}</div>
         <p className={styles.post_text}>{returnText()}</p>
+        {returnIfURL()}
       </div>
       <div className={styles.post_lower_block}>
         <p className={styles.post_return_date}>

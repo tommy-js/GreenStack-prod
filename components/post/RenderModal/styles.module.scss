@@ -22,10 +22,18 @@
   transition: 0.15s;
 }
 
-.link:hover {
+.link:hover,
+.url_link:hover {
   color: $forest_green;
   border-bottom: 1px solid $forest_green;
   transition: 0.15s;
+}
+
+.url_link {
+  text-decoration: none;
+  color: $forest_green;
+  font-family: $standard_font;
+  border-bottom: 1px solid transparent;
 }
 
 .feed_profile_image_block {

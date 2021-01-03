@@ -20,6 +20,9 @@ export const NewsCompOptions: React.FC<Props> = (props) => {
           title={props.title}
           text={props.text}
           accompaniedURL={props.accompaniedURL}
+          allowComments={true}
+          allowLikes={true}
+          image=""
           buttonTitle="Post to timeline"
         />
       </div>
