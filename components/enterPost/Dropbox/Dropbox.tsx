@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 const add_img = require("../../../public/add_image.png");
 import styles from "./styles.module.scss";
@@ -9,30 +9,56 @@ interface Props {
 }
 
 export const Dropbox: React.FC<Props> = (props) => {
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.forEach((file: any) => {
+  const [files, setFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*",
+    onDrop: (acceptedFiles) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         const binaryStr = reader.result;
         props.modifyImg(binaryStr);
       };
-      reader.readAsDataURL(file);
-    });
-  }, []);
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
+      reader.readAsDataURL(acceptedFiles[0]);
+
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
   });
 
-  return (
-    <section
-      style={{ opacity: props.valueOpacity }}
-      className={styles.profile_image_dropzone}
-    >
-      <div {...getRootProps({ id: "dropzone" })}>
-        <input {...getInputProps()} />
-        <img className={styles.image} src={add_img} />
+  const thumbs = files.map((file) => (
+    <div className={styles.thumb} key={file.name}>
+      <div className={styles.thumb_inner}>
+        <img className={styles.thumb_img} src={file.preview} />
       </div>
-    </section>
+    </div>
+  ));
+
+  useEffect(
+    () => () => {
+      // Make sure to revoke the data uris to avoid memory leaks
+      files.forEach((file) => URL.revokeObjectURL(file.preview));
+    },
+    [files]
+  );
+
+  return (
+    <div className={styles.profile_image_dropzone}>
+      <section
+        style={{ opacity: props.valueOpacity }}
+        className={styles.section}
+      >
+        <div {...getRootProps({ id: "dropzone" })}>
+          <input {...getInputProps()} />
+          <img className={styles.image} src={add_img} />
+        </div>
+      </section>
+      <div className={styles.thumbs_container}>{thumbs}</div>
+    </div>
   );
 };
