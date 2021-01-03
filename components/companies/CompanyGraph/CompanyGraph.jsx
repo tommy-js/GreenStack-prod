@@ -16,23 +16,33 @@ export const CompanyGraph = ({ title, ticker }) => {
   });
 
   useEffect(() => {
-    if (data) setPoints(data.requestData[0].elements);
+    if (data) {
+      let els = data.requestData[0].elements;
+      for (let i = 0; i < points.length; i++) {
+        let integerVal = parseFloat(els[i].y);
+        els[i].y = integerVal;
+      }
+      setPoints(els);
+    }
   }, [data]);
 
   useEffect(() => {
-    if (points && points.length > 0) renderEl();
+    if (points && points.length > 0) {
+      renderEl();
+    }
   }, [points]);
 
   function renderEl() {
     const graphicalEffects = {
       graphHeight: "100%",
-      graphWidth: "80%",
+      graphWidth: "100%",
       graphLeft: 0,
       graphRight: 0,
-      positioning: "auto",
-      title: ``,
-      ticker: ``,
-      fontSize: 18,
+      positioning: "0",
+      title: "Apple",
+      ticker: "AAPL",
+      fontSize: 14,
+      fontFamily: "Roboto, sans-serif",
       backgroundColor: "white",
       lineWidth: 5,
       boundaryWidth: 3,
@@ -40,18 +50,20 @@ export const CompanyGraph = ({ title, ticker }) => {
       lossColor: "red",
       fillColor: "red",
       dateRangeActive: false,
-      graphFontSize: 14,
+      graphFontSize: 12,
       infoDivWidth: 100,
-      buttonSize: { width: 40, height: 25 },
-      buttonFontSize: 10,
+      buttonSize: { width: 50, height: 30 },
+      buttonFontSize: 12,
+      buttonFontColor: "#fcf6f5ff",
+      buttonColor: "#57a773",
+      buttonBorder: "1px solid red",
+      contentsDiv: "company_graph_block",
+      decluttering: 15,
       indexed: [0, 0],
       indexedArray: [{ a: 0, b: 0 }],
       initialValues: points,
       modifiedPoints: points,
-      buttonColor: "grey",
-      buttonFontColor: "black",
-      buttonBorder: "1px solid red",
-      contentsDiv: "company_graph_block",
+      x_hash: "db8197d9-0f9f-4dd1-8f28-f7d3e31a035f",
     };
 
     renderFull(graphicalEffects);
