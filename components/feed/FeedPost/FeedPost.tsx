@@ -97,7 +97,7 @@ const FeedPostRender: React.FC<Props> = (props) => {
       return (
         <React.Fragment>
           <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>{props.likesCount}</span>
+            <span className={styles.post_value_inner}>{likes}</span>
           </div>
           <LikePost
             userId={props.postUserId}
@@ -108,9 +108,7 @@ const FeedPostRender: React.FC<Props> = (props) => {
             modState={modState}
           />
           <div className={styles.post_values}>
-            <span className={styles.post_value_inner}>
-              {props.dislikesCount}
-            </span>
+            <span className={styles.post_value_inner}>{dislikes}</span>
           </div>
           <DislikePost
             userId={props.postUserId}

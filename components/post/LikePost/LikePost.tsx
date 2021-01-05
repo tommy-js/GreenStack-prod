@@ -37,7 +37,7 @@ const LikePostRender: React.FC<Props> = (props) => {
   useEffect(() => {
     if (props.state.dislike === 1) {
       setImgColor(like);
-      props.modLikes(-1);
+      props.modLikes(props.state.like);
     }
   }, [props.state]);
 
