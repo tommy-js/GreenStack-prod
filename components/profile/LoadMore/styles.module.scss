@@ -1,0 +1,10 @@
+@import "../../globals/variables.scss";
+
+.button {
+  @include button_large;
+  margin-bottom: 50px;
+}
+
+.button:hover {
+  @include button_hover;
+}

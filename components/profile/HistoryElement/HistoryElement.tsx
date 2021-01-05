@@ -11,7 +11,6 @@ interface Props {
   timestamp: number;
   postId: string;
   typename: string;
-  modPostLoad: (postId: string) => void;
 }
 
 export const HistoryElement: React.FC<Props> = (props) => {
