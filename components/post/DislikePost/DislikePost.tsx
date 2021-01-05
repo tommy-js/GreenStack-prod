@@ -12,7 +12,6 @@ interface Props {
   dislikes: any;
   state: any;
   modState: (passObj: any) => void;
-  modDislikes?: (value: number) => void;
   dislikePostMutation: (variables: object) => any;
 }
 
@@ -36,7 +35,6 @@ const DislikePostRender: React.FC<Props> = (props) => {
   useEffect(() => {
     if (props.state.like === 1) {
       setImgColor(dislike);
-      props.modDislikes(props.state.dislike);
     }
   }, [props.state]);
 
@@ -54,7 +52,6 @@ const DislikePostRender: React.FC<Props> = (props) => {
           },
         })
         .then(() => {
-          if (props.modDislikes) props.modDislikes(1);
           setImgColor(dislikeFilled);
           props.modState({ like: 0, dislike: 1 });
         })
