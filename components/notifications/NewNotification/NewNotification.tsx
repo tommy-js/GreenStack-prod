@@ -8,9 +8,9 @@ interface Props {
 
 export const NewNotification: React.FC<Props> = (props) => {
   function renderNotif() {
-    // if (props.notifyNew === true)
-    return <img className={styles.image} src={notif} />;
-    // else return null;
+    if (props.notifyNew === true)
+      return <img className={styles.image} src={notif} />;
+    else return null;
   }
 
   return (
