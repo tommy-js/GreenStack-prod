@@ -16,6 +16,21 @@
   text-decoration: none;
 }
 
+@mixin button_large_honey {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $space_red;
+  background-color: $honey_yellow;
+  border: 1px solid $space_red;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
 @mixin button_large {
   position: relative;
   display: block;
@@ -85,6 +100,12 @@
 @mixin button_hover {
   border: 1px solid $space_red;
   color: $space_red;
+  transition: 0.2s;
+}
+
+@mixin button_hover_honey {
+  border: 1px solid black;
+  color: white;
   transition: 0.2s;
 }
 
