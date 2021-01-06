@@ -30,8 +30,8 @@ export const StockComment: React.FC<Props> = (props) => {
       <p className={styles.posted}>Posted {time}</p>
       <LikeComponent
         commentId={props.commentId}
-        likes={props.likes}
-        dislikes={props.dislikes}
+        likeCount={props.likes}
+        dislikeCount={props.dislikes}
       />
     </div>
   );
