@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { returnDate } from "./index";
 const page = require("../../../public/blank_post.png");
@@ -13,6 +13,8 @@ interface Hist {
 }
 
 export const HistoryElement: React.FC<Hist> = (props) => {
+  const [text] = useState(props.text.slice(0, 150));
+
   function returnImg() {
     if (props.style === "Post") {
       return <img className={styles.history_img} src={page} />;
@@ -25,7 +27,7 @@ export const HistoryElement: React.FC<Hist> = (props) => {
 
   return (
     <Link href="/profile" passHref>
-      <HistoryLink text={props.text} timestamp={props.timestamp} />
+      <HistoryLink text={text} timestamp={props.timestamp} />
     </Link>
   );
 };
@@ -43,8 +45,8 @@ const HistoryLink = React.forwardRef(
           <img className={styles.history_img} src={page} />
         </div>
         <div className={styles.history_text_block}>
-          <p className={styles.history_text}>{text}</p>
-          <p className={styles.history_text}>{returnDate(timestamp)}</p>
+          <p className={styles.text}>{text}</p>
+          <p className={styles.timestamp}>{returnDate(timestamp)}</p>
         </div>
       </a>
     );
