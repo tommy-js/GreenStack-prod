@@ -9,8 +9,20 @@ interface Props {
 }
 
 export const CompanyCommentMap: React.FC<Props> = (props) => {
-  const [maxComments] = useState(props.comments);
+  const [maxComments, setMaxComments] = useState(props.comments);
   const [loadedComments, setLoadedComments] = useState([] as any);
+
+  useEffect(() => {
+    setMaxComments(props.comments);
+    let commentRange = props.comments.length;
+    if (commentRange > 5) {
+      let tempArray = [...props.comments];
+      let slicedArray = tempArray.slice(0, 5);
+      setLoadedComments(slicedArray);
+    } else {
+      setLoadedComments(props.comments);
+    }
+  }, [props.comments]);
 
   useEffect(() => {
     let commentRange = props.comments.length;
@@ -54,6 +66,7 @@ export const CompanyCommentMap: React.FC<Props> = (props) => {
                 timestamp={el.timestamp}
                 likes={el.likes}
                 dislikes={el.dislikes}
+                key={el.commentId}
               />
             </div>
           ))}

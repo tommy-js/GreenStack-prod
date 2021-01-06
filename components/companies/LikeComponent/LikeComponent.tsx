@@ -35,7 +35,6 @@ const LikeComponentRender: React.FC<Props> = (props) => {
   useEffect(() => {
     let likes = [...props.likes];
     let dislikes = [...props.dislikes];
-    console.log(likes);
 
     for (let u = 0; u < likes.length; u++) {
       if (likes[u].reference.id === props.commentId) {
@@ -70,7 +69,10 @@ const LikeComponentRender: React.FC<Props> = (props) => {
         .then((res: any) => {
           console.log(res);
           if (liked === true) setLikeVisual(likeImg);
-          else if (liked === false) setLikeVisual(likeFull);
+          else if (liked === false) {
+            setDislikeVisual(dislikeImg);
+            setLikeVisual(likeFull);
+          }
           setLiked(!liked);
         });
     }
@@ -94,7 +96,10 @@ const LikeComponentRender: React.FC<Props> = (props) => {
         .then((res: any) => {
           console.log(res);
           if (disliked === true) setDislikeVisual(dislikeImg);
-          else if (disliked === false) setDislikeVisual(dislikeFull);
+          else if (disliked === false) {
+            setLikeVisual(likeImg);
+            setDislikeVisual(dislikeFull);
+          }
           setDisliked(!disliked);
         });
     }

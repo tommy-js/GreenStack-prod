@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CompanyCommentMap } from "../CompanyCommentMap/CompanyCommentMap";
 import { LoadingComments } from "../LoadingComments/LoadingComments";
+import { LoadNew } from "../LoadNew/LoadNew";
 import { useQuery } from "react-apollo";
 import { stockQuery, addCommentStockMutation } from "../../queries/queries";
 import { flowRight as compose } from "lodash";
@@ -19,15 +20,35 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
   const { data } = useQuery(stockQuery, {
     variables: { stockId: props.stockId },
     pollInterval: 500,
+    fetchPolicy: "network-only",
   });
   const [comments, setComments] = useState([] as any);
+  const [moddedComs, setModdedComs] = useState([] as any);
+  const [altered, setAltered] = useState(false);
 
   useEffect(() => {
     if (data) {
       let coms = returnSortedComments(data.stock.comments);
-      setComments(coms);
+      if (comments.length === 0) {
+        setModdedComs(coms);
+        setComments(coms);
+      } else setModdedComs(coms);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (comments === moddedComs) setAltered(false);
+    else setAltered(true);
+  }, [moddedComs]);
+
+  function loadMore() {
+    setComments(moddedComs);
+    setAltered(false);
+  }
+
+  useEffect(() => {
+    console.log(comments);
+  }, [comments]);
 
   function pushData() {
     let token = sessionStorage.getItem("Token");
@@ -43,6 +64,12 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
         setText("");
       })
       .catch((err: any) => console.log(err));
+  }
+
+  function returnButtonNew() {
+    if (altered === true) {
+      return <LoadNew loadMore={loadMore} />;
+    } else return null;
   }
 
   function returnCompanyComments() {
@@ -61,6 +88,7 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
       <button className={styles.button} onClick={() => pushData()}>
         Submit
       </button>
+      {returnButtonNew()}
       {returnCompanyComments()}
     </div>
   );
