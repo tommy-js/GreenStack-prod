@@ -46,10 +46,6 @@ const CompanyCommentsRender: React.FC<Props> = (props) => {
     setAltered(false);
   }
 
-  useEffect(() => {
-    console.log(comments);
-  }, [comments]);
-
   function pushData() {
     let token = sessionStorage.getItem("Token");
     props

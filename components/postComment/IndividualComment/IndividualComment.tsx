@@ -19,7 +19,6 @@ type SubComments = {
 interface Props {
   postId: string;
   commentId: string;
-  username: string;
   text: string;
   timestamp: number;
   likes: number;

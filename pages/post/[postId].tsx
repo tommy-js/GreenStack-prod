@@ -15,7 +15,7 @@ const Post: React.FC<Redux> = (props) => {
   const router = useRouter();
   const [callPost, { data }] = useLazyQuery(individualPostQuery, {
     variables: { postId: router.query.postId },
-    pollInterval: 5000,
+    pollInterval: 2000,
   });
   const [showRender, setShowRender] = useState(false);
 
