@@ -15,3 +15,25 @@
   font-family: $standard_font;
   text-decoration: none;
 }
+
+.icon {
+  width: 20%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 60%;
+  box-sizing: border-box;
+}
+
+.text_block {
+  width: 80%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.timestamp {
+  font-size: 14px;
+  color: grey;
+}

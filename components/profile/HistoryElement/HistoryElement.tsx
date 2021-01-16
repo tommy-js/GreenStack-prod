@@ -16,11 +16,17 @@ interface Props {
 export const HistoryElement: React.FC<Props> = (props) => {
   const [link, setLink] = useState(props.postId);
   const [type, setType] = useState(0);
+  const [text, setText] = useState(props.text);
 
   useEffect(() => {
     if (props.reference) {
       setLink(props.reference.postId);
       setType(1);
+    }
+    if (props.text.length > 100) {
+      let splitText = props.text.slice(0, 100);
+      let finalText = `${splitText}...`;
+      setText(finalText);
     }
   }, []);
 
@@ -28,7 +34,7 @@ export const HistoryElement: React.FC<Props> = (props) => {
     <Link href={`/post/${link}`} passHref>
       <HistoryLink
         postId={props.postId}
-        text={props.text}
+        text={text}
         timestamp={props.timestamp}
         type={type}
       />
@@ -39,19 +45,19 @@ export const HistoryElement: React.FC<Props> = (props) => {
 const HistoryLink = React.forwardRef(
   ({ onClick, href, postId, text, timestamp, type }, ref) => {
     function returnImg() {
-      if (type === 0) return <img className={styles.history_img} src={page} />;
+      if (type === 0) return <img className={styles.image} src={page} />;
       else if (type === 1) {
-        return <img className={styles.history_img} src={like} />;
+        return <img className={styles.image} src={like} />;
       }
     }
 
     return (
       <a href={href} className={styles.link} onClick={onClick} ref={ref}>
         <div className={`${styles.profile_trade} ${styles.notifications_link}`}>
-          <div className={styles.history_icon}>{returnImg()}</div>
-          <div className={styles.history_text_block}>
-            <p className={styles.history_text}>{text}</p>
-            <p className={styles.history_text}>{returnDate(timestamp)}</p>
+          <div className={styles.icon}>{returnImg()}</div>
+          <div className={styles.text_block}>
+            <p className={styles.text}>{text}</p>
+            <p className={styles.timestamp}>{returnDate(timestamp)}</p>
           </div>
         </div>
       </a>
