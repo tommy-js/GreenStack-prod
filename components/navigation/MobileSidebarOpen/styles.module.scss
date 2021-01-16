@@ -1,0 +1,9 @@
+.mobile_sidebar_open {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .mobile_sidebar_open {
+    display: block;
+  }
+}

@@ -38,6 +38,14 @@ interface Redux {
 
 const HomepageRender: React.FC<Redux> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
+  const [widthModified, setWidthModified] = useState(false);
+  const [width, setWidth] = useState("auto");
+
+  function modWidth() {
+    if (widthModified === true) setWidth("150px");
+    else setWidth("0px");
+    setWidthModified(!widthModified);
+  }
 
   function renderShowPostOptions() {
     if (postingToFeed === true)
@@ -56,10 +64,13 @@ const HomepageRender: React.FC<Redux> = (props) => {
       return (
         <div>
           {renderShowPostOptions()}
-          <NavBar />
-          <div className={styles.green_block_left}></div>
+          <NavBar modWidth={modWidth} />
+          <div style={{ width }} className={styles.green_block_left}></div>
           <div className={styles.homepage}>
-            <FeedSidebar setPostingToFeed={() => setPostingToFeed(true)} />
+            <FeedSidebar
+              width={width}
+              setPostingToFeed={() => setPostingToFeed(true)}
+            />
           </div>
           <Feed />
         </div>

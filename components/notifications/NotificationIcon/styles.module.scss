@@ -10,3 +10,9 @@
   box-shadow: 3px 3px 5px $softer_grey;
   border: 1px solid $grey;
 }
+
+@media only screen and (max-width: 900px) {
+  .notification_icon {
+    display: none;
+  }
+}

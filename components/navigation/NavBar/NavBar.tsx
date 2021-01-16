@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { NotificationIcon } from "../../notifications/NotificationIcon/NotificationIcon";
+import { MobileSidebarOpen } from "../MobileSidebarOpen/MobileSidebarOpen";
 import { NavBarHeader } from "../NavBarHeader/NavBarHeader";
 const home = require("../../../public/logo.png");
 const portfolio = require("../../../public/portfolio_icon.png");
@@ -8,7 +9,11 @@ const tutorial = require("../../../public/tutorial_icon.png");
 const logout = require("../../../public/logout.png");
 import styles from "./styles.module.scss";
 
-export const NavBar: React.FC = () => {
+interface Props {
+  modWidth: () => void;
+}
+
+export const NavBar: React.FC<Props> = (props) => {
   const [triggerDisplay, setTriggerDisplay] = useState("none");
   const [zeroTabOut, setZeroTabOut] = useState(false);
 
@@ -27,6 +32,7 @@ export const NavBar: React.FC = () => {
 
   return (
     <div className={styles.navbar}>
+      <MobileSidebarOpen modWidth={props.modWidth} />
       <Link href="/">
         <img src={home} className={styles.navbar_icon} />
       </Link>

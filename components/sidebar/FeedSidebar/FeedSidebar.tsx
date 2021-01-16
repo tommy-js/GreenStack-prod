@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import styles from "./styles.module.scss";
 
 interface Props {
+  width: string;
   setPostingToFeed: () => void;
 }
 
@@ -24,7 +25,7 @@ export const FeedSidebar: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.feed_sidebar}>
+    <div style={{ width: props.width }} className={styles.feed_sidebar}>
       <SidebarUsername />
       <SidebarSearch
         search={search}
