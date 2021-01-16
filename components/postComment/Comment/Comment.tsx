@@ -21,7 +21,7 @@ export const Comment: React.FC<Props> = (props) => {
     return (
       <React.Fragment>
         {tag.map((el: any) => (
-          <IndMapper tag={el} />
+          <IndMapper tag={el} key={el} />
         ))}
       </React.Fragment>
     );

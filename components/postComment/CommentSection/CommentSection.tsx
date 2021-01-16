@@ -22,8 +22,10 @@ export const CommentSection: React.FC<Props> = (props) => {
   }, [props.comments]);
 
   useEffect(() => {
-    if (comments === altComms) setAltered(false);
+    if (comments.length === altComms.length) setAltered(false);
     else setAltered(true);
+    console.log(comments);
+    console.log(altComms);
   }, [altComms]);
 
   function loadMore() {

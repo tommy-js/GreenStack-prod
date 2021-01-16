@@ -43,7 +43,7 @@ export const IndividualComment: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.comment}>
+    <div className={styles.comment} key={props.timestamp}>
       <Comment
         commentUsername={props.commentUsername}
         timestamp={props.timestamp}
