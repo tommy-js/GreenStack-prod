@@ -611,8 +611,14 @@ const likePostMutation = gql`
     $content: String!
     $likeText: String!
     $postId: ID!
+    $postUsername: String!
   ) {
-    likePost(postId: $postId, token: $token, text: $likeText) {
+    likePost(
+      postId: $postId
+      token: $token
+      text: $likeText
+      postUsername: $postUsername
+    ) {
       username
     }
     pushUserNotifications(userId: $userId, content: $content) {
@@ -728,7 +734,7 @@ const otherUserQuery = gql`
         likes
         dislikes
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -742,7 +748,7 @@ const otherUserQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -756,7 +762,7 @@ const otherUserQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -842,7 +848,7 @@ const nonTokenModifyUserQuery = gql`
         likes
         dislikes
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -856,7 +862,7 @@ const nonTokenModifyUserQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -870,7 +876,7 @@ const nonTokenModifyUserQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -988,7 +994,7 @@ const userQuery = gql`
         likes
         dislikes
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -1002,7 +1008,7 @@ const userQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -1016,7 +1022,7 @@ const userQuery = gql`
         timestamp
         text
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -1213,7 +1219,7 @@ const returnFeedQuery = gql`
         text
         profileImage
         reference {
-          id
+          postId
           text
           username
           profileImage
@@ -1225,7 +1231,7 @@ const returnFeedQuery = gql`
         text
         profileImage
         reference {
-          id
+          postId
           text
           username
           profileImage

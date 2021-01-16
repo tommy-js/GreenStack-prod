@@ -49,6 +49,7 @@ const LikePostRender: React.FC<Props> = (props) => {
             token: token,
             userId: props.userId,
             postId: props.postId,
+            postUsername: props.postUsername,
             content: `${props.postUsername} liked your post`,
             likeText: `Liked a post submitted by ${props.postUsername}`,
           },

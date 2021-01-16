@@ -16,6 +16,7 @@ interface Redux {
 interface Props extends Redux {
   postUserId: string;
   postId: string;
+  postUsername: string;
   likesCount: number;
   dislikesCount: number;
   commentsCount: number;
@@ -68,6 +69,7 @@ const PostInteractionRedux: React.FC<Props> = (props) => {
         userId={props.postUserId}
         postId={props.postId}
         likes={props.likes}
+        postUsername={props.postUsername}
         modLikes={props.modLikes}
         state={state}
         modState={modState}

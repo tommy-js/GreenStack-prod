@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { returnDate } from "./index";
 import styles from "./styles.module.scss";
@@ -10,14 +10,21 @@ interface Props {
   text: string;
   timestamp: number;
   postId: string;
-  typename: string;
+  reference?: any;
 }
 
 export const HistoryElement: React.FC<Props> = (props) => {
+  const [link, setLink] = useState(props.postId);
+
+  useEffect(() => {
+    if (props.reference) {
+      setLink(props.reference.postId);
+    }
+  }, []);
+
   return (
-    <Link href={`/post/${props.postId}`} passHref>
+    <Link href={`/post/${link}`} passHref>
       <HistoryLink
-        typename={props.typename}
         postId={props.postId}
         text={props.text}
         timestamp={props.timestamp}
@@ -27,15 +34,9 @@ export const HistoryElement: React.FC<Props> = (props) => {
 };
 
 const HistoryLink = React.forwardRef(
-  ({ onClick, href, typename, postId, text, timestamp }, ref) => {
+  ({ onClick, href, postId, text, timestamp }, ref) => {
     function returnImg() {
-      if (typename === "Post") {
-        return <img className={styles.history_img} src={page} />;
-      } else if (typename === "Like") {
-        return <img className={styles.history_img} src={like} />;
-      } else if (typename === "Dislike") {
-        return <img className={styles.history_img} src={dislike} />;
-      } else return null;
+      return <img className={styles.history_img} src={page} />;
     }
 
     return (

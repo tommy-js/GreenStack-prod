@@ -103,6 +103,7 @@ const FeedPostRender: React.FC<Props> = (props) => {
             userId={props.postUserId}
             postId={props.postId}
             likes={props.likes}
+            postUsername={props.postUsername}
             modLikes={modLikes}
             state={state}
             modState={modState}

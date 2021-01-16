@@ -100,6 +100,7 @@ export const RenderModal: React.FC<Props> = (props) => {
       return (
         <PostInteraction
           postUserId={props.post.userId}
+          postUsername={props.post.username}
           postId={props.post.postId}
           likesCount={likes}
           dislikesCount={dislikes}

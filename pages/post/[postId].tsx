@@ -21,6 +21,7 @@ const Post: React.FC<Redux> = (props) => {
 
   useEffect(() => {
     if (data) setShowRender(true);
+    console.log(data);
   }, [data]);
 
   const [loadingInUser, setLoadingInUser] = useState(true);
