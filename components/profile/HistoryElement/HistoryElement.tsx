@@ -15,10 +15,12 @@ interface Props {
 
 export const HistoryElement: React.FC<Props> = (props) => {
   const [link, setLink] = useState(props.postId);
+  const [type, setType] = useState(0);
 
   useEffect(() => {
     if (props.reference) {
       setLink(props.reference.postId);
+      setType(1);
     }
   }, []);
 
@@ -28,15 +30,19 @@ export const HistoryElement: React.FC<Props> = (props) => {
         postId={props.postId}
         text={props.text}
         timestamp={props.timestamp}
+        type={type}
       />
     </Link>
   );
 };
 
 const HistoryLink = React.forwardRef(
-  ({ onClick, href, postId, text, timestamp }, ref) => {
+  ({ onClick, href, postId, text, timestamp, type }, ref) => {
     function returnImg() {
-      return <img className={styles.history_img} src={page} />;
+      if (type === 0) return <img className={styles.history_img} src={page} />;
+      else if (type === 1) {
+        return <img className={styles.history_img} src={like} />;
+      }
     }
 
     return (
