@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NotificationsElement } from "../NotificationsElement/NotificationsElement";
 import { MutateUserSettings } from "../MutateUserSettings/MutateUserSettings";
 import { HistoryElement } from "../HistoryElement/HistoryElement";
 import { VoidAlert } from "../VoidAlert/VoidAlert";
 import { NotificationItem } from "../../types/types";
+import { HistoryLink } from "../HistoryLink/HistoryLink";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../actions/actions";
 import styles from "./styles.module.scss";
@@ -30,6 +31,16 @@ interface Props extends Redux {
 
 const NotificationsDataContainer: React.FC<Props> = (props) => {
   const [notifications, setNotifications] = useState(props.notifications);
+  const [history, setHistory] = useState([...props.posts, ...props.likes]);
+
+  useEffect(() => {
+    let array = [...props.posts, ...props.likes].splice(0, 25);
+    console.log(array);
+    array.sort(function (a, b) {
+      return a.timestamp - b.timestamp;
+    });
+    setHistory(array);
+  }, []);
 
   function modNotifs(id: string) {
     let notifArr = props.notifications;
@@ -98,13 +109,15 @@ const NotificationsDataContainer: React.FC<Props> = (props) => {
           <button className={styles.button} onClick={() => props.changeTab(0)}>
             back
           </button>
-          {props.posts.map((el: any) => (
+          {history.map((el: any) => (
             <HistoryElement
               text={el.text}
               style={el.style}
               timestamp={el.timestamp}
+              key={el.timestamp}
             />
           ))}
+          <HistoryLink />
         </div>
       );
     }

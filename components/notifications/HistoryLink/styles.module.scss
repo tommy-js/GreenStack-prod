@@ -1,0 +1,15 @@
+@import "../../globals/variables.scss";
+
+.history_link {
+  width: 50px;
+  text-align: center;
+  font-family: $standard_font;
+  text-decoration: none;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  @include button_small;
+}
+
+.history_link:hover {
+  @include button_hover;
+}

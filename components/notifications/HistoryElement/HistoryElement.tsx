@@ -26,9 +26,11 @@ export const HistoryElement: React.FC<Hist> = (props) => {
   }
 
   return (
-    <Link href="/profile" passHref>
-      <HistoryLink text={text} timestamp={props.timestamp} />
-    </Link>
+    <div key={props.timestamp}>
+      <Link href="/profile" passHref>
+        <HistoryLink text={text} timestamp={props.timestamp} />
+      </Link>
+    </div>
   );
 };
 
