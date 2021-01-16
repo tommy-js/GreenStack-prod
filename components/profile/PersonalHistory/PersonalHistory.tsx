@@ -10,16 +10,21 @@ interface Redux {
 }
 
 const PersonalHistoryRender: React.FC<Redux> = (props) => {
-  const [elements] = useState(props.userHistory.slice(0, 100));
-  const [shortList, setShortList] = useState(props.userHistory.slice(0, 2));
+  // const [elements] = useState(props.userHistory.slice(0, 100));
+  const [shortList, setShortList] = useState(props.userHistory.slice(0, 6));
   const [showButton, setShowButton] = useState(true);
 
   function modShortList() {
+    let useHis = props.userHistory;
     let len = shortList.length + 5;
-    if (len <= elements.length) {
-      let els = elements.slice(0, len);
+    if (len < useHis.length) {
+      let els = useHis.slice(0, len);
       setShortList(els);
-    } else setShowButton(false);
+      setShowButton(true);
+    } else {
+      setShortList(useHis);
+      setShowButton(false);
+    }
   }
 
   function returnButton() {
