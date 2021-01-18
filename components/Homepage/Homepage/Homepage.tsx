@@ -39,10 +39,10 @@ interface Redux {
 const HomepageRender: React.FC<Redux> = (props) => {
   const [postingToFeed, setPostingToFeed] = useState(false);
   const [widthModified, setWidthModified] = useState(false);
-  const [width, setWidth] = useState("auto");
+  const [width, setWidth] = useState("30%");
 
   function modWidth() {
-    if (widthModified === true) setWidth("150px");
+    if (widthModified === true) setWidth("30%");
     else setWidth("0px");
     setWidthModified(!widthModified);
   }

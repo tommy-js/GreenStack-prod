@@ -25,3 +25,32 @@
 .sidebar_element_text:hover {
   color: $space_red;
 }
+
+@media only screen and (max-width: 900px) {
+  .sidebar_element {
+    position: relative;
+    width: 95%;
+    vertical-align: top;
+    padding: 10px;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-decoration: none;
+  }
+
+  .sidebar_element_text {
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
+    left: 0;
+    margin: 0;
+    transition: 0.2s;
+    color: $cream_white;
+    font-family: $standard_font;
+  }
+
+  .sidebar_element_text:hover {
+    color: $cream_white;
+  }
+}
